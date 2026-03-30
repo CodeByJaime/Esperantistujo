@@ -7,8 +7,7 @@ import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Manifesto", href: "#manifesto" },
-  { label: "Vizio", href: "#vision" },
-  { label: "Komunumo", href: "#community" },
+  { label: "Pozicio", href: "#pozicio" },
   { label: "Aliĝi", href: "/register" },
 ];
 
@@ -25,22 +24,22 @@ const MANIFESTO_CONTENT = {
     {
       number: "II",
       title: "NIA VIZIO: LA LIGO DE URBO-ŜTATOJ",
-      content: "Ni kredas, ke **ĉiuj homoj valoras egale**. Ni kredas, ke la homa specio atingos sian veran nivelon de evoluo kiam ĝi ĉesos organizi sin per limoj kaj ekorganizos sin kiel **parto de la planedo Tero**.\n\nTial ni proponas:\n**Malcentrigitajn Urbo-Ŝtatojn** unuigitajn en **Tutmonda Ligo**, inspirita de la antikvaj grekaj ligoj sed plifortigita per teknologio de la 21-a jarcento.\n\nMondo **sen landoj** (aŭ kun landoj reduktitaj al simplaj geografiaj zonoj). Mondo kie la regado estu **tuja**, diafana kaj neniu povu superregi vin ĉar **ni ĉiuj estas kunordigitaj en malcentrigita reto**."
+      content: "Ni kredas, ke **ĉiuj homoj valoras egale**. Ni kredas, ke la homa specio atingos sian veran nivelon de evoluo kiam ĝi ĉesos organizi sin per limoj kaj ekorganizos sin kiel **parto de la planedo Tero**.\n\nTial ni proponas:\n**Malcentrigitajn Urbo-Ŝtatojn** unuigitajn en **Tutmonda Ligo**, inspirita de la antikvaj grekaj ligoj sed plifortigita per teknologio de la 21-a jarcento.\n\nMondo kie la regado estu **reala kaj diafana**, kaj neniu povu superregi vin ĉar **ni ĉiuj estas kunordigitaj en malcentrigita reto**. La unua urbo de ĉi tiu reto estos fondita en Vichada, Kolombio."
     },
     {
       number: "III",
       title: "LA TEKNOLOGIAJ KOLONOJ (NIA VIVA KONSTITUCIO)",
-      content: "1. **Ágora – La Kunordiga Motoro** Malferma, eksperimenta kaj malfermitkoda sistemo, kiu anstataŭigas la hierarkiajn instituciojn per:\n   - Renomo > Aŭtoritato\n   - Kontrolebla plenumo > Promesoj\n   - Plena diafaneco > Blinda fido\n   - Malferma kaj tutmonda partopreno defaŭlte\n\n   Ágora permesas proponi, financi, plenumi kaj aŭdi projektojn realajn (fizikajn aŭ ciferecajn, lokajn aŭ tutmondajn) sen koruptaj perantoj.\n\n2. **Inflacia Komuna Kriptovaluo** Ununura valuto por la komerco inter urbo-ŝtatoj. Ĉiu urbo havas **rajtigitan nodon** reguligitan de la urbo mem kaj de la komunaj normoj de la Ligo. La kontrolita inflacio instigas la konstantan fluon kaj evitas la parazitan amasiĝon, favorante la cirkuladon kaj la komunan prosperon.\n\n3. **Regado per Tasko, ne per Posteno** Ene de ĉiu urbo regas la **libereco de konkurenco**. La homoj ne okupas dumvivajn postenojn; ili ricevas **tempajn taskojn** laŭ sia renomo kaj demonstreblaj rezultoj. La plej taŭgaj homoj por ĉiu tasko aperas nature.\n\n4. **Komunitarisma Komponento: La Cifereca Sistemo de Civitana Agado** Ĉiu loĝanto havas **dinamikan fidoprofilon** en la tutmonda reto. Viaj lokaj agoj (plenumo de taskoj, volontulaj kontribuoj, solvado de konfliktoj, kunlaboro) generas renomon, kiu akompanas vin **en iu ajn urbo de la Ligo**. La fido ne dependas de pasporto: ĝi dependas de via kontrolebla historio en la blokĉeno. Tiel ni konstruas veran planedan komunumon, kie esti bona civitano en Bogoto malfermas pordojn al vi en Medeljino, en Berlino aŭ en Najrobo."
+      content: "1. **Ágora – La Kunordiga Motoro** Malferma, eksperimenta kaj malfermitkoda sistemo, kiu anstataŭigas la hierarkiajn instituciojn per:\n   - Renomo > Aŭtoritato\n   - Kontrolebla plenumo > Promesoj\n   - Plena diafaneco > Blinda fido\n   - Malferma kaj tutmonda partopreno defaŭlte\n\n   Ágora permesas proponi, financi, plenumi kaj aŭdi projektojn realajn (fizikajn aŭ ciferecajn, lokajn aŭ tutmondajn) sen koruptaj perantoj.\n\n2. **Inflacia Komuna Kriptovaluo** Ununura valuto por la komerco inter urbo-ŝtatoj. Ĉiu urbo havas **rajtigitan nodon** reguligitan de la urbo mem kaj de la komunaj normoj de la Ligo. La kontrolita inflacio instigas konstantan cirkuladon kaj evitas akumuliĝon, favorante la komunan prosperon.\n\n3. **Regado per Tasko, ne per Posteno** Ene de ĉiu urbo regas la **libereco de konkurenco**. La homoj ne okupas dumvivajn postenojn; ili ricevas **tempajn taskojn** laŭ sia renomo kaj demonstreblaj rezultoj. La plej taŭgaj homoj por ĉiu tasko aperas nature.\n\n4. **Komunitarisma Komponento: La Cifereca Sistemo de Civitana Agado** Ĉiu loĝanto havas **dinamikan fidoprofilon** en la tutmonda reto. Viaj lokaj agoj (plenumo de taskoj, volontulaj kontribuoj, solvado de konfliktoj, kunlaboro) generas renomon, kiu akompanas vin **en iu ajn urbo de la Ligo**. La fido ne dependas de pasporto: ĝi dependas de via kontrolebla historio en la blokĉeno. Tiel ni konstruas planedan komunumon, kie esti bona civitano en unu urbo malfermas pordojn en iu ajn alia urbo de la reto."
     },
     {
       number: "IV",
       title: "KIEL ĜI FUNKCIAS PRAKTIKE",
-      content: "- **Ene de la urbo**: libera konkurenco, malferma merkato, konstanta eksperimentado.\n- **Inter urboj**: kunordigo per Ágora kaj la komuna kriptovaluto por infrastrukturo, medio, sekureco kaj respondo al katastrofoj.\n- **Sekureco**: kombino de lokaj fortoj, AI de la Ligo kaj komunaj normoj pri homaj rajtoj. Neniu povas trudi centran armeon; la forto fontas el la reto.\n- **Ekonomio**: diafanaj trezoroj, fondusoj liberigitaj per kontroleblaj mejloŝtonoj, rekompencoj pro rezultoj kaj monpunoj (*slashing*) pro neplenumo.\n\nKorupto fariĝas teknike neracia.\nKunlaboro fariĝas la plej profitdona strategio."
+      content: "**Ene de la urbo**: libera konkurenco, malferma merkato, konstanta eksperimentado.\n\n**Inter urboj**: kunordigo per Ágora kaj la komuna kriptovaluto por infrastrukturo, medio, sekureco kaj respondo al katastrofoj.\n\n**Sekureco**: kombino de lokaj fortoj, AI de la Ligo kaj komunaj normoj pri homaj rajtoj. Neniu povas trudi centran armeon; la protekto venas de la reto mem.\n\n**Ekonomio**: diafanaj trezoroj, financado laŭ rezultoj, rekompencoj pro sukceso kaj perdoj pro neplenumo.\n\nKorupto fariĝas teknike neracia.\nKunlaboro fariĝas la plej profitdona strategio."
     },
     {
       number: "V",
       title: "ALVOKO AL AGO",
-      content: "Ni ne petas permeson al la malnovaj Ŝtatoj. **Ni konstruas la novan realecon.**\n\n1. **Aliĝu al la nubo**: registriĝu nun, reviziu kaj kunhavigu ideojn aŭ donacu por aĉeti la unuajn terojn.\n\nĈi tio ne estas utopia sonĝo. Ĝi estas **hipotezo, kiun ni testas en reala tempo**: Se la kontribuoj estas videblaj, la plenumo estas mezurebla kaj la renomo estas gajnebla kaj perdebla, tiam la kunlaboro je planeda skalo fariĝas neevitebla.\n\n**La homaro ne plu bezonas limojn.** Ĝi bezonas **konektitajn nodojn**.\n\n**La Tero ne plu bezonas landojn.** Ĝi bezonas **liberajn urbojn**.\n\n**Ágora ne estas ilo. Ĝi estas la nova operaciumo de la specio.**\n\n**Aliĝu. Konstruu. Kunordigu.**\n\n**De tribismo al la Unuigita Tero.**\n\n**Esperantistujo eblas – Marto 2026**\n**Unu sola planedo. Unu sola reto. Senfinaj liberaj urboj.**"
+      content: "Ni ne petas permeson al la malnovaj Ŝtatoj. **Ni konstruas la novan realecon.**\n\n1. **Pretiĝu por la fondo**: registriĝu kiel pioniro, kontribuu viajn kapablojn kaj sciojn, kaj preparu vin por partopreni en la unua pilota urbo en Vichada, Kolombio.\n\nĈi tio ne estas utopia sonĝo. Ĝi estas **hipotezo, kiun ni testas en reala tempo**: Se la kontribuoj estas videblaj, la plenumo estas mezurebla kaj la renomo estas gajnebla kaj perdebla, tiam la kunlaboro je planeda skalo fariĝas neevitebla.\n\n**La homaro ne plu bezonas limojn.** Ĝi bezonas **konektitajn nodojn**.\n\n**La Tero ne plu bezonas landojn.** Ĝi bezonas **liberajn urbojn**.\n\n**Ágora ne estas ilo. Ĝi estas la nova operaciumo de la specio.**\n\n**De tribismo al la Unuigita Tero. Unu sola planedo. Unu sola reto. Senfinaj liberaj urboj.**"
     }
   ]
 };
@@ -151,10 +150,10 @@ export default function Home() {
           {/* CTAs */}
           <div className="animate-fade-up-4 flex flex-col sm:flex-row gap-4">
             <Link
-              href="/register"
+              href="#igu"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-esperanto-verda text-white font-sans font-semibold text-sm tracking-wide rounded-lg hover:bg-esperanto-verda/80 transition-all duration-200 shadow-lg shadow-esperanto-verda/25"
             >
-              Aliĝi al la komunumo
+              Sekva paŝo
               <span className="text-lg">→</span>
             </Link>
             
@@ -265,17 +264,17 @@ export default function Home() {
         </div>
       </section>
 
-      {/* VISION */}
-      <section id="vision" className="max-w-5xl mx-auto px-6 sm:px-10 py-24 sm:py-32">
+      {/* NIA POZICIO */}
+      <section id="pozicio" className="max-w-5xl mx-auto px-6 sm:px-10 py-24 sm:py-32">
         <AnimatedSection>
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-px bg-esperanto-verda" />
             <span className="text-esperanto-verda text-xs tracking-[0.3em] uppercase font-sans font-medium">
-              Vizio
+              Nia pozicio
             </span>
           </div>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-white mb-16 leading-tight">
-            Nia estonteco
+            Kial ni faras tion, kion ni faras
           </h2>
         </AnimatedSection>
 
@@ -283,22 +282,23 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6">
-                Urbo konstruita sur egaleco
+                Zamenhof kiel modelo
               </h3>
               <p className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed mb-8">
-                Esperantistujo ne estas nur utopio — ĝi estas praktika modelo por kiel homojj povas vivi kune 
-                sen lingva hegemonio. En nia urbo, ĉiu infano lernas Esperanton kiel unuan lingvon, 
-                ĉiu stratŝildo estas legebla por ĉiuj, kaj ĉiu kulturo trovas sian lokon en la tutmonda komunumo.
+                Zamenhof estis idealisto, kiu kredis neŭtralan lingvon kaj atingis du milionojn da parolantoj. 
+                Li montris, ke sanigita <span className="text-esperanto-verda font-semibold">escepticismo</span> — la volo ne havi definitivajn respondojn, 
+                sed serĉi pli bonajn demandojn — povas konduki al homara progreso.
               </p>
               <p className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed">
-                Ni konstruas mondon kie lingvo ne plu estas bariero, sed ponto. Unu urbo. Unu popolo. 
-                Unu estonteco en la lingvo de paco.
+                Esperantistujo ne havas definitivajn respondojn. Ĝi ekzistas por <span className="text-esperanto-verda font-semibold">planti pli bonajn demandojn </span> 
+                kaj meti ilin al la provo en la praktiko. Ni estas laboratorio por novaj formoj de 
+                kunvivado, kie la lingvo de paco fariĝas la lingvo de la eksperimentado.
               </p>
             </div>
             <div className="relative">
               <Image
                 src="/src/zamenhoff_flago.svg"
-                alt="Esperantistujo Map"
+                alt="Zamenhof kiel idealisto"
                 width={500}
                 height={500}
                 className="w-full h-auto rounded-2xl"
@@ -309,27 +309,28 @@ export default function Home() {
       </section>
 
       {/* CTA FINAL */}
-      <section className="relative overflow-hidden border-t border-white/10">
+      <section id="igu" className="relative overflow-hidden border-t border-white/10">
         <div className="absolute inset-0 star-pattern opacity-50" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full bg-esperanto-verda/8 blur-[100px]" />
         <div className="relative max-w-3xl mx-auto px-6 sm:px-10 py-28 sm:py-36 text-center">
           <AnimatedSection>
             <p className="text-esperanto-verda text-xs tracking-[0.3em] uppercase font-sans font-medium mb-6">
-              Aliĝu hodiaŭ
+              Fariĝu pioniro
             </p>
             <h2 className="font-display text-4xl sm:text-6xl font-black text-white leading-tight mb-8">
-              La urbo komencos<br />
-              <span className="italic text-esperanto-verda">per vi.</span>
+              Iĝu urbano<br />
+              <span className="italic text-esperanto-verda">nun.</span>
             </h2>
             <p className="text-gray-400 font-sans text-base sm:text-lg mb-12 max-w-xl mx-auto leading-relaxed">
-              Join thousands of Esperantists building the first city where the language of peace
-              is the language of daily life.
+              Registriĝu por partopreni en la unua esperanta urbo de ĉi tiu malcentrigita ŝtato, 
+              kiu estas planota fondi en la departemento Vichada en Kolombio. Vi povas esti elektita! 
+              La projekto esperas financigi vian vojaĝon kaj loĝadon en ĉi tiu pilota urbo.
             </p>
             <Link
               href="/register"
               className="inline-flex items-center gap-2 px-10 py-4 bg-esperanto-verda text-white font-sans font-semibold text-sm tracking-wide rounded-lg hover:bg-esperanto-verda/80 transition-all duration-200 shadow-xl shadow-esperanto-verda/20"
             >
-              Fariĝi urbano
+              Registriĝi kiel pioniro
               <span className="text-lg">→</span>
             </Link>
           </AnimatedSection>

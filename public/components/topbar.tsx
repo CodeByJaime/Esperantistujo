@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const NAV_LINKS = [
   { label: "Manifesto", href: "#manifesto" },
-  { label: "Vizio", href: "#vision" },
+  { label: "Pozicio", href: "#pozicio" },
 ];
 
 // Simula sesión — reemplaza con tu auth real (NextAuth, Clerk, etc.)
