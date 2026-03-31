@@ -3,10 +3,12 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { supabase } from "@/lib/supabase";
+import { useRouter } from "next/navigation";
 
 type Field = "retpoŝto" | "pasvorto";
 
 export default function LoginPage() {
+  const router = useRouter();
   const [form, setForm] = useState({ retpoŝto: "", pasvorto: "" });
   const [focused, setFocused] = useState<Field | null>(null);
   const [loading, setLoading] = useState(false);
@@ -28,7 +30,7 @@ export default function LoginPage() {
     setGlobalError("");
     setSubmitted(false);
     setLoading(false);
-    window.location.href = "/";
+    router.push('/');
   };
 
   const handleSubmit = async () => {

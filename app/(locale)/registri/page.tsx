@@ -5,11 +5,13 @@ import Image from "next/image";
 import { supabase } from "@/lib/supabase";
 import { registrationSchema } from "@/lib/validations";
 import { z } from "zod";
+import { useRouter } from "next/navigation";
 
 
 type Field = "nomo" | "retpoŝto" | "pasvorto" | "konfirmo";
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [form, setForm] = useState({ nomo: "", retpoŝto: "", pasvorto: "", konfirmo: "" });
   const [focused, setFocused] = useState<Field | null>(null);
   const [submitted, setSubmitted] = useState(false);
@@ -42,7 +44,7 @@ export default function RegisterPage() {
     setSubmitted(false);
     setLoading(false);
     setGlobalError("");
-    window.location.href = "/";
+    router.push('/');
   };
 
   const handleSubmit = async () => {
