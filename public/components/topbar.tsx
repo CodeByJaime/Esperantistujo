@@ -69,13 +69,13 @@ export const Topbar = () => {
               // --- DESLOGUEADO ---
               <>
                 <Link
-                  href="/login"
+                  href="/eniri"
                   className="px-5 py-2 text-sm font-sans font-medium text-white/70 hover:text-white transition-colors duration-200"
                 >
                   Eniri
                 </Link>
                 <Link
-                  href="/register"
+                  href="/registri"
                   className="px-5 py-2 text-sm font-sans font-semibold bg-esperanto-verda text-white rounded-lg hover:bg-[#00b300] transition-all duration-200 shadow-md shadow-esperanto-verda/20"
                 >
                   Registri
@@ -122,13 +122,13 @@ export const Topbar = () => {
             ) : (
               <>
                 <Link
-                  href="/login"
+                  href="/eniri"
                   className="w-full py-2.5 text-sm font-sans font-medium text-white/70 border border-white/20 rounded-lg text-center hover:border-white/40 hover:text-white transition-all"
                 >
                   Eniri
                 </Link>
                 <Link
-                  href="/register"
+                  href="/registri"
                   className="w-full py-2.5 text-sm font-sans font-semibold bg-esperanto-verda text-white rounded-lg text-center hover:bg-[#00b300] transition-all"
                 >
                   Registri

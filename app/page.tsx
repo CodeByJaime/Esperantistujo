@@ -8,7 +8,7 @@ import Image from "next/image";
 const NAV_LINKS = [
   { label: "Manifesto", href: "#manifesto" },
   { label: "Pozicio", href: "#pozicio" },
-  { label: "Aliĝi", href: "/register" },
+  { label: "Aliĝi", href: "/registri" },
 ];
 
 const MANIFESTO_CONTENT = {
@@ -327,7 +327,7 @@ export default function Home() {
               La projekto esperas financigi vian vojaĝon kaj loĝadon en ĉi tiu pilota urbo.
             </p>
             <Link
-              href="/register"
+              href="/registri"
               className="inline-flex items-center gap-2 px-10 py-4 bg-esperanto-verda text-white font-sans font-semibold text-sm tracking-wide rounded-lg hover:bg-esperanto-verda/80 transition-all duration-200 shadow-xl shadow-esperanto-verda/20"
             >
               Registriĝi kiel pioniro
