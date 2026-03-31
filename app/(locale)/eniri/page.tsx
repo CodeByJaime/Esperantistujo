@@ -12,8 +12,8 @@ export default function LoginPage() {
   const [focused, setFocused] = useState<Field | null>(null);
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
   const [globalError, setGlobalError] = useState("");
-  const [submitted, setSubmitted] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   const { signIn, loading } = useAuth();
   const router = useRouter();
@@ -30,7 +30,6 @@ export default function LoginPage() {
     setErrors({});
     setFocused(null);
     setGlobalError("");
-    setSubmitted(false);
     window.location.href = "/";
   };
 
@@ -39,15 +38,19 @@ export default function LoginPage() {
     if (Object.keys(e).length) { setErrors(e); return; }
     setErrors({});
     setGlobalError("");
+    
+    // Mostrar estado de carga inmediatamente
+    setIsSubmitting(true);
 
     const result = await signIn(form.retpoŝto, form.pasvorto);
     
     if (result.error) {
       setGlobalError(result.error);
+      setIsSubmitting(false);
       return;
     }
 
-    setSubmitted(true);
+    // Redirección exitosa
     router.push("/komenci");
   };
 
@@ -150,29 +153,8 @@ export default function LoginPage() {
           </Link>
         </div>
 
-        {submitted ? (
-          /* SUCCESS */
-          <div className="max-w-md mx-auto w-full text-center fade-up">
-            <div className="w-20 h-20 rounded-full bg-esperanto-verda/15 border border-esperanto-verda/30 flex items-center justify-center mx-auto mb-8 check-pop">
-              <svg className="w-9 h-9 text-esperanto-verda" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <title>Sukceso</title>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <h2 className="font-display text-3xl font-bold text-white mb-3">Bonvenon reen!</h2>
-            <p className="font-sans-dm text-white/50 text-sm mb-8 leading-relaxed">
-              Vi sukcese ensalutis. Ni ĝojas revidi vin.
-            </p>
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-esperanto-verda text-white font-sans-dm font-semibold text-sm rounded-lg hover:bg-[#00b300] transition-all"
-            >
-              Iri al komenco →
-            </Link>
-          </div>
-        ) : (
-          /* FORM */
-          <div className="max-w-md mx-auto w-full">
+        {/* FORM */}
+        <div className="max-w-md mx-auto w-full">
             {/* Header */}
             <div className="mb-10">
               <div className="fade-up flex items-center gap-2 mb-4">
@@ -268,16 +250,16 @@ export default function LoginPage() {
               <button
                 type="button"
                 onClick={handleSubmit}
-                disabled={loading}
+                disabled={loading || isSubmitting}
                 className="w-full py-3.5 bg-esperanto-verda hover:bg-[#00b300] disabled:opacity-60 text-white font-sans-dm font-semibold text-sm rounded-lg transition-all duration-200 shadow-lg shadow-esperanto-verda/20 flex items-center justify-center gap-2"
               >
-                {loading ? (
+                {loading || isSubmitting ? (
                   <>
                     <svg className="spin w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
                       <title>Ŝarĝado</title>
                       <path strokeLinecap="round" d="M12 2a10 10 0 0 1 10 10" />
                     </svg>
-                    Ensalutante…
+                    {isSubmitting ? "Redirektante..." : "Ensalutante…"}
                   </>
                 ) : (
                   "Ensaluti →"
@@ -315,7 +297,6 @@ export default function LoginPage() {
               </button>
             </div>
           </div>
-        )}
       </div>
     </div>
   );
