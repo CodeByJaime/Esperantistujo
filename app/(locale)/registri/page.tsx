@@ -2,6 +2,9 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { supabase } from "@/lib/supabase";
+import { registrationSchema } from "@/lib/validations";
+import { z } from "zod";
 
 
 type Field = "nomo" | "retpoŝto" | "pasvorto" | "konfirmo";
@@ -12,14 +15,24 @@ export default function RegisterPage() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
+  const [globalError, setGlobalError] = useState("");
 
   const validate = () => {
-    const e: Partial<Record<Field, string>> = {};
-    if (!form.nomo.trim()) e.nomo = "Bonvolu enigi vian nomon.";
-    if (!form.retpoŝto.includes("@")) e.retpoŝto = "Retpoŝtadreso ne validas.";
-    if (form.pasvorto.length < 8) e.pasvorto = "Minimume 8 signoj.";
-    if (form.pasvorto !== form.konfirmo) e.konfirmo = "Pasvortoj ne kongruas.";
-    return e;
+    try {
+      registrationSchema.parse(form);
+      return {};
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const fieldErrors: Partial<Record<Field, string>> = {};
+        error.issues.forEach((err) => {
+          if (err.path[0]) {
+            fieldErrors[err.path[0] as Field] = err.message;
+          }
+        });
+        return fieldErrors;
+      }
+      return { nomo: "Okazis nekonata eraro." };
+    }
   };
 
   const handleCancel = () => {
@@ -28,17 +41,47 @@ export default function RegisterPage() {
     setFocused(null);
     setSubmitted(false);
     setLoading(false);
+    setGlobalError("");
     window.location.href = "/";
   };
 
   const handleSubmit = async () => {
-    const e = validate();
-    if (Object.keys(e).length) { setErrors(e); return; }
+    const validationErrors = validate();
+    if (Object.keys(validationErrors).length) { 
+      setErrors(validationErrors);
+      setGlobalError("");
+      return; 
+    }
     setErrors({});
+    setGlobalError("");
     setLoading(true);
-    await new Promise(r => setTimeout(r, 1400));
-    setLoading(false);
-    setSubmitted(true);
+
+    try {
+      const { error } = await supabase.auth.signUp({
+        email: form.retpoŝto,
+        password: form.pasvorto,
+        options: {
+          data: {
+            display_name: form.nomo,
+          }
+        }
+      });
+
+      if (error) {
+        if (error.message.includes('already registered')) {
+          setGlobalError('Ĉi tiu retpoŝto jam estas registrita.');
+        } else {
+          setGlobalError('Okazis eraro dum registrado. Bonvolu reprovi.');
+        }
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setGlobalError('Okazis eraro. Bonvolu reprovi.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const fields: { key: Field; label: string; sublabel: string; type: string; placeholder: string }[] = [
@@ -176,6 +219,17 @@ export default function RegisterPage() {
                 </Link>
               </p>
             </div>
+
+            {/* Global error */}
+            {globalError && (
+              <div className="shake mb-6 px-4 py-3 rounded-lg border border-red-500/30 bg-red-500/8 flex items-start gap-3">
+                <svg className="w-4 h-4 text-red-400 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <title>Eraro</title>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
+                </svg>
+                <p className="font-sans-dm text-red-400 text-sm">{globalError}</p>
+              </div>
+            )}
 
             {/* Fields */}
             <div className="space-y-5">

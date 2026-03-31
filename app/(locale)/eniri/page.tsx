@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { supabase } from "@/lib/supabase";
 
 type Field = "retpoŝto" | "pasvorto";
 
@@ -36,15 +37,24 @@ export default function LoginPage() {
     setErrors({});
     setGlobalError("");
     setLoading(true);
-    await new Promise(r => setTimeout(r, 1400));
-    setLoading(false);
-    // Simula credenciales incorrectas — reemplaza con tu auth real
-    const valid = form.retpoŝto === "test@test.com" && form.pasvorto === "12345678";
-    if (!valid) {
-      setGlobalError("Retpoŝto aŭ pasvorto malĝustas. Bonvolu reprovi.");
-      return;
+
+    try {
+      const { error } = await supabase.auth.signInWithPassword({
+        email: form.retpoŝto,
+        password: form.pasvorto,
+      });
+
+      if (error) {
+        setGlobalError("Retpoŝto aŭ pasvorto malĝustas. Bonvolu reprovi.");
+        return;
+      }
+
+      setSubmitted(true);
+    } catch {
+      setGlobalError("Okazis eraro. Bonvolu reprovi.");
+    } finally {
+      setLoading(false);
     }
-    setSubmitted(true);
   };
 
   const fields: { key: Field; label: string; sublabel: string; type: string; placeholder: string }[] = [
