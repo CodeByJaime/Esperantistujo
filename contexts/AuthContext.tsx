@@ -2,6 +2,7 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 import { supabase } from "@/lib/supabase";
+import { useUserStore } from "@/lib/store";
 import type { User } from "@supabase/supabase-js";
 
 interface AuthContextType {
@@ -15,13 +16,14 @@ interface AuthContextType {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState<User | null>(null);
+  const { user: storeUser, setUser: setStoreUser } = useUserStore();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getSession = async () => {
       const { data: { session } } = await supabase.auth.getSession();
-      setUser(session?.user ?? null);
+      const user = session?.user ?? null;
+      setStoreUser(user);
       setLoading(false);
     };
 
@@ -30,16 +32,16 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     const { data: { subscription } } = supabase.auth.onAuthStateChange(
       (event, session) => {
         if (event === 'SIGNED_OUT') {
-          setUser(null);
+          setStoreUser(null);
         } else if (session) {
-          setUser(session.user);
+          setStoreUser(session.user);
         }
         setLoading(false);
       }
     );
 
     return () => subscription.unsubscribe();
-  }, []);
+  }, [setStoreUser]);
 
   const signIn = async (email: string, password: string) => {
     try {
@@ -113,10 +115,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const signOut = async () => {
     await supabase.auth.signOut();
+    setStoreUser(null);
   };
 
   return (
-    <AuthContext.Provider value={{ user, loading, signIn, signUp, signOut }}>
+    <AuthContext.Provider value={{ user: storeUser, loading, signIn, signUp, signOut }}>
       {children}
     </AuthContext.Provider>
   );
