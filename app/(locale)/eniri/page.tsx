@@ -52,6 +52,9 @@ export default function LoginPage() {
       }
 
       setSubmitted(true);
+      setTimeout(() => {
+        window.location.href = "/komenci";
+      }, 2000);
     } catch {
       setGlobalError("Okazis eraro. Bonvolu reprovi.");
     } finally {
