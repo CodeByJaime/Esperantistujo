@@ -2,22 +2,21 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { supabase } from "@/lib/supabase";
+import { useAuth } from "@/contexts/AuthContext";
 import { registrationSchema } from "@/lib/validations";
 import { z } from "zod";
-import { useRouter } from "next/navigation";
 
 
 type Field = "nomo" | "retpoŝto" | "pasvorto" | "konfirmo";
 
 export default function RegisterPage() {
-  const router = useRouter();
   const [form, setForm] = useState({ nomo: "", retpoŝto: "", pasvorto: "", konfirmo: "" });
   const [focused, setFocused] = useState<Field | null>(null);
   const [submitted, setSubmitted] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
   const [globalError, setGlobalError] = useState("");
+  
+  const { signUp, loading } = useAuth();
 
   const validate = () => {
     try {
@@ -42,9 +41,8 @@ export default function RegisterPage() {
     setErrors({});
     setFocused(null);
     setSubmitted(false);
-    setLoading(false);
     setGlobalError("");
-    router.push('/');
+    window.location.href = "/";
   };
 
   const handleSubmit = async () => {
@@ -56,34 +54,15 @@ export default function RegisterPage() {
     }
     setErrors({});
     setGlobalError("");
-    setLoading(true);
 
-    try {
-      const { error } = await supabase.auth.signUp({
-        email: form.retpoŝto,
-        password: form.pasvorto,
-        options: {
-          data: {
-            display_name: form.nomo,
-          }
-        }
-      });
-
-      if (error) {
-        if (error.message.includes('already registered')) {
-          setGlobalError('Ĉi tiu retpoŝto jam estas registrita.');
-        } else {
-          setGlobalError('Okazis eraro dum registrado. Bonvolu reprovi.');
-        }
-        return;
-      }
-
-      setSubmitted(true);
-    } catch {
-      setGlobalError('Okazis eraro. Bonvolu reprovi.');
-    } finally {
-      setLoading(false);
+    const result = await signUp(form.retpoŝto, form.pasvorto, form.nomo);
+    
+    if (result.error) {
+      setGlobalError(result.error);
+      return;
     }
+
+    setSubmitted(true);
   };
 
   const fields: { key: Field; label: string; sublabel: string; type: string; placeholder: string }[] = [

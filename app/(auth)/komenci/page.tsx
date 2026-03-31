@@ -1,55 +1,20 @@
 "use client";
-import { useEffect, useState } from "react";
-import { supabase } from "@/lib/supabase";
-import { useRouter } from "next/navigation";
-import Link from "next/link";
-import Image from "next/image";
-
-import type { User } from '@supabase/supabase-js';
+import { useAuth } from "@/contexts/AuthContext";
+import { AuthLayout } from "@/components/auth-layout";
 
 export default function DashboardPage() {
-  const [user, setUser] = useState<User | null>(null);
-  const [loading, setLoading] = useState(true);
-  const router = useRouter();
-
-  useEffect(() => {
-    const checkAuth = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      
-      if (!session) {
-        router.push("/eniri");
-        return;
-      }
-
-      setUser(session.user);
-      setLoading(false);
-    };
-
-    checkAuth();
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      (event, session) => {
-        if (event === 'SIGNED_OUT') {
-          router.push("/eniri");
-        } else if (session) {
-          setUser(session.user);
-        }
-      }
-    );
-
-    return () => subscription.unsubscribe();
-  }, [router]);
+  const { user, loading } = useAuth();
 
   if (loading) {
     return (
       <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
-        <div className="text-white">Ŝarĝante...</div>
+        <div className="text-white">Ŝarĝande...</div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a]">
+    <AuthLayout user={user}>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap');
         .font-display { font-family: 'Playfair Display', serif; }
@@ -60,35 +25,8 @@ export default function DashboardPage() {
         }
       `}</style>
 
-      {/* Header */}
-      <header className="border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 py-4">
-          <div className="flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 group">
-              <Image src="/src/verda_stelo_line.svg" alt="Esperanto" width={32} height={32} />
-              <span className="font-display text-xl font-bold text-white group-hover:text-esperanto-verda transition-colors">
-                Esperantistujo
-              </span>
-            </Link>
-            
-            <div className="flex items-center gap-4">
-              <span className="font-sans-dm text-white/60 text-sm">
-                Bonvenon, {user?.user_metadata?.display_name || user?.email}
-              </span>
-              <button
-                type="button"
-                onClick={() => supabase.auth.signOut()}
-                className="px-4 py-2 bg-white/10 hover:bg-white/20 text-white font-sans-dm text-sm rounded-lg transition-all"
-              >
-                Eliri
-              </button>
-            </div>
-          </div>
-        </div>
-      </header>
-
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 py-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 py-16">
         <div className="text-center mb-12">
           <h1 className="font-display text-5xl font-black text-white mb-4">
             Via <span className="text-esperanto-verda">panelo</span>
@@ -213,7 +151,7 @@ export default function DashboardPage() {
             </button>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </AuthLayout>
   );
 }

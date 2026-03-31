@@ -2,19 +2,21 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { supabase } from "@/lib/supabase";
+import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
 
 type Field = "retpoŝto" | "pasvorto";
 
 export default function LoginPage() {
-  const router = useRouter();
   const [form, setForm] = useState({ retpoŝto: "", pasvorto: "" });
   const [focused, setFocused] = useState<Field | null>(null);
-  const [loading, setLoading] = useState(false);
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
   const [globalError, setGlobalError] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
+  
+  const { signIn, loading } = useAuth();
+  const router = useRouter();
 
   const validate = () => {
     const e: Partial<Record<Field, string>> = {};
@@ -29,8 +31,7 @@ export default function LoginPage() {
     setFocused(null);
     setGlobalError("");
     setSubmitted(false);
-    setLoading(false);
-    router.push('/');
+    window.location.href = "/";
   };
 
   const handleSubmit = async () => {
@@ -38,28 +39,16 @@ export default function LoginPage() {
     if (Object.keys(e).length) { setErrors(e); return; }
     setErrors({});
     setGlobalError("");
-    setLoading(true);
 
-    try {
-      const { error } = await supabase.auth.signInWithPassword({
-        email: form.retpoŝto,
-        password: form.pasvorto,
-      });
-
-      if (error) {
-        setGlobalError("Retpoŝto aŭ pasvorto malĝustas. Bonvolu reprovi.");
-        return;
-      }
-
-      setSubmitted(true);
-      setTimeout(() => {
-        window.location.href = "/komenci";
-      }, 2000);
-    } catch {
-      setGlobalError("Okazis eraro. Bonvolu reprovi.");
-    } finally {
-      setLoading(false);
+    const result = await signIn(form.retpoŝto, form.pasvorto);
+    
+    if (result.error) {
+      setGlobalError(result.error);
+      return;
     }
+
+    setSubmitted(true);
+    router.push("/komenci");
   };
 
   const fields: { key: Field; label: string; sublabel: string; type: string; placeholder: string }[] = [
@@ -228,23 +217,45 @@ export default function LoginPage() {
                       </Link>
                     )}
                   </div>
-                  <input
-                    id={f.key}
-                    type={f.type}
-                    placeholder={f.placeholder}
-                    value={form[f.key]}
-                    onChange={e => setForm(prev => ({ ...prev, [f.key]: e.target.value }))}
-                    onFocus={() => setFocused(f.key)}
-                    onBlur={() => setFocused(null)}
-                    onKeyDown={e => e.key === "Enter" && handleSubmit()}
-                    className={`w-full bg-white/4 border rounded-lg px-4 py-3 text-white font-sans-dm text-sm placeholder-white/20 outline-none transition-all duration-200
-                      ${focused === f.key
-                        ? "border-esperanto-verda bg-white/6 shadow-[0_0_0_3px_rgba(0,153,0,0.12)]"
-                        : errors[f.key]
-                          ? "border-red-500/60"
-                          : "border-white/10 hover:border-white/20"
-                      }`}
-                  />
+                  <div className="relative">
+                    <input
+                      id={f.key}
+                      type={f.key === "pasvorto" && showPassword ? "text" : f.type}
+                      placeholder={f.placeholder}
+                      value={form[f.key]}
+                      onChange={e => setForm(prev => ({ ...prev, [f.key]: e.target.value }))}
+                      onFocus={() => setFocused(f.key)}
+                      onBlur={() => setFocused(null)}
+                      onKeyDown={e => e.key === "Enter" && handleSubmit()}
+                      className={`w-full bg-white/4 border rounded-lg px-4 py-3 text-white font-sans-dm text-sm placeholder-white/20 outline-none transition-all duration-200
+                        ${focused === f.key
+                          ? "border-esperanto-verda bg-white/6 shadow-[0_0_0_3px_rgba(0,153,0,0.12)]"
+                          : errors[f.key]
+                            ? "border-red-500/60"
+                            : "border-white/10 hover:border-white/20"
+                        } ${f.key === "pasvorto" ? "pr-12" : ""}`}
+                    />
+                    {f.key === "pasvorto" && (
+                      <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white/70 transition-colors"
+                      >
+                        {showPassword ? (
+                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <title>Kaŝi pasvorton</title>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21" />
+                          </svg>
+                        ) : (
+                          <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <title>Montri pasvorton</title>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                          </svg>
+                        )}
+                      </button>
+                    )}
+                  </div>
                   {errors[f.key] && (
                     <p className="mt-1.5 text-red-400 text-xs font-sans-dm">{errors[f.key]}</p>
                   )}
@@ -269,7 +280,7 @@ export default function LoginPage() {
                     Ensalutante…
                   </>
                 ) : (
-                  <>Ensaluti →</>
+                  "Ensaluti →"
                 )}
               </button>
               <button
