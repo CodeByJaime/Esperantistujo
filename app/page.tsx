@@ -14,8 +14,7 @@ const NAV_LINKS = [
 const MANIFESTO_CONTENT = {
   title: "MANIFESTO DE ESPERANTISTUJO",
   subtitle: "De Tribismo al Homaranismo",
-  tagline:
-    "Tutmonda Reto de Komunumoj • Unu Sola Planedo • Unu Komuna Lingvo",
+  tagline: "Tutmonda Reto de Komunumoj • Unu Sola Planedo • Unu Komuna Lingvo",
   sections: [
     {
       number: "I",
@@ -167,9 +166,9 @@ export default function Home() {
 
           {/* Subtitle */}
           <p className="animate-fade-up-3 font-sans text-gray-400 text-base sm:text-lg max-w-xl leading-relaxed mb-12">
-            Ni konstruas la unuan esperantistan komunumon de la mondo, komencante
-            per la fonda komunumo en Viĉado. Kiel partoprenanto, vi povos kunlabori en
-            iu ajn komunumo de nia tutmonda reto.
+            Ni konstruas la unuan esperantistan komunumon de la mondo,
+            komencante per la fonda komunumo en Viĉado. Kiel partoprenanto, vi
+            povos kunlabori en iu ajn komunumo de nia tutmonda reto.
           </p>
 
           {/* CTAs */}
@@ -338,37 +337,45 @@ export default function Home() {
               <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6">
                 Zamenhof kiel modelo
               </h3>
+
               <p className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed mb-6">
-                Zamenhof donis al ni la{" "}
-                <span className="text-esperanto-verda font-semibold">
-                  lingvon de paco
-                </span>
-                . Ni donas al ni la{" "}
-                <span className="text-esperanto-verda font-semibold">
-                  sistemon de kunvivo
-                </span>
-                .
-              </p>
-              <p className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed mb-6">
-                Lia revlo estis komuniko sen limoj. Nia revlo estas{" "}
-                <span className="text-esperanto-verda font-semibold">
-                  vivo sen limoj
-                </span>
-                . Li montris, ke ebla krei novan realon per volontula kunlaboro.
-                Ni aplikas tiun lecionon al la plej granda defio de nia tempo:
+                En siaj lastaj jaroj, Zamenhof ne plu parolis nur pri lingvo,
+                sed pri
                 <span className="text-esperanto-verda font-semibold">
                   {" "}
-                  la landoj mem.
+                  homaranismo
                 </span>
+                : la ideo ke la vera problemo de la homaro ne estas manko de
+                komunikilo, sed la maniero kiel homoj dividiĝas en apartajn
+                tribojn nomatajn nacioj.
               </p>
-              <p className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed">
-                Esperantistujo ne estas sonĝo. Ĝi estas{" "}
+
+              <p className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed mb-6">
+                En siaj privataj leteroj, li esprimis zorgon ke internacia
+                lingvo, se ĝi restas nur ilo por kongresoj kaj korespondado,
+                riskas fariĝi intelekta rondo anstataŭ vivanta realo. Por li, la
+                lingvo devis esti
                 <span className="text-esperanto-verda font-semibold">
-                  eksperimento{" "}
+                  {" "}
+                  vivata ĉiutage{" "}
                 </span>
-                kontrolita per teknologio, gvidita per datumoj, kaj pelita per
-                la sama idealismo kiu kondukis Zamenhof krei la plej sukcesan
-                internacian lingvon de la historio.
+                inter homoj de malsamaj devenoj.
+              </p>
+
+              <p className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed mb-6">
+                Lia revo ne estis nur komuniki sen limoj, sed ke homoj efektive
+                <span className="text-esperanto-verda font-semibold">
+                  {" "}
+                  kunvivu sen limoj
+                </span>
+                . Ke ili loĝu, laboru kaj konstruu komune, tiel ke la lingvo
+                fariĝu natura parto de la ĉiutaga vivo.
+              </p>
+
+              <p className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed">
+                Esperantistujo ne estas nova ideo. Ĝi estas provo realigi tiun
+                neplenumitan parton de la vizio de Zamenhof: krei lokojn kie
+                Esperanto ne estas nur parolata, sed vivata.
               </p>
             </div>
             <div className="relative">
@@ -402,11 +409,11 @@ export default function Home() {
               <span className="italic text-esperanto-verda">nun.</span>
             </h2>
             <p className="text-gray-400 font-sans text-base sm:text-lg mb-12 max-w-xl mx-auto leading-relaxed">
-              Registriĝu kiel partoprenanto de la unua esperantista komunumo de la
-              mondo. Komencu en la fonda komunumo en Viĉado, Kolombio, kaj kunlaboru
-              en iu ajn komunumo de nia tutmonda reto kiam ni
-              kreskos. La projekto esperas financigi vian vojaĝon kaj loĝadon
-              en ĉi tiu pionira urbo.
+              Registriĝu kiel partoprenanto de la unua esperantista komunumo de
+              la mondo. Komencu en la fonda komunumo en Viĉado, Kolombio, kaj
+              kunlaboru en iu ajn komunumo de nia tutmonda reto kiam ni kreskos.
+              La projekto esperas financigi vian vojaĝon kaj loĝadon en ĉi tiu
+              pionira urbo.
             </p>
             <Link
               href="/registri"
