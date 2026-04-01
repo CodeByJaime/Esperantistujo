@@ -28,18 +28,18 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] flex">
+    <div className="min-h-screen bg-[#0a0a0a] lg:flex">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap');
         .font-display { font-family: 'Playfair Display', serif; }
         .font-sans-dm { font-family: 'DM Sans', sans-serif; }
       `}</style>
 
-      {/* Sidebar */}
+      {/* Sidebar - Fixed position for all screen sizes */}
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#0a0a0a] border-r border-white/10 transform transition-transform duration-300 ease-in-out ${
+        className={`fixed inset-y-0 left-0 z-50 w-64 h-screen bg-[#0a0a0a] border-r border-white/10 transform transition-transform duration-300 ease-in-out ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } lg:translate-x-0 lg:static lg:flex lg:flex-col`}
+        } lg:translate-x-0`}
       >
         <div className="flex flex-col h-full">
           {/* Sidebar Header */}
@@ -369,7 +369,7 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
         </div>
 
         {/* Page Content */}
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 overflow-y-auto h-screen lg:ml-64">{children}</main>
       </div>
     </div>
   );
