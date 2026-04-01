@@ -13,39 +13,39 @@ const NAV_LINKS = [
 
 const MANIFESTO_CONTENT = {
   title: "MANIFESTO DE ESPERANTISTUJO",
-  subtitle: "De Tribismo al Unuigita Tero",
+  subtitle: "De Tribismo al Homaranismo",
   tagline:
-    "La Unua Malcentrigita Lando • Tutmonda Reto de Urboj • Unu Sola Planedo",
+    "Tutmonda Reto de Komunumoj • Unu Sola Planedo • Unu Komuna Lingvo",
   sections: [
     {
       number: "I",
-      title: "LA PROBLEMO: LA PRIMITIVA PROGRAMARO DE LA NACIOJ",
+      title: "LA PROBLEMO: LA HEREDITA MENSO DE LA NACIO-ŜTATO",
       content:
-        "La nuna mondo plue funkcias per la sama operaciumo, kiun uzis la triboj antaŭ dek mil jaroj. Ni nur ŝanĝis la nomon: de 'tribismo' al 'naciismo'. Kaj kun la nova nomo ni aldonis ion pli malbonan: **limojn**.\n\nĈio, kio estas 'de ĉi tie ĉi tien', apartenas al ĉi tiu lando. Ĉio, kio estas 'de tie tien', apartenas al tiu alia lando. Kaj kiel en ĉiu tribo, milito fariĝas neevitebla.\n\nĈi tiu modelo malsukcesis pri la esenco:\n1. **Korupto kaj neefikeco**: la buĝetoj malaperas en maldiafanaj burokratioj kaj favoratismoj.\n2. **Homa malŝparo**: la talento restas kaptita pro la loko kaj la pasporto, kie vi naskiĝis.\n3. **Kronika malsekureco**: la Ŝtato perdis la monopolon pri protekto en multaj regionoj kaj lasis la homojn je la povo de kaoso.\n4. **Monerkontrolo**: la naciaj valutoj estas manipulataj, detruante la ŝparadon kaj la klopodon de generacioj.\n\nPensi de la makroo (landoj) al la mikroo (homoj) nur generas plian dividon. Ni proponas ĝuste la malon: **pensi de la mikroo al la makroo**.",
+        "La nuna mondo ankoraŭ funkcias laŭ la sama mensa modelo, kiun havis triboj antaŭ miloj da jaroj. Ni nur ŝanĝis la nomon: de tribismo al naciismo. Kaj kun tiu nova nomo ni aldonis ion pli malfacilan: limojn.\n\nĈio, kio estas inter ĉi tiuj limoj, apartenas al unu ŝtato; kio estas ekster ili, al alia. Kaj kiel en ĉiu tribo, konfliktoj fariĝas preskaŭ neeviteblaj.\n\nĈi tiu modelo montriĝis neadekvata por la hodiaŭa homaro:\n\n1. **Korupto kaj neefikeco** en maldiafanaj burokratioj\n2. **Homa malŝparo**, ĉar talento restas kaptita de naskiĝloko\n3. **Kronika malsekureco** en forgesitaj regionoj\n4. **Monetaj sistemoj**, kiuj ofte malfortigas la ŝparadon de ordinaraj homoj\n\nPensi de la makroo (ŝtatoj) al la mikroo (homoj) generas dividon.\nNi proponas la malon: **pensi de la homoj al la komunumo**.",
     },
     {
       number: "II",
-      title: "NIA VIZIO: LA UNUA MALCENTRIGITA LANDO DE LA MONDO",
+      title: "NIA VIZIO: TUTMONDA RETO DE ESPERANTISTAJ KOMUNUMOJ",
       content:
-        "Ni kredas, ke **ĉiuj homoj valoras egale**. Ni kredas, ke la homa specio atingos sian veran nivelon de evoluo kiam ĝi ĉesos organizi sin per limoj kaj ekorganizos sin kiel **parto de la planedo Tero**.\n\nTial ni proponas:\n**La unuan malcentrigitan landon de la mondo**, unuigitan en **Tutmonda Reto de Urboj**, inspirita de la antikvaj grekaj ligoj sed plifortigita per teknologio de la 21-a jarcento.\n\nMondo kie la regado estu **reala kaj diafana**, kaj neniu povu superregi vin ĉar **ni ĉiuj estas kunordigitaj en malcentrigita reto**. La unua urbo de ĉi tiu lando estos fondita en Vichada, Kolombio, kaj estos **la modelo por generacioj de novaj urboj ĉirkaŭ la mondo**.",
+        "Ni kredas, ke ĉiuj homoj valoras egale, sendepende de nacieco, deveno aŭ religio.\n\nNi imagas mondon, kie homoj povas kunlabori preter limoj pere de komuna lingvo kaj komunaj valoroj.\n\nTial ni proponas la kreadon de **fizikaj komunumoj**, ligitaj en **tutmonda reto**, kie Esperanto estas la ĉiutaga lingvo de kunvivado.\n\nLa unua tia komunumo estos fondita en Viĉado, Kolombio, kiel modelo por estontaj komunumoj en aliaj lokoj de la mondo.",
     },
     {
       number: "III",
-      title: "LA TEKNOLOGIAJ KOLONOJ (NIA VIVA KONSTITUCIO)",
+      title: "LA TEKNOLOGIAJ KAJ ORGANIZAJ KOLONOJ",
       content:
-        "1. **Ágora – La Kunordiga Motoro** Malferma, eksperimenta kaj malfermitkoda sistemo, kiu anstataŭigas la hierarkiajn instituciojn per:\n   - Renomo > Aŭtoritato\n   - Kontrolebla plenumo > Promesoj\n   - Plena diafaneco > Blinda fido\n   - Malferma kaj tutmonda partopreno defaŭlte\n\n   Ágora permesas proponi, financi, plenumi kaj aŭdi projektojn realajn (fizikajn aŭ ciferecajn, lokajn aŭ tutmondajn) sen koruptaj perantoj.\n\n2. **Inflacia Komuna Kriptovaluto** Ununura valuto por la komerco inter urboj de la lando. Ĉiu urbo havas **rajtigitan nodon** reguligitan de la urbo mem kaj de la komunaj normoj de la Ligo. La kontrolita inflacio instigas konstantan cirkuladon kaj evitas akumuliĝon, favorante la komunan prosperon.\n\n3. **Regado per Tasko, ne per Posteno** Ene de ĉiu urbo regas la **libereco de konkurenco**. La homoj ne okupas dumvivajn postenojn; ili ricevas **tempajn taskojn** laŭ sia renomo kaj demonstreblaj rezultoj. La plej taŭgaj homoj por ĉiu tasko aperas nature.\n\n4. **Komunitarisma Komponento: La Cifereca Sistemo de Civitana Agado** Ĉiu loĝanto havas **dinamikan fidoprofilon** en la tutmonda reto. Viaj lokaj agoj (plenumo de taskoj, volontulaj kontribuoj, solvado de konfliktoj, kunlaboro) generas renomon, kiu akompanas vin **en iu ajn urbo de la lando**. La fido ne dependas de pasporto: ĝi dependas de via kontrolebla historio en la blokĉeno. Tiel ni konstruas planedan komunumon, kie esti bona civitano en unu urbo malfermas pordojn en iu ajn alia urbo de la reto.",
+        "1. **Ágora – Kunordiga Sistemo**\n   Malfermitkoda ilo por proponi, financi kaj realigi projektojn en la komunumo kun plena travideblo.\n\n2. **Komuna Interŝanĝa Sistemo**\n   Ilo por faciligi komercon inter komunumoj de la reto, administrata loke laŭ komunaj principoj.\n\n3. **Task-bazita Kunlaboro**\n   Roloj ne estas permanentaj postenoj, sed provizoraj taskoj laŭ kapabloj kaj pruvitaj kontribuoj.\n\n4. **Reta Fidosistemo**\n   La kontribuoj de ĉiu ano estas videblaj kaj rekoneblaj tra la tuta reto de komunumoj.",
     },
     {
       number: "IV",
       title: "KIEL ĜI FUNKCIAS PRAKTIKE",
       content:
-        "**Unua fazo: La Fonda Urbo**: Ni konstruas la unuan urbon en Vichada, Kolombio, kiel **pilon de la malcentrigita lando**. Ĝi estos la laboratorio kaj modelo por ĉiuj estontaj urboj.\n\n**Dua fazo: Ekspansio**: Kiam la fonda urbo generu sufiĉajn rimedojn, ni financos kaj helpos fondi **novajn urbojn kun la sama modelo** en diversaj partoj de la mondo. Ĉiu nova urbo estos parto de la sama malcentrigita lando.\n\n**Tria fazo: Tutmonda Reto**: La lando kreskos kiel reto de aŭtonomaj urboj, ĉiuj funkciigantaj per la samaj principoj: malcentrigita regado, komuna valuto, kaj libera moviĝo de civitanoj inter urboj.\n\n**Sekureco**: kombino de lokaj fortoj, AI de la Ligo kaj komunaj normoj pri homaj rajtoj. Neniu povas trudi centran armeon; la protekto venas de la reto mem.\n\n**Ekonomio**: diafanaj trezoroj, financado laŭ rezultoj, rekompencoj pro sukceso kaj perdoj pro neplenumo.\n\nKorupto fariĝas teknike neracia.\nKunlaboro fariĝas la plej profitdona strategio.",
+        "**Unua fazo: la fonda komunumo** en Viĉado.\n\n**Dua fazo:** helpi aliajn grupojn fondi similajn komunumojn en aliaj regionoj.\n\n**Tria fazo:** ligi tiujn komunumojn en tutmonda reto de kunlaboro.\n\nSekureco, ekonomio kaj organizado baziĝas sur travideblo, loka respondeco kaj reciproka fido.",
     },
     {
       number: "V",
       title: "ALVOKO AL AGO",
       content:
-        "Ni ne petas permeson al la malnovaj Ŝtatoj. **Ni konstruas la novan realecon.**\n\n1. **Iĝu civitano de la unua malcentrigita lando**: registriĝu kiel pioniro, kontribuu viajn kapablojn kaj sciojn, kaj preparu vin por partopreni en la fonda urbo en Vichada, Kolombio.\n\n2. **Estu parto de la estonteco**: Kiel civitano de ĉi tiu lando, vi havos **rajton vivi kaj labori en iu ajn urbo de la reto** kiam ni ekspansios. Via renomo kaj kontribuoj estos valideblaj en ĉiuj urboj de la malcentrigita lando.\n\nĈi tio ne estas utopia sonĝo. Ĝi estas **hipotezo, kiun ni testas en reala tempo**: Se la kontribuoj estas videblaj, la plenumo estas mezurebla kaj la renomo estas gajnebla kaj perdebla, tiam la kunlaboro je planeda skalo fariĝas neevitebla.\n\n**La homaro ne plu bezonas limojn.** Ĝi bezonas **konektitajn nodojn**.\n\n**La Tero ne plu bezonas landojn.** Ĝi bezonas **malcentrigitan landon kun liberaj urboj**.\n\n**Ágora ne estas ilo. Ĝi estas la nova operaciumo de la specio.**\n\n**De tribismo al la Unuigita Tero. Unu malcentrigita lando. Unu tutmonda reto de liberaj urboj.**",
+        "Ni ne kontraŭstaras ekzistantajn ŝtatojn.\nNi simple konstruas ekzemplon de alia maniero kunvivi.\n\n1. Aliĝu kiel **partoprenanto** kaj kontribuu viajn kapablojn.\n2. Helpu krei la unuan esperantistan komunumon kie la lingvo estas ĉiutaga realo.\n\nĈi tio estas praktika eksperimento:\nkio okazas kiam komunumo organiziĝas ĉirkaŭ travideblo, kontribuo kaj komuna lingvo?\n\nLa homaro ne bezonas pli da limoj.\nĜi bezonas pli da kunlaboraj nodoj.",
     },
   ],
 };
@@ -152,14 +152,14 @@ export default function Home() {
           <div className="animate-fade-up flex items-center gap-3 mb-8">
             <div className="w-8 h-px bg-esperanto-verda" />
             <span className="text-esperanto-verda text-xs tracking-[0.3em] uppercase font-sans font-medium">
-              La unua malcentrigita lando
+              La unua esperantista komunumo
             </span>
           </div>
 
           {/* Title */}
           <h1 className="font-display animate-fade-up-2 text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight mb-8">
             <span className="block text-white">Unu lingvo.</span>
-            <span className="block text-white">Unu lando.</span>
+            <span className="block text-white">Unu komunumo.</span>
             <span className="block italic text-esperanto-verda">
               Unu estonteco.
             </span>
@@ -167,9 +167,9 @@ export default function Home() {
 
           {/* Subtitle */}
           <p className="animate-fade-up-3 font-sans text-gray-400 text-base sm:text-lg max-w-xl leading-relaxed mb-12">
-            Ni konstruas la unuan malcentrigitan landon de la mondo, komencante
-            per la fonda urbo en Vichada. Kiel civitano, vi havos rajton vivi en
-            iu ajn urbo de nia tutmonda reto.
+            Ni konstruas la unuan esperantistan komunumon de la mondo, komencante
+            per la fonda komunumo en Viĉado. Kiel partoprenanto, vi povos kunlabori en
+            iu ajn komunumo de nia tutmonda reto.
           </p>
 
           {/* CTAs */}
@@ -394,25 +394,25 @@ export default function Home() {
         <div className="relative max-w-3xl mx-auto px-6 sm:px-10 py-28 sm:py-36 text-center">
           <AnimatedSection>
             <p className="text-esperanto-verda text-xs tracking-[0.3em] uppercase font-sans font-medium mb-6">
-              Fariĝu civitano
+              Fariĝu partoprenanto
             </p>
             <h2 className="font-display text-4xl sm:text-6xl font-black text-white leading-tight mb-8">
-              Iĝu civitano
+              Iĝu partoprenanto
               <br />
               <span className="italic text-esperanto-verda">nun.</span>
             </h2>
             <p className="text-gray-400 font-sans text-base sm:text-lg mb-12 max-w-xl mx-auto leading-relaxed">
-              Registriĝu kiel civitano de la unua malcentrigita lando de la
-              mondo. Komencu en la fonda urbo en Vichada, Kolombio, kaj havu
-              rajton vivi en iu ajn urbo de nia tutmonda reto kiam ni
-              ekspansios. La projekto esperas financigi vian vojaĝon kaj loĝadon
+              Registriĝu kiel partoprenanto de la unua esperantista komunumo de la
+              mondo. Komencu en la fonda komunumo en Viĉado, Kolombio, kaj kunlaboru
+              en iu ajn komunumo de nia tutmonda reto kiam ni
+              kreskos. La projekto esperas financigi vian vojaĝon kaj loĝadon
               en ĉi tiu pionira urbo.
             </p>
             <Link
               href="/registri"
               className="inline-flex items-center gap-2 px-10 py-4 bg-esperanto-verda text-white font-sans font-semibold text-sm tracking-wide rounded-lg hover:bg-esperanto-verda/80 transition-all duration-200 shadow-xl shadow-esperanto-verda/20"
             >
-              Registriĝi kiel civitano
+              Registriĝi kiel partoprenanto
               <span className="text-lg">→</span>
             </Link>
           </AnimatedSection>
