@@ -4,7 +4,8 @@ import type { ReactNode } from "react";
 import { supabase } from "@/lib/supabase";
 import { useUserStore } from "@/lib/store";
 import type { User } from "@supabase/supabase-js";
-
+import { useRouter } from "next/navigation";
+  
 interface AuthContextType {
   user: User | null;
   loading: boolean;
@@ -19,6 +20,7 @@ const AuthContext = createContext<AuthContextType | undefined>(undefined);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const { user: storeUser, setUser: setStoreUser } = useUserStore();
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const getSession = async () => {
@@ -67,6 +69,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         console.log('Unknown sign in error:', error);
         return { error: "Retpoŝto aŭ pasvorto malĝustas. Bonvolu reprovi." };
       }
+      router.push("/komenci");
 
       return {};
     } catch (error) {
@@ -124,7 +127,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || window.location.origin}/komenci`
+          redirectTo: `${process.env.NEXT_PUBLIC_SITE_URL || window.location.origin}/auth/callback`
         }
       });
 
