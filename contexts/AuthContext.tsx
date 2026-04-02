@@ -10,6 +10,7 @@ interface AuthContextType {
   loading: boolean;
   signIn: (email: string, password: string) => Promise<{ error?: string }>;
   signUp: (email: string, password: string, name: string) => Promise<{ error?: string }>;
+  signInWithGoogle: () => Promise<{ error?: string }>;
   signOut: () => Promise<void>;
 }
 
@@ -118,8 +119,29 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setStoreUser(null);
   };
 
+  const signInWithGoogle = async () => {
+    try {
+      const { error } = await supabase.auth.signInWithOAuth({
+        provider: 'google',
+        options: {
+          redirectTo: `${window.location.origin}/auth/callback`
+        }
+      });
+
+      if (error) {
+        console.error('Google sign in error:', error);
+        return { error: "Eraro dum Google-aŭtentigo. Bonvolu reprovi." };
+      }
+      
+      return {};
+    } catch (error) {
+      console.error('Unexpected Google sign in error:', error);
+      return { error: "Okazis neesperita eraro. Bonvolu reprovi." };
+    }
+  };
+
   return (
-    <AuthContext.Provider value={{ user: storeUser, loading, signIn, signUp, signOut }}>
+    <AuthContext.Provider value={{ user: storeUser, loading, signIn, signUp, signInWithGoogle, signOut }}>
       {children}
     </AuthContext.Provider>
   );

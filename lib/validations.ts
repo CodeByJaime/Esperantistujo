@@ -4,7 +4,7 @@ export const registrationSchema = z.object({
   nomo: z.string()
     .min(1, 'Bonvolu enigi vian nomon.')
     .max(100, 'Nomo tro longa.'),
-  retpoŝto: z.string()
+  retpoŝto: z
     .email('Retpoŝtadreso ne validas.')
     .max(255, 'Retpoŝtadreso tro longa.'),
   pasvorto: z.string()
