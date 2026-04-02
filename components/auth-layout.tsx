@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import type { ReactNode } from "react";
 import type { User } from "@supabase/supabase-js";
@@ -26,6 +26,10 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
   const isActiveRoute = (route: string) => {
     return pathname === route;
   };
+
+  useEffect(() => {
+    console.log('AuthLayout mounted', { user });
+  }, [user]);
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] lg:flex">

@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useAuth } from "@/contexts/AuthContext";
@@ -16,8 +16,41 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   
-  const { signIn, loading } = useAuth();
+  const { signIn, loading, user } = useAuth();
   const router = useRouter();
+
+  // Redirect authenticated users to /komenci
+  useEffect(() => {
+    if (user && !loading) {
+      router.push("/komenci");
+    }
+  }, [user, loading, router]);
+
+  // Show loading state while checking auth or redirecting
+  if (loading || (user && !loading)) {
+    return (
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
+        <style>{`
+          @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Sans:wght@300;400;500&display=swap');
+          .font-display { font-family: 'Playfair Display', serif; }
+          .font-sans-dm { font-family: 'DM Sans', sans-serif; }
+          @keyframes spin { to { transform: rotate(360deg); } }
+          .spin { animation: spin 0.8s linear infinite; }
+        `}</style>
+        <div className="text-center">
+          <div className="flex items-center justify-center mb-4">
+            <svg className="spin w-6 h-6 text-esperanto-verda" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.5}>
+              <title>Ŝarĝado</title>
+              <path strokeLinecap="round" d="M12 2a10 10 0 0 1 10 10" />
+            </svg>
+          </div>
+          <p className="font-sans-dm text-white/60 text-sm">
+            {loading ? "Kontrolante seancon..." : "Komencas seancon..."}
+          </p>
+        </div>
+      </div>
+    );
+  }
 
   const validate = () => {
     const e: Partial<Record<Field, string>> = {};
