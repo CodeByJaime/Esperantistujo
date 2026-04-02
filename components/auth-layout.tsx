@@ -306,14 +306,14 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
             <div className="flex items-center gap-3 mb-4">
               <div className="w-10 h-10 rounded-full bg-esperanto-verda/20 flex items-center justify-center">
                 <span className="text-esperanto-verda font-display font-bold text-sm">
-                  {(user?.user_metadata?.display_name || user?.email || "U")
+                  {(user?.user_metadata?.display_name || user?.user_metadata?.full_name || user?.email || "U")
                     ?.charAt(0)
                     .toUpperCase()}
                 </span>
               </div>
               <div className="flex-1 min-w-0">
                 <p className="font-sans-dm text-white text-sm font-medium truncate">
-                  {user?.user_metadata?.display_name || "Uzanto"}
+                  {user?.user_metadata?.display_name || user?.user_metadata?.full_name || "Uzanto"}
                 </p>
                 <p className="font-sans-dm text-white/40 text-xs truncate">
                   {user?.email}
