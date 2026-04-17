@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
-import GoogleAuth from "@/components/google-auth";
+//import GoogleAuth from "@/components/google-auth";
 
 type Field = "retpoŝto" | "pasvorto";
 
@@ -276,15 +276,14 @@ export default function LoginPage() {
                 Nuligi kaj reveni
               </button>
 
-              {/* Divider */}
+              {/* Divider
               <div className="my-6 flex items-center gap-4">
                 <div className="flex-1 h-px bg-white/10" />
                 <span className="font-sans-dm text-white/25 text-xs">aŭ</span>
                 <div className="flex-1 h-px bg-white/10" />
               </div>
 
-              {/* OAuth placeholder */}
-              <GoogleAuth/>
+              <GoogleAuth/> */}
             </div>
           </div>
       </div>
