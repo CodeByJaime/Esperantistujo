@@ -2,6 +2,7 @@
 import { useUserStore } from "@/lib/store";
 import { AuthLayout } from "@/components/auth-layout";
 import { useState, useEffect, useCallback } from "react";
+import { LoadingScreen } from "@/components/ui";
 import Image from "next/image";
 import { useForm } from "@tanstack/react-form";
 import { profileOperations } from "@/lib/supabase";
@@ -95,9 +96,12 @@ export default function ProfiloPage() {
         
         // Force re-render by updating state
         setProfileLoaded(true);
+      } else {
+        // No profile exists, set as loaded
+        setProfileLoaded(true);
       }
-    } catch (error) {
-      console.error("Error loading profile:", error);
+    } catch (_error) {
+      setProfileLoaded(true);
     }
   }, [user_id, user?.user_metadata?.display_name, form.setFieldValue]);
 
@@ -127,6 +131,18 @@ export default function ProfiloPage() {
             <p className="font-sans-dm text-white/50 text-sm">Bonvolu ensaluti por vidi vian profilon.</p>
           </div>
         </div>
+      </AuthLayout>
+    );
+  }
+
+  // Show loading spinner while profile data is being loaded
+  if (!profileLoaded) {
+    return (
+      <AuthLayout user={user}>
+        <LoadingScreen 
+          title="Ŝargante profilon..." 
+          subtitle="Bonvolu atendi dum ni ŝargas viajn informojn." 
+        />
       </AuthLayout>
     );
   }

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import type { ReactNode } from "react";
 import type { User } from "@supabase/supabase-js";
