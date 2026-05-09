@@ -27,10 +27,6 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
     return pathname === route;
   };
 
-  useEffect(() => {
-    console.log('AuthLayout mounted', { user });
-  }, [user]);
-
   return (
     <div className="min-h-screen bg-[#0a0a0a] lg:flex">
       <style>{`

@@ -66,7 +66,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         if (error.message.includes('rate limit') || error.message.includes('Too Many Requests')) {
           return { error: 'Tro da provoj. Bonvolu atendi kelkajn minutojn antaŭ reprovi.' };
         }
-        console.log('Unknown sign in error:', error);
         return { error: "Retpoŝto aŭ pasvorto malĝustas. Bonvolu reprovi." };
       }
       router.push("/komenci");
