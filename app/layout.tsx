@@ -4,6 +4,7 @@ import "./globals.css";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { AuthGuard } from "@/components/auth-guard";
 import { Toaster } from "sonner";
+import { LanguageLoader } from "@/components/ui";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,16 +26,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+ return (
     <AuthProvider>
-      <html
-        lang="eo"
-        className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-      >
+      <html lang="eo" className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}>
         <body className="min-h-full flex flex-col">
-          <AuthGuard>
-            {children}
-          </AuthGuard>
+          <LanguageLoader>
+            <AuthGuard>
+              {children}
+            </AuthGuard>
+          </LanguageLoader>
           <Toaster />
         </body>
       </html>

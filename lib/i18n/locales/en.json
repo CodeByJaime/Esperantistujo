@@ -1,0 +1,478 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "error": "Error",
+    "success": "Success"
+  },
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "profile": "Profile",
+    "settings": "Settings"
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your preferences, privacy and account security.",
+    "loadingTitle": "Loading settings",
+    "loadingSubtitle": "Please wait while we load your settings...",
+    "notAccessible": "Settings not accessible",
+    "notLoggedIn": "Please log in to view your settings.",
+    "savedSuccess": "Settings saved successfully!",
+    "saveError": "Error saving settings",
+    "sections": {
+      "general": "General",
+      "privacy": "Privacy",
+      "security": "Security",
+      "data": "Data Management"
+    },
+    "quickActions": "Quick Actions",
+    "saveChanges": "Save Changes",
+    "changePassword": "Change Password",
+    "deleteAccount": "Delete Account",
+    "general": {
+      "title": "General Settings",
+      "interfaceLanguage": "Interface Language",
+      "notifications": "Notifications",
+      "emailNotifications": "Email Notifications",
+      "emailNotificationsDesc": "Receive notifications by email",
+      "newsletter": "Newsletter",
+      "newsletterDesc": "Information about new features and Esperanto events"
+    },
+    "privacy": {
+      "title": "Privacy",
+      "subtitle": "Control who can see your information in the community.",
+      "publicProfile": "Public Profile",
+      "publicProfileDesc": "Other users can see your profile.",
+      "visibleFields": "Fields visible to others",
+      "age": "Age",
+      "ageDesc": "Show your age in your profile",
+      "relationshipStatus": "Relationship Status",
+      "relationshipStatusDesc": "Show whether you have a partner",
+      "ethnicity": "Ethnic Group",
+      "ethnicityDesc": "Show your ethnic identity",
+      "monthlyIncome": "Monthly Income",
+      "monthlyIncomeDesc": "Show the income range you selected"
+    },
+    "security": {
+      "title": "Security",
+      "subtitle": "Manage your account security.",
+      "twoFactor": "Two-Factor Authentication (2FA)",
+      "twoFactorDesc": "Add an extra layer of protection to your account",
+      "sessionNotifications": "New session notifications",
+      "sessionAlerts": "Email alert",
+      "sessionAlertsDesc": "Receive an email when a new device logs in",
+      "activeSessions": "Active Sessions",
+      "currentSession": "Current session",
+      "active": "Active"
+    },
+    "data": {
+      "title": "Data Management",
+      "subtitle": "Manage your data according to your privacy rights.",
+      "exportData": "Export Data",
+      "exportDataDesc": "Download a copy of all your data in JSON format.",
+      "export": "Export",
+      "clearHistory": "Clear Activity History",
+      "clearHistoryDesc": "Remove your activity history on the platform. This does not delete your account.",
+      "clear": "Clear",
+      "deleteAccountTitle": "Delete Account",
+      "deleteAccountDesc": "This is irreversible. All your data will be permanently deleted.",
+      "delete": "Delete"
+    }
+  },
+  "komenci": {
+    "loading": "Loading…",
+    "hero": {
+      "selectedLocation": "Selected location",
+      "title": "Why<br />Vichada?",
+      "subtitle": "This project is not random. It is a chosen location with unique geographical features, legal conditions and future advantages to build a planned community without conflict with existing society."
+    },
+    "territory": {
+      "title": "15 Reasons<br />for Vichada",
+      "subtitle": "Every detail has been analyzed. Every decision has a strategic foundation."
+    },
+    "advantages": {
+      "01": {
+        "title": "Size + demographic emptiness",
+        "subtitle": "Size + demographic emptiness",
+        "body": "~100,000 km² with ~80,000 inhabitants. Very low density — room to plan without social friction."
+      },
+      "02": {
+        "title": "Flat savannah",
+        "subtitle": "Flat savannah — cheap engineering",
+        "body": "Almost flat topography — roads, water pipes, energy and urbanism much cheaper than in mountains. No deforestation for expansion."
+      },
+      "03": {
+        "title": "Strategic water",
+        "subtitle": "Strategic water — Orinoco basin",
+        "body": "In a century of water stress, this is worth gold. Rivers, streams, aquifers and stable rainfall."
+      },
+      "04": {
+        "title": "Legal framework: ZIDRES",
+        "subtitle": "Legal framework built for this",
+        "body": "The State has already declared that it wants organized projects there. Not going against the law — going with the law."
+      },
+      "05": {
+        "title": "Distance from urban poles",
+        "subtitle": "Distance from urban poles",
+        "body": "Less criminal pressure. Less cultural shock. Less 'chaotic pull' typical of big cities."
+      },
+      "06": {
+        "title": "Live border with Venezuela",
+        "subtitle": "Live border with Venezuela",
+        "body": "Geopolitical key for the future. Potential for a two-way legal and economic corridor."
+      },
+      "07": {
+        "title": "Cheap and abundant land",
+        "subtitle": "Cheap and abundant land",
+        "body": "Can legally buy large extensions. Scalable for decades."
+      },
+      "08": {
+        "title": "Open sky for solar energy",
+        "subtitle": "Open sky for solar energy",
+        "body": "High radiation, few shadows, perfect terrain for solar farms."
+      },
+      "09": {
+        "title": "Almost no urban legacy",
+        "subtitle": "Almost no urban legacy",
+        "body": "No previous informal settlements. No old designs that limit the plan."
+      }
+    },
+    "conclusion": {
+      "title": "Conclusion",
+      "mainTitle": "Not utopia.<br />Engineering.",
+      "description": "Vichada was not chosen to isolate itself, but because it is the only place where it is possible to build an organized, lawful and future community without conflicting with existing society, while bringing development, investment and human capital to a forgotten region.",
+      "location": "Vichada, Colombia"
+    },
+    "scaleTests": {
+      "title": "Real-scale testing",
+      "subtitle": "Real-scale testing",
+      "description": "Vichada allows testing:",
+      "conclusion": "Without fighting against each other.",
+      "items": {
+        "plannedCity": "Planned city",
+        "techAgriculture": "Technologized agriculture",
+        "distributedEnergy": "Distributed energy",
+        "waterManagement": "Water management",
+        "integratedCommunity": "Integrated community"
+      }
+    },
+    "growth": {
+      "title": "Build for<br />decades.",
+      "subtitle": "Future",
+      "description": "This is not a 5-year project. This is a territory that allows growing for 50-100 years without physical limits.",
+      "stats": {
+        "territory": "Territory",
+        "inhabitants": "Inhabitants",
+        "growth": "Growth",
+        "eras": "Eras"
+      }
+    },
+    "colombia": {
+      "strategicValue": "Strategic value of Colombia",
+      "subtitle": "Strategic value",
+      "description": "And Vichada is its empty border.",
+      "items": {
+        "waterPower": "Water power of the continent",
+        "noDisasters": "Free from hurricanes, earthquakes and wars",
+        "gateway": "Gateway between Amazon, Andes and Orinoco"
+      }
+    },
+    "tourism": {
+      "title": "Learning tourism",
+      "subtitle": "Learning tourism",
+      "items": {
+        "exchanges": "University exchanges",
+        "retreats": "Retreats and intensive courses",
+        "learning": "Intensive language learning",
+        "events": "International events"
+      }
+    }
+  },
+  "profile": {
+    "loading": "Loading profile...",
+    "loadingSubtitle": "Please wait while we load your information.",
+    "title": "Your Profile",
+    "subtitle": "Manage your personal information and community settings.",
+    "userNotFound": "User not found",
+    "loginPrompt": "Please log in to view your profile.",
+    "sections": {
+      "personal": "Personal",
+      "esperanto": "Esperanto",
+      "social": "Social",
+      "economic": "Economic"
+    },
+    "form": {
+      "displayName": "Display name",
+      "esperantoName": "Esperanto name",
+      "birthPlace": "Birth place",
+      "birthCountry": "Birth country",
+      "age": "Age",
+      "ethnicity": "Ethnicity",
+      "educationLevel": "Education level",
+      "occupation": "Occupation",
+      "monthlyIncome": "Monthly income",
+      "height": "Height",
+      "languages": "Languages",
+      "relationshipStatus": "Relationship status",
+      "children": "Children",
+      "esperantoLevel": "Esperanto level",
+      "esperantoSince": "Esperanto since",
+      "bio": "Bio",
+      "memberSince": "Member since",
+      "edit": "Edit",
+      "save": "Save",
+      "cancel": "Cancel",
+      "saveChanges": "Save changes",
+      "placeholders": {
+        "displayName": "Your name",
+        "esperantoName": "e.g. John, Mary…",
+        "birthPlace": "City",
+        "birthCountry": "Country",
+        "age": "Years",
+        "height": "cm",
+        "ethnicity": "e.g. Latino, European, African…",
+        "bio": "Short description about yourself…",
+        "esperantoSince": "Year (e.g. 2018)",
+        "occupation": "e.g. Teacher, Programmer…",
+        "selectStatus": "Select status…",
+        "selectLevel": "Select level…"
+      },
+      "info": "Information",
+      "userId": "User ID",
+      "email": "Email",
+      "infoText": "These statistics help us understand the demographic composition of Esperanto speakers worldwide. You can choose not to disclose this information, and we will respect your privacy. You can select \"Prefer not to say\" to keep this information private.",
+      "economicInfo": "This information is optional and helps the community understand the demographic and economic profile of Esperanto speakers worldwide. You can choose \"Prefer not to say\" to maintain privacy."
+    },
+    "incomeOptions": {
+      "preferNotToSay": "Prefer not to say",
+      "under500": "< 500 USD",
+      "500to1000": "500–1,000 USD",
+      "1000to2000": "1,000–2,000 USD",
+      "2000to4000": "2,000–4,000 USD",
+      "4000to8000": "4,000–8,000 USD",
+      "over8000": "> 8,000 USD"
+    },
+    "relationshipOptions": {
+      "single": "Single",
+      "inRelationship": "In relationship (not married)",
+      "married": "Married",
+      "divorced": "Divorced",
+      "widowed": "Widowed",
+      "preferNotToSay": "Prefer not to say"
+    },
+    "esperantoLevels": {
+      "beginner": "Beginner",
+      "basic": "Basic",
+      "intermediate": "Intermediate",
+      "advanced": "Advanced",
+      "fluent": "Fluent",
+      "native": "Native"
+    },
+    "childrenOptions": {
+      "none": "None",
+      "one": "1",
+      "two": "2",
+      "three": "3",
+      "four": "4",
+      "fivePlus": "5+",
+      "preferNotToSay": "Prefer not to say"
+    }
+  },
+  "languages": {
+    "eo": "Esperanto",
+    "en": "English",
+    "es": "Spanish",
+    "fr": "French",
+    "de": "German"
+  },
+  "navigation": {
+    "brand": "Esperantistujo",
+    "dashboard": "Dashboard",
+    "navigation": "Navigation",
+    "profile": "Profile",
+    "settings": "Settings",
+    "governance": "Governance",
+    "agora": "Agora",
+    "citizens": "Citizens",
+    "closeMenu": "Close menu",
+    "signOut": "Sign out"
+  },
+  "topbar": {
+    "navLinks": [
+      { "label": "Manifesto", "href": "#manifesto" },
+      { "label": "Position", "href": "#pozicio" }
+    ],
+    "greeting": "Hello",
+    "login": "Sign in",
+    "register": "Register",
+    "menu": "Menu"
+  },
+  "home": {
+    "eyebrow": "The first esperanto community",
+    "title": {
+      "line1": "One language.",
+      "line2": "One community.",
+      "line3": "One future."
+    },
+    "subtitle": "We are building the world's first esperanto community, starting with the founding community in Vichada. As a participant, you can collaborate in any community of our global network.",
+    "manifesto": {
+      "title": "MANIFESTO OF ESPERANTISTUJO",
+      "subtitle": "From Tribalism to Humanism",
+      "tagline": "Global Network of Communities • One Planet • One Common Language",
+      "sections": [
+        {
+          "number": "I",
+          "title": "THE PROBLEM: THE INHERITED MINDSET OF THE NATION-STATE",
+          "content": "The current world still operates according to the same mental model that tribes had thousands of years ago. We only changed the name: from tribalism to nationalism. And with that new name we added something more difficult: borders.\n\nEverything between these borders belongs to one state; what is outside them, to another. And as in every tribe, conflicts become almost inevitable.\n\nThis model has proven inadequate for today's humanity:\n\n1. **Corruption and inefficiency** in opaque bureaucracies\n2. **Human capital flight**, because talent remains trapped in birthplace\n3. **Chronic insecurity** in forgotten regions\n4. **Monetary systems**, which often weaken the savings of ordinary people\n\nThinking from the macro (states) to the micro (people) generates division.\nWe propose the opposite: **thinking from people to the community**."
+        },
+        {
+          "number": "II",
+          "title": "OUR VISION: GLOBAL NETWORK OF ESPERANTO COMMUNITIES",
+          "content": "We believe that all people are equally valuable, regardless of nationality, origin or religion.\n\nWe imagine a world where people can collaborate beyond borders through a common language and shared values.\n\nTherefore we propose the creation of **physical communities**, connected in a **global network**, where Esperanto is the everyday language of coexistence.\n\nThe first such community will be founded in Vichada, Colombia, as a model for future communities in other parts of the world."
+        },
+        {
+          "number": "III",
+          "title": "TECHNOLOGICAL AND ORGANIZATIONAL PILLARS",
+          "content": "1. **Ágora – Coordination System**\n   Open-source tool to propose, finance and realize projects in the community with full transparency.\n\n2. **Common Reputation System**\n   Tool to facilitate trade between communities of the network, managed locally according to community principles.\n\n3. **Task-based Collaboration**\n   Roles are not permanent positions, but temporary tasks according to abilities and proven contributions.\n\n4. **Digital Trust System**\n   The contributions of each member are visible and traceable throughout the entire network of communities."
+        },
+        {
+          "number": "IV",
+          "title": "HOW IT WORKS IN PRACTICE",
+          "content": "**First phase: the founding community** in Vichada.\n\n**Second phase:** help other groups found similar communities in other regions.\n\n**Third phase:** connect these communities in a global collaboration network.\n\nSecurity, economy and organization are based on transparency, local responsibility and mutual trust."
+        },
+        {
+          "number": "V",
+          "title": "CALL TO ACTION",
+          "content": "We do not oppose existing states.\nWe simply build an example of another way of living together.\n\n1. Join as a **participant** and contribute your abilities.\n2. Help create the first esperanto community where the language is an everyday reality.\n\nThis is a practical experiment:\nwhat happens when a community organizes around transparency, contribution and a common language?\n\nHumanity doesn't need more borders.\nIt needs more collaborative nodes."
+        }
+      ]
+    },
+    "position": {
+      "title": "Our position",
+      "subtitle": "We are not utopians. We are builders.",
+      "zamenhofTitle": "Zamenhof as a model",
+      "zamenhofText1": "In his later years, Zamenhof no longer spoke only about language, but about",
+      "zamenhofText2": "humanitarianism: the idea that the real problem of humanity is not lack of communication tools, but the way people divide into separate tribes called nations.",
+      "zamenhofText3": "In his private letters, he expressed concern that an international language, if it remains only a tool for congresses and correspondence, risks becoming an intellectual circle instead of a living reality. For him, the language had to be",
+      "zamenhofText4": "spoken daily among people of different origins.",
+      "zamenhofText5": "His vision was not just to communicate without borders, but that people actually",
+      "zamenhofText6": "live together without borders. That they live, work and build together, so that the language becomes a natural part of daily life.",
+      "zamenhofText7": "Esperantistujo is not a new idea. It is an attempt to realize that unfulfilled part of Zamenhof's vision: to create places where Esperanto is not only spoken, but lived."
+    },
+    "cta": {
+      "eyebrow": "Become a participant",
+      "title": "Become a participant",
+      "titleHighlight": "now.",
+      "description": "Register as a participant of the world's first esperanto community. Start in the founding community in Vichada, Colombia, and collaborate in any community of our global network as we grow. The project hopes to finance your travel and living expenses in this pioneering city.",
+      "button": "Register as a participant"
+    },
+    "hero": {
+      "nextStep": "Next step",
+      "readManifesto": "Read the manifesto"
+    },
+    "footer": {
+      "copyright": "Built with 💚 in Esperanto"
+    },
+    "stats": [
+      { "value": "2 million", "label": "Esperantists in the world" },
+      { "value": "180+", "label": "Countries with active community" },
+      { "value": "1887", "label": "Year of the birth of Esperanto" }
+    ],
+    "navLinks": [
+      { "label": "Manifesto", "href": "#manifesto" },
+      { "label": "Position", "href": "#pozicio" },
+      { "label": "Join", "href": "/registri" }
+    ]
+  },
+  "register": {
+    "title": "Create your account",
+    "subtitle": "Join the world's first esperanto community.",
+    "fields": {
+      "name": {
+        "label": "Name",
+        "sublabel": "Name",
+        "placeholder": "Your full name"
+      },
+      "email": {
+        "label": "Email",
+        "sublabel": "Email",
+        "placeholder": "you@example.com"
+      },
+      "password": {
+        "label": "Password",
+        "sublabel": "Password",
+        "placeholder": "Minimum 8 characters"
+      },
+      "confirm": {
+        "label": "Confirm",
+        "sublabel": "Confirm password",
+        "placeholder": "Repeat the password"
+      }
+    },
+    "buttons": {
+      "submit": "Create account",
+      "cancel": "Cancel"
+    },
+    "success": {
+      "title": "Welcome, {name}!",
+      "message": "Your account has been created. We sent a confirmation email to {email}.",
+      "button": "Go to home"
+    },
+    "footer": {
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign in"
+    },
+    "stats": {
+      "speakers": "Speakers",
+      "countries": "Countries",
+      "years": "Years"
+    },
+    "quote": {
+      "text": "In the beginning was\nthe word.",
+      "attribution": "In the beginning was the word."
+    }
+  },
+  "login": {
+    "title": "Sign in",
+    "subtitle": "Welcome\nback.",
+    "fields": {
+      "email": {
+        "label": "Email",
+        "sublabel": "Email",
+        "placeholder": "you@example.com"
+      },
+      "password": {
+        "label": "Password",
+        "sublabel": "Password",
+        "placeholder": "Your password"
+      }
+    },
+    "buttons": {
+      "submit": "Sign in",
+      "cancel": "Cancel"
+    },
+    "footer": {
+      "isNewUser": "Are you new?",
+      "createAccount": "Create account"
+    },
+    "stats": {
+      "speakers": "Speakers",
+      "countries": "Countries",
+      "years": "Years"
+    },
+    "quote": {
+      "text": "Return to your\ncommunity.",
+      "attribution": "Return to your community."
+    },
+    "errors": {
+      "invalidEmail": "Invalid email address.",
+      "passwordRequired": "Please enter your password."
+    },
+    "forgotPassword": "Forgot?"
+  }
+}

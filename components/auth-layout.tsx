@@ -6,6 +6,7 @@ import type { User } from "@supabase/supabase-js";
 import Image from "next/image";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
+import { useTranslation } from "@/lib/i18n";
 
 interface AuthLayoutProps {
   user: User | null;
@@ -17,6 +18,7 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
   const { signOut } = useAuth();
   const router = useRouter();
   const pathname = usePathname();
+  const { t } = useTranslation();
 
   const handleSignOut = async () => {
     await signOut();
@@ -63,7 +65,7 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
             {/* Main Navigation */}
             <div>
               <h3 className="font-sans-dm text-white/40 text-xs font-semibold uppercase tracking-wider mb-3">
-                Navigado
+                {t('navigation.navigation')}
               </h3>
               <div className="space-y-1">
                 <Link
@@ -81,14 +83,14 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
                     stroke="currentColor"
                     strokeWidth={2}
                   >
-                    <title>Panelo</title>
+                    <title>{t('navigation.dashboard')}</title>
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                     />
                   </svg>
-                  Panelo
+                  {t('navigation.dashboard')}
                 </Link>
 
                 <Link
@@ -106,14 +108,14 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
                     stroke="currentColor"
                     strokeWidth={2}
                   >
-                    <title>Profilo</title>
+                    <title>{t('navigation.profile')}</title>
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
                     />
                   </svg>
-                  Profilo
+                  {t('navigation.profile')}
                 </Link>
 
                 <Link
@@ -131,7 +133,7 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
                     stroke="currentColor"
                     strokeWidth={2}
                   >
-                    <title>Agordoj</title>
+                    <title>{t('navigation.settings')}</title>
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
@@ -143,7 +145,7 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
                       d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                   </svg>
-                  Agordoj
+                  {t('navigation.settings')}
                 </Link>
               </div>
             </div>
@@ -151,7 +153,7 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
             {/* Governance Section */}
             <div>
               <h3 className="font-sans-dm text-white/40 text-xs font-semibold uppercase tracking-wider mb-3">
-                Gubernado
+                {t('navigation.governance')}
               </h3>
               <div className="space-y-1">
                 <Link
@@ -166,14 +168,14 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
                     stroke="currentColor"
                     strokeWidth={2}
                   >
-                    <title>Ágora</title>
+                    <title>{t('navigation.agora')}</title>
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
                     />
                   </svg>
-                  Ágora
+                  {t('navigation.agora')}
                 </Link>
 
                 <Link
@@ -188,14 +190,14 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
                     stroke="currentColor"
                     strokeWidth={2}
                   >
-                    <title>Civitanoj</title>
+                    <title>{t('navigation.citizens')}</title>
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
                     />
                   </svg>
-                  Civitanoj
+                  {t('navigation.citizens')}
                 </Link>
 
                 <Link
@@ -321,7 +323,7 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
               onClick={handleSignOut}
               className="w-full px-4 py-2 bg-white/10 hover:bg-white/20 text-white font-sans-dm text-sm rounded-lg transition-all"
             >
-              Eliri
+              {t('navigation.signOut')}
             </button>
           </div>
         </div>
@@ -340,7 +342,7 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
                 setSidebarOpen(false);
               }
             }}
-            aria-label="Fermi menuon"
+            aria-label={t('navigation.closeMenu')}
           />
         )}
 

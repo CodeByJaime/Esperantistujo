@@ -2,11 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-
-const NAV_LINKS = [
-  { label: "Manifesto", href: "#manifesto" },
-  { label: "Pozicio", href: "#pozicio" },
-];
+import { useI18n, useTranslation, availableLanguages, type Language } from "@/lib/i18n";
 
 // Simula sesión — reemplaza con tu auth real (NextAuth, Clerk, etc.)
 const useSession = () => {
@@ -18,6 +14,9 @@ const useSession = () => {
 export const Topbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const { user } = useSession();
+  const { language, setLanguage } = useI18n();
+  const { t, tRaw } = useTranslation();
+  const NAV_LINKS = (tRaw('topbar.navLinks') as unknown as Array<{label: string, href: string}>) ?? [];
 
   return (
     <header className="w-full bg-[#0a0a0a] border-b border-white/10 sticky top-0 z-50">
@@ -52,11 +51,24 @@ export const Topbar = () => {
 
           {/* Desktop: auth area */}
           <div className="hidden sm:flex items-center gap-3">
+            <div className="fixed top-4 right-4 z-50">
+              <select
+                value={language}
+                onChange={(e) => setLanguage(e.target.value as Language)}
+                className="bg-black/60 backdrop-blur border border-white/20 text-white text-xs rounded-lg px-3 py-2 cursor-pointer hover:border-esperanto-verda/50 transition-colors"
+              >
+                {availableLanguages.map((lang) => (
+                  <option key={lang.code} value={lang.code} className="bg-black">
+                    {lang.name}
+                  </option>
+                ))}
+              </select>
+            </div>
             {user ? (
               // --- LOGUEADO ---
               <div className="flex items-center gap-3">
                 <span className="text-white/50 text-sm font-sans">
-                  Saluton, <span className="text-white">{user.name}</span>
+                  {t('topbar.greeting')}, <span className="text-white">{user.name}</span>
                 </span>
                 <button
                   type="button"
@@ -72,13 +84,13 @@ export const Topbar = () => {
                   href="/eniri"
                   className="px-5 py-2 text-sm font-sans font-medium text-white/70 hover:text-white transition-colors duration-200"
                 >
-                  Eniri
+                  {t('topbar.login')}
                 </Link>
                 <Link
                   href="/registri"
                   className="px-5 py-2 text-sm font-sans font-semibold bg-esperanto-verda text-white rounded-lg hover:bg-[#00b300] transition-all duration-200 shadow-md shadow-esperanto-verda/20"
                 >
-                  Registri
+                  {t('topbar.register')}
                 </Link>
               </>
             )}
@@ -89,7 +101,7 @@ export const Topbar = () => {
             type="button"
             className="sm:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-md hover:bg-white/5 transition-colors"
             onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Menuo"
+            aria-label={t('topbar.menu')}
           >
             <span className={`block w-5 h-0.5 bg-white/70 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
             <span className={`block w-5 h-0.5 bg-white/70 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
@@ -125,13 +137,13 @@ export const Topbar = () => {
                   href="/eniri"
                   className="w-full py-2.5 text-sm font-sans font-medium text-white/70 border border-white/20 rounded-lg text-center hover:border-white/40 hover:text-white transition-all"
                 >
-                  Eniri
+                  {t('topbar.login')}
                 </Link>
                 <Link
                   href="/registri"
                   className="w-full py-2.5 text-sm font-sans font-semibold bg-esperanto-verda text-white rounded-lg text-center hover:bg-[#00b300] transition-all"
                 >
-                  Registri
+                  {t('topbar.register')}
                 </Link>
               </>
             )}

@@ -4,11 +4,13 @@ import Link from "next/link";
 import Image from "next/image";
 import { useAuth } from "@/contexts/AuthContext";
 import { useRouter } from "next/navigation";
+import { useTranslation } from "@/lib/i18n";
 //import GoogleAuth from "@/components/google-auth";
 
 type Field = "retpoŝto" | "pasvorto";
 
 export default function LoginPage() {
+  const { t } = useTranslation();
   const [form, setForm] = useState({ retpoŝto: "", pasvorto: "" });
   const [focused, setFocused] = useState<Field | null>(null);
   const [errors, setErrors] = useState<Partial<Record<Field, string>>>({});
@@ -22,8 +24,8 @@ export default function LoginPage() {
 
   const validate = () => {
     const e: Partial<Record<Field, string>> = {};
-    if (!form.retpoŝto.includes("@")) e.retpoŝto = "Retpoŝtadreso ne validas.";
-    if (!form.pasvorto) e.pasvorto = "Bonvolu enigi vian pasvorton.";
+    if (!form.retpoŝto.includes("@")) e.retpoŝto = t('login.errors.invalidEmail');
+    if (!form.pasvorto) e.pasvorto = t('login.errors.passwordRequired');
     return e;
   };
 
@@ -56,9 +58,9 @@ export default function LoginPage() {
     router.push("/komenci");
   };
 
-  const fields: { key: Field; label: string; sublabel: string; type: string; placeholder: string }[] = [
-    { key: "retpoŝto", label: "Retpoŝto",  sublabel: "Email",    type: "email",    placeholder: "vi@ekzemplo.com" },
-    { key: "pasvorto", label: "Pasvorto",  sublabel: "Password", type: "password", placeholder: "Via pasvorto" },
+  const fields: { key: Field; labelKey: string; sublabelKey: string; type: string; placeholderKey: string }[] = [
+    { key: "retpoŝto", labelKey: "login.fields.email.label",  sublabelKey: "login.fields.email.sublabel",    type: "email",    placeholderKey: "login.fields.email.placeholder" },
+    { key: "pasvorto", labelKey: "login.fields.password.label",  sublabelKey: "login.fields.password.sublabel", type: "password", placeholderKey: "login.fields.password.placeholder" },
   ];
 
   return (
@@ -116,10 +118,10 @@ export default function LoginPage() {
         {/* Quote */}
         <div className="relative z-10">
           <blockquote className="font-display text-3xl xl:text-4xl font-bold italic text-white leading-snug mb-6">
-            "Revenu al via<br /><span className="text-esperanto-verda">komunumo.</span>"
+            "{t('login.quote.text').split('\n')[0]}<br /><span className="text-esperanto-verda">{t('login.quote.text').split('\n')[1]}</span>"
           </blockquote>
           <p className="font-sans-dm text-white/40 text-sm">
-            Return to your community.
+            {t('login.quote.attribution')}
           </p>
           <div className="mt-10 flex items-center gap-3">
             <div className="w-10 h-px bg-esperanto-verda/60" />
@@ -132,13 +134,13 @@ export default function LoginPage() {
         {/* Bottom decorative strip */}
         <div className="relative z-10 grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
           {[
-            { v: "2M+", l: "Parolantoj" },
-            { v: "180", l: "Landoj" },
-            { v: "137", l: "Jaroj" },
+            { v: "2M+", labelKey: "login.stats.speakers" },
+            { v: "180", labelKey: "login.stats.countries" },
+            { v: "137", labelKey: "login.stats.years" },
           ].map(s => (
-            <div key={s.l}>
+            <div key={s.labelKey}>
               <div className="font-display text-2xl font-black text-esperanto-verda">{s.v}</div>
-              <div className="font-sans-dm text-white/40 text-xs mt-1">{s.l}</div>
+              <div className="font-sans-dm text-white/40 text-xs mt-1">{t(s.labelKey)}</div>
             </div>
           ))}
         </div>
@@ -161,16 +163,17 @@ export default function LoginPage() {
             <div className="mb-10">
               <div className="fade-up flex items-center gap-2 mb-4">
                 <div className="w-6 h-px bg-esperanto-verda" />
-                <span className="font-sans-dm text-esperanto-verda text-xs tracking-[0.25em] uppercase">Ensaluti</span>
+                <span className="font-sans-dm text-esperanto-verda text-xs tracking-[0.25em] uppercase">{t('login.title')}</span>
               </div>
               <h1 className="fade-up-2 font-display text-4xl sm:text-5xl font-black text-white leading-tight mb-3">
-                Bonvenon<br />
-                <span className="italic text-esperanto-verda">reen.</span>
+                {t('login.subtitle').split('\n').map((word, i) => 
+                  i === 1 ? <span key={`word-${word}`} className="italic text-esperanto-verda">{word}</span> : word + ' '
+                )}
               </h1>
               <p className="fade-up-3 font-sans-dm text-white/40 text-sm">
-                Ĉu vi estas nova? {" "}
+                {t('login.footer.isNewUser')}{" "}
                 <Link href="/registri" className="text-white/70 hover:text-esperanto-verda transition-colors underline underline-offset-2">
-                  Krei konton
+                  {t('login.footer.createAccount')}
                 </Link>
               </p>
             </div>
@@ -192,12 +195,12 @@ export default function LoginPage() {
                 <div key={f.key} className={`fade-up-${i + 3}`}>
                   <div className="flex items-baseline justify-between mb-1.5">
                     <label htmlFor={f.key}>
-                      <span className="font-display font-bold text-sm text-white/80">{f.label}</span>
-                      <span className="font-sans-dm text-white/25 text-xs ml-2">{f.sublabel}</span>
+                      <span className="font-display font-bold text-sm text-white/80">{t(f.labelKey)}</span>
+                      <span className="font-sans-dm text-white/25 text-xs ml-2">{t(f.sublabelKey)}</span>
                     </label>
                     {f.key === "pasvorto" && (
                       <Link href="/forgot-password" className="font-sans-dm text-xs text-white/30 hover:text-esperanto-verda transition-colors">
-                        Forgesis?
+                        {t('login.forgotPassword')}
                       </Link>
                     )}
                   </div>
@@ -205,7 +208,7 @@ export default function LoginPage() {
                     <input
                       id={f.key}
                       type={f.key === "pasvorto" && showPassword ? "text" : f.type}
-                      placeholder={f.placeholder}
+                      placeholder={t(f.placeholderKey)}
                       value={form[f.key]}
                       onChange={e => setForm(prev => ({ ...prev, [f.key]: e.target.value }))}
                       onFocus={() => setFocused(f.key)}
@@ -261,10 +264,10 @@ export default function LoginPage() {
                       <title>Ŝarĝado</title>
                       <path strokeLinecap="round" d="M12 2a10 10 0 0 1 10 10" />
                     </svg>
-                    {isSubmitting ? "Redirektante..." : "Ensalutante…"}
+                    {isSubmitting ? "Redirektante..." : t('login.buttons.submit') + "…"}
                   </>
                 ) : (
-                  "Ensaluti →"
+                  t('login.buttons.submit') + " →"
                 )}
               </button>
               <button
@@ -273,7 +276,7 @@ export default function LoginPage() {
                 disabled={loading}
                 className="w-full py-3.5 bg-white/5 hover:bg-white/10 disabled:opacity-60 text-white/60 font-sans-dm font-medium text-sm rounded-lg transition-all duration-200 border border-white/10"
               >
-                Nuligi kaj reveni
+                {t('login.buttons.cancel')}
               </button>
 
               {/* Divider

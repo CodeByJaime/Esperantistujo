@@ -5,11 +5,13 @@ import Image from "next/image";
 import { useAuth } from "@/contexts/AuthContext";
 import { registrationSchema } from "@/lib/validations";
 import { z } from "zod";
+import { useTranslation } from "@/lib/i18n";
 
 
 type Field = "nomo" | "retpoŝto" | "pasvorto" | "konfirmo";
 
 export default function RegisterPage() {
+  const { t } = useTranslation();
   const [form, setForm] = useState({ nomo: "", retpoŝto: "", pasvorto: "", konfirmo: "" });
   const [focused, setFocused] = useState<Field | null>(null);
   const [submitted, setSubmitted] = useState(false);
@@ -65,11 +67,11 @@ export default function RegisterPage() {
     setSubmitted(true);
   };
 
-  const fields: { key: Field; label: string; sublabel: string; type: string; placeholder: string }[] = [
-    { key: "nomo",     label: "Nomo",      sublabel: "Name",             type: "text",     placeholder: "Via plena nomo" },
-    { key: "retpoŝto", label: "Retpoŝto",  sublabel: "Email",            type: "email",    placeholder: "vi@ekzemplo.com" },
-    { key: "pasvorto", label: "Pasvorto",  sublabel: "Password",         type: "password", placeholder: "Minimume 8 signoj" },
-    { key: "konfirmo", label: "Konfirmo",  sublabel: "Confirm password", type: "password", placeholder: "Ripetu la pasvorton" },
+  const fields: { key: Field; labelKey: string; sublabelKey: string; type: string; placeholderKey: string }[] = [
+    { key: "nomo",     labelKey: "register.fields.name.label",      sublabelKey: "register.fields.name.sublabel",             type: "text",     placeholderKey: "register.fields.name.placeholder" },
+    { key: "retpoŝto", labelKey: "register.fields.email.label",  sublabelKey: "register.fields.email.sublabel",            type: "email",    placeholderKey: "register.fields.email.placeholder" },
+    { key: "pasvorto", labelKey: "register.fields.password.label",  sublabelKey: "register.fields.password.sublabel",         type: "password", placeholderKey: "register.fields.password.placeholder" },
+    { key: "konfirmo", labelKey: "register.fields.confirm.label",  sublabelKey: "register.fields.confirm.sublabel", type: "password", placeholderKey: "register.fields.confirm.placeholder" },
   ];
 
   return (
@@ -120,10 +122,10 @@ export default function RegisterPage() {
         {/* Quote */}
         <div className="relative z-10">
           <blockquote className="font-display text-3xl xl:text-4xl font-bold italic text-white leading-snug mb-6">
-            "En la komenco estis<br />la <span className="text-esperanto-verda">vorto.</span>"
+            "{t('register.quote.text').split('\n')[0]}<br />la <span className="text-esperanto-verda">vorto.</span>"
           </blockquote>
           <p className="font-sans-dm text-white/40 text-sm">
-            En la komenco estis la vorto.
+            {t('register.quote.attribution')}
           </p>
           <div className="mt-10 flex items-center gap-3">
             <div className="w-10 h-px bg-esperanto-verda/60" />
@@ -136,13 +138,13 @@ export default function RegisterPage() {
         {/* Bottom stat row */}
         <div className="relative z-10 grid grid-cols-3 gap-6 border-t border-white/10 pt-8">
           {[
-            { v: "2M+", l: "Parolantoj" },
-            { v: "180", l: "Landoj" },
-            { v: "137", l: "Jaroj" },
+            { v: "2M+", labelKey: "register.stats.speakers" },
+            { v: "180", labelKey: "register.stats.countries" },
+            { v: "137", labelKey: "register.stats.years" },
           ].map(s => (
-            <div key={s.l}>
+            <div key={s.labelKey}>
               <div className="font-display text-2xl font-black text-esperanto-verda">{s.v}</div>
-              <div className="font-sans-dm text-white/40 text-xs mt-1">{s.l}</div>
+              <div className="font-sans-dm text-white/40 text-xs mt-1">{t(s.labelKey)}</div>
             </div>
           ))}
         </div>
@@ -168,16 +170,17 @@ export default function RegisterPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
               </svg>
             </div>
-            <h2 className="font-display text-3xl font-bold text-white mb-3">Bonvenon, {form.nomo.split(" ")[0]}!</h2>
+            <h2 className="font-display text-3xl font-bold text-white mb-3">
+              {t('register.success.title').replace('{name}', form.nomo.split(" ")[0])}
+            </h2>
             <p className="font-sans-dm text-white/50 text-sm mb-8 leading-relaxed">
-              Via konto estis kreita. Ni sendis konfirman retmesaĝon al{" "}
-              <span className="text-esperanto-verda">{form.retpoŝto}</span>.
+              {t('register.success.message').replace('{email}', form.retpoŝto)}
             </p>
             <Link
               href="/"
               className="inline-flex items-center gap-2 px-8 py-3 bg-esperanto-verda text-white font-sans-dm font-semibold text-sm rounded-lg hover:bg-[#00b300] transition-all"
             >
-              Iri al komenco →
+              {t('register.success.button')} →
             </Link>
           </div>
         ) : (
@@ -187,16 +190,17 @@ export default function RegisterPage() {
             <div className="mb-10">
               <div className="fade-up flex items-center gap-2 mb-4">
                 <div className="w-6 h-px bg-esperanto-verda" />
-                <span className="font-sans-dm text-esperanto-verda text-xs tracking-[0.25em] uppercase">Nova konto</span>
+                <span className="font-sans-dm text-esperanto-verda text-xs tracking-[0.25em] uppercase">{t('register.title')}</span>
               </div>
               <h1 className="fade-up-2 font-display text-4xl sm:text-5xl font-black text-white leading-tight mb-3">
-                Aliĝu al la<br />
-                <span className="italic text-esperanto-verda">komunumo.</span>
+                {t('register.subtitle').split(' ').map((word, i) => 
+                  i === 2 ? <span key={`word-${word}`} className="italic text-esperanto-verda">{word} </span> : `${word} `
+                )}
               </h1>
               <p className="fade-up-3 font-sans-dm text-white/40 text-sm">
-                Ĉu jam membro?{" "}
+                {t('register.footer.haveAccount')}{" "}
                 <Link href="/eniri" className="text-white/70 hover:text-esperanto-verda transition-colors underline underline-offset-2">
-                  Eniri
+                  {t('register.footer.signIn')}
                 </Link>
               </p>
             </div>
@@ -221,13 +225,13 @@ export default function RegisterPage() {
                   style={{ animationDelay: `${0.15 + i * 0.08}s` }}
                 >
                   <label htmlFor={f.key} className="block mb-1.5">
-                    <span className="font-display font-bold text-sm text-white/80">{f.label}</span>
-                    <span className="font-sans-dm text-white/25 text-xs ml-2">{f.sublabel}</span>
+                    <span className="font-display font-bold text-sm text-white/80">{t(f.labelKey)}</span>
+                    <span className="font-sans-dm text-white/25 text-xs ml-2">{t(f.sublabelKey)}</span>
                   </label>
                   <input
                     id={f.key}
                     type={f.type}
-                    placeholder={f.placeholder}
+                    placeholder={t(f.placeholderKey)}
                     value={form[f.key]}
                     onChange={e => setForm(prev => ({ ...prev, [f.key]: e.target.value }))}
                     onFocus={() => setFocused(f.key)}
@@ -261,10 +265,10 @@ export default function RegisterPage() {
                       <title>Loading spinner</title>
                       <path strokeLinecap="round" d="M12 2a10 10 0 0 1 10 10" />
                     </svg>
-                    Kreante konton…
+                    {t('register.buttons.submit')}…
                   </>
                 ) : (
-                  <>Krei konton →</>
+                  <>{t('register.buttons.submit')} →</>
                 )}
               </button>
               <button
@@ -273,7 +277,7 @@ export default function RegisterPage() {
                 disabled={loading}
                 className="w-full py-3.5 bg-white/5 hover:bg-white/10 disabled:opacity-60 text-white/60 font-sans-dm font-medium text-sm rounded-lg transition-all duration-200 border border-white/10"
               >
-                Nuligi kaj reveni
+                {t('register.buttons.cancel')}
               </button>
               <p className="mt-4 text-center font-sans-dm text-white/25 text-xs leading-relaxed">
                 Registriĝante, vi akceptas niajn{" "}

@@ -1,0 +1,476 @@
+{
+  "common": {
+    "loading": "Cargando...",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "error": "Error",
+    "success": "Éxito"
+  },
+  "auth": {
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "logout": "Cerrar sesión",
+    "profile": "Perfil",
+    "settings": "Configuración"
+  },
+  "settings": {
+    "title": "Configuración",
+    "subtitle": "Administra tus preferencias, privacidad y seguridad de la cuenta.",
+    "loadingTitle": "Cargando configuración",
+    "loadingSubtitle": "Por favor espera mientras cargamos tu configuración...",
+    "notAccessible": "Configuración no accesible",
+    "notLoggedIn": "Por favor inicia sesión para ver tu configuración.",
+    "savedSuccess": "¡Configuración guardada exitosamente!",
+    "saveError": "Error al guardar la configuración",
+    "sections": {
+      "general": "General",
+      "privacy": "Privacidad",
+      "security": "Seguridad",
+      "data": "Gestión de Datos"
+    },
+    "quickActions": "Acciones Rápidas",
+    "saveChanges": "Guardar Cambios",
+    "changePassword": "Cambiar Contraseña",
+    "deleteAccount": "Eliminar Cuenta",
+    "general": {
+      "title": "Configuración General",
+      "interfaceLanguage": "Idioma de la Interfaz",
+      "notifications": "Notificaciones",
+      "emailNotifications": "Notificaciones por Correo",
+      "emailNotificationsDesc": "Recibir notificaciones por correo electrónico",
+      "newsletter": "Boletín",
+      "newsletterDesc": "Información sobre nuevas funciones y eventos esperantistas"
+    },
+    "privacy": {
+      "title": "Privacidad",
+      "subtitle": "Controla quién puede ver tu información en la comunidad.",
+      "publicProfile": "Perfil Público",
+      "publicProfileDesc": "Otros usuarios pueden ver tu perfil.",
+      "visibleFields": "Campos visibles para otros",
+      "age": "Edad",
+      "ageDesc": "Mostrar tu edad en el perfil",
+      "relationshipStatus": "Estado Civil",
+      "relationshipStatusDesc": "Mostrar si tienes pareja",
+      "ethnicity": "Grupo Étnico",
+      "ethnicityDesc": "Mostrar tu identidad étnica",
+      "monthlyIncome": "Ingreso Mensual",
+      "monthlyIncomeDesc": "Mostrar el rango de ingresos que seleccionaste"
+    },
+    "security": {
+      "title": "Seguridad",
+      "subtitle": "Administra la seguridad de tu cuenta.",
+      "twoFactor": "Autenticación de Dos Factores (2FA)",
+      "twoFactorDesc": "Añade una capa extra de protección a tu cuenta",
+      "sessionNotifications": "Notificaciones de nuevas sesiones",
+      "sessionAlerts": "Alerta por correo",
+      "sessionAlertsDesc": "Recibir un correo cuando un nuevo dispositivo inicie sesión",
+      "activeSessions": "Sesiones Activas",
+      "currentSession": "Sesión actual",
+      "active": "Activa"
+    },
+    "data": {
+      "title": "Gestión de Datos",
+      "subtitle": "Administra tus datos según tus derechos de privacidad.",
+      "exportData": "Exportar Datos",
+      "exportDataDesc": "Descarga una copia de todos tus datos en formato JSON.",
+      "export": "Exportar",
+      "clearHistory": "Limpiar Historial de Actividad",
+      "clearHistoryDesc": "Elimina tu historial de actividad en la plataforma. Esto no elimina tu cuenta.",
+      "clear": "Limpiar",
+      "deleteAccountTitle": "Eliminar Cuenta",
+      "deleteAccountDesc": "Esto es irreversible. Todos tus datos serán eliminados permanentemente.",
+      "delete": "Eliminar"
+    }
+  },
+  "komenci": {
+    "loading": "Cargando…",
+    "hero": {
+      "selectedLocation": "Ubicación seleccionada",
+      "title": "¿Por qué<br />Vichada?",
+      "subtitle": "Este proyecto no es aleatorio. Es una ubicación elegida con características geográficas únicas, condiciones legales y ventajas futuras para construir una comunidad planificada sin conflicto con la sociedad existente."
+    },
+    "territory": {
+      "title": "15 Razones<br />para Vichada",
+      "subtitle": "Cada detalle ha sido analizado. Cada decisión tiene una base estratégica."
+    },
+    "advantages": {
+      "01": {
+        "title": "Tamaño + vacío demográfico",
+        "subtitle": "Size + demographic emptiness",
+        "body": "~100.000 km² con ~80.000 habitantes. Densidad muy baja — espacio para planificar sin fricción social."
+      },
+      "02": {
+        "title": "Sabana plana",
+        "subtitle": "Flat savannah — cheap engineering",
+        "body": "Topografía casi plana — caminos, tuberías de agua, energía y urbanismo mucho más baratos que en montañas. No se deforesta para expandirse."
+      },
+      "03": {
+        "title": "Agua estratégica",
+        "subtitle": "Strategic water — Orinoco basin",
+        "body": "En un siglo de estrés hídrico, esto vale oro. Ríos, arroyos, acuíferos y lluvia estable."
+      },
+      "04": {
+        "title": "Marco legal: ZIDRES",
+        "subtitle": "Legal framework built for this",
+        "body": "El Estado ya ha declarado que quiere proyectos organizados allí. No va contra la ley — va con la ley."
+      },
+      "05": {
+        "title": "Distancia de polos urbanos",
+        "subtitle": "Distance from urban poles",
+        "body": "Menos presión criminal. Menos choque cultural. Menos 'tirón caótico' típico de grandes ciudades."
+      },
+      "06": {
+        "title": "Frontera viva con Venezuela",
+        "subtitle": "Live border with Venezuela",
+        "body": "Llave geopolítica para el futuro. Potencial de corredor legal y económico de doble vía."
+      },
+      "07": {
+        "title": "Tierra barata y abundante",
+        "subtitle": "Cheap and abundant land",
+        "body": "Se pueden comprar grandes extensiones legalmente. Escalable por décadas."
+      },
+      "08": {
+        "title": "Cielo abierto para energía solar",
+        "subtitle": "Open sky for solar energy",
+        "body": "Alta radiación, pocas sombras, terreno perfecto para granjas solares."
+      },
+      "09": {
+        "title": "Casi sin legado urbano",
+        "subtitle": "Almost no urban legacy",
+        "body": "No hay asentamientos informales previos. No hay diseños antiguos que limiten el plan."
+      }
+    },
+    "conclusion": {
+      "title": "Conclusión",
+      "mainTitle": "No utopía.<br />Ingeniería.",
+      "description": "Vichada no fue elegida para aislarse, sino porque es el único lugar donde es posible construir una comunidad organizada, legal y futura sin conflicto con la sociedad existente, mientras se traen desarrollo, inversión y capital humano a una región olvidada.",
+      "location": "Vichada, Colombia"
+    },
+    "scaleTests": {
+      "title": "Pruebas de escala real",
+      "subtitle": "Real-scale testing",
+      "description": "Vichada permite probar:",
+      "conclusion": "Sin luchar contra los demás.",
+      "items": {
+        "plannedCity": "Ciudad planificada",
+        "techAgriculture": "Agricultura tecnologizada",
+        "distributedEnergy": "Energía distribuida",
+        "waterManagement": "Gestión del agua",
+        "integratedCommunity": "Comunidad integrada"
+      }
+    },
+    "growth": {
+      "title": "Construir para<br />décadas.",
+      "subtitle": "Futuro",
+      "description": "No es un proyecto de 5 años. Este es un territorio que permite crecer por 50-100 años sin límites físicos.",
+      "stats": {
+        "territory": "Territorio",
+        "inhabitants": "Habitantes",
+        "growth": "Crecimiento",
+        "eras": "Épocas"
+      }
+    },
+    "colombia": {
+      "strategicValue": "Valor estratégico de Colombia",
+      "subtitle": "Strategic value",
+      "description": "Y Vichada es su frontera vacía.",
+      "items": {
+        "waterPower": "Poder hídrico del continente",
+        "noDisasters": "Libre de huracanes, terremotos y guerras",
+        "gateway": "Puerta entre Amazonía, Andes y Orinoquía"
+      }
+    },
+    "tourism": {
+      "title": "Turismo de aprendizaje",
+      "subtitle": "Learning tourism",
+      "items": {
+        "exchanges": "Intercambios universitarios",
+        "retreats": "Retiros y cursos intensivos",
+        "learning": "Aprendizaje intensivo de idiomas",
+        "events": "Eventos internacionales"
+      }
+    }
+  },
+  "profile": {
+    "loading": "Cargando perfil...",
+    "loadingSubtitle": "Por favor espera mientras cargamos tu información.",
+    "title": "Tu Perfil",
+    "subtitle": "Administra tu información personal y configuraciones de la comunidad.",
+    "userNotFound": "Usuario no encontrado",
+    "loginPrompt": "Por favor inicia sesión para ver tu perfil.",
+    "sections": {
+      "personal": "Personal",
+      "esperanto": "Esperanto",
+      "social": "Social",
+      "economic": "Económico"
+    },
+    "form": {
+      "displayName": "Nombre visible",
+      "esperantoName": "Nombre en esperanto",
+      "birthPlace": "Lugar de nacimiento",
+      "birthCountry": "País de nacimiento",
+      "age": "Edad",
+      "ethnicity": "Etnicidad",
+      "educationLevel": "Nivel educativo",
+      "occupation": "Ocupación",
+      "monthlyIncome": "Ingreso mensual",
+      "height": "Altura",
+      "languages": "Idiomas",
+      "relationshipStatus": "Estado civil",
+      "children": "Hijos",
+      "esperantoLevel": "Nivel de esperanto",
+      "esperantoSince": "Esperanto desde",
+      "bio": "Biografía",
+      "memberSince": "Miembro desde",
+      "edit": "Editar",
+      "save": "Guardar",
+      "cancel": "Cancelar",
+      "saveChanges": "Guardar cambios",
+      "placeholders": {
+        "displayName": "Tu nombre",
+        "esperantoName": "p.e. Juan, María…",
+        "birthPlace": "Ciudad",
+        "birthCountry": "País",
+        "age": "Años",
+        "height": "cm",
+        "ethnicity": "p.e. Latino, Europeo, Africano…",
+        "bio": "Breve descripción sobre ti…",
+        "esperantoSince": "Año (p.e. 2018)",
+        "occupation": "p.e. Maestro, Programador…",
+        "selectStatus": "Seleccionar estado…",
+        "selectLevel": "Seleccionar nivel…"
+      },
+      "info": "Información",
+      "userId": "ID de Usuario",
+      "email": "Correo electrónico",
+      "infoText": "Estas estadísticas nos ayudan a entender la composición demográfica de los esperantohablantes a nivel mundial. Puedes elegir no divulgar esta información, y respetaremos tu privacidad. Puedes seleccionar \"Prefiero no decir\" para mantener esta información privada.",
+      "economicInfo": "Esta información es opcional y ayuda a la comunidad a entender el perfil demográfico y económico de los esperantohablantes a nivel mundial. Puedes elegir \"Prefiero no decir\" para mantener tu privacidad."
+    },
+    "incomeOptions": {
+      "preferNotToSay": "Prefiere no decir",
+      "under500": "< 500 USD",
+      "500to1000": "500–1,000 USD",
+      "1000to2000": "1,000–2,000 USD",
+      "2000to4000": "2,000–4,000 USD",
+      "4000to8000": "4,000–8,000 USD",
+      "over8000": "> 8,000 USD"
+    },
+    "relationshipOptions": {
+      "single": "Soltero/a",
+      "inRelationship": "En relación (no casado/a)",
+      "married": "Casado/a",
+      "divorced": "Divorciado/a",
+      "widowed": "Viudo/a",
+      "preferNotToSay": "Prefiere no decir"
+    },
+    "esperantoLevels": {
+      "beginner": "Principiante",
+      "basic": "Básico",
+      "intermediate": "Intermedio",
+      "advanced": "Avanzado",
+      "fluent": "Fluido",
+      "native": "Nativo"
+    },
+    "childrenOptions": {
+      "none": "Ninguno",
+      "one": "1",
+      "two": "2",
+      "three": "3",
+      "four": "4",
+      "fivePlus": "5+",
+      "preferNotToSay": "Prefiere no decir"
+    }
+  },
+  "languages": {
+    "eo": "Esperanto",
+    "en": "Inglés",
+    "es": "Español",
+    "fr": "Francés",
+    "de": "Alemán"
+  },
+  "navigation": {
+    "brand": "Esperantistujo",
+    "dashboard": "Panel",
+    "navigation": "Navegación",
+    "profile": "Perfil",
+    "settings": "Configuración",
+    "governance": "Gobernanza",
+    "agora": "Ágora",
+    "citizens": "Ciudadanos",
+    "closeMenu": "Cerrar menú",
+    "signOut": "Cerrar sesión"
+  },
+  "topbar": {
+    "navLinks": [
+      { "label": "Manifiesto", "href": "#manifesto" },
+      { "label": "Posición", "href": "#pozicio" }
+    ],
+    "greeting": "Hola",
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "menu": "Menú"
+  },
+  "home": {
+    "eyebrow": "La primera comunidad esperantista",
+    "title": {
+      "line1": "Un idioma.",
+      "line2": "Una comunidad.",
+      "line3": "Un futuro."
+    },
+    "subtitle": "Estamos construyendo la primera comunidad esperantista del mundo, comenzando con la comunidad fundacional en Vichada. Como participante, puedes colaborar en cualquier comunidad de nuestra red global.",
+    "manifesto": {
+      "title": "MANIFIESTO DE ESPERANTISTUJO",
+      "subtitle": "Del Tribalismo al Humanismo",
+      "tagline": "Red Global de Comunidades • Un Solo Planeta • Un Lenguaje Común",
+      "sections": [
+        {
+          "number": "I",
+          "title": "EL PROBLEMA: LA MENTALIDAD HEREDADA DEL ESTADO-NACIÓN",
+          "content": "El mundo actual todavía funciona según el mismo modelo mental que tenían las tribus hace miles de años. Solo cambiamos el nombre: de tribalismo a nacionalismo. Y con ese nuevo nombre añadimos algo más difícil: fronteras.\n\nTodo lo que está entre estas fronteras pertenece a un estado; lo que está fuera de ellas, a otro. Y como en cada tribu, los conflictos se vuelven casi inevitables.\n\nEste modelo ha demostrado ser inadecuado para la humanidad actual:\n\n1. **Corrupción e ineficiencia** en burocracias opacas\n2. **Fuga de capital humano**, porque el talento permanece atrapado en el lugar de nacimiento\n3. **Inseguridad crónica** en regiones olvidadas\n4. **Sistemas monetarios**, que a menudo debilitan los ahorros de la gente común\n\nPensar desde lo macro (estados) hacia lo micro (personas) genera división.\nProponemos lo contrario: **pensar desde las personas hacia la comunidad**."
+        },
+        {
+          "number": "II",
+          "title": "NUESTRA VISIÓN: RED GLOBAL DE COMUNIDADES ESPERANTISTAS",
+          "content": "Creemos que todas las personas valen por igual, independientemente de su nacionalidad, origen o religión.\n\nImaginamos un mundo donde las personas puedan colaborar más allá de las fronteras a través de un lenguaje común y valores compartidos.\n\nPor lo tanto proponemos la creación de **comunidades físicas**, conectadas en una **red global**, donde el Esperanto es el lenguaje cotidiano de convivencia.\n\nLa primera comunidad de este tipo será fundada en Vichada, Colombia, como modelo para futuras comunidades en otras partes del mundo."
+        },
+        {
+          "number": "III",
+          "title": "PILARES TECNOLÓGICOS Y ORGANIZACIONALES",
+          "content": "1. **Ágora – Sistema de Coordinación**\n   Herramienta de código abierto para proponer, financiar y realizar proyectos en la comunidad con total transparencia.\n\n2. **Sistema de Reputación Común**\n   Herramienta para facilitar el comercio entre comunidades de la red, gestionada localmente según principios comunitarios.\n\n3. **Colaboración Basada en Tareas**\n   Los roles no son posiciones permanentes, sino tareas temporales según capacidades y contribuciones probadas.\n\n4. **Sistema de Confianza Digital**\n   Las contribuciones de cada miembro son visibles y rastreables a través de toda la red de comunidades."
+        },
+        {
+          "number": "IV",
+          "title": "CÓMO FUNCIONA EN LA PRÁCTICA",
+          "content": "**Primera fase: la comunidad fundacional** en Vichada.\n\n**Segunda fase:** ayudar a otros grupos a fundar comunidades similares en otras regiones.\n\n**Tercera fase:** conectar estas comunidades en una red global de colaboración.\n\nLa seguridad, economía y organización se basan en transparencia, responsabilidad local y confianza mutua."
+        },
+        {
+          "number": "V",
+          "title": "LLAMADO A LA ACCIÓN",
+          "content": "No nos oponemos a los estados existentes.\nSimplemente construimos un ejemplo de otra forma de convivir.\n\n1. Únete como **participante** y contribuye con tus habilidades.\n2. Ayuda a crear la primera comunidad esperantista donde el idioma sea una realidad cotidiana.\n\nEsto es un experimento práctico:\n¿qué pasa cuando una comunidad se organiza alrededor de la transparencia, contribución y un lenguaje común?\n\nLa humanidad no necesita más fronteras.\nNecesita más nodos colaborativos."
+        }
+      ]
+    },
+    "position": {
+      "title": "Nuestra posición",
+      "subtitle": "No somos utópicos. Somos constructores.",
+      "zamenhofTitle": "Zamenhof como modelo",
+      "zamenhofText1": "En sus últimos años, Zamenhof ya no hablaba solo de idioma, sino de",
+      "zamenhofText2": "humanitarismo: la idea de que el verdadero problema de la humanidad no es la falta de herramientas de comunicación, sino la forma en que las personas se dividen en tribus separadas llamadas naciones.",
+      "zamenhofText3": "En sus cartas privadas, expresó su preocupación de que un idioma internacional, si permanece solo como herramienta para congresos y correspondencia, corre el riesgo de convertirse en un círculo intelectual en lugar de una realidad viviente. Para él, el idioma debía ser",
+      "zamenhofText4": "hablado diariamente entre personas de diferentes orígenes.",
+      "zamenhofText5": "Su visión no era solo comunicar sin fronteras, sino que las personas realmente",
+      "zamenhofText6": "convivan sin fronteras. Que vivan, trabajen y construyan juntos, para que el idioma se convierta en una parte natural de la vida diaria.",
+      "zamenhofText7": "Esperantistujo no es una idea nueva. Es un intento de realizar esa parte no cumplida de la visión de Zamenhof: crear lugares donde el Esperanto no solo se habla, sino se vive."
+    },
+    "cta": {
+      "eyebrow": "Conviértete en participante",
+      "title": "Conviértete en participante",
+      "titleHighlight": "ahora.",
+      "description": "Regístrate como participante de la primera comunidad esperantista del mundo. Comienza en la comunidad fundacional en Vichada, Colombia, y colabora en cualquier comunidad de nuestra red global a medida que crecemos. El proyecto espera financiar tus gastos de viaje y manutención en esta ciudad pionera.",
+      "button": "Registrarse como participante"
+    },
+    "hero": {
+      "nextStep": "Siguiente paso",
+      "readManifesto": "Leer el manifiesto"
+    },
+    "footer": {
+      "copyright": "Construido con 💚 en Esperanto"
+    },
+    "stats": [
+      { "value": "2 millones", "label": "Esperantistas en el mundo" },
+      { "value": "180+", "label": "Países con comunidad activa" },
+      { "value": "1887", "label": "Año del nacimiento del Esperanto" }
+    ],
+    "navLinks": [
+      { "label": "Manifiesto", "href": "#manifesto" },
+      { "label": "Posición", "href": "#pozicio" },
+      { "label": "Unirse", "href": "/registri" }
+    ]
+  },
+  "register": {
+    "title": "Crear tu cuenta",
+    "subtitle": "Únete a la primera comunidad esperantista del mundo.",
+    "fields": {
+      "name": {
+        "label": "Nombre",
+        "sublabel": "Name",
+        "placeholder": "Tu nombre completo"
+      },
+      "email": {
+        "label": "Correo electrónico",
+        "sublabel": "Email",
+        "placeholder": "tu@ejemplo.com"
+      },
+      "password": {
+        "label": "Contraseña",
+        "sublabel": "Password",
+        "placeholder": "Mínimo 8 caracteres"
+      },
+      "confirm": {
+        "label": "Confirmar",
+        "sublabel": "Confirm password",
+        "placeholder": "Repite la contraseña"
+      }
+    },
+    "buttons": {
+      "submit": "Crear cuenta",
+      "cancel": "Cancelar"
+    },
+    "success": {
+      "title": "¡Bienvenido, {name}!",
+      "message": "Tu cuenta ha sido creada. Enviamos un correo de confirmación a {email}.",
+      "button": "Ir al inicio"
+    },
+    "footer": {
+      "haveAccount": "¿Ya tienes una cuenta?",
+      "signIn": "Iniciar sesión"
+    },
+    "stats": {
+      "speakers": "Hablantes",
+      "countries": "Países",
+      "years": "Años"
+    },
+    "quote": {
+      "text": "En el principio fue\nla palabra.",
+      "attribution": "En el principio fue la palabra."
+    }
+  },
+  "login": {
+    "title": "Iniciar sesión",
+    "subtitle": "Bienvenido\nde vuelta.",
+    "fields": {
+      "email": {
+        "label": "Correo electrónico",
+        "sublabel": "Email",
+        "placeholder": "tu@ejemplo.com"
+      },
+      "password": {
+        "label": "Contraseña",
+        "sublabel": "Password",
+        "placeholder": "Tu contraseña"
+      }
+    },
+    "buttons": {
+      "submit": "Iniciar sesión",
+      "cancel": "Cancelar"
+    },
+    "footer": {
+      "isNewUser": "¿Eres nuevo?",
+      "createAccount": "Crear cuenta"
+    },
+    "stats": {
+      "speakers": "Hablantes",
+      "countries": "Países",
+      "years": "Años"
+    },
+    "quote": {
+      "text": "Regresa a tu\ncomunidad.",
+      "attribution": "Return to your community."
+    },
+    "errors": {
+      "invalidEmail": "Dirección de correo inválida.",
+      "passwordRequired": "Por favor ingresa tu contraseña."
+    },
+    "forgotPassword": "¿Olvidaste?"
+  }
+}

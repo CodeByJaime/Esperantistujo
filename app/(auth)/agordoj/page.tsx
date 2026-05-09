@@ -6,6 +6,8 @@ import { useForm, useStore } from "@tanstack/react-form";
 import { LoadingScreen } from "@/components/ui";
 import { settingsOperations, type UserSettings } from "@/lib/supabase";
 import { toast } from "sonner";
+import { useTranslation, useI18n } from "@/lib/i18n";
+import { availableLanguages } from "@/lib/i18n";
 
 type Section = "general" | "privacy" | "security" | "data";
 
@@ -13,6 +15,8 @@ export default function AgordojPage() {
   const { user } = useUserStore();
   const [activeSection, setActiveSection] = useState<Section>("general");
   const [isLoading, setIsLoading] = useState(true);
+  const { t } = useTranslation();
+  const { setLanguage } = useI18n();
 
   const form = useForm({
     defaultValues: {
@@ -31,10 +35,16 @@ export default function AgordojPage() {
       if (!user?.id) return;
       try {
         await settingsOperations.updateSettings(user.id, value);
-        toast.success("Agordoj konservitaj sukcese!");
+        
+        // Update language if interface_language was changed
+        if (value.interface_language && value.interface_language !== formValues.interface_language) {
+          setLanguage(value.interface_language);
+        }
+        
+        toast.success(t('settings.savedSuccess'));
       } catch (error) {
         console.error("Error saving settings:", error);
-        toast.error("Eraro dum konservado de agordoj");
+        toast.error(t('settings.saveError'));
       }
     },
   });
@@ -69,10 +79,10 @@ export default function AgordojPage() {
   }, [loadSettings]);
 
   const navItems: { id: Section; label: string; icon: string }[] = [
-    { id: "general",  label: "Ĝeneralaj",          icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z" },
-    { id: "privacy",  label: "Privateco",           icon: "M15 12a3 3 0 11-6 0 3 3 0 016 0zM2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" },
-    { id: "security", label: "Sekureco",            icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
-    { id: "data",     label: "Datuma Administrado", icon: "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" },
+    { id: "general",  label: t('settings.sections.general'),          icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z" },
+    { id: "privacy",  label: t('settings.sections.privacy'),           icon: "M15 12a3 3 0 11-6 0 3 3 0 016 0zM2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" },
+    { id: "security", label: t('settings.sections.security'),            icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
+    { id: "data",     label: t('settings.sections.data'), icon: "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" },
   ];
 
   // Show loading screen while settings are being loaded
@@ -80,8 +90,8 @@ export default function AgordojPage() {
     return (
       <AuthLayout user={user}>
         <LoadingScreen 
-          title="Ŝargante agordojn" 
-          subtitle="Bonvolu atendi dum ni ŝargas viajn agordojn..." 
+          title={t('settings.loadingTitle')} 
+          subtitle={t('settings.loadingSubtitle')} 
         />
       </AuthLayout>
     );
@@ -94,13 +104,13 @@ export default function AgordojPage() {
           <div className="text-center">
             <div className="w-16 h-16 rounded-full bg-esperanto-verda/15 border border-esperanto-verda/30 flex items-center justify-center mx-auto mb-4">
               <svg className="w-8 h-8 text-esperanto-verda" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <title>{"Agordoj"}</title>
+                <title>{t('settings.title')}</title>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <h2 className="font-display text-2xl font-bold text-white mb-2">Agordoj ne alireblaj</h2>
-            <p className="font-sans-dm text-white/50 text-sm">Bonvolu ensaluti por vidi viajn agordojn.</p>
+            <h2 className="font-display text-2xl font-bold text-white mb-2">{t('settings.notAccessible')}</h2>
+            <p className="font-sans-dm text-white/50 text-sm">{t('settings.notLoggedIn')}</p>
           </div>
         </div>
       </AuthLayout>
@@ -113,9 +123,9 @@ export default function AgordojPage() {
 
         {/* Header */}
         <div className="mb-8">
-          <h1 className="font-display text-3xl font-bold text-white mb-2">Agordoj</h1>
+          <h1 className="font-display text-3xl font-bold text-white mb-2">{t('settings.title')}</h1>
           <p className="font-sans-dm text-white/50 text-sm">
-            Administru viajn preferojn, privatecon kaj sekurecon de la konto.
+            {t('settings.subtitle')}
           </p>
         </div>
 
@@ -145,20 +155,20 @@ export default function AgordojPage() {
 
             {/* Quick actions */}
             <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6">
-              <h3 className="font-display text-base font-bold text-white mb-4">Rapidaj Agoj</h3>
+              <h3 className="font-display text-base font-bold text-white mb-4">{t('settings.quickActions')}</h3>
               <div className="space-y-3">
                 <button
                   type="button"
                   onClick={() => form.handleSubmit()}
                   className="w-full px-4 py-2 bg-esperanto-verda hover:bg-esperanto-verda/20 text-white font-sans-dm text-sm rounded-lg transition-all"
                 >
-                  Konservi ŝanĝojn
+                  {t('settings.saveChanges')}
                 </button>
                 <button type="button" className="w-full px-4 py-2 bg-white/10 hover:bg-white/20 text-white font-sans-dm text-sm rounded-lg transition-all">
-                  Ŝanĝi Pasvorton
+                  {t('settings.changePassword')}
                 </button>
                 <button type="button" className="w-full px-4 py-2 bg-red-500/10 hover:bg-red-500/20 text-red-400 font-sans-dm text-sm rounded-lg transition-all text-left border border-red-500/20">
-                  Forigi Konton
+                  {t('settings.deleteAccount')}
                 </button>
               </div>
             </div>
@@ -171,13 +181,13 @@ export default function AgordojPage() {
               {/* ── GENERAL ── */}
               {activeSection === "general" && (
                 <div>
-                  <h3 className="font-display text-xl font-bold text-white mb-6">Ĝeneralaj Agordoj</h3>
+                  <h3 className="font-display text-xl font-bold text-white mb-6">{t('settings.general.title')}</h3>
                   <div className="space-y-6">
 
                     {/* Language */}
                     <div>
                       <label htmlFor="interface_language" className="block font-sans-dm text-white/60 text-xs uppercase tracking-wider mb-2">
-                        Interfaca Lingvo
+                        {t('settings.general.interfaceLanguage')}
                       </label>
                       <select
                         id="interface_language"
@@ -185,28 +195,28 @@ export default function AgordojPage() {
                         onChange={(e) => form.setFieldValue("interface_language", e.target.value as 'eo' | 'en' | 'es' | 'fr' | 'de')}
                         className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white focus:outline-none focus:border-esperanto-verda focus:bg-white/15 transition-all text-sm font-sans-dm appearance-none"
                       >
-                        <option value="eo" className="bg-gray-900">Esperanto</option>
-                        <option value="en" className="bg-gray-900">English</option>
-                        <option value="es" className="bg-gray-900">Español</option>
-                        <option value="fr" className="bg-gray-900">Français</option>
-                        <option value="de" className="bg-gray-900">Deutsch</option>
+                        {availableLanguages.map((lang) => (
+                          <option key={lang.code} value={lang.code} className="bg-gray-900">
+                            {t(`languages.${lang.code}`)}
+                          </option>
+                        ))}
                       </select>
                     </div>
 
                     {/* Notifications */}
                     <div className="border-t border-white/10 pt-6 space-y-4">
-                      <p className="font-sans-dm text-white/60 text-xs uppercase tracking-wider">Sciigoj</p>
+                      <p className="font-sans-dm text-white/60 text-xs uppercase tracking-wider">{t('settings.general.notifications')}</p>
 
                       <Toggle
-                        label="Retpoŝtaj Sciigoj"
-                        description="Ricevu sciigojn retpoŝte"
+                        label={t('settings.general.emailNotifications')}
+                        description={t('settings.general.emailNotificationsDesc')}
                         checked={formValues.notifications_email}
                         onChange={(v) => form.setFieldValue("notifications_email", v)}
                       />
 
                       <Toggle
-                        label="Novaĵletero"
-                        description="Informoj pri novaj funkcioj kaj eventoj esperantistaj"
+                        label={t('settings.general.newsletter')}
+                        description={t('settings.general.newsletterDesc')}
                         checked={formValues.notifications_newsletter}
                         onChange={(v) => form.setFieldValue("notifications_newsletter", v)}
                       />

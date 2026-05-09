@@ -6,6 +6,7 @@ import { LoadingScreen } from "@/components/ui";
 import Image from "next/image";
 import { useForm } from "@tanstack/react-form";
 import { profileOperations } from "@/lib/supabase";
+import { useTranslation } from "@/lib/i18n";
 
 const LANGUAGES_OPTIONS = [
   "Esperanto", "Angla", "Hispana", "Franca", "Germana", "Portugala",
@@ -35,6 +36,7 @@ const CHILDREN_OPTIONS = ["Neniu", "1", "2", "3", "4", "5+", "Preferas ne diri"]
 
 export default function ProfiloPage() {
   const { user } = useUserStore();
+  const { t } = useTranslation();
   const user_id = user?.id || null;
   const [isEditing, setIsEditing] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("personal");
@@ -110,10 +112,10 @@ export default function ProfiloPage() {
   }, [loadProfile]);
 
   const sections = [
-    { id: "personal",  label: "Persona",  icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
-    { id: "esperanto", label: "Esperanto", icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" },
-    { id: "social",    label: "Socia",    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
-    { id: "economic",  label: "Ekonomia", icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
+    { id: "personal",  label: t('profile.sections.personal'),  icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
+    { id: "esperanto", label: t('profile.sections.esperanto'), icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" },
+    { id: "social",    label: t('profile.sections.social'),    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
+    { id: "economic", label: t('profile.sections.economic'), icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
   ];
 
   if (!user) {
@@ -127,8 +129,8 @@ export default function ProfiloPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
               </svg>
             </div>
-            <h2 className="font-display text-2xl font-bold text-white mb-2">Uzanto ne trovita</h2>
-            <p className="font-sans-dm text-white/50 text-sm">Bonvolu ensaluti por vidi vian profilon.</p>
+            <h2 className="font-display text-2xl font-bold text-white mb-2">{t('profile.userNotFound')}</h2>
+            <p className="font-sans-dm text-white/50 text-sm">{t('profile.loginPrompt')}</p>
           </div>
         </div>
       </AuthLayout>
@@ -140,8 +142,8 @@ export default function ProfiloPage() {
     return (
       <AuthLayout user={user}>
         <LoadingScreen 
-          title="Ŝargante profilon..." 
-          subtitle="Bonvolu atendi dum ni ŝargas viajn informojn." 
+          title={t('profile.loading')} 
+          subtitle={t('profile.loadingSubtitle')} 
         />
       </AuthLayout>
     );
@@ -151,9 +153,9 @@ export default function ProfiloPage() {
     <AuthLayout user={user}>
       <div key={profileLoaded.toString()} className="max-w-5xl mx-auto p-6">
         <div className="mb-8">
-          <h1 className="font-display text-3xl font-bold text-white mb-2">Via Profilo</h1>
+          <h1 className="font-display text-3xl font-bold text-white mb-2">{t('profile.title')}</h1>
           <p className="font-sans-dm text-white/50 text-sm">
-            Administru viajn personajn informojn kaj agordojn por la komunumo.
+            {t('profile.subtitle')}
           </p>
         </div>
 
@@ -196,47 +198,47 @@ export default function ProfiloPage() {
                   
                   {form.getFieldValue("birthPlace") && (
                     <div className="flex justify-between items-center">
-                      <span className="font-sans-dm text-white/50 text-xs">Naskiĝloko</span>
+                      <span className="font-sans-dm text-white/50 text-xs">{t('profile.form.birthPlace')}</span>
                       <span className="font-sans-dm text-white text-xs">{form.getFieldValue("birthPlace")}</span>
                     </div>
                   )}
                   
                   {form.getFieldValue("birthCountry") && (
                     <div className="flex justify-between items-center">
-                      <span className="font-sans-dm text-white/50 text-xs">Lando</span>
+                      <span className="font-sans-dm text-white/50 text-xs">{t('profile.form.birthCountry')}</span>
                       <span className="font-sans-dm text-white text-xs">{form.getFieldValue("birthCountry")}</span>
                     </div>
                   )}
                   
                   {form.getFieldValue("age") && (
                     <div className="flex justify-between items-center">
-                      <span className="font-sans-dm text-white/50 text-xs">Aĝo</span>
+                      <span className="font-sans-dm text-white/50 text-xs">{t('profile.form.age')}</span>
                       <span className="font-sans-dm text-white text-xs">{form.getFieldValue("age")} j.</span>
                     </div>
                   )}
                   
                   {form.getFieldValue("ethnicity") && (
                     <div className="flex justify-between items-center">
-                      <span className="font-sans-dm text-white/50 text-xs">Etno</span>
+                      <span className="font-sans-dm text-white/50 text-xs">{t('profile.form.ethnicity')}</span>
                       <span className="font-sans-dm text-white text-xs">{form.getFieldValue("ethnicity")}</span>
                     </div>
                   )}
                   
                   {form.getFieldValue("esperantoLevel") && (
                     <div className="flex justify-between items-center">
-                      <span className="font-sans-dm text-white/50 text-xs">Nivelo</span>
+                      <span className="font-sans-dm text-white/50 text-xs">{t('profile.form.esperantoLevel')}</span>
                       <span className="font-sans-dm text-esperanto-verda text-xs">{form.getFieldValue("esperantoLevel")}</span>
                     </div>
                   )}
                   <div className="flex justify-between items-center">
-                    <span className="font-sans-dm text-white/50 text-xs">Membro de</span>
+                    <span className="font-sans-dm text-white/50 text-xs">{t('profile.form.memberSince')}</span>
                     <span className="font-sans-dm text-white text-xs">
                       {new Date(user.created_at).toLocaleDateString("eo-ES", { year: "numeric", month: "long" })}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="font-sans-dm text-white/50 text-xs">Statuso</span>
-                    <span className="font-sans-dm text-esperanto-verda text-xs">Civitano</span>
+                    <span className="font-sans-dm text-white/50 text-xs">{t('profile.form.relationshipStatus')}</span>
+                    <span className="font-sans-dm text-esperanto-verda text-xs">{t('profile.relationshipOptions.married')}</span>
                   </div>
                 </div>
 
@@ -246,7 +248,7 @@ export default function ProfiloPage() {
                     return languages && languages.length > 0;
                   })() && (
                   <div className="mt-4 pt-4 border-t border-white/10">
-                    <p className="font-sans-dm text-white/50 text-xs mb-2 text-left">Lingvoj</p>
+                    <p className="font-sans-dm text-white/50 text-xs mb-2 text-left">{t('profile.form.languages')}</p>
                     <div className="flex flex-wrap gap-1">
                       {form.getFieldValue("languages").map((l: string) => (
                         <span key={l} className="px-2 py-0.5 bg-esperanto-verda/10 border border-esperanto-verda/30 rounded-full text-esperanto-verda text-xs font-sans-dm">
@@ -286,55 +288,55 @@ export default function ProfiloPage() {
             <div className="bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 p-6">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="font-display text-xl font-bold text-white">
-                  {sections.find(s => s.id === activeSection)?.label} Informoj
+                  {sections.find(s => s.id === activeSection)?.label} {t('profile.form.info')}
                 </h3>
                 <button
                   type="button"
                   onClick={() => setIsEditing(!isEditing)}
                   className="px-4 py-2 bg-esperanto-verda hover:bg-[#00b300] text-white font-sans-dm font-medium text-sm rounded-lg transition-all"
                 >
-                  {isEditing ? "Nuligi" : "Redakti"}
+                  {isEditing ? t('profile.form.cancel') : t('profile.form.edit')}
                 </button>
               </div>
 
               {/* ── PERSONAL ── */}
               {activeSection === "personal" && (
                 <div className="space-y-5">
-                  <Field label="Montrata Nomo" htmlFor="displayName">
+                  <Field label={t('profile.form.displayName')} htmlFor="displayName">
                     {isEditing ? (
                       <form.Field name="displayName">
                         {(field) => (
-                          <Input id="displayName" value={field.state.value} onChange={field.handleChange} placeholder="Via nomo" />
+                          <Input id="displayName" value={field.state.value} onChange={field.handleChange} placeholder={t('profile.form.placeholders.displayName')} />
                         )}
                       </form.Field>
                     ) : <Value>{form.getFieldValue("displayName") || "—"}</Value>}
                   </Field>
 
-                  <Field label="Nomo Esperantizita" htmlFor="esperantoName">
+                  <Field label={t('profile.form.esperantoName')} htmlFor="esperantoName">
                     {isEditing ? (
                       <form.Field name="esperantoName">
                         {(field) => (
-                          <Input id="esperantoName" value={field.state.value} onChange={field.handleChange} placeholder="p.e. Johano, Marija…" />
+                          <Input id="esperantoName" value={field.state.value} onChange={field.handleChange} placeholder={t('profile.form.placeholders.esperantoName')} />
                         )}
                       </form.Field>
                     ) : <Value>{form.getFieldValue("esperantoName") || "—"}</Value>}
                   </Field>
 
                   <div className="grid grid-cols-2 gap-4">
-                    <Field label="Naskiĝurbo" htmlFor="birthPlace">
+                    <Field label={t('profile.form.birthPlace')} htmlFor="birthPlace">
                       {isEditing ? (
                         <form.Field name="birthPlace">
                           {(field) => (
-                            <Input id="birthPlace" value={field.state.value} onChange={field.handleChange} placeholder="Urbo" />
+                            <Input id="birthPlace" value={field.state.value} onChange={field.handleChange} placeholder={t('profile.form.placeholders.birthPlace')} />
                           )}
                         </form.Field>
                       ) : <Value>{form.getFieldValue("birthPlace") || "—"}</Value>}
                     </Field>
-                    <Field label="Lando" htmlFor="birthCountry">
+                    <Field label={t('profile.form.birthCountry')} htmlFor="birthCountry">
                       {isEditing ? (
                         <form.Field name="birthCountry">
                           {(field) => (
-                            <Input id="birthCountry" value={field.state.value} onChange={field.handleChange} placeholder="Lando" />
+                            <Input id="birthCountry" value={field.state.value} onChange={field.handleChange} placeholder={t('profile.form.placeholders.birthCountry')} />
                           )}
                         </form.Field>
                       ) : <Value>{form.getFieldValue("birthCountry") || "—"}</Value>}
@@ -342,45 +344,45 @@ export default function ProfiloPage() {
                   </div>
 
                   <div className="grid grid-cols-2 gap-4">
-                    <Field label="Aĝo" htmlFor="age">
+                    <Field label={t('profile.form.age')} htmlFor="age">
                       {isEditing ? (
                         <form.Field name="age">
                           {(field) => (
-                            <Input id="age" type="number" value={field.state.value} onChange={field.handleChange} placeholder="Jaroj" />
+                            <Input id="age" type="number" value={field.state.value} onChange={field.handleChange} placeholder={t('profile.form.placeholders.age')} />
                           )}
                         </form.Field>
                       ) : <Value>{form.getFieldValue("age") ? `${form.getFieldValue("age")} jaroj` : "—"}</Value>}
                     </Field>
-                    <Field label="Alto (cm)" htmlFor="height">
+                    <Field label={t('profile.form.height')} htmlFor="height">
                       {isEditing ? (
                         <form.Field name="height">
                           {(field) => (
-                            <Input id="height" type="number" value={field.state.value} onChange={field.handleChange} placeholder="cm" />
+                            <Input id="height" type="number" value={field.state.value} onChange={field.handleChange} placeholder={t('profile.form.placeholders.height')} />
                           )}
                         </form.Field>
                       ) : <Value>{form.getFieldValue("height") ? `${form.getFieldValue("height")} cm` : "—"}</Value>}
                     </Field>
                   </div>
 
-                  <Field label="Etna Grupo" htmlFor="ethnicity">
+                  <Field label={t('profile.form.ethnicity')} htmlFor="ethnicity">
                     {isEditing ? (
                       <form.Field name="ethnicity">
                         {(field) => (
-                          <Input id="ethnicity" value={field.state.value} onChange={field.handleChange} placeholder="p.e. Latina, Eŭropa, Afrikana…" />
+                          <Input id="ethnicity" value={field.state.value} onChange={field.handleChange} placeholder={t('profile.form.placeholders.ethnicity')} />
                         )}
                       </form.Field>
                     ) : <Value>{form.getFieldValue("ethnicity") || "—"}</Value>}
                   </Field>
 
-                  <Field label="Retpoŝto" htmlFor="email">
+                  <Field label={t('profile.form.email')} htmlFor="email">
                     <p id="email" className="font-sans-dm text-white">{user.email}</p>
                   </Field>
 
-                  <Field label="Uzant-ID" htmlFor="userId">
+                  <Field label={t('profile.form.userId')} htmlFor="userId">
                     <p id="userId" className="font-sans-dm text-white/40 text-xs font-mono break-all">{user.id}</p>
                   </Field>
 
-                  <Field label="Pri mi (biografio)" htmlFor="bio">
+                  <Field label={t('profile.form.bio')} htmlFor="bio">
                     {isEditing ? (
                       <form.Field name="bio">
                         {(field) => (
@@ -390,7 +392,7 @@ export default function ProfiloPage() {
                             onChange={(e) => field.handleChange(e.target.value)}
                             rows={3}
                             className="w-full px-4 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-esperanto-verda focus:bg-white/15 transition-all resize-none text-sm font-sans-dm"
-                            placeholder="Mallonga priskribo de vi mem…"
+                            placeholder={t('profile.form.placeholders.bio')}
                           />
                         )}
                       </form.Field>
@@ -402,7 +404,7 @@ export default function ProfiloPage() {
               {/* ── ESPERANTO ── */}
               {activeSection === "esperanto" && (
                 <div className="space-y-5">
-                  <Field label="Nivelo de Esperanto" htmlFor="esperantoLevel">
+                  <Field label={t('profile.form.esperantoLevel')} htmlFor="esperantoLevel">
                     {isEditing ? (
                       <form.Field name="esperantoLevel">
                         {(field) => (
@@ -412,17 +414,17 @@ export default function ProfiloPage() {
                     ) : <Value highlight>{form.getFieldValue("esperantoLevel") || "—"}</Value>}
                   </Field>
 
-                  <Field label="Lernanta Esperanton de" htmlFor="esperantoSince">
+                  <Field label={t('profile.form.esperantoSince')} htmlFor="esperantoSince">
                     {isEditing ? (
                       <form.Field name="esperantoSince">
                         {(field) => (
-                          <Input id="esperantoSince" type="number" value={field.state.value} onChange={field.handleChange} placeholder="Jaro (p.e. 2018)" />
+                          <Input id="esperantoSince" type="number" value={field.state.value} onChange={field.handleChange} placeholder={t('profile.form.placeholders.esperantoSince')} />
                         )}
                       </form.Field>
                     ) : <Value>{form.getFieldValue("esperantoSince") ? `De ${form.getFieldValue("esperantoSince")}` : "—"}</Value>}
                   </Field>
 
-                  <Field label="Lingvoj Konataj" htmlFor="languages">
+                  <Field label={t('profile.form.languages')} htmlFor="languages">
                     {isEditing ? (
                       <form.Field name="languages">
                         {(field) => (
@@ -472,27 +474,27 @@ export default function ProfiloPage() {
               {/* ── SOCIAL ── */}
               {activeSection === "social" && (
                 <div className="space-y-5">
-                  <Field label="Nivelo Eduka" htmlFor="educationLevel">
+                  <Field label={t('profile.form.educationLevel')} htmlFor="educationLevel">
                     {isEditing ? (
                       <form.Field name="educationLevel">
                         {(field) => (
-                          <Select id="educationLevel" value={field.state.value} onChange={field.handleChange} options={EDUCATION_OPTIONS} placeholder="Elektu nivelon…" />
+                          <Select id="educationLevel" value={field.state.value} onChange={field.handleChange} options={EDUCATION_OPTIONS} placeholder={t('profile.form.placeholders.selectLevel')} />
                         )}
                       </form.Field>
                     ) : <Value>{form.getFieldValue("educationLevel") || "—"}</Value>}
                   </Field>
 
-                  <Field label="Profesio / Okupo" htmlFor="occupation">
+                  <Field label={t('profile.form.occupation')} htmlFor="occupation">
                     {isEditing ? (
                       <form.Field name="occupation">
                         {(field) => (
-                          <Input id="occupation" value={field.state.value} onChange={field.handleChange} placeholder="p.e. Instruisto, Programisto…" />
+                          <Input id="occupation" value={field.state.value} onChange={field.handleChange} placeholder={t('profile.form.placeholders.occupation')} />
                         )}
                       </form.Field>
                     ) : <Value>{form.getFieldValue("occupation") || "—"}</Value>}
                   </Field>
 
-                  <Field label="Rilata Statuso" htmlFor="relationshipStatus">
+                  <Field label={t('profile.form.relationshipStatus')} htmlFor="relationshipStatus">
                     {isEditing ? (
                       <form.Field name="relationshipStatus">
                         {(field) => (
@@ -502,7 +504,7 @@ export default function ProfiloPage() {
                     ) : <Value>{form.getFieldValue("relationshipStatus") || "—"}</Value>}
                   </Field>
 
-                  <Field label="Infanoj" htmlFor="children">
+                  <Field label={t('profile.form.children')} htmlFor="children">
                     {isEditing ? (
                       <form.Field name="children">
                         {(field) => (
@@ -534,11 +536,11 @@ export default function ProfiloPage() {
                 <div className="space-y-5">
                   <div className="p-4 rounded-lg bg-white/5 border border-white/10">
                     <p className="font-sans-dm text-white/40 text-xs leading-relaxed">
-                      ℹ️ Ĉi tiuj informoj estas laŭvole kaj helpos la komunumon kompreni la demografion de esperantistoj tutmonde. Vi povas elekti «Preferas ne diri» en iu ajn kampo.
+                      {t('profile.form.economicInfo')}
                     </p>
                   </div>
 
-                  <Field label="Monata Enspezo (aproksimata)" htmlFor="monthlyIncomeRange">
+                  <Field label={t('profile.form.monthlyIncome')} htmlFor="monthlyIncomeRange">
                     {isEditing ? (
                       <form.Field name="monthlyIncomeRange">
                         {(field) => (
@@ -573,7 +575,7 @@ export default function ProfiloPage() {
                     onClick={() => form.handleSubmit()}
                     className="px-6 py-2.5 bg-transparent border border-esperanto-verda hover:bg-esperanto-verda/10 text-esperanto-verda font-sans-dm font-medium text-sm rounded-lg transition-all"
                   >
-                    Konservi ŝanĝojn
+                    {t('profile.form.saveChanges')}
                   </button>
                 </div>
               )}

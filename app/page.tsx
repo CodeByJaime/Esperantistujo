@@ -4,57 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { Topbar } from "../public/components/topbar";
 import Image from "next/image";
-
-const NAV_LINKS = [
-  { label: "Manifesto", href: "#manifesto" },
-  { label: "Pozicio", href: "#pozicio" },
-  { label: "Aliĝi", href: "/registri" },
-];
-
-const MANIFESTO_CONTENT = {
-  title: "MANIFESTO DE ESPERANTISTUJO",
-  subtitle: "De Tribismo al Homaranismo",
-  tagline: "Tutmonda Reto de Komunumoj • Unu Sola Planedo • Unu Komuna Lingvo",
-  sections: [
-    {
-      number: "I",
-      title: "LA PROBLEMO: LA HEREDITA MENSO DE LA NACIO-ŜTATO",
-      content:
-        "La nuna mondo ankoraŭ funkcias laŭ la sama mensa modelo, kiun havis triboj antaŭ miloj da jaroj. Ni nur ŝanĝis la nomon: de tribismo al naciismo. Kaj kun tiu nova nomo ni aldonis ion pli malfacilan: limojn.\n\nĈio, kio estas inter ĉi tiuj limoj, apartenas al unu ŝtato; kio estas ekster ili, al alia. Kaj kiel en ĉiu tribo, konfliktoj fariĝas preskaŭ neeviteblaj.\n\nĈi tiu modelo montriĝis neadekvata por la hodiaŭa homaro:\n\n1. **Korupto kaj neefikeco** en maldiafanaj burokratioj\n2. **Homa malŝparo**, ĉar talento restas kaptita de naskiĝloko\n3. **Kronika malsekureco** en forgesitaj regionoj\n4. **Monetaj sistemoj**, kiuj ofte malfortigas la ŝparadon de ordinaraj homoj\n\nPensi de la makroo (ŝtatoj) al la mikroo (homoj) generas dividon.\nNi proponas la malon: **pensi de la homoj al la komunumo**.",
-    },
-    {
-      number: "II",
-      title: "NIA VIZIO: TUTMONDA RETO DE ESPERANTISTAJ KOMUNUMOJ",
-      content:
-        "Ni kredas, ke ĉiuj homoj valoras egale, sendepende de nacieco, deveno aŭ religio.\n\nNi imagas mondon, kie homoj povas kunlabori preter limoj pere de komuna lingvo kaj komunaj valoroj.\n\nTial ni proponas la kreadon de **fizikaj komunumoj**, ligitaj en **tutmonda reto**, kie Esperanto estas la ĉiutaga lingvo de kunvivado.\n\nLa unua tia komunumo estos fondita en Viĉado, Kolombio, kiel modelo por estontaj komunumoj en aliaj lokoj de la mondo.",
-    },
-    {
-      number: "III",
-      title: "LA TEKNOLOGIAJ KAJ ORGANIZAJ KOLONOJ",
-      content:
-        "1. **Ágora – Kunordiga Sistemo**\n   Malfermitkoda ilo por proponi, financi kaj realigi projektojn en la komunumo kun plena travideblo.\n\n2. **Komuna Interŝanĝa Sistemo**\n   Ilo por faciligi komercon inter komunumoj de la reto, administrata loke laŭ komunaj principoj.\n\n3. **Task-bazita Kunlaboro**\n   Roloj ne estas permanentaj postenoj, sed provizoraj taskoj laŭ kapabloj kaj pruvitaj kontribuoj.\n\n4. **Reta Fidosistemo**\n   La kontribuoj de ĉiu ano estas videblaj kaj rekoneblaj tra la tuta reto de komunumoj.",
-    },
-    {
-      number: "IV",
-      title: "KIEL ĜI FUNKCIAS PRAKTIKE",
-      content:
-        "**Unua fazo: la fonda komunumo** en Viĉado.\n\n**Dua fazo:** helpi aliajn grupojn fondi similajn komunumojn en aliaj regionoj.\n\n**Tria fazo:** ligi tiujn komunumojn en tutmonda reto de kunlaboro.\n\nSekureco, ekonomio kaj organizado baziĝas sur travideblo, loka respondeco kaj reciproka fido.",
-    },
-    {
-      number: "V",
-      title: "ALVOKO AL AGO",
-      content:
-        "Ni ne kontraŭstaras ekzistantajn ŝtatojn.\nNi simple konstruas ekzemplon de alia maniero kunvivi.\n\n1. Aliĝu kiel **partoprenanto** kaj kontribuu viajn kapablojn.\n2. Helpu krei la unuan esperantistan komunumon kie la lingvo estas ĉiutaga realo.\n\nĈi tio estas praktika eksperimento:\nkio okazas kiam komunumo organiziĝas ĉirkaŭ travideblo, kontribuo kaj komuna lingvo?\n\nLa homaro ne bezonas pli da limoj.\nĜi bezonas pli da kunlaboraj nodoj.",
-    },
-  ],
-};
-
-const STATS = [
-  { value: "2 milionoj", label: "Esperantistoj en la mondo" },
-  { value: "180+", label: "Landoj kun aktiva komunumo" },
-  { value: "1887", label: "Jaro de la naskiĝo de Esperanto" },
-];
-
+import { useTranslation } from "@/lib/i18n";
 // Helper function to render bold text properly
 function renderTextWithBold(text: string) {
   const parts = text.split(/\*\*(.*?)\*\*/);
@@ -111,7 +61,14 @@ function AnimatedSection({
 
 export default function Home() {
   const [_scrolled, setScrolled] = useState(false);
+ const { t, tRaw } = useTranslation();
 
+const STATS = (tRaw('home.stats') as Array<{value: string, label: string}>) ?? [];
+const NAV_LINKS = (tRaw('home.navLinks') as Array<{label: string, href: string}>) ?? [];
+const MANIFESTO_CONTENT = (tRaw('home.manifesto') as {
+  title: string; subtitle: string; tagline: string;
+  sections: Array<{ number: string; title: string; content: string }>;
+}) ?? { title: '', subtitle: '', tagline: '', sections: [] };
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener("scroll", handleScroll);
@@ -151,24 +108,22 @@ export default function Home() {
           <div className="animate-fade-up flex items-center gap-3 mb-8">
             <div className="w-8 h-px bg-esperanto-verda" />
             <span className="text-esperanto-verda text-xs tracking-[0.3em] uppercase font-sans font-medium">
-              La unua esperantista komunumo
+              {t('home.eyebrow')}
             </span>
           </div>
 
           {/* Title */}
           <h1 className="font-display animate-fade-up-2 text-5xl sm:text-7xl lg:text-8xl font-black leading-[0.95] tracking-tight mb-8">
-            <span className="block text-white">Unu lingvo.</span>
-            <span className="block text-white">Unu komunumo.</span>
+            <span className="block text-white">{t('home.title.line1')}</span>
+            <span className="block text-white">{t('home.title.line2')}</span>
             <span className="block italic text-esperanto-verda">
-              Unu estonteco.
+              {t('home.title.line3')}
             </span>
           </h1>
 
           {/* Subtitle */}
           <p className="animate-fade-up-3 font-sans text-gray-400 text-base sm:text-lg max-w-xl leading-relaxed mb-12">
-            Ni konstruas la unuan esperantistan komunumon de la mondo,
-            komencante per la fonda komunumo en Viĉado. Kiel partoprenanto, vi
-            povos kunlabori en iu ajn komunumo de nia tutmonda reto.
+            {t('home.subtitle')}
           </p>
 
           {/* CTAs */}
@@ -177,7 +132,7 @@ export default function Home() {
               href="#igu"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-esperanto-verda text-white font-sans font-semibold text-sm tracking-wide rounded-lg hover:bg-esperanto-verda/80 transition-all duration-200 shadow-lg shadow-esperanto-verda/25"
             >
-              Sekva paŝo
+              {t('home.hero.nextStep')}
               <span className="text-lg">→</span>
             </Link>
 
@@ -185,7 +140,7 @@ export default function Home() {
               href="#manifesto"
               className="inline-flex items-center justify-center px-8 py-4 border border-white/20 text-white font-sans font-medium text-sm tracking-wide rounded-lg hover:border-white/50 hover:bg-white/5 transition-all duration-200"
             >
-              Legi la manifeston
+              {t('home.hero.readManifesto')}
             </Link>
           </div>
         </div>
@@ -236,7 +191,7 @@ export default function Home() {
         </AnimatedSection>
 
         <div className="space-y-12">
-          {MANIFESTO_CONTENT.sections.map((section, i) => (
+          {(MANIFESTO_CONTENT.sections ?? []).map((section, i) => (
             <AnimatedSection key={section.number} delay={i * 150}>
               <div className="group relative">
                 {/* Section header with gradient background */}
@@ -321,13 +276,11 @@ export default function Home() {
           <div className="flex items-center gap-3 mb-4">
             <div className="w-8 h-px bg-esperanto-verda" />
             <span className="text-esperanto-verda text-xs tracking-[0.3em] uppercase font-sans font-medium">
-              Nia pozicio
+              {t('home.position.title')}
             </span>
           </div>
           <h2 className="font-display text-4xl sm:text-5xl font-bold text-white mb-16 leading-tight">
-            Ni ne estas utopistoj.
-            <br />
-            <span className="text-esperanto-verda">Ni estas inĝenieroj.</span>
+            {t('home.position.subtitle')}
           </h2>
         </AnimatedSection>
 
@@ -335,47 +288,35 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6">
-                Zamenhof kiel modelo
+                {t('home.position.zamenhofTitle')}
               </h3>
 
               <p className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed mb-6">
-                En siaj lastaj jaroj, Zamenhof ne plu parolis nur pri lingvo,
-                sed pri
+                {t('home.position.zamenhofText1')}
                 <span className="text-esperanto-verda font-semibold">
                   {" "}
-                  homaranismo
+                  {t('home.position.zamenhofText2')}
                 </span>
-                : la ideo ke la vera problemo de la homaro ne estas manko de
-                komunikilo, sed la maniero kiel homoj dividiĝas en apartajn
-                tribojn nomatajn nacioj.
               </p>
 
               <p className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed mb-6">
-                En siaj privataj leteroj, li esprimis zorgon ke internacia
-                lingvo, se ĝi restas nur ilo por kongresoj kaj korespondado,
-                riskas fariĝi intelekta rondo anstataŭ vivanta realo. Por li, la
-                lingvo devis esti
+                {t('home.position.zamenhofText3')}
                 <span className="text-esperanto-verda font-semibold">
                   {" "}
-                  vivata ĉiutage{" "}
+                  {t('home.position.zamenhofText4')}
                 </span>
-                inter homoj de malsamaj devenoj.
               </p>
 
               <p className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed mb-6">
-                Lia revo ne estis nur komuniki sen limoj, sed ke homoj efektive
+                {t('home.position.zamenhofText5')}
                 <span className="text-esperanto-verda font-semibold">
                   {" "}
-                  kunvivu sen limoj
+                  {t('home.position.zamenhofText6')}
                 </span>
-                . Ke ili loĝu, laboru kaj konstruu komune, tiel ke la lingvo
-                fariĝu natura parto de la ĉiutaga vivo.
               </p>
 
               <p className="text-gray-400 font-sans text-base sm:text-lg leading-relaxed">
-                Esperantistujo ne estas nova ideo. Ĝi estas provo realigi tiun
-                neplenumitan parton de la vizio de Zamenhof: krei lokojn kie
-                Esperanto ne estas nur parolata, sed vivata.
+                {t('home.position.zamenhofText7')}
               </p>
             </div>
             <div className="relative">
@@ -401,25 +342,21 @@ export default function Home() {
         <div className="relative max-w-3xl mx-auto px-6 sm:px-10 py-28 sm:py-36 text-center">
           <AnimatedSection>
             <p className="text-esperanto-verda text-xs tracking-[0.3em] uppercase font-sans font-medium mb-6">
-              Fariĝu partoprenanto
+              {t('home.cta.eyebrow')}
             </p>
             <h2 className="font-display text-4xl sm:text-6xl font-black text-white leading-tight mb-8">
-              Iĝu partoprenanto
+              {t('home.cta.title')}
               <br />
-              <span className="italic text-esperanto-verda">nun.</span>
+              <span className="italic text-esperanto-verda">{t('home.cta.titleHighlight')}</span>
             </h2>
             <p className="text-gray-400 font-sans text-base sm:text-lg mb-12 max-w-xl mx-auto leading-relaxed">
-              Registriĝu kiel partoprenanto de la unua esperantista komunumo de
-              la mondo. Komencu en la fonda komunumo en Viĉado, Kolombio, kaj
-              kunlaboru en iu ajn komunumo de nia tutmonda reto kiam ni kreskos.
-              La projekto esperas financigi vian vojaĝon kaj loĝadon en ĉi tiu
-              pionira urbo.
+              {t('home.cta.description')}
             </p>
             <Link
               href="/registri"
               className="inline-flex items-center gap-2 px-10 py-4 bg-esperanto-verda text-white font-sans font-semibold text-sm tracking-wide rounded-lg hover:bg-esperanto-verda/80 transition-all duration-200 shadow-xl shadow-esperanto-verda/20"
             >
-              Registriĝi kiel partoprenanto
+              {t('home.cta.button')}
               <span className="text-lg">→</span>
             </Link>
           </AnimatedSection>
@@ -433,7 +370,7 @@ export default function Home() {
             Esperantistujo
           </span>
           <span className="text-white/30 text-xs font-sans">
-            © {new Date().getFullYear()} — Konstruita kun 💚 en Esperanto
+            © {new Date().getFullYear()} — {t('home.footer.copyright')}
           </span>
           <div className="flex gap-6">
             {NAV_LINKS.map((l) => (

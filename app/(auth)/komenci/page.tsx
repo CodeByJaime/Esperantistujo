@@ -2,6 +2,7 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { AuthLayout } from "@/components/auth-layout";
 import Image from "next/image";
+import { useTranslation } from "@/lib/i18n";
 
 const ADVANTAGES = [
   {
@@ -69,29 +70,30 @@ const ADVANTAGES = [
   },
 ];
 
-const TEST_ITEMS = [
-  "Planitan urbon",
-  "Teknologigitan agrikulturon",
-  "Distribuitan energion",
-  "Akvan administradon",
-  "Kunigitan komunumon",
-];
+const TEST_ITEMS = {
+  plannedCity: "Planitan urbon",
+  techAgriculture: "Teknologigitan agrikulturon",
+  distributedEnergy: "Distribuitan energion",
+  waterManagement: "Akvan administradon",
+  integratedCommunity: "Kunigitan komunumon",
+};
 
-const COLOMBIA_ITEMS = [
-  "Akva potenco de la kontinento",
-  "For de uraganoj, tertremoj kaj militoj",
-  "Pordo inter Amazonio, Andoj kaj Orinokio",
-];
+const COLOMBIA_ITEMS = {
+  waterPower: "Akva potenco de la kontinento",
+  noDisasters: "For de uraganoj, tertremoj kaj militoj",
+  gateway: "Pordo inter Amazonio, Andoj kaj Orinokio",
+};
 
-const TOURISM_ITEMS = [
-  "Interŝanĝoj inter universitatoj",
-  "Retiriĝoj kaj intensivaj kursoj",
-  "Intensa lingva lernado",
-  "Internaciaj eventoj",
-];
+const TOURISM_ITEMS = {
+  exchanges: "Interŝanĝoj inter universitatoj",
+  retreats: "Retiriĝoj kaj intensivaj kursoj",
+  learning: "Intensa lingva lernado",
+  events: "Internaciaj eventoj",
+};
 
 export default function VichadaPage() {
   const { user, loading } = useAuth();
+  const { t } = useTranslation();
 
   if (loading) {
     return (
@@ -101,7 +103,7 @@ export default function VichadaPage() {
             <title>Ŝarĝante...</title>
             <path strokeLinecap="round" d="M12 2a10 10 0 0 1 10 10" />
           </svg>
-          <span className="font-sans-dm text-white/50 text-sm">Ŝarĝande…</span>
+          <span className="font-sans-dm text-white/50 text-sm">{t('komenci.loading')}</span>
         </div>
       </div>
     );
@@ -134,17 +136,19 @@ export default function VichadaPage() {
         <div className="relative max-w-5xl mx-auto px-6 sm:px-12 lg:px-16 py-28 sm:py-36 text-center">
           <div className="fade-up flex items-center justify-center gap-3 mb-8">
             <div className="w-8 h-px bg-esperanto-verda" />
-            <span className="font-sans-dm text-esperanto-verda text-xs tracking-[0.3em] uppercase">Elektita loko</span>
+            <span className="font-sans-dm text-esperanto-verda text-xs tracking-[0.3em] uppercase">{t('komenci.hero.selectedLocation')}</span>
             <div className="w-8 h-px bg-esperanto-verda" />
           </div>
           <h1 className="fade-up-2 font-display text-6xl sm:text-7xl lg:text-8xl font-black text-white leading-[0.9] mb-6">
-            Kial<br />
-            <span className="italic text-esperanto-verda">Vichada?</span>
+            {t('komenci.hero.title').split('<br />').map((part, index) => (
+              <span key={`hero-title-${part}`}>
+                {part}
+                {index < t('komenci.hero.title').split('<br />').length - 1 && <br />}
+              </span>
+            ))}
           </h1>
           <p className="fade-up-3 font-sans-dm text-white/50 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
-            Tiu ĉi projekto ne estas hazarda. Ĝi estas elektita loko kun unikaj
-            geografiaĵoj, juraj kondiĉoj kaj estontaj avantaĝoj por konstrui
-            planitan komunumon sen konflikto kun la ekzistanta socio.
+            {t('komenci.hero.subtitle')}
           </p>
         </div>
       </div>
@@ -156,15 +160,19 @@ export default function VichadaPage() {
         <section className="text-center space-y-8">
           <div className="flex items-center justify-center gap-3">
             <div className="w-12 h-px bg-esperanto-verda" />
-            <span className="font-sans-dm text-esperanto-verda text-sm tracking-[0.3em] uppercase font-medium">Teritorio escepta</span>
+            <span className="font-sans-dm text-esperanto-verda text-sm tracking-[0.3em] uppercase font-medium">{t('komenci.territory.title').split('<br />')[0]}</span>
             <div className="w-12 h-px bg-esperanto-verda" />
           </div>
           <h2 className="font-display text-5xl sm:text-6xl font-black text-white leading-tight">
-            15 Kialoj<br />
-            <span className="italic text-esperanto-verda">por Vichada</span>
+            {t('komenci.territory.title').split('<br />').map((part, index) => (
+              <span key={`territory-title-${part}`}>
+                {part}
+                {index < t('komenci.territory.title').split('<br />').length - 1 && <br />}
+              </span>
+            ))}
           </h2>
           <p className="font-sans-dm text-white/40 text-lg max-w-3xl mx-auto leading-relaxed">
-            Ĉiu detalo estis analizita. Ĉiu decido havas strategian fundamenton.
+            {t('komenci.territory.subtitle')}
           </p>
         </section>
 
@@ -187,15 +195,15 @@ export default function VichadaPage() {
                     <div className="text-3xl">{advantage.emoji}</div>
                     <div className="flex-1">
                       <h3 className="font-display text-xl font-bold text-white leading-tight">
-                        {advantage.title}
+                        {t(`komenci.advantages.${advantage.number}.title`)}
                       </h3>
                       <p className="font-sans-dm text-esperanto-verda/60 text-xs tracking-widest uppercase mt-1">
-                        {advantage.subtitle}
+                        {t(`komenci.advantages.${advantage.number}.subtitle`)}
                       </p>
                     </div>
                   </div>
-                  <p className="font-sans-dm text-white/50 text-sm leading-relaxed">
-                    {advantage.body}
+                  <p className="font-sans-dm text-white/70 text-sm leading-relaxed">
+                    {t(`komenci.advantages.${advantage.number}.body`)}
                   </p>
                 </div>
               </div>
@@ -213,26 +221,26 @@ export default function VichadaPage() {
                   <span className="text-2xl">🧪</span>
                 </div>
                 <div>
-                  <h3 className="font-display text-2xl font-bold text-white">Testoj je reala skalo</h3>
-                  <p className="font-sans-dm text-esperanto-verda/70 text-xs tracking-widest uppercase">Real-scale testing</p>
+                  <h3 className="font-display text-2xl font-bold text-white">{t('komenci.scaleTests.title')}</h3>
+                  <p className="font-sans-dm text-esperanto-verda/70 text-xs tracking-widest uppercase">{t('komenci.scaleTests.subtitle')}</p>
                 </div>
               </div>
-              <p className="font-sans-dm text-white/60 text-sm mb-8">Vichada permesas testi:</p>
+              <p className="font-sans-dm text-white/60 text-sm mb-8">{t('komenci.scaleTests.description')}</p>
               <div className="space-y-4">
-                {TEST_ITEMS.map((item) => (
-                  <div key={item} className="flex items-center gap-4 group">
+                {Object.entries(TEST_ITEMS).map(([key, _item]) => (
+                  <div key={`test-item-${key}`} className="flex items-center gap-4 group">
                     <div className="w-8 h-8 rounded-full bg-esperanto-verda/10 border border-esperanto-verda/30 flex items-center justify-center group-hover:bg-esperanto-verda/20 transition-colors">
                       <svg className="w-4 h-4 text-esperanto-verda" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                         <title>Kontrolo</title>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                       </svg>
                     </div>
-                    <span className="font-sans-dm text-white/70 text-sm group-hover:text-white/90 transition-colors">{item}</span>
+                    <span className="font-sans-dm text-white/70 text-sm group-hover:text-white/90 transition-colors">{t(`komenci.scaleTests.items.${key}`)}</span>
                   </div>
                 ))}
               </div>
               <div className="mt-8 pt-6 border-t border-esperanto-verda/20">
-                <p className="font-display text-esperanto-verda font-bold italic text-lg">Sen batali kontraŭ iu.</p>
+                <p className="font-display text-esperanto-verda font-bold italic text-lg">{t('komenci.scaleTests.conclusion')}</p>
               </div>
             </div>
           </div>
@@ -245,20 +253,20 @@ export default function VichadaPage() {
                   <span className="text-xl">🇨🇴</span>
                 </div>
                 <div>
-                  <h3 className="font-display text-xl font-bold text-white">Strategia valoro de Kolombio</h3>
-                  <p className="font-sans-dm text-esperanto-verda/60 text-xs tracking-widest uppercase">Strategic value</p>
+                  <h3 className="font-display text-xl font-bold text-white">{t('komenci.colombia.strategicValue')}</h3>
+                  <p className="font-sans-dm text-esperanto-verda/60 text-xs tracking-widest uppercase">{t('komenci.colombia.subtitle')}</p>
                 </div>
               </div>
               <div className="space-y-3">
-                {COLOMBIA_ITEMS.map((item) => (
-                  <div key={item} className="flex items-start gap-3">
+                {Object.entries(COLOMBIA_ITEMS).map(([key, _item], _index) => (
+                  <div key={`colombia-item-${key}`} className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-esperanto-verda/60 mt-2 shrink-0" />
-                    <span className="font-sans-dm text-white/50 text-sm leading-relaxed">{item}</span>
+                    <span className="font-sans-dm text-white/50 text-sm leading-relaxed">{t(`komenci.colombia.items.${key}`)}</span>
                   </div>
                 ))}
               </div>
               <p className="font-sans-dm text-esperanto-verda/80 text-sm mt-6 italic border-t border-white/8 pt-4">
-                Kaj Vichada estas ĝia malplena landlimo.
+                {t('komenci.colombia.description')}
               </p>
             </div>
 
@@ -269,15 +277,15 @@ export default function VichadaPage() {
                   <span className="text-xl">✈️</span>
                 </div>
                 <div>
-                  <h3 className="font-display text-xl font-bold text-white">Turismo de lernado</h3>
-                  <p className="font-sans-dm text-esperanto-verda/60 text-xs tracking-widest uppercase">Learning tourism</p>
+                  <h3 className="font-display text-xl font-bold text-white">{t('komenci.tourism.title')}</h3>
+                  <p className="font-sans-dm text-esperanto-verda/60 text-xs tracking-widest uppercase">{t('komenci.tourism.subtitle')}</p>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3">
-                {TOURISM_ITEMS.map((item) => (
-                  <div key={item} className="flex items-start gap-2">
+                {Object.entries(TOURISM_ITEMS).map(([key, _item], _index) => (
+                  <div key={`tourism-item-${key}`} className="flex items-start gap-2">
                     <div className="w-1.5 h-1.5 rounded-full bg-esperanto-verda/40 mt-2 shrink-0" />
-                    <span className="font-sans-dm text-white/40 text-xs leading-relaxed">{item}</span>
+                    <span className="font-sans-dm text-white/40 text-xs leading-relaxed">{t(`komenci.tourism.items.${key}`)}</span>
                   </div>
                 ))}
               </div>
@@ -292,29 +300,32 @@ export default function VichadaPage() {
             <div className="space-y-6">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-px bg-esperanto-verda" />
-                <span className="font-sans-dm text-esperanto-verda text-xs tracking-[0.3em] uppercase">Estonteco</span>
+                <span className="font-sans-dm text-esperanto-verda text-xs tracking-[0.3em] uppercase">{t('komenci.growth.subtitle')}</span>
               </div>
               <h3 className="font-display text-4xl font-black text-white leading-tight">
-                Rebla eblo kreski<br />
-                <span className="italic text-esperanto-verda">por jardekoj.</span>
+                {t('komenci.growth.title').split('<br />').map((part, index) => (
+                  <span key={`growth-title-${part}`}>
+                    {part}
+                    {index < t('komenci.growth.title').split('<br />').length - 1 && <><br /></>}
+                  </span>
+                ))}
               </h3>
               <p className="font-sans-dm text-white/40 text-sm leading-relaxed max-w-md">
-                Ne estas projekto por 5 jaroj. Estas teritorio kiu permesas kreski
-                50–100 jarojn sen kolizii kun fizikaj limoj.
+                {t('komenci.growth.description')}
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { v: "100k", unit: "km²", l: "Teritorio", icon: "🗺️" },
-                { v: "80k", unit: "hab.", l: "Loĝantoj", icon: "👥" },
-                { v: "100+", unit: "jaroj", l: "Kreskomarĝeno", icon: "⏳" },
-                { v: "∞", unit: "", l: "Ebloj", icon: "🚀" },
+                { v: "100k", unit: "km²", l: "territory", icon: "🗺️" },
+                { v: "80k", unit: "hab.", l: "inhabitants", icon: "👥" },
+                { v: "100+", unit: "jaroj", l: "growth", icon: "⏳" },
+                { v: "∞", unit: "", l: "eras", icon: "🚀" },
               ].map((stat) => (
-                <div key={stat.l} className="bg-linear-to-br from-white/6 to-white/2 border border-white/10 rounded-xl p-6 text-center hover:border-esperanto-verda/30 transition-all duration-300">
+                <div key={`growth-stat-${stat.l}-${stat.v}`} className="bg-linear-to-br from-white/6 to-white/2 border border-white/10 rounded-xl p-6 text-center hover:border-esperanto-verda/30 transition-all duration-300">
                   <div className="text-2xl mb-2">{stat.icon}</div>
                   <div className="font-display text-2xl font-black text-esperanto-verda">{stat.v}</div>
                   <div className="font-sans-dm text-white/30 text-xs mt-1">{stat.unit}</div>
-                  <div className="font-sans-dm text-white/50 text-xs mt-2">{stat.l}</div>
+                  <div className="font-sans-dm text-white/50 text-xs mt-2">{t(`komenci.growth.stats.${stat.l}`)}</div>
                 </div>
               ))}
             </div>
@@ -325,19 +336,20 @@ export default function VichadaPage() {
         <section className="text-center space-y-12 pt-16 border-t border-white/8">
           <div className="flex items-center justify-center gap-4">
             <div className="w-12 h-px bg-esperanto-verda" />
-            <span className="font-sans-dm text-esperanto-verda text-sm tracking-[0.3em] uppercase">Konkludo</span>
+            <span className="font-sans-dm text-esperanto-verda text-sm tracking-[0.3em] uppercase">{t('komenci.conclusion.title')}</span>
             <div className="w-12 h-px bg-esperanto-verda" />
           </div>
           <div className="max-w-4xl mx-auto space-y-8">
             <h3 className="font-display text-5xl font-black text-white leading-tight">
-              Ne utopio.<br />
-              <span className="italic text-esperanto-verda">Inĝenierado.</span>
+              {t('komenci.conclusion.mainTitle').split('<br />').map((part, index) => (
+                <span key={`conclusion-title-${part}`}>
+                  {part}
+                  {index < t('komenci.conclusion.mainTitle').split('<br />').length - 1 && <br />}
+                </span>
+              ))}
             </h3>
             <p className="font-sans-dm text-white/40 text-lg leading-relaxed">
-              Vichada ne estas elektita por izoliĝi, sed ĉar ĝi estas la sola loko
-              kie eblas konstrui organizitan, laŭleĝan kaj estontecan komunumon
-              sen konflikti kun la ekzistanta socio, samtempe alportante evoluon,
-              investon kaj homan kapitalon al forgesita regiono.
+              {t('komenci.conclusion.description')}
             </p>
           </div>
 
@@ -352,7 +364,7 @@ export default function VichadaPage() {
               className="relative w-full h-auto rounded-3xl"
             />
             <div className="absolute -bottom-4 -right-4 px-4 py-2 bg-esperanto-verda/20 backdrop-blur-sm rounded-lg border border-esperanto-verda/30">
-              <p className="font-sans-dm text-esperanto-verda text-xs font-medium">Vichada, Kolombio</p>
+              <p className="font-sans-dm text-esperanto-verda text-xs font-medium">{t('komenci.conclusion.location')}</p>
             </div>
           </div>
         </section>
