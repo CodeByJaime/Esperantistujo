@@ -40,7 +40,7 @@ export default function PostCard({ post, onVote }: PostCardProps) {
 
   return (
     <Link
-      href={`/diskuto/afiŝo/${post.id}`}
+      href={`/diskuto/${post.channel?.slug || 'general'}/afiso/${post.id}`}
       className="block bg-white/10 border border-white/20 rounded-lg p-4 hover:border-esperanto-verda/30 transition-colors duration-200"
     >
       <div className="flex items-start justify-between mb-2">
@@ -50,9 +50,13 @@ export default function PostCard({ post, onVote }: PostCardProps) {
           {post.channel && (
             <>
               <span className="text-white/60 text-xs">•</span>
-              <span className="text-sm text-esperanto-verda hover:underline">
+              <Link
+                href={`/diskuto/${post.channel.slug}`}
+                className="text-sm text-esperanto-verda hover:underline"
+                onClick={(e) => e.stopPropagation()}
+              >
                 {post.channel.name}
-              </span>
+              </Link>
             </>
           )}
         </div>
