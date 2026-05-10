@@ -89,10 +89,7 @@ export default function AgordojPage() {
   if (isLoading) {
     return (
       <AuthLayout user={user}>
-        <LoadingScreen 
-          title={t('settings.loadingTitle')} 
-          subtitle={t('settings.loadingSubtitle')} 
-        />
+        <LoadingScreen />
       </AuthLayout>
     );
   }

@@ -88,7 +88,7 @@ export function LanguageLoader({ children }: LanguageLoaderProps) {
   }, [isFullyLoaded]);
 
   if (!showContent) {
-    return <LanguageLoadingScreen language={detectedLanguage} isFadingOut={isFadingOut} />;
+    return <LanguageLoadingScreen isFadingOut={isFadingOut} />;
   }
 
   // Cada vez que userLanguage cambia, I18nProvider se remonta con el idioma correcto

@@ -141,10 +141,7 @@ export default function ProfiloPage() {
   if (!profileLoaded) {
     return (
       <AuthLayout user={user}>
-        <LoadingScreen 
-          title={t('profile.loading')} 
-          subtitle={t('profile.loadingSubtitle')} 
-        />
+        <LoadingScreen />
       </AuthLayout>
     );
   }

@@ -1,14 +1,10 @@
 import { LoadingSpinner } from "./loading-spinner";
 
 interface LoadingScreenProps {
-  title?: string;
-  subtitle?: string;
   showIcon?: boolean;
 }
 
 export function LoadingScreen({ 
-  title = "Ŝargante profilon...", 
-  subtitle = "Bonvolu atendi dum ni ŝargas viajn informojn.",
   showIcon = true 
 }: LoadingScreenProps) {
   return (
@@ -19,8 +15,6 @@ export function LoadingScreen({
             <LoadingSpinner size="lg" />
           </div>
         )}
-        <h2 className="font-display text-2xl font-bold text-white mb-2">{title}</h2>
-        <p className="font-sans-dm text-white/50 text-sm">{subtitle}</p>
       </div>
     </div>
   );
