@@ -41,7 +41,7 @@ export default function AgordojPage() {
           setLanguage(value.interface_language);
         }
         
-        toast.success(t('settings.savedSuccess'));
+        window.location.reload();
       } catch (error) {
         console.error("Error saving settings:", error);
         toast.error(t('settings.saveError'));
