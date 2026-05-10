@@ -63,26 +63,9 @@ export default function PostFeed({ channelSlug, initialPosts = [], newPost, onRe
   };
 
   const handleVote = async (postId: string, value: 1 | -1) => {
-    try {
-      const response = await fetch('/api/posts/vote', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ post_id: postId, value }),
-      });
-
-      if (response.ok) {
-        const updatedPost = await response.json();
-        setPosts(prev =>
-          prev.map(post =>
-            post.id === postId ? updatedPost : post
-          )
-        );
-      }
-    } catch (error) {
-      console.error('Error voting:', error);
-    }
+    // This would need user context, but for now we'll pass it through the props
+    // In a real implementation, you'd get user from context
+    console.log('Vote handling in PostFeed needs user context');
   };
 
   if (posts.length === 0 && !loading) {

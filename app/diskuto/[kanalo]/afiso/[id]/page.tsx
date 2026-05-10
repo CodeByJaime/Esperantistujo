@@ -21,7 +21,10 @@ export default function PostPage() {
     const loadPost = useCallback(async () => {
         setLoading(true);
         try {
-            const response = await fetch(`/api/posts/${postId}`);
+            const url = user?.id
+                ? `/api/posts/${postId}?user_id=${user.id}`
+                : `/api/posts/${postId}`;
+            const response = await fetch(url);
             if (response.ok) {
                 const data = await response.json();
                 setPost(data);
@@ -31,20 +34,25 @@ export default function PostPage() {
         } finally {
             setLoading(false);
         }
-    }, [postId]);
+    }, [postId, user?.id]);
 
     useEffect(() => {
         loadPost();
     }, [loadPost]);
 
     const handleVote = async (value: 1 | -1) => {
+        if (!user?.id) {
+            console.error('User not authenticated');
+            return;
+        }
+
         try {
             const response = await fetch('/api/posts/vote', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify({ post_id: postId, value }),
+                body: JSON.stringify({ post_id: postId, value, user_id: user.id }),
             });
 
             if (response.ok) {
