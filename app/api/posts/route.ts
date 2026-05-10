@@ -8,7 +8,6 @@ export async function GET() {
       .select(`
         *,
         profiles (
-          id, 
           display_name, 
           esperanto_name
         ),
