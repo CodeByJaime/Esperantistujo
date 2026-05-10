@@ -8,7 +8,7 @@ interface I18nContextType {
   language: Language;
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
-  tRaw: (key: string) => unknown;  // 👈 agregado
+  tRaw: (key: string) => unknown;
   isLoading: boolean;
 }
 
@@ -41,9 +41,10 @@ const getNestedValue = (obj: Translations, path: string): unknown => {
   return current; // 👈 retorna lo que sea: string, array, objeto
 };
 
-export function I18nProvider({ children, initialLanguage = 'eo' }: { 
+export function I18nProvider({ children, initialLanguage = 'eo', onTranslationsLoaded }: { 
   children: React.ReactNode; 
   initialLanguage?: Language;
+  onTranslationsLoaded?: () => void;
 }) {
   const [language, setLanguage] = useState<Language>(initialLanguage);
   const [translations, setTranslations] = useState<Translations>({});
@@ -60,10 +61,11 @@ export function I18nProvider({ children, initialLanguage = 'eo' }: {
         setTranslations(fallback);
       } finally {
         setIsLoading(false);
+        onTranslationsLoaded?.();
       }
     };
     loadLang();
-  }, [language]);
+  }, [language, onTranslationsLoaded]);
 
   // Solo para strings
   const t = (key: string): string => {
@@ -77,6 +79,8 @@ export function I18nProvider({ children, initialLanguage = 'eo' }: {
     if (Object.keys(translations).length === 0) return undefined;
     return getNestedValue(translations, key);
   };
+
+  // No mostrar pantalla de carga aquí - LanguageLoader se encarga de todo
 
   return (
     <I18nContext.Provider value={{ language, setLanguage, t, tRaw, isLoading }}>
