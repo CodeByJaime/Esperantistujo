@@ -9,8 +9,6 @@ export async function GET(
   try {
     const { id } = await params;
 
-    console.log("=== COMMENTS DEBUG: Fetching comments for post:", id);
-
     const { data: comments, error } = await supabase
       .from("comments")
       .select(`
@@ -19,11 +17,6 @@ export async function GET(
       `)
       .eq("post_id", id)
       .order("created_at", { ascending: true });
-
-    console.log(
-      "=== COMMENTS DEBUG: Raw comments data:",
-      JSON.stringify(comments, null, 2),
-    );
 
     // Build hierarchical structure
     const buildCommentTree = (comments: Comment[]) => {
@@ -56,22 +49,11 @@ export async function GET(
     const hierarchicalComments = buildCommentTree(comments || []);
 
     if (error) {
-      console.error("=== COMMENTS DEBUG: Error fetching comments:", error);
       throw error;
     }
 
-    console.log(
-      "=== COMMENTS DEBUG: Comments fetched successfully:",
-      hierarchicalComments.length,
-    );
     return NextResponse.json(hierarchicalComments);
   } catch (error) {
-    console.error("=== COMMENTS DEBUG: Error fetching comments:", error);
-    console.error(
-      "=== COMMENTS DEBUG: Error details:",
-      JSON.stringify(error, null, 2),
-    );
-
     return NextResponse.json(
       {
         error: "Failed to fetch comments",
@@ -90,13 +72,6 @@ export async function POST(
     const { id } = await params;
     const body = await request.json();
     const { content, author_id, parent_id } = body;
-
-    console.log(
-      "=== COMMENTS DEBUG: Creating comment for post:",
-      id,
-      "by user:",
-      author_id,
-    );
 
     if (!content || !author_id) {
       return NextResponse.json(
@@ -120,22 +95,11 @@ export async function POST(
       .single();
 
     if (error) {
-      console.error("=== COMMENTS DEBUG: Error creating comment:", error);
       throw error;
     }
 
-    console.log(
-      "=== COMMENTS DEBUG: Comment created successfully:",
-      comment.id,
-    );
     return NextResponse.json(comment);
   } catch (error) {
-    console.error("=== COMMENTS DEBUG: Error creating comment:", error);
-    console.error(
-      "=== COMMENTS DEBUG: Error details:",
-      JSON.stringify(error, null, 2),
-    );
-
     return NextResponse.json(
       {
         error: "Failed to create comment",

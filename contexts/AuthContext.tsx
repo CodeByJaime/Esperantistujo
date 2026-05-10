@@ -1,11 +1,12 @@
 "use client";
-import { createContext, useContext, useEffect, useState } from "react";
-import type { ReactNode } from "react";
-import { supabase } from "@/lib/supabase";
-import { useUserStore } from "@/lib/store";
 import type { User } from "@supabase/supabase-js";
 import { useRouter } from "next/navigation";
-  
+import type { ReactNode } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
+import { useUserStore } from "@/lib/store";
+import { supabase } from "@/lib/supabase";
+
+
 interface AuthContextType {
   user: User | null;
   loading: boolean;
@@ -54,8 +55,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       });
 
       if (error) {
-        console.error('Sign in error:', error);
-        
+
         // Handle specific error cases
         if (error.message.includes('Invalid login credentials')) {
           return { error: "Retpoŝto aŭ pasvorto malĝustas. Bonvolu kontroli kaj reprovi." };
@@ -72,7 +72,6 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
       return {};
     } catch (error) {
-      console.error('Unexpected sign in error:', error);
       return { error: "Okazis neesperita eraro. Bonvolu reprovi." };
     }
   };
@@ -90,8 +89,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       });
 
       if (error) {
-        console.error('Sign up error:', error);
-        
+
         // Handle specific error cases
         if (error.message.includes('already registered')) {
           return { error: 'Ĉi tiu retpoŝto jam estas registrita.' };
@@ -105,13 +103,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         if (error.message.includes('rate limit') || error.message.includes('Too Many Requests')) {
           return { error: 'Tro da provoj. Bonvolu atendi kelkajn minutojn antaŭ reprovi.' };
         }
-        
+
         return { error: 'Okazis eraro dum registrado. Bonvolu reprovi.' };
       }
 
       return {};
     } catch (error) {
-      console.error('Unexpected sign up error:', error);
       return { error: 'Okazis neesperita eraro. Bonvolu reprovi.' };
     }
   };
@@ -125,7 +122,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     try {
       // Usar la URL del sitio configurada o fallback a origin actual
       const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || window.location.origin
-      
+
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
@@ -134,13 +131,11 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       });
 
       if (error) {
-        console.error('Google sign in error:', error);
         return { error: "Eraro dum Google-aŭtentigo. Bonvolu reprovi." };
       }
-      
+
       return {};
     } catch (error) {
-      console.error('Unexpected Google sign in error:', error);
       return { error: "Okazis neesperita eraro. Bonvolu reprovi." };
     }
   };

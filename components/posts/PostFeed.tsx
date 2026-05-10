@@ -56,7 +56,6 @@ export default function PostFeed({ channelSlug, initialPosts = [], newPost, onRe
         }
       }
     } catch (error) {
-      console.error('Error loading posts:', error);
     } finally {
       setLoading(false);
     }
@@ -65,7 +64,6 @@ export default function PostFeed({ channelSlug, initialPosts = [], newPost, onRe
   const handleVote = async (postId: string, value: 1 | -1) => {
     // This would need user context, but for now we'll pass it through the props
     // In a real implementation, you'd get user from context
-    console.log('Vote handling in PostFeed needs user context');
   };
 
   if (posts.length === 0 && !loading) {

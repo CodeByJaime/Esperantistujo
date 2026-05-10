@@ -7,7 +7,6 @@ export default function GoogleAuth() {
   const handleGoogleSignIn = async () => {
     const { error } = await signInWithGoogle();
     if (error) {
-      console.error("Google sign in error:", error);
     }
   };
 

@@ -31,7 +31,6 @@ export default function CommentItem({
       setReplyContent('');
       setShowReplyForm(false);
     } catch (error) {
-      console.error('Error replying:', error);
     } finally {
       setLoading(false);
     }
@@ -47,14 +46,14 @@ export default function CommentItem({
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-esperanto-verda rounded-full flex items-center justify-center">
               <span className="text-white text-sm font-bold">
-                {comment.author?.user_metadata?.name?.[0]?.toUpperCase() ||
-                  comment.author?.email?.[0]?.toUpperCase() || 'A'}
+                {comment.profiles?.esperanto_name?.[0]?.toUpperCase() ||
+                  comment.profiles?.display_name?.[0]?.toUpperCase() || 'A'}
               </span>
             </div>
             <div>
               <div className="text-white font-medium">
-                {comment.author?.user_metadata?.name ||
-                  comment.author?.email?.split('@')[0]}
+                {comment.profiles?.esperanto_name ||
+                  comment.profiles?.display_name || 'Anonima'}
               </div>
               <div className="text-white/60 text-xs">
                 {new Date(comment.created_at).toLocaleDateString('es-ES', {

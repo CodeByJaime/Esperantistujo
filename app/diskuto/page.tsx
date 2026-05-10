@@ -29,7 +29,6 @@ export default function DiskutoPage() {
                 setChannels(data);
             }
         } catch (error) {
-            console.error('Error loading channels:', error);
         } finally {
             setChannelsLoading(false);
         }
@@ -43,7 +42,6 @@ export default function DiskutoPage() {
                 setPosts(data);
             }
         } catch (error) {
-            console.error('Error loading posts:', error);
         } finally {
             setLoading(false);
         }

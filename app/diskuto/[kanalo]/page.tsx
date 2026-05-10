@@ -46,7 +46,6 @@ export default function ChannelPage() {
         setPosts(postsData);
       }
     } catch (error) {
-      console.error('Error loading initial data:', error);
     } finally {
       setLoading(false);
     }
@@ -61,11 +60,9 @@ export default function ChannelPage() {
       const response = await fetch(`/api/posts?channel=${channelSlug}`);
       if (response.ok) {
         const data = await response.json();
-        console.log('Posts loaded:', data);
         setPosts(data);
       }
     } catch (error) {
-      console.error('Error loading posts:', error);
     }
   }, [channelSlug]);
 

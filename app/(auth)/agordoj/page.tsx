@@ -1,13 +1,12 @@
 "use client";
-import { useUserStore } from "@/lib/store";
-import { AuthLayout } from "@/components/auth-layout";
-import { useState, useEffect, useCallback } from "react";
 import { useForm, useStore } from "@tanstack/react-form";
-import { LoadingScreen } from "@/components/ui";
-import { settingsOperations, type UserSettings } from "@/lib/supabase";
+import { useCallback, useEffect, useState } from "react";
 import { toast } from "sonner";
-import { useTranslation, useI18n } from "@/lib/i18n";
-import { availableLanguages } from "@/lib/i18n";
+import { AuthLayout } from "@/components/auth-layout";
+import { LoadingScreen } from "@/components/ui";
+import { availableLanguages, useI18n, useTranslation } from "@/lib/i18n";
+import { useUserStore } from "@/lib/store";
+import { settingsOperations, type UserSettings } from "@/lib/supabase";
 
 type Section = "general" | "privacy" | "security" | "data";
 
@@ -35,15 +34,14 @@ export default function AgordojPage() {
       if (!user?.id) return;
       try {
         await settingsOperations.updateSettings(user.id, value);
-        
+
         // Update language if interface_language was changed
         if (value.interface_language && value.interface_language !== formValues.interface_language) {
           setLanguage(value.interface_language);
         }
-        
+
         window.location.reload();
       } catch (error) {
-        console.error("Error saving settings:", error);
         toast.error(t('settings.saveError'));
       }
     },
@@ -51,7 +49,7 @@ export default function AgordojPage() {
 
   // ── FIX: suscripción reactiva al estado del form ──
   // form.getFieldValue() no dispara re-renders; useStore sí.
- const formValues = useStore(form.store, (state) => state.values);
+  const formValues = useStore(form.store, (state) => state.values);
 
 
   // Load existing settings on component mount
@@ -68,7 +66,6 @@ export default function AgordojPage() {
         });
       }
     } catch (error) {
-      console.error("Error loading settings:", error);
     } finally {
       setIsLoading(false);
     }
@@ -79,8 +76,8 @@ export default function AgordojPage() {
   }, [loadSettings]);
 
   const navItems: { id: Section; label: string; icon: string }[] = [
-    { id: "general",  label: t('settings.sections.general'),          icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z" },
-    { id: "privacy",  label: t('settings.sections.privacy'),           icon: "M15 12a3 3 0 11-6 0 3 3 0 016 0zM2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" },
+    { id: "general", label: t('settings.sections.general'), icon: "M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065zM15 12a3 3 0 11-6 0 3 3 0 016 0z" },
+    { id: "privacy", label: t('settings.sections.privacy'), icon: "M15 12a3 3 0 11-6 0 3 3 0 016 0zM2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" },
     //{ id: "security", label: t('settings.sections.security'),            icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" },
     //{ id: "data",     label: t('settings.sections.data'), icon: "M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4" },
   ];
@@ -136,11 +133,10 @@ export default function AgordojPage() {
                   key={item.id}
                   type="button"
                   onClick={() => setActiveSection(item.id)}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all text-left ${
-                    activeSection === item.id
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all text-left ${activeSection === item.id
                       ? "bg-esperanto-verda/15 border border-esperanto-verda/30 text-esperanto-verda"
                       : "text-white/50 hover:text-white hover:bg-white/5"
-                  }`}
+                    }`}
                 >
                   <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
@@ -239,21 +235,20 @@ export default function AgordojPage() {
                     />
 
                     {/* Visible fields — only active when profile is public */}
-                    <div className={`pl-4 border-l-2 space-y-4 transition-opacity ${
-                      formValues.profile_public
+                    <div className={`pl-4 border-l-2 space-y-4 transition-opacity ${formValues.profile_public
                         ? "border-esperanto-verda/30 opacity-100"
                         : "border-white/10 opacity-40 pointer-events-none"
-                    }`}>
+                      }`}>
                       <p className="font-sans-dm text-white/60 text-xs uppercase tracking-wider mb-4">
                         {t('settings.privacy.visibleFields')}
                       </p>
 
                       {(
                         [
-                          { field: "privacy_show_age",          label: t('settings.privacy.age'),            description: t('settings.privacy.ageDesc') },
-                          { field: "privacy_show_relationship",  label: t('settings.privacy.relationshipStatus'), description: t('settings.privacy.relationshipStatusDesc') },
-                          { field: "privacy_show_ethnicity",     label: t('settings.privacy.ethnicity'),     description: t('settings.privacy.ethnicityDesc') },
-                          { field: "privacy_show_income",        label: t('settings.privacy.monthlyIncome'), description: t('settings.privacy.monthlyIncomeDesc') },
+                          { field: "privacy_show_age", label: t('settings.privacy.age'), description: t('settings.privacy.ageDesc') },
+                          { field: "privacy_show_relationship", label: t('settings.privacy.relationshipStatus'), description: t('settings.privacy.relationshipStatusDesc') },
+                          { field: "privacy_show_ethnicity", label: t('settings.privacy.ethnicity'), description: t('settings.privacy.ethnicityDesc') },
+                          { field: "privacy_show_income", label: t('settings.privacy.monthlyIncome'), description: t('settings.privacy.monthlyIncomeDesc') },
                         ] as const
                       ).map(({ field, label, description }) => (
                         <div
@@ -268,14 +263,12 @@ export default function AgordojPage() {
                             type="button"
                             onClick={() => form.setFieldValue(field, !formValues[field])}
                             disabled={!formValues.profile_public}
-                            className={`relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                              formValues[field] ? "bg-esperanto-verda" : "bg-white/20"
-                            } ${!formValues.profile_public ? "cursor-not-allowed" : ""}`}
+                            className={`relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ${formValues[field] ? "bg-esperanto-verda" : "bg-white/20"
+                              } ${!formValues.profile_public ? "cursor-not-allowed" : ""}`}
                           >
                             <span
-                              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                                formValues[field] ? "translate-x-6" : "translate-x-1"
-                              }`}
+                              className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${formValues[field] ? "translate-x-6" : "translate-x-1"
+                                }`}
                             />
                           </button>
                         </div>
@@ -318,14 +311,12 @@ export default function AgordojPage() {
                         <button
                           type="button"
                           onClick={() => form.setFieldValue("security_session_alerts", !formValues.security_session_alerts)}
-                          className={`relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                            formValues.security_session_alerts ? "bg-esperanto-verda" : "bg-white/20"
-                          }`}
+                          className={`relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ${formValues.security_session_alerts ? "bg-esperanto-verda" : "bg-white/20"
+                            }`}
                         >
                           <span
-                            className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                              formValues.security_session_alerts ? "translate-x-6" : "translate-x-1"
-                            }`}
+                            className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${formValues.security_session_alerts ? "translate-x-6" : "translate-x-1"
+                              }`}
                           />
                         </button>
                       </div>
@@ -440,14 +431,12 @@ function Toggle({
       <button
         type="button"
         onClick={() => onChange(!checked)}
-        className={`relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-          checked ? "bg-esperanto-verda" : "bg-white/20"
-        }`}
+        className={`relative shrink-0 inline-flex h-6 w-11 items-center rounded-full transition-colors ${checked ? "bg-esperanto-verda" : "bg-white/20"
+          }`}
       >
         <span
-          className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-            checked ? "translate-x-6" : "translate-x-1"
-          }`}
+          className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${checked ? "translate-x-6" : "translate-x-1"
+            }`}
         />
       </button>
     </div>

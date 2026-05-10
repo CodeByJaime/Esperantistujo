@@ -33,7 +33,6 @@ export default function PostPage() {
                 setPost(data);
             }
         } catch (error) {
-            console.error('Error loading post:', error);
         } finally {
             setLoading(false);
         }
@@ -45,7 +44,6 @@ export default function PostPage() {
 
     const handleVote = async (value: 1 | -1) => {
         if (!user?.id) {
-            console.error('User not authenticated');
             return;
         }
 
@@ -63,7 +61,6 @@ export default function PostPage() {
                 setPost(updatedPost);
             }
         } catch (error) {
-            console.error('Error voting:', error);
         }
     };
 
@@ -96,11 +93,9 @@ export default function PostPage() {
                 setIsEditing(false);
             } else {
                 const error = await response.json();
-                console.error('Error updating post:', error);
                 alert('Error updating post');
             }
         } catch (error) {
-            console.error('Error updating post:', error);
             alert('Error updating post');
         }
     };

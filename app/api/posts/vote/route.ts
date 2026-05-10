@@ -6,21 +6,7 @@ export async function POST(request: Request) {
     const body = await request.json();
     const { post_id, value, user_id } = body;
 
-    console.log(
-      "=== VOTE DEBUG: Voting on post:",
-      post_id,
-      "with value:",
-      value,
-      "by user:",
-      user_id,
-    );
-
     if (!post_id || !value || !user_id || (value !== 1 && value !== -1)) {
-      console.log("=== VOTE DEBUG: Invalid vote data:", {
-        post_id,
-        value,
-        user_id,
-      });
       return NextResponse.json({ error: "Invalid vote data" }, { status: 400 });
     }
 
@@ -33,7 +19,6 @@ export async function POST(request: Request) {
       .single();
 
     if (voteError && voteError.code !== "PGRST116") {
-      console.error("=== VOTE DEBUG: Error checking existing vote:", voteError);
       throw voteError;
     }
 
@@ -43,7 +28,6 @@ export async function POST(request: Request) {
       // User is changing their vote
       if (existingVote.value === value) {
         // User is clicking the same vote, remove it
-        console.log("=== VOTE DEBUG: Removing existing vote");
         voteChange = -existingVote.value;
 
         const { error: deleteError } = await supabase
@@ -55,12 +39,6 @@ export async function POST(request: Request) {
         if (deleteError) throw deleteError;
       } else {
         // User is changing from upvote to downvote or vice versa
-        console.log(
-          "=== VOTE DEBUG: Changing vote from",
-          existingVote.value,
-          "to",
-          value,
-        );
         voteChange = value - existingVote.value;
 
         const { error: updateError } = await supabase
@@ -73,7 +51,6 @@ export async function POST(request: Request) {
       }
     } else {
       // New vote
-      console.log("=== VOTE DEBUG: Adding new vote");
       voteChange = value;
 
       const { error: insertError } = await supabase.from("votes").insert({
@@ -93,12 +70,10 @@ export async function POST(request: Request) {
       .single();
 
     if (fetchError) {
-      console.error("=== VOTE DEBUG: Error fetching post:", fetchError);
       throw fetchError;
     }
 
     if (!currentPost) {
-      console.log("=== VOTE DEBUG: Post not found:", post_id);
       return NextResponse.json({ error: "Post not found" }, { status: 404 });
     }
 
@@ -112,16 +87,8 @@ export async function POST(request: Request) {
       .single();
 
     if (updateError) {
-      console.error("=== VOTE DEBUG: Error updating vote:", updateError);
       throw updateError;
     }
-
-    console.log("=== VOTE DEBUG: Vote processed successfully:", {
-      post_id,
-      vote_change: voteChange,
-      old_count: currentPost.vote_count,
-      new_count: newVoteCount,
-    });
 
     // Return the updated post with user's current vote
     const finalVote = existingVote?.value === value ? null : value;
@@ -131,12 +98,6 @@ export async function POST(request: Request) {
       user_vote: finalVote,
     });
   } catch (error) {
-    console.error("=== VOTE DEBUG: Error processing vote:", error);
-    console.error(
-      "=== VOTE DEBUG: Error details:",
-      JSON.stringify(error, null, 2),
-    );
-
     return NextResponse.json(
       {
         error: "Failed to process vote",

@@ -10,23 +10,13 @@ export async function GET(
     const { searchParams } = new URL(request.url);
     const userId = searchParams.get("user_id");
 
-    console.log("=== DEBUG: Fetching post with ID:", id, "for user:", userId);
-    console.log("=== DEBUG: ID type:", typeof id);
-    console.log("=== DEBUG: ID length:", id?.length);
-
     // First, let's check if any posts exist at all
     const { data: allPosts, error: allError } = await supabase
       .from("posts")
       .select("id, title, created_at")
       .limit(5);
 
-    console.log(
-      "=== DEBUG: All posts:",
-      allPosts?.map((p) => ({ id: p.id, title: p.title })),
-    );
-
     if (allError) {
-      console.error("=== DEBUG: Error fetching all posts:", allError);
     }
 
     // Now try to find the specific post with user's vote
@@ -41,19 +31,11 @@ export async function GET(
       .eq("id", id)
       .single();
 
-    console.log("=== DEBUG: Supabase query result:", { post, error });
-
     if (error) {
-      console.error("=== DEBUG: Supabase GET error:", error);
-      console.error(
-        "=== DEBUG: Error details:",
-        JSON.stringify(error, null, 2),
-      );
       throw error;
     }
 
     if (!post) {
-      console.log("=== DEBUG: Post not found with ID:", id);
       return NextResponse.json(
         {
           error: "Post not found",
@@ -75,19 +57,14 @@ export async function GET(
 
       if (!voteError && vote) {
         userVote = vote.value;
-        console.log("=== DEBUG: User vote found:", userVote);
       }
     }
 
-    console.log("=== DEBUG: Post fetched successfully:", post.id);
     return NextResponse.json({
       ...post,
       user_vote: userVote,
     });
   } catch (error) {
-    console.error("=== DEBUG: Error fetching post:", error);
-    console.error("=== DEBUG: Error details:", JSON.stringify(error, null, 2));
-
     return NextResponse.json(
       {
         error: "Failed to fetch post",
@@ -107,8 +84,6 @@ export async function PUT(
     const body = await request.json();
     const { title, content, user_id } = body;
 
-    console.log("=== DEBUG: Updating post:", id, "by user:", user_id);
-
     if (!title || !content || !user_id) {
       return NextResponse.json(
         { error: "Missing required fields" },
@@ -124,7 +99,6 @@ export async function PUT(
       .single();
 
     if (fetchError) {
-      console.error("=== DEBUG: Error fetching post:", fetchError);
       throw fetchError;
     }
 
@@ -133,12 +107,6 @@ export async function PUT(
     }
 
     if (currentPost.author_id !== user_id) {
-      console.log(
-        "=== DEBUG: User not authorized:",
-        user_id,
-        "post author:",
-        currentPost.author_id,
-      );
       return NextResponse.json(
         { error: "Not authorized to edit this post" },
         { status: 403 },
@@ -154,16 +122,11 @@ export async function PUT(
       .single();
 
     if (updateError) {
-      console.error("=== DEBUG: Error updating post:", updateError);
       throw updateError;
     }
 
-    console.log("=== DEBUG: Post updated successfully:", updatedPost.id);
     return NextResponse.json(updatedPost);
   } catch (error) {
-    console.error("=== DEBUG: Error updating post:", error);
-    console.error("=== DEBUG: Error details:", JSON.stringify(error, null, 2));
-
     return NextResponse.json(
       {
         error: "Failed to update post",

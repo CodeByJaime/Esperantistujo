@@ -101,13 +101,13 @@ export default function PostCard({ post, onVote }: PostCardProps) {
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 bg-esperanto-verda rounded-full flex items-center justify-center">
             <span className="text-white text-xs font-bold">
-              {post.author?.user_metadata?.name?.[0]?.toUpperCase() ||
-                post.author?.email?.[0]?.toUpperCase() || 'A'}
+              {post.profiles?.esperanto_name?.[0]?.toUpperCase() ||
+                post.profiles?.display_name?.[0]?.toUpperCase() || 'A'}
             </span>
           </div>
           <span>
-            {post.author?.user_metadata?.name ||
-              post.author?.email?.split('@')[0]}
+            {post.profiles?.esperanto_name ||
+              post.profiles?.display_name || 'Anonima'}
           </span>
         </div>
 

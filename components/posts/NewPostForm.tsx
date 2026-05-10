@@ -41,7 +41,6 @@ export default function NewPostForm({
     },
     onSubmit: async ({ value }) => {
       if (!user?.id) {
-        console.error('User not authenticated');
         return;
       }
 
@@ -63,12 +62,10 @@ export default function NewPostForm({
           onPostCreated?.(createdPost);
         } else {
           const error = await response.json();
-          console.error('Error creating post:', error);
           // You could add toast notification here
           alert(`Error: ${error.error}${error.details ? ` - ${error.details}` : ''}`);
         }
       } catch (error) {
-        console.error('Error creating post:', error);
       }
     },
   });
