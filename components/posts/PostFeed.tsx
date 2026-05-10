@@ -12,7 +12,7 @@ interface PostFeedProps {
   onRefresh?: () => void;
 }
 
-export default function PostFeed({ channelSlug, initialPosts = [], newPost, onRefresh }: PostFeedProps) {
+export default function PostFeed({ channelSlug, initialPosts = [], newPost, onRefresh: _onRefresh }: PostFeedProps) {
   const { t } = useTranslation();
   const [posts, setPosts] = useState<Post[]>(initialPosts);
   const [loading, setLoading] = useState(false);
@@ -55,13 +55,13 @@ export default function PostFeed({ channelSlug, initialPosts = [], newPost, onRe
           setPage(prev => prev + 1);
         }
       }
-    } catch (error) {
+    } catch {
     } finally {
       setLoading(false);
     }
   };
 
-  const handleVote = async (postId: string, value: 1 | -1) => {
+  const handleVote = async (_postId: string, _value: 1 | -1) => {
     // This would need user context, but for now we'll pass it through the props
     // In a real implementation, you'd get user from context
   };

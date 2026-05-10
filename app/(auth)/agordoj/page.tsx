@@ -41,7 +41,7 @@ export default function AgordojPage() {
         }
 
         window.location.reload();
-      } catch (error) {
+      } catch {
         toast.error(t('settings.saveError'));
       }
     },
@@ -65,7 +65,7 @@ export default function AgordojPage() {
           }
         });
       }
-    } catch (error) {
+    } catch {
     } finally {
       setIsLoading(false);
     }
@@ -134,8 +134,8 @@ export default function AgordojPage() {
                   type="button"
                   onClick={() => setActiveSection(item.id)}
                   className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all text-left ${activeSection === item.id
-                      ? "bg-esperanto-verda/15 border border-esperanto-verda/30 text-esperanto-verda"
-                      : "text-white/50 hover:text-white hover:bg-white/5"
+                    ? "bg-esperanto-verda/15 border border-esperanto-verda/30 text-esperanto-verda"
+                    : "text-white/50 hover:text-white hover:bg-white/5"
                     }`}
                 >
                   <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
@@ -236,8 +236,8 @@ export default function AgordojPage() {
 
                     {/* Visible fields — only active when profile is public */}
                     <div className={`pl-4 border-l-2 space-y-4 transition-opacity ${formValues.profile_public
-                        ? "border-esperanto-verda/30 opacity-100"
-                        : "border-white/10 opacity-40 pointer-events-none"
+                      ? "border-esperanto-verda/30 opacity-100"
+                      : "border-white/10 opacity-40 pointer-events-none"
                       }`}>
                       <p className="font-sans-dm text-white/60 text-xs uppercase tracking-wider mb-4">
                         {t('settings.privacy.visibleFields')}

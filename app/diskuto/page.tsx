@@ -28,7 +28,7 @@ export default function DiskutoPage() {
                 const data = await response.json();
                 setChannels(data);
             }
-        } catch (error) {
+        } catch {
         } finally {
             setChannelsLoading(false);
         }
@@ -41,7 +41,7 @@ export default function DiskutoPage() {
                 const data = await response.json();
                 setPosts(data);
             }
-        } catch (error) {
+        } catch {
         } finally {
             setLoading(false);
         }

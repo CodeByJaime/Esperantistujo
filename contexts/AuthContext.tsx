@@ -71,7 +71,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       router.push("/komenci");
 
       return {};
-    } catch (error) {
+    } catch {
+      // Silently handle error
       return { error: "Okazis neesperita eraro. Bonvolu reprovi." };
     }
   };
@@ -108,7 +109,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
 
       return {};
-    } catch (error) {
+    } catch {
+      // Silently handle error
       return { error: 'Okazis neesperita eraro. Bonvolu reprovi.' };
     }
   };
@@ -135,7 +137,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       }
 
       return {};
-    } catch (error) {
+    } catch {
+      // Silently handle error
       return { error: "Okazis neesperita eraro. Bonvolu reprovi." };
     }
   };

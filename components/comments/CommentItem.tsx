@@ -30,7 +30,7 @@ export default function CommentItem({
       await onReply(comment.id, replyContent.trim());
       setReplyContent('');
       setShowReplyForm(false);
-    } catch (error) {
+    } catch {
     } finally {
       setLoading(false);
     }

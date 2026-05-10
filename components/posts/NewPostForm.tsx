@@ -65,7 +65,7 @@ export default function NewPostForm({
           // You could add toast notification here
           alert(`Error: ${error.error}${error.details ? ` - ${error.details}` : ''}`);
         }
-      } catch (error) {
+      } catch {
       }
     },
   });

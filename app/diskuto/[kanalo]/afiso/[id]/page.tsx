@@ -32,7 +32,8 @@ export default function PostPage() {
                 const data = await response.json();
                 setPost(data);
             }
-        } catch (error) {
+        } catch {
+            // Silently handle error
         } finally {
             setLoading(false);
         }
@@ -60,7 +61,8 @@ export default function PostPage() {
                 const updatedPost = await response.json();
                 setPost(updatedPost);
             }
-        } catch (error) {
+        } catch {
+            // Silently handle error
         }
     };
 
@@ -92,10 +94,10 @@ export default function PostPage() {
                 setPost(updatedPost);
                 setIsEditing(false);
             } else {
-                const error = await response.json();
+                await response.json();
                 alert('Error updating post');
             }
-        } catch (error) {
+        } catch {
             alert('Error updating post');
         }
     };

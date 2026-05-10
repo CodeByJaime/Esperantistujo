@@ -45,7 +45,7 @@ export default function ChannelPage() {
         const postsData = await postsResponse.json();
         setPosts(postsData);
       }
-    } catch (error) {
+    } catch {
     } finally {
       setLoading(false);
     }
@@ -62,7 +62,7 @@ export default function ChannelPage() {
         const data = await response.json();
         setPosts(data);
       }
-    } catch (error) {
+    } catch {
     }
   }, [channelSlug]);
 

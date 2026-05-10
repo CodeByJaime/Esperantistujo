@@ -26,7 +26,8 @@ export default function CommentSection({ postId }: CommentSectionProps) {
                 const data = await response.json();
                 setComments(data);
             }
-        } catch (error) {
+        } catch {
+            // Silently handle error
         } finally {
             setLoading(false);
         }
@@ -60,10 +61,10 @@ export default function CommentSection({ postId }: CommentSectionProps) {
                 setNewComment('');
                 setShowReplyForm(false); // Hide form after successful submission
             } else {
-                const error = await response.json();
+                await response.json();
                 alert('Error creating comment');
             }
-        } catch (error) {
+        } catch {
             alert('Error creating comment');
         } finally {
             setSubmitting(false);
@@ -90,10 +91,10 @@ export default function CommentSection({ postId }: CommentSectionProps) {
                 const newReply = await response.json();
                 setComments(prev => updateCommentWithReply(prev, parentId, newReply));
             } else {
-                const error = await response.json();
+                await response.json();
                 alert('Error creating reply');
             }
-        } catch (error) {
+        } catch {
             alert('Error creating reply');
         }
     };

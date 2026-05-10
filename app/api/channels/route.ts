@@ -42,7 +42,7 @@ export async function GET() {
     }
 
     return NextResponse.json(channels || []);
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: "Failed to fetch channels" },
       { status: 500 },
