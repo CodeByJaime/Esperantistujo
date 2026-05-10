@@ -1,12 +1,12 @@
 "use client";
-import { useUserStore } from "@/lib/store";
-import { AuthLayout } from "@/components/auth-layout";
-import { useState, useEffect, useCallback } from "react";
-import { LoadingScreen } from "@/components/ui";
-import Image from "next/image";
 import { useForm } from "@tanstack/react-form";
+import Image from "next/image";
+import { useCallback, useEffect, useState } from "react";
+import { AuthLayout } from "@/components/auth-layout";
+import { LoadingScreen } from "@/components/ui";
+import { formatDate, useTranslation } from '@/lib/i18n';
+import { useUserStore } from "@/lib/store";
 import { profileOperations } from "@/lib/supabase";
-import { useTranslation } from "@/lib/i18n";
 
 const LANGUAGES_OPTIONS = [
   "Esperanto", "Angla", "Hispana", "Franca", "Germana", "Portugala",
@@ -36,7 +36,7 @@ const CHILDREN_OPTIONS = ["Neniu", "1", "2", "3", "4", "5+", "Preferas ne diri"]
 
 export default function ProfiloPage() {
   const { user } = useUserStore();
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const user_id = user?.id || null;
   const [isEditing, setIsEditing] = useState(false);
   const [activeSection, setActiveSection] = useState<string>("personal");
@@ -66,7 +66,7 @@ export default function ProfiloPage() {
         return;
       }
       await profileOperations.updateProfile(user_id, value);
-      
+
       setIsEditing(false);
     },
   });
@@ -95,7 +95,7 @@ export default function ProfiloPage() {
         form.setFieldValue("esperantoLevel", profile.esperanto_level || "Komencanto");
         form.setFieldValue("esperantoSince", profile.esperanto_since ? profile.esperanto_since.toString() : "");
         form.setFieldValue("bio", profile.bio || "");
-        
+
         // Force re-render by updating state
         setProfileLoaded(true);
       } else {
@@ -112,9 +112,9 @@ export default function ProfiloPage() {
   }, [loadProfile]);
 
   const sections = [
-    { id: "personal",  label: t('profile.sections.personal'),  icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
+    { id: "personal", label: t('profile.sections.personal'), icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" },
     { id: "esperanto", label: t('profile.sections.esperanto'), icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064" },
-    { id: "social",    label: t('profile.sections.social'),    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
+    { id: "social", label: t('profile.sections.social'), icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" },
     { id: "economic", label: t('profile.sections.economic'), icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" },
   ];
 
@@ -192,35 +192,35 @@ export default function ProfiloPage() {
                   {(() => {
                     return null;
                   })()}
-                  
+
                   {form.getFieldValue("birthPlace") && (
                     <div className="flex justify-between items-center">
                       <span className="font-sans-dm text-white/50 text-xs">{t('profile.form.birthPlace')}</span>
                       <span className="font-sans-dm text-white text-xs">{form.getFieldValue("birthPlace")}</span>
                     </div>
                   )}
-                  
+
                   {form.getFieldValue("birthCountry") && (
                     <div className="flex justify-between items-center">
                       <span className="font-sans-dm text-white/50 text-xs">{t('profile.form.birthCountry')}</span>
                       <span className="font-sans-dm text-white text-xs">{form.getFieldValue("birthCountry")}</span>
                     </div>
                   )}
-                  
+
                   {form.getFieldValue("age") && (
                     <div className="flex justify-between items-center">
                       <span className="font-sans-dm text-white/50 text-xs">{t('profile.form.age')}</span>
                       <span className="font-sans-dm text-white text-xs">{form.getFieldValue("age")} j.</span>
                     </div>
                   )}
-                  
+
                   {form.getFieldValue("ethnicity") && (
                     <div className="flex justify-between items-center">
                       <span className="font-sans-dm text-white/50 text-xs">{t('profile.form.ethnicity')}</span>
                       <span className="font-sans-dm text-white text-xs">{form.getFieldValue("ethnicity")}</span>
                     </div>
                   )}
-                  
+
                   {form.getFieldValue("esperantoLevel") && (
                     <div className="flex justify-between items-center">
                       <span className="font-sans-dm text-white/50 text-xs">{t('profile.form.esperantoLevel')}</span>
@@ -230,7 +230,7 @@ export default function ProfiloPage() {
                   <div className="flex justify-between items-center">
                     <span className="font-sans-dm text-white/50 text-xs">{t('profile.form.memberSince')}</span>
                     <span className="font-sans-dm text-white text-xs">
-                      {new Date(user.created_at).toLocaleDateString("eo-ES", { year: "numeric", month: "long" })}
+                      {formatDate(new Date(user.created_at), language)}
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
@@ -244,17 +244,17 @@ export default function ProfiloPage() {
                     const languages = form.getFieldValue("languages");
                     return languages && languages.length > 0;
                   })() && (
-                  <div className="mt-4 pt-4 border-t border-white/10">
-                    <p className="font-sans-dm text-white/50 text-xs mb-2 text-left">{t('profile.form.languages')}</p>
-                    <div className="flex flex-wrap gap-1">
-                      {form.getFieldValue("languages").map((l: string) => (
-                        <span key={l} className="px-2 py-0.5 bg-esperanto-verda/10 border border-esperanto-verda/30 rounded-full text-esperanto-verda text-xs font-sans-dm">
-                          {l}
-                        </span>
-                      ))}
+                    <div className="mt-4 pt-4 border-t border-white/10">
+                      <p className="font-sans-dm text-white/50 text-xs mb-2 text-left">{t('profile.form.languages')}</p>
+                      <div className="flex flex-wrap gap-1">
+                        {form.getFieldValue("languages").map((l: string) => (
+                          <span key={l} className="px-2 py-0.5 bg-esperanto-verda/10 border border-esperanto-verda/30 rounded-full text-esperanto-verda text-xs font-sans-dm">
+                            {l}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                )}
+                  )}
               </div>
             </div>
 
@@ -265,11 +265,10 @@ export default function ProfiloPage() {
                   key={s.id}
                   type="button"
                   onClick={() => setActiveSection(s.id)}
-                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all text-left ${
-                    activeSection === s.id
-                      ? "bg-esperanto-verda/15 border border-esperanto-verda/30 text-esperanto-verda"
-                      : "text-white/50 hover:text-white hover:bg-white/5"
-                  }`}
+                  className={`w-full flex items-center gap-3 px-4 py-3 rounded-lg transition-all text-left ${activeSection === s.id
+                    ? "bg-esperanto-verda/15 border border-esperanto-verda/30 text-esperanto-verda"
+                    : "text-white/50 hover:text-white hover:bg-white/5"
+                    }`}
                 >
                   <svg className="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d={s.icon} />
@@ -439,11 +438,10 @@ export default function ProfiloPage() {
                                         : [...(field.state.value as string[]), lang]
                                     )
                                   }
-                                  className={`px-3 py-1 rounded-full text-xs font-sans-dm border transition-all ${
-                                    selected
-                                      ? "bg-esperanto-verda/20 border-esperanto-verda text-esperanto-verda"
-                                      : "bg-white/5 border-white/20 text-white/50 hover:border-white/40"
-                                  }`}
+                                  className={`px-3 py-1 rounded-full text-xs font-sans-dm border transition-all ${selected
+                                    ? "bg-esperanto-verda/20 border-esperanto-verda text-esperanto-verda"
+                                    : "bg-white/5 border-white/20 text-white/50 hover:border-white/40"
+                                    }`}
                                 >
                                   {lang}
                                 </button>
@@ -456,10 +454,10 @@ export default function ProfiloPage() {
                       <div className="flex flex-wrap gap-2 mt-1">
                         {form.getFieldValue("languages").length
                           ? form.getFieldValue("languages").map((l: string) => (
-                              <span key={l} className="px-3 py-1 bg-esperanto-verda/10 border border-esperanto-verda/30 rounded-full text-esperanto-verda text-xs font-sans-dm">
-                                {l}
-                              </span>
-                            ))
+                            <span key={l} className="px-3 py-1 bg-esperanto-verda/10 border border-esperanto-verda/30 rounded-full text-esperanto-verda text-xs font-sans-dm">
+                              {l}
+                            </span>
+                          ))
                           : <span className="font-sans-dm text-white/40 text-sm">—</span>
                         }
                       </div>
@@ -511,11 +509,10 @@ export default function ProfiloPage() {
                                 key={opt}
                                 type="button"
                                 onClick={() => field.handleChange(opt)}
-                                className={`px-4 py-2 rounded-lg text-sm font-sans-dm border transition-all ${
-                                  field.state.value === opt
-                                    ? "bg-esperanto-verda/20 border-esperanto-verda text-esperanto-verda"
-                                    : "bg-white/5 border-white/20 text-white/50 hover:border-white/40"
-                                }`}
+                                className={`px-4 py-2 rounded-lg text-sm font-sans-dm border transition-all ${field.state.value === opt
+                                  ? "bg-esperanto-verda/20 border-esperanto-verda text-esperanto-verda"
+                                  : "bg-white/5 border-white/20 text-white/50 hover:border-white/40"
+                                  }`}
                               >
                                 {opt}
                               </button>
@@ -547,11 +544,10 @@ export default function ProfiloPage() {
                                 key={opt}
                                 type="button"
                                 onClick={() => field.handleChange(opt)}
-                                className={`px-3 py-2 rounded-lg text-sm font-sans-dm border transition-all text-left ${
-                                  field.state.value === opt
-                                    ? "bg-esperanto-verda/20 border-esperanto-verda text-esperanto-verda"
-                                    : "bg-white/5 border-white/20 text-white/50 hover:border-white/40"
-                                }`}
+                                className={`px-3 py-2 rounded-lg text-sm font-sans-dm border transition-all text-left ${field.state.value === opt
+                                  ? "bg-esperanto-verda/20 border-esperanto-verda text-esperanto-verda"
+                                  : "bg-white/5 border-white/20 text-white/50 hover:border-white/40"
+                                  }`}
                               >
                                 {opt}
                               </button>

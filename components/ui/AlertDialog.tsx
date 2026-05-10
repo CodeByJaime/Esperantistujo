@@ -1,5 +1,6 @@
 'use client';
 
+import { useTranslation } from '@/lib/i18n';
 import Modal from './Modal';
 
 interface AlertDialogProps {
@@ -16,9 +17,11 @@ export default function AlertDialog({
     onClose,
     title,
     message,
-    buttonText = 'Aceptar',
+    buttonText,
     variant = 'info'
 }: AlertDialogProps) {
+    const { t } = useTranslation();
+    const defaultButtonText = buttonText || t('ui.accept');
     const variantClasses = {
         error: 'text-red-400',
         success: 'text-esperanto-verda',
@@ -46,7 +49,7 @@ export default function AlertDialog({
                         onClick={onClose}
                         className={`px-4 py-2 rounded-lg transition-colors font-sans-dm text-sm font-medium ${buttonClasses[variant]}`}
                     >
-                        {buttonText}
+                        {defaultButtonText}
                     </button>
                 </div>
             </div>

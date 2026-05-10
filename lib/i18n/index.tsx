@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect, createContext, useContext } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 
 export type Translations = Record<string, unknown>;
 export type Language = 'eo' | 'en' | 'es' | 'fr' | 'de';
@@ -9,6 +9,7 @@ interface I18nContextType {
   setLanguage: (lang: Language) => void;
   t: (key: string) => string;
   tRaw: (key: string) => unknown;
+  formatDate: (date: Date, options?: Intl.DateTimeFormatOptions) => string;
   isLoading: boolean;
 }
 
@@ -29,7 +30,7 @@ const loadTranslations = async (lang: Language): Promise<Translations> => {
 const getNestedValue = (obj: Translations, path: string): unknown => {
   const keys = path.split('.');
   let current: unknown = obj;
-  
+
   for (const key of keys) {
     if (current && typeof current === 'object' && !Array.isArray(current) && key in current) {
       current = (current as Record<string, unknown>)[key];
@@ -37,12 +38,35 @@ const getNestedValue = (obj: Translations, path: string): unknown => {
       return undefined;
     }
   }
-  
+
   return current; // 👈 retorna lo que sea: string, array, objeto
 };
 
-export function I18nProvider({ children, initialLanguage = 'eo', onTranslationsLoaded }: { 
-  children: React.ReactNode; 
+// ✅ Formatea fecha según el idioma actual
+export const formatDate = (date: Date, language: Language, options?: Intl.DateTimeFormatOptions): string => {
+  const localeMap = {
+    'eo': 'eo-EO',
+    'en': 'en-US',
+    'es': 'es-ES',
+    'fr': 'fr-FR',
+    'de': 'de-DE'
+  };
+
+  const locale = localeMap[language] || 'eo-EO';
+
+  const defaultOptions: Intl.DateTimeFormatOptions = {
+    day: 'numeric',
+    month: 'short',
+    hour: '2-digit',
+    minute: '2-digit',
+    ...options
+  };
+
+  return date.toLocaleDateString(locale, defaultOptions);
+};
+
+export function I18nProvider({ children, initialLanguage = 'eo', onTranslationsLoaded }: {
+  children: React.ReactNode;
   initialLanguage?: Language;
   onTranslationsLoaded?: () => void;
 }) {
@@ -83,21 +107,28 @@ export function I18nProvider({ children, initialLanguage = 'eo', onTranslationsL
   // No mostrar pantalla de carga aquí - LanguageLoader se encarga de todo
 
   return (
-    <I18nContext.Provider value={{ language, setLanguage, t, tRaw, isLoading }}>
+    <I18nContext.Provider value={{ language, setLanguage, t, tRaw, formatDate: (date: Date, options?: Intl.DateTimeFormatOptions) => formatDate(date, language, options), isLoading }}>
       {children}
     </I18nContext.Provider>
   );
 }
 
-export function useI18n() {
+export function useI18n(): I18nContextType {
   const context = useContext(I18nContext);
   if (!context) throw new Error('useI18n must be used within an I18nProvider');
   return context;
 }
 
-export function useTranslation() {
-  const { t, tRaw } = useI18n();
-  return { t, tRaw };  // 👈 exportar tRaw también
+export type UseTranslationReturn = {
+  t: (key: string) => string;
+  tRaw: (key: string) => unknown;
+  language: Language;
+  formatDate: (date: Date, options?: Intl.DateTimeFormatOptions) => string;
+};
+
+export function useTranslation(): UseTranslationReturn {
+  const { t, tRaw, language } = useI18n();
+  return { t, tRaw, language, formatDate: (date: Date, options?: Intl.DateTimeFormatOptions) => formatDate(date, language, options) };
 }
 
 export const availableLanguages: { code: Language; name: string }[] = [

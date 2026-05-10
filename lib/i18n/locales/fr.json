@@ -498,11 +498,23 @@
       "title": "Créer un Post",
       "type": "Type",
       "channel": "Canal",
-      "selectChannel": "Sélectionnez un canal",
+      "selectChannel": "Sélectionner un canal",
       "titlePlaceholder": "Titre de votre post...",
       "content": "Contenu",
       "contentPlaceholder": "Écrivez votre post...",
-      "submit": "Publier"
+      "submit": "Publier",
+      "empty": {
+        "channel": "Aucun post dans ce canal",
+        "global": "Aucun post encore",
+        "subtitle": "Soyez le premier à créer un post!"
+      },
+      "loadMore": "Charger plus",
+      "updateError": "Erreur lors de la mise à jour du post",
+      "updateFailed": "Impossible de mettre à jour le post",
+      "deleteError": "Erreur lors de la suppression du post",
+      "deleteFailed": "Impossible de supprimer le post",
+      "deleteConfirm": "Êtes-vous sûr de vouloir supprimer ce post ? Cette action ne peut pas être annulée.",
+      "deleteTitle": "Supprimer le Post"
     },
     "notFound": "Post non trouvé",
     "notFoundSubtitle": "Le post que vous cherchez n'existe pas ou a été supprimé.",
@@ -515,13 +527,7 @@
     "vote": {
       "up": "Haut",
       "down": "Bas"
-    },
-    "empty": {
-      "channel": "Aucun post dans ce canal",
-      "global": "Aucun post encore",
-      "subtitle": "Soyez le premier à créer un post!"
-    },
-    "loadMore": "Charger plus"
+    }
   },
   "comments": {
     "title": "Commentaires",
@@ -538,7 +544,18 @@
     "loading": "Chargement des commentaires...",
     "noComments": "Aucun commentaire encore. Soyez le premier!",
     "empty": "Aucun commentaire encore. Soyez le premier!",
-    "error": "Erreur lors du chargement des commentaires"
+    "error": "Erreur lors du chargement des commentaires",
+    "updateError": "Erreur lors de la mise à jour du commentaire",
+    "updateFailed": "Impossible de mettre à jour le commentaire",
+    "deleteError": "Erreur lors de la suppression du commentaire",
+    "deleteFailed": "Impossible de supprimer le commentaire",
+    "deleteWithReplies": "Ce commentaire a des réponses. Êtes-vous sûr de vouloir le supprimer ainsi que toutes ses réponses ?",
+    "deleteConfirm": "Êtes-vous sûr de vouloir supprimer ce commentaire ?",
+    "deleteTitle": "Supprimer le commentaire",
+    "createError": "Erreur lors de la création du commentaire",
+    "createFailed": "Impossible de créer le commentaire",
+    "replyError": "Erreur lors de la création de la réponse",
+    "replyFailed": "Impossible de créer la réponse"
   },
   "channels": {
     "title": "Canaux",
@@ -546,5 +563,18 @@
     "noChannels": "Aucun canal trouvé",
     "notFound": "Canal non trouvé",
     "notFoundSubtitle": "Le canal que vous cherchez n'existe pas ou a été supprimé."
+  },
+  "ui": {
+    "accept": "Accepter",
+    "confirm": "Confirmer",
+    "cancel": "Annuler",
+    "delete": "Supprimer",
+    "edit": "Modifier",
+    "save": "Enregistrer",
+    "saving": "Enregistrement...",
+    "error": "Erreur",
+    "anonymous": "Anonyme",
+    "googleAuth": "Continuer avec Google",
+    "hello": "Bonjour"
   }
 }

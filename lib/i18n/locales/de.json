@@ -497,11 +497,23 @@
       "titlePlaceholder": "Titel Ihres Posts...",
       "content": "Inhalt",
       "contentPlaceholder": "Schreiben Sie Ihren Post...",
-      "submit": "Veröffentlichen"
+      "submit": "Veröffentlichen",
+      "notFound": "Post nicht gefunden",
+      "notFoundSubtitle": "Der Post, den Sie suchen, existiert nicht oder wurde entfernt.",
+      "backToFeed": "Zurück zum Feed",
+      "updateError": "Fehler beim Aktualisieren des Posts",
+      "updateFailed": "Post konnte nicht aktualisiert werden",
+      "deleteError": "Fehler beim Löschen des Posts",
+      "deleteFailed": "Post konnte nicht gelöscht werden",
+      "deleteConfirm": "Sind Sie sicher, dass Sie diesen Post löschen möchten? Diese Aktion kann nicht rückgängig gemacht werden.",
+      "deleteTitle": "Post löschen"
     },
-    "notFound": "Post nicht gefunden",
-    "notFoundSubtitle": "Der Post, den Sie suchen, existiert nicht oder wurde entfernt.",
-    "backToFeed": "Zurück zum Feed",
+    "empty": {
+      "channel": "Keine Posts in diesem Kanal",
+      "global": "Noch keine Posts",
+      "subtitle": "Seien Sie der Erste, der einen Post erstellt!"
+    },
+    "loadMore": "Mehr laden",
     "type": {
       "discussion": "Diskussion",
       "news": "Nachricht",
@@ -510,13 +522,7 @@
     "vote": {
       "up": "Hoch",
       "down": "Runter"
-    },
-    "empty": {
-      "channel": "Keine Posts in diesem Kanal",
-      "global": "Noch keine Posts",
-      "subtitle": "Seien Sie der Erste, der einen Post erstellt!"
-    },
-    "loadMore": "Mehr laden"
+    }
   },
   "comments": {
     "title": "Kommentare",
@@ -533,7 +539,18 @@
     "loading": "Kommentare werden geladen...",
     "noComments": "Noch keine Kommentare. Seien Sie der Erste!",
     "empty": "Noch keine Kommentare. Seien Sie der Erste!",
-    "error": "Fehler beim Laden der Kommentare"
+    "error": "Fehler beim Laden der Kommentare",
+    "updateError": "Fehler beim Aktualisieren des Kommentars",
+    "updateFailed": "Kommentar konnte nicht aktualisiert werden",
+    "deleteError": "Fehler beim Löschen des Kommentars",
+    "deleteFailed": "Kommentar konnte nicht gelöscht werden",
+    "deleteWithReplies": "Dieser Kommentar hat Antworten. Sind Sie sicher, dass Sie ihn und alle seine Antworten löschen möchten?",
+    "deleteConfirm": "Sind Sie sicher, dass Sie diesen Kommentar löschen möchten?",
+    "deleteTitle": "Kommentar löschen",
+    "createError": "Fehler beim Erstellen des Kommentars",
+    "createFailed": "Kommentar konnte nicht erstellt werden",
+    "replyError": "Fehler beim Erstellen der Antwort",
+    "replyFailed": "Antwort konnte nicht erstellt werden"
   },
   "channels": {
     "title": "Kanäle",
@@ -541,5 +558,18 @@
     "noChannels": "Keine Kanäle gefunden",
     "notFound": "Kanal nicht gefunden",
     "notFoundSubtitle": "Der Kanal, den Sie suchen, existiert nicht oder wurde entfernt."
+  },
+  "ui": {
+    "accept": "Akzeptieren",
+    "confirm": "Bestätigen",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "save": "Speichern",
+    "saving": "Speichern...",
+    "error": "Fehler",
+    "anonymous": "Anonym",
+    "googleAuth": "Mit Google fortfahren",
+    "hello": "Hallo"
   }
 }

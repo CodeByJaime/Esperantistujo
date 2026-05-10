@@ -2,8 +2,9 @@
 
 import { ChevronDown, ChevronUp, HelpCircle, MessageCircle, Newspaper } from 'lucide-react';
 import Link from 'next/link';
-import { useTranslation } from '@/lib/i18n';
+import { formatDate, useTranslation } from '@/lib/i18n';
 import type { Post } from '@/types/discussion';
+import { getAuthorName } from '@/types/discussion';
 
 interface PostCardProps {
   post: Post;
@@ -11,7 +12,7 @@ interface PostCardProps {
 }
 
 export default function PostCard({ post, onVote }: PostCardProps) {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
 
   const getTypeIcon = (type: Post['type']) => {
     switch (type) {
@@ -102,13 +103,11 @@ export default function PostCard({ post, onVote }: PostCardProps) {
         <div className="flex items-center gap-2">
           <div className="w-6 h-6 bg-esperanto-verda rounded-full flex items-center justify-center">
             <span className="text-white text-xs font-bold">
-              {post.profiles?.esperanto_name?.[0]?.toUpperCase() ||
-                post.profiles?.display_name?.[0]?.toUpperCase() || 'A'}
+              {getAuthorName(post.profiles, t)?.[0]?.toUpperCase() || 'A'}
             </span>
           </div>
           <span>
-            {post.profiles?.esperanto_name ||
-              post.profiles?.display_name || 'Anonima'}
+            {getAuthorName(post.profiles, t)}
           </span>
         </div>
 
@@ -120,12 +119,7 @@ export default function PostCard({ post, onVote }: PostCardProps) {
             </span>
           )}
           <span className="text-xs">
-            {new Date(post.created_at).toLocaleDateString('es-ES', {
-              day: 'numeric',
-              month: 'short',
-              hour: '2-digit',
-              minute: '2-digit'
-            })}
+            {formatDate(new Date(post.created_at), language)}
           </span>
         </div>
       </div>

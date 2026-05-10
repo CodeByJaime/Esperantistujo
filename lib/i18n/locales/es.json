@@ -514,7 +514,13 @@
       "global": "No hay posts aún",
       "subtitle": "¡Sé el primero en crear un post!"
     },
-    "loadMore": "Cargar más"
+    "loadMore": "Cargar más",
+    "updateError": "Error al actualizar el post",
+    "updateFailed": "No se pudo actualizar el post",
+    "deleteError": "Error al eliminar el post",
+    "deleteFailed": "No se pudo eliminar el post",
+    "deleteConfirm": "¿Estás seguro de que quieres eliminar este post? Esta acción no se puede deshacer.",
+    "deleteTitle": "Eliminar Post"
   },
   "comments": {
     "title": "Comentarios",
@@ -531,7 +537,18 @@
     "loading": "Cargando comentarios...",
     "noComments": "Aún no hay comentarios. ¡Sé el primero!",
     "empty": "Aún no hay comentarios. ¡Sé el primero!",
-    "error": "Error cargando comentarios"
+    "error": "Error cargando comentarios",
+    "updateError": "Error al actualizar el comentario",
+    "updateFailed": "No se pudo actualizar el comentario",
+    "deleteError": "Error al eliminar el comentario",
+    "deleteFailed": "No se pudo eliminar el comentario",
+    "deleteWithReplies": "Este comentario tiene respuestas. ¿Estás seguro de que quieres eliminarlo y todas sus respuestas?",
+    "deleteConfirm": "¿Estás seguro de que quieres eliminar este comentario?",
+    "deleteTitle": "Eliminar comentario",
+    "createError": "Error al crear comentario",
+    "createFailed": "No se pudo crear el comentario",
+    "replyError": "Error al crear respuesta",
+    "replyFailed": "No se pudo crear la respuesta"
   },
   "channels": {
     "title": "Canales",
@@ -539,5 +556,18 @@
     "noChannels": "No se encontraron canales",
     "notFound": "Canal no encontrado",
     "notFoundSubtitle": "El canal que buscas no existe o fue eliminado."
+  },
+  "ui": {
+    "accept": "Aceptar",
+    "confirm": "Confirmar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "save": "Guardar",
+    "saving": "Guardando...",
+    "error": "Error",
+    "anonymous": "Anónima",
+    "googleAuth": "Continuar con Google",
+    "hello": "Hola"
   }
 }

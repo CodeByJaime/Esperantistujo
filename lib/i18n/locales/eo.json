@@ -516,7 +516,13 @@
       "global": "Neniuj afiŝoj ankoraŭ",
       "subtitle": "Estu la unua kiu kreas afiŝon!"
     },
-    "loadMore": "Ŝargi pli"
+    "loadMore": "Ŝargi pli",
+    "updateError": "Eraro dum ĝisdatigo de afiŝo",
+    "updateFailed": "Ne eblis ĝisdatigi la afiŝon",
+    "deleteError": "Eraro dum forigo de afiŝo",
+    "deleteFailed": "Ne eblis forigi la afiŝon",
+    "deleteConfirm": "Ĉu vi certas, ke vi volas forigi ĉi tiun afiŝon? Ĉi tiu ago ne povas esti malfarita.",
+    "deleteTitle": "Forigi Afiŝon"
   },
   "comments": {
     "title": "Komentoj",
@@ -533,7 +539,18 @@
     "loading": "Ŝargante komentojn...",
     "noComments": "Ankoraŭ ne estas komentoj. Estu la unua!",
     "empty": "Ankoraŭ ne estas komentoj. Estu la unua!",
-    "error": "Eraro ŝargante komentojn"
+    "error": "Eraro ŝargante komentojn",
+    "updateError": "Eraro dum ĝisdatigo de komento",
+    "updateFailed": "Ne eblis ĝisdatigi la komenton",
+    "deleteError": "Eraro dum forigo de komento",
+    "deleteFailed": "Ne eblis forigi la komenton",
+    "deleteWithReplies": "Ĉi tiu komento havas respondojn. Ĉu vi certas, ke vi volas forigi ĝin kaj ĉiujn ĝiajn respondojn?",
+    "deleteConfirm": "Ĉu vi certas, ke vi volas forigi ĉi tiun komenton?",
+    "deleteTitle": "Forigi komenton",
+    "createError": "Eraro dum kreado de komento",
+    "createFailed": "Ne eblis krei la komenton",
+    "replyError": "Eraro dum kreado de respondo",
+    "replyFailed": "Ne eblis krei la respondon"
   },
   "channels": {
     "title": "Kanaloj",
@@ -541,5 +558,18 @@
     "noChannels": "Neniuj kanaloj trovitaj",
     "notFound": "Kanalo ne trovita",
     "notFoundSubtitle": "La kanalo, kiun vi serĉas, ne ekzistas aŭ estis forigita."
+  },
+  "ui": {
+    "accept": "Akcepti",
+    "confirm": "Konfirmi",
+    "cancel": "Nuligi",
+    "delete": "Forigi",
+    "edit": "Redakti",
+    "save": "Konservi",
+    "saving": "Konservante...",
+    "error": "Eraro",
+    "anonymous": "Anonima",
+    "googleAuth": "Daŭrigi per Google",
+    "hello": "Saluton"
   }
 }

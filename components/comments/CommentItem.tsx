@@ -5,8 +5,9 @@ import { useState } from 'react';
 import AlertDialog from '@/components/ui/AlertDialog';
 import ConfirmDialog from '@/components/ui/ConfirmDialog';
 import { useModal } from '@/hooks/useModal';
-import { useTranslation } from '@/lib/i18n';
+import { formatDate, useTranslation } from '@/lib/i18n';
 import type { Comment } from '@/types/discussion';
+import { getAuthorName } from '@/types/discussion';
 
 interface CommentItemProps {
   comment: Comment;
@@ -23,7 +24,7 @@ export default function CommentItem({
   onDelete,
   depth = 0
 }: CommentItemProps) {
-  const { t } = useTranslation();
+  const { t, language } = useTranslation();
   const { alert, showAlert, closeAlert, confirm, showConfirm, closeConfirm } = useModal();
   const [replyContent, setReplyContent] = useState('');
   const [showReplyForm, setShowReplyForm] = useState(false);
@@ -74,10 +75,10 @@ export default function CommentItem({
         setIsEditing(false);
       } else {
         const error = await response.json();
-        showAlert('Error', `Error: ${error.error || 'No se pudo actualizar el comentario'}`, 'error');
+        showAlert(t('ui.error'), `${t('ui.error')}: ${error.error || t('comments.updateFailed')}`, 'error');
       }
     } catch {
-      showAlert('Error', 'Error al actualizar el comentario', 'error');
+      showAlert(t('ui.error'), t('comments.updateError'), 'error');
     } finally {
       setEditLoading(false);
     }
@@ -88,11 +89,11 @@ export default function CommentItem({
 
     const hasReplies = comment.replies && comment.replies.length > 0;
     const message = hasReplies
-      ? 'Este comentario tiene respuestas. ¿Estás seguro de que quieres eliminarlo y todas sus respuestas?'
-      : '¿Estás seguro de que quieres eliminar este comentario?';
+      ? t('comments.deleteWithReplies')
+      : t('comments.deleteConfirm');
 
     showConfirm(
-      'Eliminar comentario',
+      t('comments.deleteTitle'),
       message,
       async () => {
         try {
@@ -104,10 +105,10 @@ export default function CommentItem({
             onDelete(comment.id);
           } else {
             const error = await response.json();
-            showAlert('Error', `Error: ${error.error || 'No se pudo eliminar el comentario'}`, 'error');
+            showAlert(t('ui.error'), `${t('ui.error')}: ${error.error || t('comments.deleteFailed')}`, 'error');
           }
         } catch {
-          showAlert('Error', 'Error al eliminar el comentario', 'error');
+          showAlert(t('ui.error'), t('comments.deleteError'), 'error');
         }
       },
       'danger'
@@ -132,18 +133,15 @@ export default function CommentItem({
           <div className="flex items-center gap-2">
             <div className="w-8 h-8 bg-esperanto-verda rounded-full flex items-center justify-center">
               <span className="text-white text-sm font-bold">
-                {comment.profiles?.esperanto_name?.[0]?.toUpperCase() ||
-                  comment.profiles?.display_name?.[0]?.toUpperCase() || 'A'}
+                {getAuthorName(comment.profiles, t)?.[0]?.toUpperCase() || 'A'}
               </span>
             </div>
             <div>
               <div className="text-white font-medium text-sm">
-                {comment.profiles?.esperanto_name || comment.profiles?.display_name || 'Anonima'}
+                {getAuthorName(comment.profiles, t)}
               </div>
               <div className="text-white/40 text-xs">
-                {new Date(comment.created_at).toLocaleDateString('es-ES', {
-                  day: 'numeric', month: 'short', hour: '2-digit', minute: '2-digit'
-                })}
+                {formatDate(new Date(comment.created_at), language)}
               </div>
             </div>
           </div>
@@ -165,7 +163,7 @@ export default function CommentItem({
                     onClick={() => { setIsEditing(true); setShowActions(false); }}
                     className="w-full text-left px-3 py-2 text-sm text-white/70 hover:bg-white/10 hover:text-white transition-colors flex items-center gap-2 rounded"
                   >
-                    <Edit className="w-4 h-4" /> Editar
+                    <Edit className="w-4 h-4" /> {t('ui.edit')}
                   </button>
                 )}
                 <button
@@ -173,7 +171,7 @@ export default function CommentItem({
                   onClick={handleDelete}
                   className="w-full text-left px-3 py-2 text-sm text-red-400 hover:bg-white/10 transition-colors flex items-center gap-2 rounded"
                 >
-                  <Trash className="w-4 h-4" /> Eliminar
+                  <Trash className="w-4 h-4" /> {t('ui.delete')}
                 </button>
               </div>
             )}
@@ -193,11 +191,11 @@ export default function CommentItem({
             <div className="flex gap-2">
               <button type="button" onClick={handleSaveEdit} disabled={editLoading}
                 className="px-3 py-1 bg-esperanto-verda text-white rounded text-sm hover:bg-esperanto-verda/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-sans-dm">
-                {editLoading ? 'Guardando...' : 'Guardar'}
+                {editLoading ? t('ui.saving') : t('ui.save')}
               </button>
               <button type="button" onClick={handleCancelEdit}
                 className="px-3 py-1 bg-white/10 text-white rounded text-sm hover:bg-white/20 transition-colors font-sans-dm">
-                Cancelar
+                {t('ui.cancel')}
               </button>
             </div>
           </div>
@@ -276,8 +274,8 @@ export default function CommentItem({
         onConfirm={confirm.onConfirm}
         title={confirm.title}
         message={confirm.message}
-        confirmText="Eliminar"
-        cancelText="Cancelar"
+        confirmText={t('ui.delete')}
+        cancelText={t('ui.cancel')}
         variant="danger"
       />
     </div>

@@ -47,6 +47,13 @@ export interface Vote {
   value: 1 | -1;
 }
 
-export const getAuthorName = (author: Post["profiles"]) => {
-  return author?.esperanto_name ?? author?.display_name ?? "Anonima";
+export const getAuthorName = (
+  author: Post["profiles"],
+  t?: (key: string) => string,
+) => {
+  return (
+    author?.esperanto_name ??
+    author?.display_name ??
+    (t ? t("ui.anonymous") : "Anonima")
+  );
 };

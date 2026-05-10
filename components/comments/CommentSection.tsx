@@ -65,10 +65,10 @@ export default function CommentSection({ postId }: CommentSectionProps) {
                 setShowReplyForm(false); // Hide form after successful submission
             } else {
                 const error = await response.json();
-                showAlert('Error', `Error al crear comentario: ${error.error || 'Error desconocido'}`, 'error');
+                showAlert(t('ui.error'), `${t('ui.error')}: ${error.error || t('comments.createFailed')}`, 'error');
             }
         } catch {
-            showAlert('Error', 'Error al crear comentario', 'error');
+            showAlert(t('ui.error'), t('comments.createError'), 'error');
         } finally {
             setSubmitting(false);
         }
@@ -95,10 +95,10 @@ export default function CommentSection({ postId }: CommentSectionProps) {
                 setComments(prev => updateCommentWithReply(prev, parentId, newReply));
             } else {
                 const error = await response.json();
-                showAlert('Error', `Error al crear respuesta: ${error.error || 'Error desconocido'}`, 'error');
+                showAlert(t('ui.error'), `${t('ui.error')}: ${error.error || t('comments.replyFailed')}`, 'error');
             }
         } catch {
-            showAlert('Error', 'Error al crear respuesta', 'error');
+            showAlert(t('ui.error'), t('comments.replyError'), 'error');
         }
     };
 
@@ -159,7 +159,7 @@ export default function CommentSection({ postId }: CommentSectionProps) {
                                 onClick={() => setShowReplyForm(true)}
                                 className="px-4 py-2 bg-esperanto-verda text-white rounded-lg hover:bg-esperanto-verda/80 transition-colors font-sans-dm text-sm font-medium"
                             >
-                                Responder
+                                {t('comments.reply')}
                             </button>
                         )}
                     </div>
@@ -180,7 +180,7 @@ export default function CommentSection({ postId }: CommentSectionProps) {
                                     onClick={() => setShowReplyForm(false)}
                                     className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors font-sans-dm text-sm font-medium"
                                 >
-                                    Cancelar
+                                    {t('ui.cancel')}
                                 </button>
                                 <button
                                     type="submit"

@@ -11,12 +11,13 @@ import AlertDialog from '@/components/ui/AlertDialog';
 import ConfirmDialog from '@/components/ui/ConfirmDialog';
 import { useAuth } from '@/contexts/AuthContext';
 import { useModal } from '@/hooks/useModal';
-import { useTranslation } from '@/lib/i18n';
+import { formatDate, useTranslation } from '@/lib/i18n';
 import type { Post } from '@/types/discussion';
+import { getAuthorName } from '@/types/discussion';
 
 export default function PostPage() {
     const { user, loading: authLoading } = useAuth();
-    const { t } = useTranslation();
+    const { t, language } = useTranslation();
     const params = useParams();
     const postId = params.id as string;
     const { alert, confirm, showAlert, showConfirm, closeAlert, closeConfirm } = useModal();
@@ -100,10 +101,10 @@ export default function PostPage() {
                 setIsEditing(false);
             } else {
                 const error = await response.json();
-                showAlert('Error', `Error al actualizar el post: ${error.error || 'Error desconocido'}`, 'error');
+                showAlert(t('ui.error'), `${t('ui.error')}: ${error.error || t('posts.updateFailed')}`, 'error');
             }
         } catch {
-            showAlert('Error', 'Error al actualizar el post', 'error');
+            showAlert(t('ui.error'), t('posts.updateError'), 'error');
         }
     };
 
@@ -116,8 +117,8 @@ export default function PostPage() {
         if (!user?.id || !post) return;
 
         showConfirm(
-            'Eliminar Post',
-            '¿Estás seguro de que quieres eliminar este post? Esta acción no se puede deshacer.',
+            t('posts.deleteTitle'),
+            t('posts.deleteConfirm'),
             async () => {
                 try {
                     const response = await fetch(`/api/posts/${postId}`, {
@@ -132,10 +133,10 @@ export default function PostPage() {
                         window.location.href = '/diskuto';
                     } else {
                         const error = await response.json();
-                        showAlert('Error', `Error: ${error.error || 'No se pudo eliminar el post'}`, 'error');
+                        showAlert(t('ui.error'), `${t('ui.error')}: ${error.error || t('posts.deleteFailed')}`, 'error');
                     }
                 } catch {
-                    showAlert('Error', 'Error al eliminar el post', 'error');
+                    showAlert(t('ui.error'), t('posts.deleteError'), 'error');
                 }
             },
             'danger'
@@ -237,7 +238,7 @@ export default function PostPage() {
                                         className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a] transition-colors text-sm"
                                     >
                                         <Edit className="w-4 h-4" />
-                                        Editar
+                                        {t('ui.edit')}
                                     </button>
                                     <button
                                         type="button"
@@ -245,7 +246,7 @@ export default function PostPage() {
                                         className="inline-flex items-center gap-2 px-3 py-1 rounded bg-red-600/20 text-red-400 hover:bg-red-600/30 transition-colors text-sm"
                                     >
                                         <Trash className="w-4 h-4" />
-                                        Eliminar
+                                        {t('ui.delete')}
                                     </button>
                                 </div>
                             )}
@@ -270,14 +271,14 @@ export default function PostPage() {
                                         onClick={handleSaveEdit}
                                         className="px-4 py-2 bg-esperanto-verda text-white rounded hover:bg-esperanto-verda/80 transition-colors"
                                     >
-                                        Guardar
+                                        {t('ui.save')}
                                     </button>
                                     <button
                                         type="button"
                                         onClick={handleCancelEdit}
                                         className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition-colors"
                                     >
-                                        Cancelar
+                                        {t('ui.cancel')}
                                     </button>
                                 </div>
                             </>
@@ -297,23 +298,15 @@ export default function PostPage() {
                             <div className="flex items-center gap-3">
                                 <div className="w-8 h-8 bg-esperanto-verda rounded-full flex items-center justify-center">
                                     <span className="text-white text-sm font-bold">
-                                        {post.profiles?.esperanto_name?.[0]?.toUpperCase() ||
-                                            post.profiles?.display_name?.[0]?.toUpperCase() || 'A'}
+                                        {getAuthorName(post.profiles, t)?.[0]?.toUpperCase() || 'A'}
                                     </span>
                                 </div>
                                 <div>
                                     <div className="text-white font-medium">
-                                        {post.profiles?.esperanto_name ||
-                                            post.profiles?.display_name || 'Anonima'}
+                                        {getAuthorName(post.profiles, t)}
                                     </div>
                                     <div className="text-xs">
-                                        {new Date(post.created_at).toLocaleDateString('es-ES', {
-                                            day: 'numeric',
-                                            month: 'long',
-                                            year: 'numeric',
-                                            hour: '2-digit',
-                                            minute: '2-digit'
-                                        })}
+                                        {formatDate(new Date(post.created_at), language)}
                                     </div>
                                 </div>
                             </div>
