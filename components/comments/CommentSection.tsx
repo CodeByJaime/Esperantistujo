@@ -1,7 +1,9 @@
 'use client';
 
 import { useCallback, useEffect, useState } from 'react';
+import AlertDialog from '@/components/ui/AlertDialog';
 import { useAuth } from '@/contexts/AuthContext';
+import { useModal } from '@/hooks/useModal';
 import { useTranslation } from '@/lib/i18n';
 import type { Comment } from '@/types/discussion';
 import CommentItem from './CommentItem';
@@ -13,6 +15,7 @@ interface CommentSectionProps {
 export default function CommentSection({ postId }: CommentSectionProps) {
     const { t } = useTranslation();
     const { user } = useAuth();
+    const { alert, showAlert, closeAlert } = useModal();
     const [comments, setComments] = useState<Comment[]>([]);
     const [loading, setLoading] = useState(true);
     const [newComment, setNewComment] = useState('');
@@ -61,11 +64,11 @@ export default function CommentSection({ postId }: CommentSectionProps) {
                 setNewComment('');
                 setShowReplyForm(false); // Hide form after successful submission
             } else {
-                await response.json();
-                alert('Error creating comment');
+                const error = await response.json();
+                showAlert('Error', `Error al crear comentario: ${error.error || 'Error desconocido'}`, 'error');
             }
         } catch {
-            alert('Error creating comment');
+            showAlert('Error', 'Error al crear comentario', 'error');
         } finally {
             setSubmitting(false);
         }
@@ -91,11 +94,11 @@ export default function CommentSection({ postId }: CommentSectionProps) {
                 const newReply = await response.json();
                 setComments(prev => updateCommentWithReply(prev, parentId, newReply));
             } else {
-                await response.json();
-                alert('Error creating reply');
+                const error = await response.json();
+                showAlert('Error', `Error al crear respuesta: ${error.error || 'Error desconocido'}`, 'error');
             }
         } catch {
-            alert('Error creating reply');
+            showAlert('Error', 'Error al crear respuesta', 'error');
         }
     };
 
@@ -121,77 +124,110 @@ export default function CommentSection({ postId }: CommentSectionProps) {
         });
     };
 
-    return (
-        <div className="space-y-6">
-            <div className="bg-white/10 border border-white/20 rounded-lg p-6">
-                <div className="flex items-center justify-between mb-4">
-                    <h3 className="text-white text-lg font-semibold font-sans-dm">
-                        {t('comments.title')} ({comments.length})
-                    </h3>
-                    {!showReplyForm && (
-                        <button
-                            type="button"
-                            onClick={() => setShowReplyForm(true)}
-                            className="px-4 py-2 bg-esperanto-verda text-white rounded-lg hover:bg-esperanto-verda/80 transition-colors font-sans-dm text-sm font-medium"
-                        >
-                            Responder
-                        </button>
-                    )}
-                </div>
+    const handleEditComment = (commentId: string, newContent: string) => {
+        setComments(prev => prev.map(comment => {
+            if (comment.id === commentId) {
+                return { ...comment, content: newContent };
+            }
+            if (comment.replies) {
+                return {
+                    ...comment,
+                    replies: comment.replies.map(reply =>
+                        reply.id === commentId ? { ...reply, content: newContent } : reply
+                    )
+                };
+            }
+            return comment;
+        }));
+    };
 
-                {showReplyForm && (
-                    <form onSubmit={handleSubmitComment} className="space-y-3 mb-6">
-                        <textarea
-                            value={newComment}
-                            onChange={(e) => setNewComment(e.target.value)}
-                            placeholder={t('comments.newPlaceholder')}
-                            rows={4}
-                            className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-esperanto-verda focus:bg-white/15 transition-all resize-none text-sm font-sans-dm"
-                            required
-                        />
-                        <div className="flex gap-2">
+    const handleDeleteComment = (commentId: string) => {
+        setComments(prev => prev.filter(comment => comment.id !== commentId));
+    };
+
+    return (
+        <>
+            <div className="space-y-6">
+                <div className="bg-white/10 border border-white/20 rounded-lg p-6">
+                    <div className="flex items-center justify-between mb-4">
+                        <h3 className="text-white text-lg font-semibold font-sans-dm">
+                            {t('comments.title')} ({comments.length})
+                        </h3>
+                        {!showReplyForm && (
                             <button
                                 type="button"
-                                onClick={() => setShowReplyForm(false)}
-                                className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors font-sans-dm text-sm font-medium"
+                                onClick={() => setShowReplyForm(true)}
+                                className="px-4 py-2 bg-esperanto-verda text-white rounded-lg hover:bg-esperanto-verda/80 transition-colors font-sans-dm text-sm font-medium"
                             >
-                                Cancelar
+                                Responder
                             </button>
-                            <button
-                                type="submit"
-                                disabled={submitting || !newComment.trim()}
-                                className="px-6 py-2 bg-esperanto-verda text-white rounded-lg hover:bg-esperanto-verda/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-sans-dm text-sm font-medium"
-                            >
-                                {submitting ? t('common.loading') : t('comments.submit')}
-                            </button>
-                        </div>
-                    </form>
-                )}
-
-                {loading ? (
-                    <div className="text-center py-8">
-                        <div className="text-gray-400">{t('common.loading')}</div>
-                    </div>
-                ) : (
-                    <>
-                        {comments.length > 0 ? (
-                            <div className="space-y-4">
-                                {comments.map((comment) => (
-                                    <CommentItem
-                                        key={comment.id}
-                                        comment={comment}
-                                        onReply={handleReply}
-                                    />
-                                ))}
-                            </div>
-                        ) : (
-                            <div className="text-center py-8 text-white/50">
-                                {t('comments.empty')}
-                            </div>
                         )}
-                    </>
-                )}
+                    </div>
+
+                    {showReplyForm && (
+                        <form onSubmit={handleSubmitComment} className="space-y-3 mb-6">
+                            <textarea
+                                value={newComment}
+                                onChange={(e) => setNewComment(e.target.value)}
+                                placeholder={t('comments.newPlaceholder')}
+                                rows={4}
+                                className="w-full px-3 py-2 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/30 focus:outline-none focus:border-esperanto-verda focus:bg-white/15 transition-all resize-none text-sm font-sans-dm"
+                                required
+                            />
+                            <div className="flex gap-2">
+                                <button
+                                    type="button"
+                                    onClick={() => setShowReplyForm(false)}
+                                    className="px-4 py-2 bg-gray-600 text-white rounded-lg hover:bg-gray-700 transition-colors font-sans-dm text-sm font-medium"
+                                >
+                                    Cancelar
+                                </button>
+                                <button
+                                    type="submit"
+                                    disabled={submitting || !newComment.trim()}
+                                    className="px-6 py-2 bg-esperanto-verda text-white rounded-lg hover:bg-esperanto-verda/80 disabled:opacity-50 disabled:cursor-not-allowed transition-colors font-sans-dm text-sm font-medium"
+                                >
+                                    {submitting ? t('common.loading') : t('comments.submit')}
+                                </button>
+                            </div>
+                        </form>
+                    )}
+
+                    {loading ? (
+                        <div className="text-center py-8">
+                            <div className="text-gray-400">{t('common.loading')}</div>
+                        </div>
+                    ) : (
+                        <>
+                            {comments.length > 0 ? (
+                                <div className="space-y-4">
+                                    {comments.map((comment) => (
+                                        <CommentItem
+                                            key={comment.id}
+                                            comment={comment}
+                                            onReply={handleReply}
+                                            onEdit={handleEditComment}
+                                            onDelete={handleDeleteComment}
+                                        />
+                                    ))}
+                                </div>
+                            ) : (
+                                <div className="text-center py-8 text-white/50">
+                                    {t('comments.empty')}
+                                </div>
+                            )}
+                        </>
+                    )}
+                </div>
             </div>
-        </div>
+
+            <AlertDialog
+                isOpen={alert.isOpen}
+                onClose={closeAlert}
+                title={alert.title}
+                message={alert.message}
+                variant={alert.variant}
+            />
+        </>
     );
 }

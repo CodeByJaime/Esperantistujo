@@ -147,7 +147,7 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
             </div>
 
             {/* Governance Section */}
-            <div>
+            <div className="hidden">
               <h3 className="font-sans-dm text-white/40 text-xs font-semibold uppercase tracking-wider mb-3">
                 {t('navigation.governance')}
               </h3>
@@ -229,7 +229,7 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
                 <Link
                   href="#"
                   // href="/projektoj"
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 text-white/70 hover:text-white font-sans-dm text-sm transition-all"
+                  className="hidden items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 text-white/70 hover:text-white font-sans-dm text-sm transition-all"
                 >
                   <svg
                     className="w-5 h-5"
@@ -272,7 +272,7 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
                 <Link
                   href="#"
                   // href="/eventoj"
-                  className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 text-white/70 hover:text-white font-sans-dm text-sm transition-all"
+                  className="hidden items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 text-white/70 hover:text-white font-sans-dm text-sm transition-all"
                 >
                   <svg
                     className="w-5 h-5"

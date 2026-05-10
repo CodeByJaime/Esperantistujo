@@ -2,8 +2,10 @@
 
 import { useForm } from '@tanstack/react-form';
 import { useEffect, useState } from 'react';
+import AlertDialog from '@/components/ui/AlertDialog';
 import { Select } from "@/components/ui/Select";
 import { useAuth } from '@/contexts/AuthContext';
+import { useModal } from '@/hooks/useModal';
 import { useTranslation } from '@/lib/i18n';
 import type { Channel, Post } from '@/types/discussion';
 
@@ -20,6 +22,7 @@ export default function NewPostForm({
 }: NewPostFormProps) {
   const { t } = useTranslation();
   const { user } = useAuth();
+  const { alert, showAlert, closeAlert } = useModal();
   const [defaultChannelId, setDefaultChannelId] = useState(selectedChannel?.id || '');
 
   // Set default channel to "General" when channels load
@@ -62,8 +65,7 @@ export default function NewPostForm({
           onPostCreated?.(createdPost);
         } else {
           const error = await response.json();
-          // You could add toast notification here
-          alert(`Error: ${error.error}${error.details ? ` - ${error.details}` : ''}`);
+          showAlert('Error', `Error: ${error.error}${error.details ? ` - ${error.details}` : 'Error desconocido'}`, 'error');
         }
       } catch {
       }
@@ -187,6 +189,14 @@ export default function NewPostForm({
           </form.Subscribe>
         </div>
       </form>
+
+      <AlertDialog
+        isOpen={alert.isOpen}
+        onClose={closeAlert}
+        title={alert.title}
+        message={alert.message}
+        variant={alert.variant}
+      />
     </div>
   );
 }

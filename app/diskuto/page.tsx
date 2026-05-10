@@ -55,8 +55,7 @@ export default function DiskutoPage() {
     const handlePostCreated = (newPostData?: Post) => {
         if (newPostData) {
             setNewPost(newPostData);
-        } else {
-            loadPosts();
+            loadPosts(); // Recargar el feed para mostrar el nuevo post
         }
         setShowNewPost(false);
     };

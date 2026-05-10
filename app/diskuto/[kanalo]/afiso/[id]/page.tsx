@@ -1,12 +1,16 @@
 'use client';
 
+import { ArrowLeft, ChevronDown, ChevronUp, Edit, HelpCircle, MessageCircle, Newspaper, Trash } from 'lucide-react';
 import Link from 'next/link';
 import { useParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 import { AuthLayout } from '@/components/auth-layout';
 import CommentSection from '@/components/comments/CommentSection';
 import { LoadingScreen } from '@/components/ui';
+import AlertDialog from '@/components/ui/AlertDialog';
+import ConfirmDialog from '@/components/ui/ConfirmDialog';
 import { useAuth } from '@/contexts/AuthContext';
+import { useModal } from '@/hooks/useModal';
 import { useTranslation } from '@/lib/i18n';
 import type { Post } from '@/types/discussion';
 
@@ -15,6 +19,7 @@ export default function PostPage() {
     const { t } = useTranslation();
     const params = useParams();
     const postId = params.id as string;
+    const { alert, confirm, showAlert, showConfirm, closeAlert, closeConfirm } = useModal();
 
     const [post, setPost] = useState<Post | null>(null);
     const [loading, setLoading] = useState(true);
@@ -94,17 +99,47 @@ export default function PostPage() {
                 setPost(updatedPost);
                 setIsEditing(false);
             } else {
-                await response.json();
-                alert('Error updating post');
+                const error = await response.json();
+                showAlert('Error', `Error al actualizar el post: ${error.error || 'Error desconocido'}`, 'error');
             }
         } catch {
-            alert('Error updating post');
+            showAlert('Error', 'Error al actualizar el post', 'error');
         }
     };
 
     const handleCancelEdit = () => {
         setIsEditing(false);
         setEditForm({ title: '', content: '' });
+    };
+
+    const handleDelete = async () => {
+        if (!user?.id || !post) return;
+
+        showConfirm(
+            'Eliminar Post',
+            '¿Estás seguro de que quieres eliminar este post? Esta acción no se puede deshacer.',
+            async () => {
+                try {
+                    const response = await fetch(`/api/posts/${postId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ user_id: user.id }),
+                    });
+
+                    if (response.ok) {
+                        window.location.href = '/diskuto';
+                    } else {
+                        const error = await response.json();
+                        showAlert('Error', `Error: ${error.error || 'No se pudo eliminar el post'}`, 'error');
+                    }
+                } catch {
+                    showAlert('Error', 'Error al eliminar el post', 'error');
+                }
+            },
+            'danger'
+        );
     };
 
     const isAuthor = user?.id === post?.author_id;
@@ -139,13 +174,13 @@ export default function PostPage() {
     const getTypeIcon = (type: Post['type']) => {
         switch (type) {
             case 'discussion':
-                return '💬';
+                return <MessageCircle className="w-4 h-4" />;
             case 'news':
-                return '📰';
+                return <Newspaper className="w-4 h-4" />;
             case 'question':
-                return '❓';
+                return <HelpCircle className="w-4 h-4" />;
             default:
-                return '💬';
+                return <MessageCircle className="w-4 h-4" />;
         }
     };
 
@@ -169,9 +204,10 @@ export default function PostPage() {
                     <div className="mb-6">
                         <Link
                             href="/diskuto"
-                            className="text-esperanto-verda hover:text-esperanto-verda/80 underline text-sm"
+                            className="inline-flex items-center gap-2 px-4 py-2 bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg text-esperanto-verda hover:bg-[#2a2a2a] hover:border-esperanto-verda/30 transition-all duration-200 text-sm font-medium"
                         >
-                            ← {t('posts.backToFeed')}
+                            <ArrowLeft className="w-4 h-4" />
+                            {t('posts.backToFeed')}
                         </Link>
                     </div>
 
@@ -193,40 +229,26 @@ export default function PostPage() {
                                 )}
                             </div>
 
-                            <div className="flex items-center gap-2">
-                                {isAuthor && (
+                            {isAuthor && (
+                                <div className="flex items-center gap-2">
                                     <button
                                         type="button"
                                         onClick={handleEdit}
-                                        className="px-3 py-1 rounded bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a] transition-colors text-sm"
+                                        className="inline-flex items-center gap-2 px-3 py-1 rounded bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a] transition-colors text-sm"
                                     >
-                                        ✏️ Editar
+                                        <Edit className="w-4 h-4" />
+                                        Editar
                                     </button>
-                                )}
-                                <button
-                                    type="button"
-                                    onClick={() => handleVote(1)}
-                                    className={`px-3 py-1 rounded transition-colors ${post.user_vote === 1
-                                        ? 'bg-esperanto-verda text-white'
-                                        : 'bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a]'
-                                        }`}
-                                >
-                                    ▲
-                                </button>
-                                <span className="text-white font-medium min-w-8 text-center">
-                                    {post.vote_count}
-                                </span>
-                                <button
-                                    type="button"
-                                    onClick={() => handleVote(-1)}
-                                    className={`px-3 py-1 rounded transition-colors ${post.user_vote === -1
-                                        ? 'bg-red-600 text-white'
-                                        : 'bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a]'
-                                        }`}
-                                >
-                                    ▼
-                                </button>
-                            </div>
+                                    <button
+                                        type="button"
+                                        onClick={handleDelete}
+                                        className="inline-flex items-center gap-2 px-3 py-1 rounded bg-red-600/20 text-red-400 hover:bg-red-600/30 transition-colors text-sm"
+                                    >
+                                        <Trash className="w-4 h-4" />
+                                        Eliminar
+                                    </button>
+                                </div>
+                            )}
                         </div>
 
                         {isEditing ? (
@@ -295,12 +317,55 @@ export default function PostPage() {
                                     </div>
                                 </div>
                             </div>
+
+                            <div className="flex items-center gap-2">
+                                <button
+                                    type="button"
+                                    onClick={() => handleVote(1)}
+                                    className={`px-3 py-1 rounded transition-colors ${post.user_vote === 1
+                                        ? 'bg-esperanto-verda text-white'
+                                        : 'bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a]'
+                                        }`}
+                                >
+                                    <ChevronUp className="w-4 h-4" />
+                                </button>
+                                <span className="text-white font-medium min-w-8 text-center">
+                                    {post.vote_count}
+                                </span>
+                                <button
+                                    type="button"
+                                    onClick={() => handleVote(-1)}
+                                    className={`px-3 py-1 rounded transition-colors ${post.user_vote === -1
+                                        ? 'bg-red-600 text-white'
+                                        : 'bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a]'
+                                        }`}
+                                >
+                                    <ChevronDown className="w-4 h-4" />
+                                </button>
+                            </div>
                         </div>
                     </div>
 
                     <CommentSection postId={postId} />
                 </div>
             </div>
+
+            <AlertDialog
+                isOpen={alert.isOpen}
+                onClose={closeAlert}
+                title={alert.title}
+                message={alert.message}
+                variant={alert.variant}
+            />
+
+            <ConfirmDialog
+                isOpen={confirm.isOpen}
+                onClose={closeConfirm}
+                onConfirm={confirm.onConfirm}
+                title={confirm.title}
+                message={confirm.message}
+                variant={confirm.variant}
+            />
         </AuthLayout>
     );
 }

@@ -136,3 +136,80 @@ export async function PUT(
     );
   }
 }
+
+export async function DELETE(
+  request: Request,
+  { params }: { params: Promise<{ id: string }> },
+) {
+  try {
+    const { id } = await params;
+    const body = await request.json();
+    const { user_id } = body;
+
+    if (!user_id) {
+      return NextResponse.json({ error: "Missing user_id" }, { status: 400 });
+    }
+
+    // First, check if user is the author
+    const { data: currentPost, error: fetchError } = await supabase
+      .from("posts")
+      .select("author_id")
+      .eq("id", id)
+      .single();
+
+    if (fetchError) {
+      throw fetchError;
+    }
+
+    if (!currentPost) {
+      return NextResponse.json({ error: "Post not found" }, { status: 404 });
+    }
+
+    if (currentPost.author_id !== user_id) {
+      return NextResponse.json(
+        { error: "Not authorized to delete this post" },
+        { status: 403 },
+      );
+    }
+
+    // First delete all votes associated with this post
+    const { error: votesDeleteError } = await supabase
+      .from("votes")
+      .delete()
+      .eq("post_id", id);
+
+    if (votesDeleteError) {
+      throw votesDeleteError;
+    }
+
+    // Then delete all comments associated with this post
+    const { error: commentsDeleteError } = await supabase
+      .from("comments")
+      .delete()
+      .eq("post_id", id);
+
+    if (commentsDeleteError) {
+      throw commentsDeleteError;
+    }
+
+    // Finally delete the post
+    const { error: deleteError } = await supabase
+      .from("posts")
+      .delete()
+      .eq("id", id);
+
+    if (deleteError) {
+      throw deleteError;
+    }
+
+    return NextResponse.json({ success: true }, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      {
+        error: "Failed to delete post",
+        details: error instanceof Error ? error.message : String(error),
+      },
+      { status: 500 },
+    );
+  }
+}

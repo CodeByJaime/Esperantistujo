@@ -1,5 +1,6 @@
 'use client';
 
+import { ChevronDown, ChevronUp, HelpCircle, MessageCircle, Newspaper } from 'lucide-react';
 import Link from 'next/link';
 import { useTranslation } from '@/lib/i18n';
 import type { Post } from '@/types/discussion';
@@ -15,13 +16,13 @@ export default function PostCard({ post, onVote }: PostCardProps) {
   const getTypeIcon = (type: Post['type']) => {
     switch (type) {
       case 'discussion':
-        return '💬';
+        return <MessageCircle className="w-4 h-4" />;
       case 'news':
-        return '📰';
+        return <Newspaper className="w-4 h-4" />;
       case 'question':
-        return '❓';
+        return <HelpCircle className="w-4 h-4" />;
       default:
-        return '💬';
+        return <MessageCircle className="w-4 h-4" />;
     }
   };
 
@@ -71,7 +72,7 @@ export default function PostCard({ post, onVote }: PostCardProps) {
             className="text-white/70 hover:text-esperanto-verda transition-colors"
             disabled={!onVote}
           >
-            ▲
+            <ChevronUp className="w-4 h-4" />
           </button>
           <span className="text-white font-medium">{post.vote_count}</span>
           <button
@@ -84,7 +85,7 @@ export default function PostCard({ post, onVote }: PostCardProps) {
             className="text-white/70 hover:text-red-400 transition-colors"
             disabled={!onVote}
           >
-            ▼
+            <ChevronDown className="w-4 h-4" />
           </button>
         </div>
       </div>
@@ -114,7 +115,7 @@ export default function PostCard({ post, onVote }: PostCardProps) {
         <div className="flex items-center gap-3">
           {post.comments_count !== undefined && (
             <span className="flex items-center gap-1">
-              <span>💬</span>
+              <MessageCircle className="w-4 h-4" />
               <span>{post.comments_count}</span>
             </span>
           )}

@@ -19,7 +19,12 @@ export default function PostFeed({ channelSlug, initialPosts = [], newPost, onRe
   const [hasMore, setHasMore] = useState(true);
   const [page, setPage] = useState(1);
 
-  // Add new post to the beginning of the list
+  // Update posts when initialPosts changes (for feed reload)
+  useEffect(() => {
+    setPosts(initialPosts);
+  }, [initialPosts]);
+
+  // Add new post to the beginning of list
   useEffect(() => {
     if (newPost) {
       setPosts(prev => {
