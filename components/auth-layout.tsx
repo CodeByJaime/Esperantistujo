@@ -330,7 +330,7 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
       </div>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col lg:ml-0">
+      <div className="flex-1 lg:ml-64">
         {/* Sidebar Overlay */}
         {sidebarOpen && (
           <button
@@ -371,7 +371,7 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
         </div>
 
         {/* Page Content */}
-        <main className="flex-1 overflow-y-auto h-screen lg:ml-64">{children}</main>
+        <main className="h-screen overflow-y-auto">{children}</main>
       </div>
     </div>
   );
