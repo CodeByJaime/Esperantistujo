@@ -486,5 +486,65 @@
       "passwordRequired": "Veuillez entrer votre mot de passe."
     },
     "forgotPassword": "Oublié?"
+  },
+  "diskuto": {
+    "title": "Discussion",
+    "subtitle": "Connectez-vous, discutez et créez avec la communauté espérantiste."
+  },
+  "posts": {
+    "create": {
+      "new": "Nouveau Post",
+      "cancel": "Annuler",
+      "title": "Créer un Post",
+      "type": "Type",
+      "channel": "Canal",
+      "selectChannel": "Sélectionnez un canal",
+      "titlePlaceholder": "Titre de votre post...",
+      "content": "Contenu",
+      "contentPlaceholder": "Écrivez votre post...",
+      "submit": "Publier"
+    },
+    "notFound": "Post non trouvé",
+    "notFoundSubtitle": "Le post que vous cherchez n'existe pas ou a été supprimé.",
+    "backToFeed": "Retour au fil",
+    "type": {
+      "discussion": "Discussion",
+      "news": "Actualité",
+      "question": "Question"
+    },
+    "vote": {
+      "up": "Haut",
+      "down": "Bas"
+    },
+    "empty": {
+      "channel": "Aucun post dans ce canal",
+      "global": "Aucun post encore",
+      "subtitle": "Soyez le premier à créer un post!"
+    },
+    "loadMore": "Charger plus"
+  },
+  "comments": {
+    "title": "Commentaires",
+    "add": "Ajouter un commentaire",
+    "placeholder": "Écrivez votre commentaire...",
+    "newPlaceholder": "Écrivez votre commentaire...",
+    "replyPlaceholder": "Écrivez votre réponse...",
+    "reply": "Répondre",
+    "edit": "Modifier",
+    "delete": "Supprimer",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "submit": "Publier",
+    "loading": "Chargement des commentaires...",
+    "noComments": "Aucun commentaire encore. Soyez le premier!",
+    "empty": "Aucun commentaire encore. Soyez le premier!",
+    "error": "Erreur lors du chargement des commentaires"
+  },
+  "channels": {
+    "title": "Canaux",
+    "all": "Tous les canaux",
+    "noChannels": "Aucun canal trouvé",
+    "notFound": "Canal non trouvé",
+    "notFoundSubtitle": "Le canal que vous cherchez n'existe pas ou a été supprimé."
   }
 }

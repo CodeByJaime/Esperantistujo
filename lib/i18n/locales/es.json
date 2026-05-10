@@ -479,5 +479,65 @@
       "passwordRequired": "Por favor ingresa tu contraseña."
     },
     "forgotPassword": "¿Olvidaste?"
+  },
+  "diskuto": {
+    "title": "Discusión",
+    "subtitle": "Convive, discute y crea con la comunidad esperantista."
+  },
+  "posts": {
+    "create": {
+      "new": "Nuevo Post",
+      "cancel": "Cancelar",
+      "title": "Crear Post",
+      "type": "Tipo",
+      "channel": "Canal",
+      "selectChannel": "Selecciona un canal",
+      "titlePlaceholder": "Título de tu post...",
+      "content": "Contenido",
+      "contentPlaceholder": "Escribe tu post...",
+      "submit": "Publicar"
+    },
+    "notFound": "Post no encontrado",
+    "notFoundSubtitle": "El post que buscas no existe o fue eliminado.",
+    "backToFeed": "Volver al feed",
+    "type": {
+      "discussion": "Discusión",
+      "news": "Noticia",
+      "question": "Pregunta"
+    },
+    "vote": {
+      "up": "Arriba",
+      "down": "Abajo"
+    },
+    "empty": {
+      "channel": "No hay posts en este canal",
+      "global": "No hay posts aún",
+      "subtitle": "¡Sé el primero en crear un post!"
+    },
+    "loadMore": "Cargar más"
+  },
+  "comments": {
+    "title": "Comentarios",
+    "add": "Añadir comentario",
+    "placeholder": "Escribe tu comentario...",
+    "newPlaceholder": "Escribe tu comentario...",
+    "replyPlaceholder": "Escribe tu respuesta...",
+    "reply": "Responder",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "cancel": "Cancelar",
+    "save": "Guardar",
+    "submit": "Publicar",
+    "loading": "Cargando comentarios...",
+    "noComments": "Aún no hay comentarios. ¡Sé el primero!",
+    "empty": "Aún no hay comentarios. ¡Sé el primero!",
+    "error": "Error cargando comentarios"
+  },
+  "channels": {
+    "title": "Canales",
+    "all": "Todos los canales",
+    "noChannels": "No se encontraron canales",
+    "notFound": "Canal no encontrado",
+    "notFoundSubtitle": "El canal que buscas no existe o fue eliminado."
   }
 }

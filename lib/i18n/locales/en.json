@@ -481,5 +481,65 @@
       "passwordRequired": "Please enter your password."
     },
     "forgotPassword": "Forgot?"
+  },
+  "diskuto": {
+    "title": "Discussion",
+    "subtitle": "Connect, discuss and create with the Esperanto community."
+  },
+  "posts": {
+    "create": {
+      "new": "New Post",
+      "cancel": "Cancel",
+      "title": "Create Post",
+      "type": "Type",
+      "channel": "Channel",
+      "selectChannel": "Select a channel",
+      "titlePlaceholder": "Title of your post...",
+      "content": "Content",
+      "contentPlaceholder": "Write your post...",
+      "submit": "Publish"
+    },
+    "notFound": "Post not found",
+    "notFoundSubtitle": "The post you're looking for doesn't exist or was removed.",
+    "backToFeed": "Back to feed",
+    "type": {
+      "discussion": "Discussion",
+      "news": "News",
+      "question": "Question"
+    },
+    "vote": {
+      "up": "Up",
+      "down": "Down"
+    },
+    "empty": {
+      "channel": "No posts in this channel",
+      "global": "No posts yet",
+      "subtitle": "Be the first to create a post!"
+    },
+    "loadMore": "Load more"
+  },
+  "comments": {
+    "title": "Comments",
+    "add": "Add comment",
+    "placeholder": "Write your comment...",
+    "newPlaceholder": "Write your comment...",
+    "replyPlaceholder": "Write your reply...",
+    "reply": "Reply",
+    "edit": "Edit",
+    "delete": "Delete",
+    "cancel": "Cancel",
+    "save": "Save",
+    "submit": "Post",
+    "loading": "Loading comments...",
+    "noComments": "No comments yet. Be the first!",
+    "empty": "No comments yet. Be the first!",
+    "error": "Error loading comments"
+  },
+  "channels": {
+    "title": "Channels",
+    "all": "All channels",
+    "noChannels": "No channels found",
+    "notFound": "Channel not found",
+    "notFoundSubtitle": "The channel you're looking for doesn't exist or was removed."
   }
 }

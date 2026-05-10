@@ -1,11 +1,11 @@
 "use client";
-import { useState } from "react";
-import { useAuth } from "@/contexts/AuthContext";
-import type { ReactNode } from "react";
 import type { User } from "@supabase/supabase-js";
 import Image from "next/image";
-import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
+import type { ReactNode } from "react";
+import { useState } from "react";
+import { useAuth } from "@/contexts/AuthContext";
 import { useTranslation } from "@/lib/i18n";
 
 interface AuthLayoutProps {
@@ -39,9 +39,8 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
 
       {/* Sidebar - Fixed position for all screen sizes */}
       <div
-        className={`fixed inset-y-0 left-0 z-50 w-64 h-screen bg-[#0a0a0a] border-r border-white/10 transform transition-transform duration-300 ease-in-out ${
-          sidebarOpen ? "translate-x-0" : "-translate-x-full"
-        } lg:translate-x-0`}
+        className={`fixed inset-y-0 left-0 z-50 w-64 h-screen bg-[#0a0a0a] border-r border-white/10 transform transition-transform duration-300 ease-in-out ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+          } lg:translate-x-0`}
       >
         <div className="flex flex-col h-full">
           {/* Sidebar Header */}
@@ -70,11 +69,10 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
               <div className="space-y-1">
                 <Link
                   href="/komenci"
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg font-sans-dm font-medium text-sm transition-all ${
-                    isActiveRoute('/komenci') 
-                      ? 'bg-esperanto-verda/10 text-esperanto-verda' 
-                      : 'hover:bg-white/10 text-white/70 hover:text-white'
-                  }`}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg font-sans-dm font-medium text-sm transition-all ${isActiveRoute('/komenci')
+                    ? 'bg-esperanto-verda/10 text-esperanto-verda'
+                    : 'hover:bg-white/10 text-white/70 hover:text-white'
+                    }`}
                 >
                   <svg
                     className="w-5 h-5"
@@ -95,11 +93,10 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
 
                 <Link
                   href="/profilo"
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg font-sans-dm font-medium text-sm transition-all ${
-                    isActiveRoute('/profilo') 
-                      ? 'bg-esperanto-verda/10 text-esperanto-verda' 
-                      : 'hover:bg-white/10 text-white/70 hover:text-white'
-                  }`}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg font-sans-dm font-medium text-sm transition-all ${isActiveRoute('/profilo')
+                    ? 'bg-esperanto-verda/10 text-esperanto-verda'
+                    : 'hover:bg-white/10 text-white/70 hover:text-white'
+                    }`}
                 >
                   <svg
                     className="w-5 h-5"
@@ -120,11 +117,10 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
 
                 <Link
                   href="/agordoj"
-                  className={`flex items-center gap-3 px-4 py-3 rounded-lg font-sans-dm font-medium text-sm transition-all ${
-                    isActiveRoute('/agordoj') 
-                      ? 'bg-esperanto-verda/10 text-esperanto-verda' 
-                      : 'hover:bg-white/10 text-white/70 hover:text-white'
-                  }`}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-lg font-sans-dm font-medium text-sm transition-all ${isActiveRoute('/agordoj')
+                    ? 'bg-esperanto-verda/10 text-esperanto-verda'
+                    : 'hover:bg-white/10 text-white/70 hover:text-white'
+                    }`}
                 >
                   <svg
                     className="w-5 h-5"
@@ -253,8 +249,7 @@ export function AuthLayout({ user, children }: AuthLayoutProps) {
                 </Link>
 
                 <Link
-                  href="#"
-                  // href="/diskuto"
+                  href="/diskuto"
                   className="flex items-center gap-3 px-4 py-3 rounded-lg hover:bg-white/10 text-white/70 hover:text-white font-sans-dm text-sm transition-all"
                 >
                   <svg

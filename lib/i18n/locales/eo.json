@@ -481,5 +481,65 @@
       "passwordRequired": "Bonvolu enigi vian pasvorton."
     },
     "forgotPassword": "Forgesis?"
+  },
+  "diskuto": {
+    "title": "Diskuto",
+    "subtitle": "Kunvivu, diskutu kaj kreu kun la esperantista komunumo."
+  },
+  "posts": {
+    "create": {
+      "new": "Nova Afiŝo",
+      "cancel": "Nuligi",
+      "title": "Krei Afiŝon",
+      "type": "Tipo",
+      "channel": "Kanalo",
+      "selectChannel": "Elektu kanalon",
+      "titlePlaceholder": "Tituolo de via afiŝo...",
+      "content": "Enhavo",
+      "contentPlaceholder": "Skribu vian afiŝon...",
+      "submit": "Publikigi"
+    },
+    "notFound": "Afiŝo ne trovita",
+    "notFoundSubtitle": "La afiŝo, kiun vi serĉas, ne ekzistas aŭ estis forigita.",
+    "backToFeed": "Reveni al la fluo",
+    "type": {
+      "discussion": "Diskuto",
+      "news": "Novaĵo",
+      "question": "Demando"
+    },
+    "vote": {
+      "up": "Supren",
+      "down": "Malsupren"
+    },
+    "empty": {
+      "channel": "Neniuj afiŝoj en ĉi tiu kanalo",
+      "global": "Neniuj afiŝoj ankoraŭ",
+      "subtitle": "Estu la unua kiu kreas afiŝon!"
+    },
+    "loadMore": "Ŝargi pli"
+  },
+  "comments": {
+    "title": "Komentoj",
+    "add": "Aldoni komenton",
+    "placeholder": "Skribu vian komenton...",
+    "newPlaceholder": "Skribu vian komenton...",
+    "replyPlaceholder": "Skribu vian respondon...",
+    "reply": "Respondo",
+    "edit": "Redakti",
+    "delete": "Forigi",
+    "cancel": "Nuligi",
+    "save": "Konservi",
+    "submit": "Publikigi",
+    "loading": "Ŝargante komentojn...",
+    "noComments": "Ankoraŭ ne estas komentoj. Estu la unua!",
+    "empty": "Ankoraŭ ne estas komentoj. Estu la unua!",
+    "error": "Eraro ŝargante komentojn"
+  },
+  "channels": {
+    "title": "Kanaloj",
+    "all": "Ĉiuj kanaloj",
+    "noChannels": "Neniuj kanaloj trovitaj",
+    "notFound": "Kanalo ne trovita",
+    "notFoundSubtitle": "La kanalo, kiun vi serĉas, ne ekzistas aŭ estis forigita."
   }
 }

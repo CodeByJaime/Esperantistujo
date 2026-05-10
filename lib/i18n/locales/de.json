@@ -481,5 +481,65 @@
       "passwordRequired": "Bitte geben Sie Ihr Passwort ein."
     },
     "forgotPassword": "Vergessen?"
+  },
+  "diskuto": {
+    "title": "Diskussion",
+    "subtitle": "Verbinden, diskutieren und erstellen mit der Esperanto-Gemeinschaft."
+  },
+  "posts": {
+    "create": {
+      "new": "Neuer Post",
+      "cancel": "Abbrechen",
+      "title": "Post erstellen",
+      "type": "Typ",
+      "channel": "Kanal",
+      "selectChannel": "Wählen Sie einen Kanal",
+      "titlePlaceholder": "Titel Ihres Posts...",
+      "content": "Inhalt",
+      "contentPlaceholder": "Schreiben Sie Ihren Post...",
+      "submit": "Veröffentlichen"
+    },
+    "notFound": "Post nicht gefunden",
+    "notFoundSubtitle": "Der Post, den Sie suchen, existiert nicht oder wurde entfernt.",
+    "backToFeed": "Zurück zum Feed",
+    "type": {
+      "discussion": "Diskussion",
+      "news": "Nachricht",
+      "question": "Frage"
+    },
+    "vote": {
+      "up": "Hoch",
+      "down": "Runter"
+    },
+    "empty": {
+      "channel": "Keine Posts in diesem Kanal",
+      "global": "Noch keine Posts",
+      "subtitle": "Seien Sie der Erste, der einen Post erstellt!"
+    },
+    "loadMore": "Mehr laden"
+  },
+  "comments": {
+    "title": "Kommentare",
+    "add": "Kommentar hinzufügen",
+    "placeholder": "Schreiben Sie Ihren Kommentar...",
+    "newPlaceholder": "Schreiben Sie Ihren Kommentar...",
+    "replyPlaceholder": "Schreiben Sie Ihre Antwort...",
+    "reply": "Antworten",
+    "edit": "Bearbeiten",
+    "delete": "Löschen",
+    "cancel": "Abbrechen",
+    "save": "Speichern",
+    "submit": "Posten",
+    "loading": "Kommentare werden geladen...",
+    "noComments": "Noch keine Kommentare. Seien Sie der Erste!",
+    "empty": "Noch keine Kommentare. Seien Sie der Erste!",
+    "error": "Fehler beim Laden der Kommentare"
+  },
+  "channels": {
+    "title": "Kanäle",
+    "all": "Alle Kanäle",
+    "noChannels": "Keine Kanäle gefunden",
+    "notFound": "Kanal nicht gefunden",
+    "notFoundSubtitle": "Der Kanal, den Sie suchen, existiert nicht oder wurde entfernt."
   }
 }

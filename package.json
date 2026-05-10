@@ -10,11 +10,13 @@
     "format": "biome format --write"
   },
   "dependencies": {
+    "@radix-ui/react-select": "^2.2.6",
     "@react-oauth/google": "^0.13.4",
     "@supabase/auth-helpers-nextjs": "^0.15.0",
     "@supabase/ssr": "^0.10.0",
     "@supabase/supabase-js": "^2.101.0",
     "@tanstack/react-form": "^1.30.0",
+    "lucide-react": "^1.14.0",
     "next": "16.2.1",
     "react": "19.2.4",
     "react-dom": "19.2.4",
