@@ -16,14 +16,11 @@ export interface Post {
   vote_count: number;
   created_at: string;
   channel?: Channel;
-  author?: {
+  profiles?: {
     id: string;
-    email: string;
-    user_metadata?: {
-      name?: string;
-      avatar_url?: string;
-    };
-  };
+    display_name: string | null;
+    esperanto_name: string | null;
+  } | null;
   comments_count?: number;
   user_vote?: 1 | -1 | null;
 }
@@ -35,14 +32,11 @@ export interface Comment {
   author_id: string;
   content: string;
   created_at: string;
-  author?: {
+  profiles?: {
     id: string;
-    email: string;
-    user_metadata?: {
-      name?: string;
-      avatar_url?: string;
-    };
-  };
+    display_name: string | null;
+    esperanto_name: string | null;
+  } | null;
   replies?: Comment[];
 }
 
@@ -52,3 +46,7 @@ export interface Vote {
   post_id: string;
   value: 1 | -1;
 }
+
+export const getAuthorName = (author: Post["profiles"]) => {
+  return author?.esperanto_name ?? author?.display_name ?? "Anonima";
+};

@@ -34,7 +34,10 @@ export async function GET(
     // In a real implementation, you'd need to pass user_id or get it from auth
     const { data: post, error } = await supabase
       .from("posts")
-      .select("*")
+      .select(`
+        *,
+        profiles!posts_author_id_fkey(id, display_name, esperanto_name)
+      `)
       .eq("id", id)
       .single();
 
@@ -88,6 +91,82 @@ export async function GET(
     return NextResponse.json(
       {
         error: "Failed to fetch post",
+        details: error instanceof Error ? error.message : String(error),
+      },
+      { status: 500 },
+    );
+  }
+}
+
+export async function PUT(
+  request: Request,
+  { params }: { params: Promise<{ id: string }> },
+) {
+  try {
+    const { id } = await params;
+    const body = await request.json();
+    const { title, content, user_id } = body;
+
+    console.log("=== DEBUG: Updating post:", id, "by user:", user_id);
+
+    if (!title || !content || !user_id) {
+      return NextResponse.json(
+        { error: "Missing required fields" },
+        { status: 400 },
+      );
+    }
+
+    // First, check if user is the author
+    const { data: currentPost, error: fetchError } = await supabase
+      .from("posts")
+      .select("author_id")
+      .eq("id", id)
+      .single();
+
+    if (fetchError) {
+      console.error("=== DEBUG: Error fetching post:", fetchError);
+      throw fetchError;
+    }
+
+    if (!currentPost) {
+      return NextResponse.json({ error: "Post not found" }, { status: 404 });
+    }
+
+    if (currentPost.author_id !== user_id) {
+      console.log(
+        "=== DEBUG: User not authorized:",
+        user_id,
+        "post author:",
+        currentPost.author_id,
+      );
+      return NextResponse.json(
+        { error: "Not authorized to edit this post" },
+        { status: 403 },
+      );
+    }
+
+    // Update the post
+    const { data: updatedPost, error: updateError } = await supabase
+      .from("posts")
+      .update({ title, content })
+      .eq("id", id)
+      .select("*")
+      .single();
+
+    if (updateError) {
+      console.error("=== DEBUG: Error updating post:", updateError);
+      throw updateError;
+    }
+
+    console.log("=== DEBUG: Post updated successfully:", updatedPost.id);
+    return NextResponse.json(updatedPost);
+  } catch (error) {
+    console.error("=== DEBUG: Error updating post:", error);
+    console.error("=== DEBUG: Error details:", JSON.stringify(error, null, 2));
+
+    return NextResponse.json(
+      {
+        error: "Failed to update post",
         details: error instanceof Error ? error.message : String(error),
       },
       { status: 500 },

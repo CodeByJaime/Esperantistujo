@@ -5,6 +5,7 @@ import { useParams } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
 import { AuthLayout } from '@/components/auth-layout';
 import CommentSection from '@/components/comments/CommentSection';
+import { LoadingScreen } from '@/components/ui';
 import { useAuth } from '@/contexts/AuthContext';
 import { useTranslation } from '@/lib/i18n';
 import type { Post } from '@/types/discussion';
@@ -17,6 +18,8 @@ export default function PostPage() {
 
     const [post, setPost] = useState<Post | null>(null);
     const [loading, setLoading] = useState(true);
+    const [isEditing, setIsEditing] = useState(false);
+    const [editForm, setEditForm] = useState({ title: '', content: '' });
 
     const loadPost = useCallback(async () => {
         setLoading(true);
@@ -64,11 +67,54 @@ export default function PostPage() {
         }
     };
 
+    const handleEdit = () => {
+        if (post) {
+            setEditForm({ title: post.title, content: post.content });
+            setIsEditing(true);
+        }
+    };
+
+    const handleSaveEdit = async () => {
+        if (!user?.id || !post) return;
+
+        try {
+            const response = await fetch(`/api/posts/${postId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    title: editForm.title,
+                    content: editForm.content,
+                    user_id: user.id
+                }),
+            });
+
+            if (response.ok) {
+                const updatedPost = await response.json();
+                setPost(updatedPost);
+                setIsEditing(false);
+            } else {
+                const error = await response.json();
+                console.error('Error updating post:', error);
+                alert('Error updating post');
+            }
+        } catch (error) {
+            console.error('Error updating post:', error);
+            alert('Error updating post');
+        }
+    };
+
+    const handleCancelEdit = () => {
+        setIsEditing(false);
+        setEditForm({ title: '', content: '' });
+    };
+
+    const isAuthor = user?.id === post?.author_id;
+
     if (authLoading || loading) {
         return (
-            <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
-                <div className="text-white text-xl">{t('common.loading')}</div>
-            </div>
+            <LoadingScreen />
         );
     }
 
@@ -151,6 +197,15 @@ export default function PostPage() {
                             </div>
 
                             <div className="flex items-center gap-2">
+                                {isAuthor && (
+                                    <button
+                                        type="button"
+                                        onClick={handleEdit}
+                                        className="px-3 py-1 rounded bg-[#2a2a2a] text-gray-300 hover:bg-[#3a3a3a] transition-colors text-sm"
+                                    >
+                                        ✏️ Editar
+                                    </button>
+                                )}
                                 <button
                                     type="button"
                                     onClick={() => handleVote(1)}
@@ -177,26 +232,60 @@ export default function PostPage() {
                             </div>
                         </div>
 
-                        <h1 className="text-3xl font-bold text-white mb-4">
-                            {post.title}
-                        </h1>
+                        {isEditing ? (
+                            <>
+                                <input
+                                    type="text"
+                                    value={editForm.title}
+                                    onChange={(e) => setEditForm({ ...editForm, title: e.target.value })}
+                                    className="text-3xl font-bold text-white mb-4 bg-[#2a2a2a] border border-[#3a3a3a] rounded px-3 py-2 w-full focus:outline-none focus:border-esperanto-verda"
+                                />
+                                <textarea
+                                    value={editForm.content}
+                                    onChange={(e) => setEditForm({ ...editForm, content: e.target.value })}
+                                    className="text-gray-200 whitespace-pre-wrap mb-6 text-lg bg-[#2a2a2a] border border-[#3a3a3a] rounded px-3 py-2 w-full h-32 focus:outline-none focus:border-esperanto-verda resize-none"
+                                />
+                                <div className="flex gap-2 mb-6">
+                                    <button
+                                        type="button"
+                                        onClick={handleSaveEdit}
+                                        className="px-4 py-2 bg-esperanto-verda text-white rounded hover:bg-esperanto-verda/80 transition-colors"
+                                    >
+                                        Guardar
+                                    </button>
+                                    <button
+                                        type="button"
+                                        onClick={handleCancelEdit}
+                                        className="px-4 py-2 bg-gray-600 text-white rounded hover:bg-gray-700 transition-colors"
+                                    >
+                                        Cancelar
+                                    </button>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <h1 className="text-3xl font-bold text-white mb-4">
+                                    {post.title}
+                                </h1>
 
-                        <div className="text-gray-200 whitespace-pre-wrap mb-6 text-lg">
-                            {post.content}
-                        </div>
+                                <div className="text-gray-200 whitespace-pre-wrap mb-6 text-lg">
+                                    {post.content}
+                                </div>
+                            </>
+                        )}
 
                         <div className="flex items-center justify-between text-sm text-gray-400 border-t border-[#2a2a2a] pt-4">
                             <div className="flex items-center gap-3">
                                 <div className="w-8 h-8 bg-esperanto-verda rounded-full flex items-center justify-center">
                                     <span className="text-white text-sm font-bold">
-                                        {post.author?.user_metadata?.name?.[0]?.toUpperCase() ||
-                                            post.author?.email?.[0]?.toUpperCase() || 'A'}
+                                        {post.profiles?.esperanto_name?.[0]?.toUpperCase() ||
+                                            post.profiles?.display_name?.[0]?.toUpperCase() || 'A'}
                                     </span>
                                 </div>
                                 <div>
                                     <div className="text-white font-medium">
-                                        {post.author?.user_metadata?.name ||
-                                            post.author?.email?.split('@')[0]}
+                                        {post.profiles?.esperanto_name ||
+                                            post.profiles?.display_name || 'Anonima'}
                                     </div>
                                     <div className="text-xs">
                                         {new Date(post.created_at).toLocaleDateString('es-ES', {

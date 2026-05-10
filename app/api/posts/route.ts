@@ -7,7 +7,15 @@ export async function GET() {
 
     const { data: posts, error } = await supabase
       .from("posts")
-      .select("*")
+      .select(`
+        *,
+        profiles (
+          id, 
+          display_name, 
+          esperanto_name
+        ),
+        comments!comments_post_id_fkey(count)
+      `)
       .order("created_at", { ascending: false });
 
     if (error) {
@@ -71,7 +79,10 @@ export async function POST(request: Request) {
         author_id,
         vote_count: 0,
       })
-      .select("*")
+      .select(`
+        *,
+        profiles!posts_author_id_fkey(id, display_name, esperanto_name)
+      `)
       .single();
 
     if (error) {

@@ -6,6 +6,7 @@ import { AuthLayout } from '@/components/auth-layout';
 import ChannelFilter from '@/components/channels/ChannelFilter';
 import NewPostForm from '@/components/posts/NewPostForm';
 import PostFeed from '@/components/posts/PostFeed';
+import { LoadingScreen } from '@/components/ui';
 import { useAuth } from '@/contexts/AuthContext';
 import { useTranslation } from '@/lib/i18n';
 import type { Channel, Post } from '@/types/discussion';
@@ -22,58 +23,60 @@ export default function ChannelPage() {
   const [loading, setLoading] = useState(true);
   const [showNewPost, setShowNewPost] = useState(false);
 
-  const loadChannels = useCallback(async () => {
-    try {
-      const response = await fetch('/api/channels');
-      if (response.ok) {
-        const data = await response.json();
-        setChannels(data);
-      }
-    } catch (error) {
-      console.error('Error loading channels:', error);
-    }
-  }, []);
-
-  useEffect(() => {
-    loadChannels();
-  }, [loadChannels]);
-
-  const loadPosts = useCallback(async (channelId?: string) => {
+  const loadInitialData = useCallback(async () => {
     setLoading(true);
     try {
-      const url = channelId
-        ? `/api/posts?channel=${channelSlug}`
-        : '/api/posts';
-      const response = await fetch(url);
-      if (response.ok) {
-        const data = await response.json();
-        setPosts(data);
+      // Load both channels and posts in parallel
+      const [channelsResponse, postsResponse] = await Promise.all([
+        fetch('/api/channels'),
+        fetch(`/api/posts?channel=${channelSlug}`)
+      ]);
+
+      if (channelsResponse.ok) {
+        const channelsData = await channelsResponse.json();
+        setChannels(channelsData);
+
+        // Find current channel
+        const channel = channelsData.find((c: Channel) => c.slug === channelSlug);
+        setCurrentChannel(channel || null);
+      }
+
+      if (postsResponse.ok) {
+        const postsData = await postsResponse.json();
+        setPosts(postsData);
       }
     } catch (error) {
-      console.error('Error loading posts:', error);
+      console.error('Error loading initial data:', error);
     } finally {
       setLoading(false);
     }
   }, [channelSlug]);
 
   useEffect(() => {
-    if (channels.length > 0) {
-      const channel = channels.find(c => c.slug === channelSlug);
-      setCurrentChannel(channel || null);
-      loadPosts(channel?.id);
+    loadInitialData();
+  }, [loadInitialData]);
+
+  const loadPosts = useCallback(async () => {
+    try {
+      const response = await fetch(`/api/posts?channel=${channelSlug}`);
+      if (response.ok) {
+        const data = await response.json();
+        console.log('Posts loaded:', data);
+        setPosts(data);
+      }
+    } catch (error) {
+      console.error('Error loading posts:', error);
     }
-  }, [channelSlug, channels, loadPosts]);
+  }, [channelSlug]);
 
   const handlePostCreated = () => {
-    loadPosts(currentChannel?.id);
+    loadPosts();
     setShowNewPost(false);
   };
 
   if (authLoading || loading) {
     return (
-      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
-        <div className="text-white text-xl">{t('common.loading')}</div>
-      </div>
+      <LoadingScreen />
     );
   }
 
