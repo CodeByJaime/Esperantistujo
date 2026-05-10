@@ -305,7 +305,14 @@
     "agora": "Agora",
     "citizens": "Citoyens",
     "closeMenu": "Fermer le menu",
-    "signOut": "Se déconnecter"
+    "signOut": "Se déconnecter",
+    "finance": "Finances",
+    "community": "Communauté",
+    "projects": "Projets",
+    "discussion": "Discussion",
+    "events": "Événements",
+    "user": "Utilisateur",
+    "menu": "Menu"
   },
   "topbar": {
     "navLinks": [

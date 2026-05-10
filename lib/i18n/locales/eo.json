@@ -300,7 +300,14 @@
     "agora": "Agro",
     "citizens": "Civitanoj",
     "closeMenu": "Fermi menuon",
-    "signOut": "Foriri"
+    "signOut": "Forigi",
+    "finance": "Financoj",
+    "community": "Komunumo",
+    "projects": "Projektoj",
+    "discussion": "Diskuto",
+    "events": "Eventoj",
+    "user": "Uzanto",
+    "menu": "Menuo"
   },
   "topbar": {
     "navLinks": [

@@ -228,15 +228,15 @@ export default function AgordojPage() {
               {/* ── PRIVACY ── */}
               {activeSection === "privacy" && (
                 <div>
-                  <h3 className="font-display text-xl font-bold text-white mb-2">Privateco</h3>
+                  <h3 className="font-display text-xl font-bold text-white mb-2">{t('settings.privacy.title')}</h3>
                   <p className="font-sans-dm text-white/40 text-sm mb-6">
-                    Kontrolu kiu povas vidi viajn informojn en la komunumo.
+                    {t('settings.privacy.subtitle')}
                   </p>
 
                   <div className="space-y-4">
                     <Toggle
-                      label="Profilo publika"
-                      description="Aliaj uzantoj povas vidi vian profilon."
+                      label={t('settings.privacy.publicProfile')}
+                      description={t('settings.privacy.publicProfileDesc')}
                       checked={formValues.profile_public}
                       onChange={(v) => form.setFieldValue("profile_public", v)}
                     />
@@ -248,15 +248,15 @@ export default function AgordojPage() {
                         : "border-white/10 opacity-40 pointer-events-none"
                     }`}>
                       <p className="font-sans-dm text-white/60 text-xs uppercase tracking-wider mb-4">
-                        Kampoj videblaj por aliaj
+                        {t('settings.privacy.visibleFields')}
                       </p>
 
                       {(
                         [
-                          { field: "privacy_show_age",          label: "Aĝo",            description: "Montri vian aĝon en la profilo" },
-                          { field: "privacy_show_relationship",  label: "Rilata Statuso", description: "Montri ĉu vi havas partneron" },
-                          { field: "privacy_show_ethnicity",     label: "Etna Grupo",     description: "Montri vian etnan identecon" },
-                          { field: "privacy_show_income",        label: "Monata Enspezo", description: "Montri la enspeza gamo kiun vi elektis" },
+                          { field: "privacy_show_age",          label: t('settings.privacy.age'),            description: t('settings.privacy.ageDesc') },
+                          { field: "privacy_show_relationship",  label: t('settings.privacy.relationshipStatus'), description: t('settings.privacy.relationshipStatusDesc') },
+                          { field: "privacy_show_ethnicity",     label: t('settings.privacy.ethnicity'),     description: t('settings.privacy.ethnicityDesc') },
+                          { field: "privacy_show_income",        label: t('settings.privacy.monthlyIncome'), description: t('settings.privacy.monthlyIncomeDesc') },
                         ] as const
                       ).map(({ field, label, description }) => (
                         <div
@@ -291,31 +291,31 @@ export default function AgordojPage() {
               {/* ── SECURITY ── */}
               {activeSection === "security" && (
                 <div>
-                  <h3 className="font-display text-xl font-bold text-white mb-2">Sekureco</h3>
+                  <h3 className="font-display text-xl font-bold text-white mb-2">{t('settings.security.title')}</h3>
                   <p className="font-sans-dm text-white/40 text-sm mb-6">
-                    Administru la sekurecon de via konto.
+                    {t('settings.security.subtitle')}
                   </p>
 
                   <div className="space-y-6">
 
                     {/* 2FA */}
                     <Toggle
-                      label="Du-Faktora Aŭtentikigo (2FA)"
-                      description="Aldonu duan tavolon da protekto al via konto"
+                      label={t('settings.security.twoFactor')}
+                      description={t('settings.security.twoFactorDesc')}
                       checked={formValues.security_two_factor}
                       onChange={(v) => form.setFieldValue("security_two_factor", v)}
                     />
 
                     <div className="border-t border-white/10 pt-6 space-y-4">
                       <p className="font-sans-dm text-white/60 text-xs uppercase tracking-wider">
-                        Sciigoj pri novaj sesioj
+                        {t('settings.security.sessionNotifications')}
                       </p>
 
                       <div className="flex items-center justify-between p-4 bg-white/5 rounded-lg border border-white/10">
                         <div>
-                          <p className="font-sans-dm text-white text-sm">Alerta retpoŝto</p>
+                          <p className="font-sans-dm text-white text-sm">{t('settings.security.sessionAlerts')}</p>
                           <p className="font-sans-dm text-white/40 text-xs mt-0.5">
-                            Ricevu retpoŝton kiam nova aparato ensalutas
+                            {t('settings.security.sessionAlertsDesc')}
                           </p>
                         </div>
                         <button
@@ -336,17 +336,17 @@ export default function AgordojPage() {
                       {/* Active session */}
                       <div>
                         <p className="font-sans-dm text-white/60 text-xs uppercase tracking-wider mb-4">
-                          Aktivaj Sesioj
+                          {t('settings.security.activeSessions')}
                         </p>
                         <div className="p-4 bg-white/5 rounded-lg border border-white/10 flex items-center justify-between">
                           <div className="flex items-center gap-3">
                             <div className="w-2 h-2 bg-esperanto-verda rounded-full animate-pulse" />
                             <div>
-                              <p className="font-sans-dm text-white text-sm">Nuna sesio</p>
+                              <p className="font-sans-dm text-white text-sm">{t('settings.security.currentSession')}</p>
                               <p className="font-sans-dm text-white/40 text-xs mt-0.5">{user.email}</p>
                             </div>
                           </div>
-                          <span className="font-sans-dm text-esperanto-verda text-xs">Aktiva</span>
+                          <span className="font-sans-dm text-esperanto-verda text-xs">{t('settings.security.active')}</span>
                         </div>
                       </div>
 
@@ -358,9 +358,9 @@ export default function AgordojPage() {
               {/* ── DATA ── */}
               {activeSection === "data" && (
                 <div>
-                  <h3 className="font-display text-xl font-bold text-white mb-2">Datuma Administrado</h3>
+                  <h3 className="font-display text-xl font-bold text-white mb-2">{t('settings.data.title')}</h3>
                   <p className="font-sans-dm text-white/40 text-sm mb-6">
-                    Administru viajn datumojn laŭ via rajto al privateco.
+                    {t('settings.data.subtitle')}
                   </p>
 
                   <div className="space-y-4">
@@ -369,13 +369,13 @@ export default function AgordojPage() {
                     <div className="p-4 bg-white/5 rounded-lg border border-white/10">
                       <div className="flex items-start justify-between gap-4">
                         <div>
-                          <p className="font-sans-dm text-white text-sm font-medium">Elporti Datumojn</p>
+                          <p className="font-sans-dm text-white text-sm font-medium">{t('settings.data.exportData')}</p>
                           <p className="font-sans-dm text-white/40 text-xs mt-1">
-                            Elŝutu kopion de ĉiuj viaj datumoj en JSON-formato.
+                            {t('settings.data.exportDataDesc')}
                           </p>
                         </div>
                         <button type="button" className="shrink-0 px-4 py-2 bg-white/10 hover:bg-white/20 text-white font-sans-dm text-sm rounded-lg transition-all">
-                          Elporti
+                          {t('settings.data.export')}
                         </button>
                       </div>
                     </div>
@@ -384,13 +384,13 @@ export default function AgordojPage() {
                     <div className="p-4 bg-white/5 rounded-lg border border-white/10">
                       <div className="flex items-start justify-between gap-4">
                         <div>
-                          <p className="font-sans-dm text-white text-sm font-medium">Viŝi Agad-Historion</p>
+                          <p className="font-sans-dm text-white text-sm font-medium">{t('settings.data.clearHistory')}</p>
                           <p className="font-sans-dm text-white/40 text-xs mt-1">
-                            Forigu vian agad-historion en la platformo. Ĉi tio ne forigas vian konton.
+                            {t('settings.data.clearHistoryDesc')}
                           </p>
                         </div>
                         <button type="button" className="shrink-0 px-4 py-2 bg-white/10 hover:bg-white/20 text-white font-sans-dm text-sm rounded-lg transition-all">
-                          Viŝi
+                          {t('settings.data.clear')}
                         </button>
                       </div>
                     </div>
@@ -399,13 +399,13 @@ export default function AgordojPage() {
                     <div className="p-4 bg-red-500/5 rounded-lg border border-red-500/20 mt-6">
                       <div className="flex items-start justify-between gap-4">
                         <div>
-                          <p className="font-sans-dm text-red-400 text-sm font-medium">Forigi Konton</p>
+                          <p className="font-sans-dm text-red-400 text-sm font-medium">{t('settings.data.deleteAccountTitle')}</p>
                           <p className="font-sans-dm text-white/40 text-xs mt-1">
-                            Ĉi tio estas nerebligebla. Ĉiuj viaj datumoj estos definitive forigitaj.
+                            {t('settings.data.deleteAccountDesc')}
                           </p>
                         </div>
                         <button type="button" className="shrink-0 px-4 py-2 bg-red-500/20 hover:bg-red-500/30 text-red-400 font-sans-dm text-sm rounded-lg transition-all border border-red-500/30">
-                          Forigi
+                          {t('settings.data.delete')}
                         </button>
                       </div>
                     </div>
