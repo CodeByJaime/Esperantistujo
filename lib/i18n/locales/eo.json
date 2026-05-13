@@ -45,9 +45,9 @@
     },
     "privacy": {
       "title": "Privateco",
-      "subtitle": "Kontrolu kiu povas vidi viajn informojn en la komunumo.",
+      "subtitle": "Kontrolu kiu povas vidi viajn informojn en la reto.",
       "publicProfile": "Profilo publika",
-      "publicProfileDesc": "Aliaj uzantoj povas vidi vian profilon.",
+      "publicProfileDesc": "Aliaj civitanoj povas vidi vian profilon.",
       "visibleFields": "Kampoj videblaj por aliaj",
       "age": "Aĝo",
       "ageDesc": "Montri vian aĝon en la profilo",
@@ -74,7 +74,7 @@
       "title": "Datuma Administrado",
       "subtitle": "Administru viajn datumojn laŭ via rajto al privateco.",
       "exportData": "Elporti Datumojn",
-      "exportDataDesc": "Elŝutu kopion de ĉiuj viaj datumoj en JSON-formato.",
+      "exportDataDesc": "Elŝutu kopion de ĉiuj viaj datumojn en JSON-formato.",
       "export": "Elporti",
       "clearHistory": "Viŝi Agad-Historion",
       "clearHistoryDesc": "Forigu vian agad-historion en la platformo. Ĉi tio ne forigas vian konton.",
@@ -87,109 +87,109 @@
   "komenci": {
     "loading": "Ŝarĝande…",
     "hero": {
-      "selectedLocation": "Elektita loko",
+      "selectedLocation": "Unu el niaj projektoj",
       "title": "Kial<br />Vichada?",
-      "subtitle": "Tiu ĉi projekto ne estas hazarda. Ĝi estas elektita loko kun unikaj geografiaĵoj, juraj kondiĉoj kaj estontaj avantaĝoj por konstrui planitan komunumon sen konflikto kun la ekzistanta socio."
+      "subtitle": "Inter niaj esploradoj por koncentri esperantistojn en specifaj lokoj, Vichada aperas kiel interesa ebleco pro siaj unikaj geografiaj kaj juraj kondiĉoj. Tamen, ĉi tiu projekto estas nur unu el multaj iniciativoj en nia tutmonda reto."
     },
     "territory": {
-      "title": "15 Kialoj<br />por Vichada",
-      "subtitle": "Ĉiu detalo estis analizita. Ĉiu decido havas strategian fundamenton."
+      "title": "Kialoj por<br />eksplori Vichada",
+      "subtitle": "Ni studas diversajn lokojn tutmonde. Vichada estas unu el la opcioj konsiderataj pro specifaj avantaĝoj."
     },
     "advantages": {
       "01": {
         "title": "Grandeco + demografia malpleno",
         "subtitle": "Size + demographic emptiness",
-        "body": "~100.000 km² kun ~80.000 loĝantoj. Denso tre malalta — marĝeno por plani sen socia frotado."
+        "body": "~100.000 km² kun ~80.000 loĝantoj. Denso tre malalta — ebleco por organizi sen socia premo."
       },
       "02": {
         "title": "Savano plata",
-        "subtitle": "Flat savannah — cheap engineering",
-        "body": "Topografio preskaŭ plata — vojoj, akvodukto, energio kaj urbanismo multe pli malmultekostaj ol en montaro. Ne detruas arbaron por ekspansii."
+        "subtitle": "Flat savannah — accessible development",
+        "body": "Topografio preskaŭ plata — vojoj, akvodukto, energio kaj urbanismo pli alireblaj ol en montara tereno."
       },
       "03": {
         "title": "Akvo strategia",
         "subtitle": "Strategic water — Orinoco basin",
-        "body": "En jarcento de akva streso, tio valoras oron. Riveroj, rojoj, akvifoj kaj stabila pluvreĝimo."
+        "body": "Riveroj, rojoj, akvifoj kaj stabila pluvreĝimo — grava rimedo por estonta evoluado."
       },
       "04": {
         "title": "Jura kadro: ZIDRES",
-        "subtitle": "Legal framework built for this",
-        "body": "La Ŝtato jam deklaris ke ĝi volas organizitajn projektojn tie. Ne iras kontraŭ la leĝo — iras kun la leĝo."
+        "subtitle": "Legal framework for development",
+        "body": "Ekzistas jura kadro por organizitaj evoluigprojektoj en la regiono."
       },
       "05": {
-        "title": "Distanco de urbaj polusoj",
-        "subtitle": "Distance from urban poles",
-        "body": "Malpli krima premo. Malpli kultura ŝoko. Malpli 'kaosa tirado' tipa de grandaj urboj."
+        "title": "Distanco de urbaj centroj",
+        "subtitle": "Distance from urban centers",
+        "body": "Pli malgranda urbana premo. Ebleco por krei organizitan komunumon kun propra identeco."
       },
       "06": {
-        "title": "Viva landlimo kun Venezuelo",
-        "subtitle": "Live border with Venezuela",
-        "body": "Geopolitika ŝlosilo por estonteco. Potencialo de duflanka koridoro laŭleĝa kaj ekonomia."
+        "title": "Landlimo kun Venezuelo",
+        "subtitle": "Border with Venezuela",
+        "body": "Geopolitika pozicio kun potencialo por transnacia kunlaboro."
       },
       "07": {
-        "title": "Tero malmultekosta kaj abunda",
-        "subtitle": "Cheap and abundant land",
-        "body": "Eble aĉeti grandajn etendaĵojn laŭleĝe. Skalebla por jardekoj."
+        "title": "Tero disponebla",
+        "subtitle": "Available land",
+        "body": "Ebleco akiri terenojn laŭleĝe por longtempa evoluado."
       },
       "08": {
-        "title": "Malferma ĉielo por sunenergio",
-        "subtitle": "Open sky for solar energy",
-        "body": "Alta radiado, malmultaj ombroj, perfekta tereno por sunfarmoj."
+        "title": "Sunenergia potencialo",
+        "subtitle": "Solar energy potential",
+        "body": "Alta radiado kaj perfekta tereno por renovigeblaj energifontoj."
       },
       "09": {
-        "title": "Preskaŭ sen urba heredaĵo",
-        "subtitle": "Almost no urban legacy",
-        "body": "Ne estas informalaj kvartaloj antaŭaj. Ne estas malnovaj desegnoj kiuj limigas la planon."
+        "title": "Malplena komenco",
+        "subtitle": "Fresh start opportunity",
+        "body": "Eblo plani kaj organizi sen antaŭaj limigoj de ekzistanta infrastrukturo."
       }
     },
     "conclusion": {
-      "title": "Konkludo",
-      "mainTitle": "Ne utopio.<br />Inĝenierado.",
-      "description": "Vichada ne estas elektita por izoliĝi, sed ĉar ĝi estas la sola loko kie eblas konstrui organizitan, laŭleĝan kaj estontecan komunumon sen konflikti kun la ekzistanta socio, samtempe alportante evoluon, investon kaj homan kapitalon al forgesita regiono.",
+      "title": "Nia Aliro",
+      "mainTitle": "Esplori<br />eblecojn.",
+      "description": "Vichada estas unu el pluraj lokoj, kiujn ni studas por koncentrigi esperantistojn. Nia fokuso estas helpi la tutmondan reton de 2 milionoj da parolantoj en 180 landoj — per retoj de subteno, kunvivejoj, kaj organizaj iloj.",
       "location": "Vichada, Kolombio"
     },
     "scaleTests": {
-      "title": "Testoj je reala skalo",
-      "subtitle": "Real-scale testing",
-      "description": "Vichada permesas testi:",
-      "conclusion": "Sen batali kontraŭ iu.",
+      "title": "Kion ni volas testi",
+      "subtitle": "Exploration goals",
+      "description": "Lokoj kiel Vichada permesas esplori:",
+      "conclusion": "En kunlaboro kun lokaj komunumoj.",
       "items": {
-        "plannedCity": "Planitan urbon",
-        "techAgriculture": "Teknologigitan agrikulturon",
-        "distributedEnergy": "Distribuitan energion",
-        "waterManagement": "Akvan administradon",
-        "integratedCommunity": "Kunigitan komunumon"
+        "plannedCity": "Organizitajn kvartalojn esperantistajn",
+        "techAgriculture": "Kooperativajn ekonomiajn projektojn",
+        "distributedEnergy": "Memstarigajn energiajn solvojn",
+        "waterManagement": "Akvajn administrosistemojn",
+        "integratedCommunity": "Interkulturajn loĝ-modelojn"
       }
     },
     "growth": {
-      "title": "Rebla eblo kreski<br />por jardekoj.",
+      "title": "Longtempa<br />perspektivo.",
       "subtitle": "Estonteco",
-      "description": "Ne estas projekto por 5 jaroj. Estas teritorio kiu permesas kreski 50–100 jarojn sen kolizii kun fizikaj limoj.",
+      "description": "Nia projekto ne estas nur pri unu loko. Estas pri krei reton de lokoj kie esperantistoj povas subteni unu la alian dum jardekoj.",
       "stats": {
-        "territory": "Teritorio",
-        "inhabitants": "Loĝantoj",
-        "growth": "Kreskomarĝeno",
-        "eras": "Ebloj"
+        "territory": "Esplorata regiono",
+        "inhabitants": "Nunaj loĝantoj",
+        "growth": "Potencialo",
+        "eras": "Fazo"
       }
     },
     "colombia": {
-      "strategicValue": "Strategia valoro de Kolombio",
-      "subtitle": "Strategic value",
-      "description": "Kaj Vichada estas ĝia malplena landlimo.",
+      "strategicValue": "Kial Kolombio estas konsiderata",
+      "subtitle": "Strategic considerations",
+      "description": "Kaj Vichada ofertas unikan kombinon de faktoroj.",
       "items": {
-        "waterPower": "Akva potenco de la kontinento",
-        "noDisasters": "For de uraganoj, tertremoj kaj militoj",
-        "gateway": "Pordo inter Amazonio, Andoj kaj Orinokio"
+        "waterPower": "Akva sekureco por estonteco",
+        "noDisasters": "Relativa stabileco klimata",
+        "gateway": "Geografia pozicio inter regionoj"
       }
     },
     "tourism": {
-      "title": "Turismo de lernado",
-      "subtitle": "Learning tourism",
+      "title": "Interŝanĝoj kaj eventoj",
+      "subtitle": "Network activities",
       "items": {
-        "exchanges": "Interŝanĝoj inter universitatoj",
-        "retreats": "Retiriĝoj kaj intensivaj kursoj",
-        "learning": "Intensa lingva lernado",
-        "events": "Internaciaj eventoj"
+        "exchanges": "Kulturaj interŝanĝoj",
+        "retreats": "Intensivaj kursoj",
+        "learning": "Lingvaj programoj",
+        "events": "Internaciaj renkontiĝoj"
       }
     }
   },
@@ -197,7 +197,7 @@
     "loading": "Ŝargante profilon...",
     "loadingSubtitle": "Bonvolu atendi dum ni ŝargas viajn informojn.",
     "title": "Via Profilo",
-    "subtitle": "Administru viajn personajn informojn kaj agordojn por la komunumo.",
+    "subtitle": "Administru viajn personajn informojn kaj agordojn por la reto.",
     "userNotFound": "Uzanto ne trovita",
     "loginPrompt": "Bonvolu ensaluti por vidi vian profilon.",
     "sections": {
@@ -223,7 +223,7 @@
       "esperantoLevel": "Esperanta nivelo",
       "esperantoSince": "Esperanto ekde",
       "bio": "Biografio",
-      "memberSince": "Membro de",
+      "memberSince": "Civitano de",
       "edit": "Redakti",
       "save": "Konservi",
       "cancel": "Nuligi",
@@ -243,10 +243,10 @@
         "selectLevel": "Elektu nivelon…"
       },
       "info": "Informoj",
-      "userId": "Uzant-ID",
+      "userId": "Civitan-ID",
       "email": "Retpoŝto",
-      "infoText": "Ĉi tiuj informoj estas laŭvole kaj helpos la komunumon kompreni la demografion de esperantistoj tutmonde. Vi povas elekti «Preferas ne diri» en iu ajn kampo.",
-      "economicInfo": "Ĉi tiuj informoj estas laŭvolaj kaj helpas la komunumon kompreni la demografian kaj ekonomian profilon de esperantistoj tutmonde. Vi povas elekti «Preferas ne diri» por konservi privatecon."
+      "infoText": "Ĉi tiuj informoj estas laŭvole kaj helpos la reton kompreni la demografion de esperantistoj tutmonde. Vi povas elekti «Preferas ne diri» en iu ajn kampo.",
+      "economicInfo": "Ĉi tiuj informoj estas laŭvolaj kaj helpas la reton kompreni la demografian kaj ekonomian profilon de esperantistoj tutmonde. Vi povas elekti «Preferas ne diri» por konservi privatecon."
     },
     "incomeOptions": {
       "preferNotToSay": "Preferas ne diri",
@@ -296,13 +296,13 @@
     "navigation": "Navigado",
     "profile": "Profilo",
     "settings": "Agordoj",
-    "governance": "Gubernado",
-    "agora": "Agro",
+    "governance": "Organizado",
+    "agora": "Agoro",
     "citizens": "Civitanoj",
     "closeMenu": "Fermi menuon",
-    "signOut": "Forigi",
+    "signOut": "Foriri",
     "finance": "Financoj",
-    "community": "Komunumo",
+    "community": "Reto",
     "projects": "Projektoj",
     "discussion": "Diskuto",
     "events": "Eventoj",
@@ -312,7 +312,7 @@
   "topbar": {
     "navLinks": [
       { "label": "Manifesto", "href": "#manifesto" },
-      { "label": "Pozicio", "href": "#pozicio" }
+      { "label": "La Reto", "href": "#reto" }
     ],
     "greeting": "Saluton",
     "login": "Eniri",
@@ -320,63 +320,63 @@
     "menu": "Menuo"
   },
   "home": {
-    "eyebrow": "La unua esperantista komunumo",
+    "eyebrow": "Nacio-reto por 2 milionoj da esperantistoj",
     "title": {
       "line1": "Unu lingvo.",
-      "line2": "Unu komunumo.",
-      "line3": "Unu estonteco."
+      "line2": "Tutmonda reto.",
+      "line3": "Civitaneco sen limoj."
     },
-    "subtitle": "Ni konstruas la unuan esperantistan komunumon de la mondo, komencante per la fonda komunumo en Viĉado. Kiel partoprenanto, vi povos kunlabori en iu ajn komunumo de nia tutmonda reto.",
+    "subtitle": "Ni organizas la unuan nacio-reton por esperantistoj — 2 milionoj da homoj en 180 landoj. Kreu viajn retojn de subteno, trovu loĝlokojn, kunlaboru en projektoj, kaj aliĝu al tutmonda movado kiu transcendas landlimojn.",
     "manifesto": {
       "title": "MANIFESTO DE ESPERANTISTUJO",
-      "subtitle": "De Tribismo al Homaranismo",
-      "tagline": "Tutmonda Reto de Komunumoj • Unu Sola Planedo • Unu Komuna Lingvo",
+      "subtitle": "De Disbatiteco al Tutmonda Reto",
+      "tagline": "2 Milionoj da Civitanoj • 180 Landoj • Unu Komuna Lingvo",
       "sections": [
         {
           "number": "I",
-          "title": "LA PROBLEMO: LA HEREDITA MENSO DE LA NACIO-ŜTATO",
-          "content": "La nuna mondo ankoraŭ funkcias laŭ la sama mensa modelo, kiun havis triboj antaŭ miloj da jaroj. Ni nur ŝanĝis la nomon: de tribismo al naciismo. Kaj kun tiu nova nomo ni aldonis ion pli malfacilan: limojn.\n\nĈio, kio estas inter ĉi tiuj limoj, apartenas al unu ŝtato; kio estas ekster ili, al alia. Kaj kiel en ĉiu tribo, konfliktoj fariĝas preskaŭ neeviteblaj.\n\nĈi tiu modelo montriĝis neadekvata por la hodiaŭa homaro:\n\n1. **Korupto kaj neefikeco** en maldiafanaj burokratioj\n2. **Homa malŝparo**, ĉar talento restas kaptita de naskiĝloko\n3. **Kronika malsekureco** en forgesitaj regionoj\n4. **Monetaj sistemoj**, kiuj ofte malfortigas la ŝparadon de ordinaraj homoj\n\nPensi de la makroo (ŝtatoj) al la mikroo (homoj) generas dividon.\nNi proponas la malon: **pensi de la homoj al la komunumo**."
+          "title": "LA OKAZO: 2 MILIONOJ DA PAROLANTOJ SEN ORGANIZO",
+          "content": "Hodiaŭ ekzistas ĉirkaŭ 2 milionoj da esperantistoj en 180 landoj. Tamen, ili restas disbatitaj — sen komuna platformo por organizi sin, helpi unu la alian, aŭ kunlabori en konkretaj projektoj.\n\nLa nuna situacio montras:\n\n1. **Manko de organizo** — talentoj kaj rimedoj ne estas kunordigitaj\n2. **Izoliteco** — esperantistoj ne scias pri aliaj esperantistoj en sia urbo aŭ lando\n3. **Neniu komuna infrastrukturo** — ne ekzistas ilo por facile trovi loĝejon, laboron, aŭ kunlaboron\n4. **Malforta voĉo** — 2 milionoj da homoj kun preskaŭ neniu politika aŭ ekonomia influo\n\nNi proponas transformi ĉi tiun disbatecon en **organizitan reton**."
         },
         {
           "number": "II",
-          "title": "NIA VIZIO: TUTMONDA RETO DE ESPERANTISTAJ KOMUNUMOJ",
-          "content": "Ni kredas, ke ĉiuj homoj valoras egale, sendepende de nacieco, deveno aŭ religio.\n\nNi imagas mondon, kie homoj povas kunlabori preter limoj pere de komuna lingvo kaj komunaj valoroj.\n\nTial ni proponas la kreadon de **fizikaj komunumoj**, ligitaj en **tutmonda reto**, kie Esperanto estas la ĉiutaga lingvo de kunvivado.\n\nLa unua tia komunumo estos fondita en Viĉado, Kolombio, kiel modelo por estontaj komunumoj en aliaj lokoj de la mondo."
+          "title": "NIA VIZIO: NACIO-RETO DE ESPERANTISTOJ",
+          "content": "Ni imagas tutmondan reton kie esperantistoj povas:\n\n• **Trovi unu la alian** en sia urbo, lando, aŭ tutmonde\n• **Krei retojn de subteno** — loĝado, laboro, vojaĝado, emerĝencoj\n• **Organizi sin loke** — kvartaloj, kunloĝejoj, kooperativoj\n• **Kunlabori en projektoj** — de lokaj iniciatoj ĝis tutmondaj kampanjoj\n• **Fariĝi civitanoj** de reta nacio kun propraj iloj kaj sistemoj\n\nĈi tio ne estas politika partio nek formala ŝtato. Estas **praktika reto** por organizi nin kaj funkciigi kune.\n\nNi eksplorimas ankaŭ la eblon koncentrigi esperantistojn en specifaj lokoj (ekz. Vichada, Kolombio) — sed tio estas nur **unu el multaj iniciatoj** en nia pli ampleksa strategio."
         },
         {
           "number": "III",
-          "title": "LA TEKNOLOGIAJ KAJ ORGANIZAJ KOLONOJ",
-          "content": "1. **Ágora – Kunordiga Sistemo**\n   Malfermitkoda ilo por proponi, financi kaj realigi projektojn en la komunumo kun plena travideblo.\n\n2. **Komuna Interŝanĝa Sistemo**\n   Ilo por faciligi komercon inter komunumoj de la reto, administrata loke laŭ komunaj principoj.\n\n3. **Task-bazita Kunlaboro**\n   Roloj ne estas permanentaj postenoj, sed provizoraj taskoj laŭ kapabloj kaj pruvitaj kontribuoj.\n\n4. **Reta Fidosistemo**\n   La kontribuoj de ĉiu ano estas videblaj kaj rekoneblaj tra la tuta reto de komunumoj."
+          "title": "KIEL ĜI FUNKCIAS",
+          "content": "1. **Civitaneca Platformo**\n   Malfermitkoda sistemo kie civitanoj povas registriĝi, trovi unu la alian, kaj organizi sin.\n\n2. **Retoj de Subteno**\n   Helpu esperantistojn trovi loĝejon, laboron, vojaĝpartnerojn, aŭ emerĝencan helpon.\n\n3. **Loka Organizado**\n   Kreu kvartalojn, kunloĝejojn, kooperativojn en viaj urboj.\n\n4. **Projektoj kaj Financado**\n   Proponu, financu kaj realigu projektojn kun plena travideblo — de eventoj ĝis infrastrukturo.\n\n5. **Civitaneca Kotizo**\n   Komence per donacoj, poste per laŭvola kotizo por subteni la reton kaj ĝiajn servojn."
         },
         {
           "number": "IV",
-          "title": "KIEL ĜI FUNKCIAS PRAKTIKE",
-          "content": "**Unua fazo: la fonda komunumo** en Viĉado.\n\n**Dua fazo:** helpi aliajn grupojn fondi similajn komunumojn en aliaj regionoj.\n\n**Tria fazo:** ligi tiujn komunumojn en tutmonda reto de kunlaboro.\n\nSekureco, ekonomio kaj organizado baziĝas sur travideblo, loka respondeco kaj reciproka fido."
+          "title": "KIEL ALIĜI",
+          "content": "**Unua fazo:** Registriĝu kiel civitano kaj kompletigi vian profilon.\n\n**Dua fazo:** Konektu kun esperantistoj en via regiono aŭ interesoj.\n\n**Tria fazo:** Kunlaboru en projektoj, subtenu aliajn, aŭ komencu vian propran.\n\nĈi tio estas praktika organizado:\nkio okazas kiam 2 milionoj da homoj komencas labori kune?"
         },
         {
           "number": "V",
           "title": "ALVOKO AL AGO",
-          "content": "Ni ne kontraŭstaras ekzistantajn ŝtatojn.\nNi simple konstruas ekzemplon de alia maniero kunvivi.\n\n1. Aliĝu kiel **partoprenanto** kaj kontribuu viajn kapablojn.\n2. Helpu krei la unuan esperantistan komunumon kie la lingvo estas ĉiutaga realo.\n\nĈi tio estas praktika eksperimento:\nkio okazas kiam komunumo organiziĝas ĉirkaŭ travideblo, kontribuo kaj komuna lingvo?\n\nLa homaro ne bezonas pli da limoj.\nĜi bezonas pli da kunlaboraj nodoj."
+          "content": "Ni ne kreas novan landon.\nNi organizas ekzistantan komunumon.\n\n1. Aliĝu kiel **civitano** kaj kompletigi vian profilon.\n2. Trovu aliajn esperantistojn en via urbo.\n3. Komencu aŭ aliĝu al projektoj.\n4. Helpu konstrui la reton.\n\nLa homaro jam havas 2 milionojn da esperantistoj.\nNi nur bezonas organizi nin."
         }
       ]
     },
     "position": {
       "title": "Nia pozicio",
-      "subtitle": "Ni ne estas utopistoj. Ni estas inĝenieroj.",
+      "subtitle": "Praktika organizado, ne utopia revo.",
       "zamenhofTitle": "Zamenhof kiel modelo",
-      "zamenhofText1": "En siaj lastaj jaroj, Zamenhof ne plu parolis nur pri lingvo, sed pri",
-      "zamenhofText2": "homaranismo: la ideo ke la vera problemo de la homaro ne estas manko de komunikilo, sed la maniero kiel homoj dividiĝas en apartajn tribojn nomatajn nacioj.",
-      "zamenhofText3": "En siaj privataj leteroj, li esprimis zorgon ke internacia lingvo, se ĝi restas nur ilo por kongresoj kaj korespondado, riskas fariĝi intelekta rondo anstataŭ vivanta realo. Por li, la lingvo devis esti",
-      "zamenhofText4": "vivata ĉiutage inter homoj de malsamaj devenoj.",
-      "zamenhofText5": "Lia revo ne estis nur komuniki sen limoj, sed ke homoj efektive",
-      "zamenhofText6": "kunvivu sen limoj. Ke ili loĝu, laboru kaj konstruu komune, tiel ke la lingvo fariĝu natura parto de la ĉiutaga vivo.",
-      "zamenhofText7": "Esperantistujo ne estas nova ideo. Ĝi estas provo realigi tiun neplenumitan parton de la vizio de Zamenhof: krei lokojn kie Esperanto ne estas nur parolata, sed vivata."
+      "zamenhofText1": "Zamenhof ne nur kreis lingvon — li imagis",
+      "zamenhofText2": "homaranismon: la ideon ke homoj povas transcendi naciajn limojn kaj organizi sin laŭ kunaj valoroj.",
+      "zamenhofText3": "Li sciis ke lingvo sola ne sufiĉas. La vizio estis ke homoj efektive",
+      "zamenhofText4": "kunlaboru kaj subtenu unu la alian",
+      "zamenhofText5": "— ne nur en kongresoj, sed en ĉiutaga vivo.",
+      "zamenhofText6": "Esperantistujo estas provo realigi tiun vision hodiaŭ",
+      "zamenhofText7": "— uzante modernajn ilojn por organizi 2 milionojn da parolantoj en tutmonda reto de kunlaboro kaj subteno."
     },
     "cta": {
-      "eyebrow": "Fariĝu partoprenanto",
-      "title": "Iĝu partoprenanto",
+      "eyebrow": "Fariĝu civitano",
+      "title": "Aliĝu al la reto",
       "titleHighlight": "nun.",
-      "description": "Registriĝu kiel partoprenanto de la unua esperantista komunumo de la mondo. Komencu en la fonda komunumo en Viĉado, Kolombio, kaj kunlaboru en iu ajn komunumo de nia tutmonda reto kiam ni kreskos. La projekto esperas financigi vian vojaĝon kaj loĝadon en ĉi tiu pionira urbo.",
-      "button": "Registriĝi kiel partoprenanto"
+      "description": "Registriĝu kiel civitano de la unua nacio-reto esperantista. Konektu kun 2 milionoj da parolantoj, trovu subtenon en via urbo, kunlaboru en projektoj, kaj helpu konstrui la estontecon de Esperanto.",
+      "button": "Registriĝi kiel civitano"
     },
     "hero": {
       "nextStep": "Sekva paŝo",
@@ -386,19 +386,19 @@
       "copyright": "Konstruita kun 💚 en Esperanto"
     },
     "stats": [
-      { "value": "2 milionoj", "label": "Esperantistoj en la mondo" },
-      { "value": "180+", "label": "Landoj kun aktiva komunumo" },
-      { "value": "1887", "label": "Jaro de la naskiĝo de Esperanto" }
+      { "value": "2 milionoj", "label": "Esperantistoj tutmonde" },
+      { "value": "180+", "label": "Landoj kun parolantoj" },
+      { "value": "1887", "label": "Jaro de la naskiĝo" }
     ],
     "navLinks": [
       { "label": "Manifesto", "href": "#manifesto" },
-      { "label": "Pozicio", "href": "#pozicio" },
+      { "label": "La Reto", "href": "#reto" },
       { "label": "Aliĝi", "href": "/registri" }
     ]
   },
   "register": {
-    "title": "Krei vian konton",
-    "subtitle": "Aliĝu al la unua esperantista komunumo de la mondo.",
+    "title": "Fariĝu civitano",
+    "subtitle": "Aliĝu al la unua nacio-reto esperantista de la mondo.",
     "fields": {
       "name": {
         "label": "Nomo",
@@ -422,16 +422,16 @@
       }
     },
     "buttons": {
-      "submit": "Krei konton",
+      "submit": "Fariĝi civitano",
       "cancel": "Nuligi"
     },
     "success": {
       "title": "Bonvenon, {name}!",
-      "message": "Via konto estis kreita. Ni sendis konfirman retmesaĝon al {email}.",
+      "message": "Vi nun estas civitano de Esperantistujo. Ni sendis konfirman retmesaĝon al {email}.",
       "button": "Iri al komenco"
     },
     "footer": {
-      "haveAccount": "Jam havas konton?",
+      "haveAccount": "Jam estas civitano?",
       "signIn": "Eniri"
     },
     "stats": {
@@ -440,8 +440,8 @@
       "years": "Jaroj"
     },
     "quote": {
-      "text": "En la komenco estis\nla vorto.",
-      "attribution": "En la komenco estis la vorto."
+      "text": "Aliĝu al la\ntutmonda reto.",
+      "attribution": "Join the global network."
     }
   },
   "login": {
@@ -465,7 +465,7 @@
     },
     "footer": {
       "isNewUser": "Ĉu vi estas nova?",
-      "createAccount": "Krei konton"
+      "createAccount": "Fariĝu civitano"
     },
     "stats": {
       "speakers": "Parolantoj",
@@ -473,8 +473,8 @@
       "years": "Jaroj"
     },
     "quote": {
-      "text": "Revenu al via\nkomunumo.",
-      "attribution": "Return to your community."
+      "text": "Revenu al via\nreto.",
+      "attribution": "Return to your network."
     },
     "errors": {
       "invalidEmail": "Retpoŝtadreso ne validas.",
@@ -484,7 +484,7 @@
   },
   "diskuto": {
     "title": "Diskuto",
-    "subtitle": "Kunvivu, diskutu kaj kreu kun la esperantista komunumo."
+    "subtitle": "Konektu, diskutu kaj kunlaboru kun civitanoj tutmonde."
   },
   "posts": {
     "create": {

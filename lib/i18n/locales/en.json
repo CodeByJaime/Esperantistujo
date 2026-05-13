@@ -9,15 +9,15 @@
     "success": "Success"
   },
   "auth": {
-    "login": "Login",
-    "register": "Register",
-    "logout": "Logout",
+    "login": "Log in",
+    "register": "Sign up",
+    "logout": "Log out",
     "profile": "Profile",
     "settings": "Settings"
   },
   "settings": {
     "title": "Settings",
-    "subtitle": "Manage your preferences, privacy and account security.",
+    "subtitle": "Manage your preferences, privacy, and account security.",
     "loadingTitle": "Loading settings",
     "loadingSubtitle": "Please wait while we load your settings...",
     "notAccessible": "Settings not accessible",
@@ -31,7 +31,7 @@
       "data": "Data Management"
     },
     "quickActions": "Quick Actions",
-    "saveChanges": "Save Changes",
+    "saveChanges": "Save changes",
     "changePassword": "Change Password",
     "deleteAccount": "Delete Account",
     "general": {
@@ -39,21 +39,21 @@
       "interfaceLanguage": "Interface Language",
       "notifications": "Notifications",
       "emailNotifications": "Email Notifications",
-      "emailNotificationsDesc": "Receive notifications by email",
+      "emailNotificationsDesc": "Receive notifications via email",
       "newsletter": "Newsletter",
-      "newsletterDesc": "Information about new features and Esperanto events"
+      "newsletterDesc": "Updates about new features and Esperanto events"
     },
     "privacy": {
       "title": "Privacy",
-      "subtitle": "Control who can see your information in the community.",
-      "publicProfile": "Public Profile",
-      "publicProfileDesc": "Other users can see your profile.",
+      "subtitle": "Control who can see your information in the network.",
+      "publicProfile": "Public profile",
+      "publicProfileDesc": "Other citizens can see your profile.",
       "visibleFields": "Fields visible to others",
       "age": "Age",
-      "ageDesc": "Show your age in your profile",
+      "ageDesc": "Show your age on your profile",
       "relationshipStatus": "Relationship Status",
-      "relationshipStatusDesc": "Show whether you have a partner",
-      "ethnicity": "Ethnic Group",
+      "relationshipStatusDesc": "Show if you have a partner",
+      "ethnicity": "Ethnicity",
       "ethnicityDesc": "Show your ethnic identity",
       "monthlyIncome": "Monthly Income",
       "monthlyIncomeDesc": "Show the income range you selected"
@@ -62,10 +62,10 @@
       "title": "Security",
       "subtitle": "Manage your account security.",
       "twoFactor": "Two-Factor Authentication (2FA)",
-      "twoFactorDesc": "Add an extra layer of protection to your account",
+      "twoFactorDesc": "Add a second layer of protection to your account",
       "sessionNotifications": "New session notifications",
-      "sessionAlerts": "Email alert",
-      "sessionAlertsDesc": "Receive an email when a new device logs in",
+      "sessionAlerts": "Alert email",
+      "sessionAlertsDesc": "Receive email when a new device logs in",
       "activeSessions": "Active Sessions",
       "currentSession": "Current session",
       "active": "Active"
@@ -87,109 +87,109 @@
   "komenci": {
     "loading": "Loading…",
     "hero": {
-      "selectedLocation": "Selected location",
+      "selectedLocation": "One of our projects",
       "title": "Why<br />Vichada?",
-      "subtitle": "This project is not random. It is a chosen location with unique geographical features, legal conditions and future advantages to build a planned community without conflict with existing society."
+      "subtitle": "Among our explorations to concentrate Esperantists in specific places, Vichada appears as an interesting possibility due to its unique geographic and legal conditions. However, this project is just one of many initiatives in our global network."
     },
     "territory": {
-      "title": "15 Reasons<br />for Vichada",
-      "subtitle": "Every detail has been analyzed. Every decision has a strategic foundation."
+      "title": "Reasons to<br />explore Vichada",
+      "subtitle": "We are studying various places worldwide. Vichada is one of the options being considered due to specific advantages."
     },
     "advantages": {
       "01": {
         "title": "Size + demographic emptiness",
         "subtitle": "Size + demographic emptiness",
-        "body": "~100,000 km² with ~80,000 inhabitants. Very low density — room to plan without social friction."
+        "body": "~100,000 km² with ~80,000 inhabitants. Very low density — possibility to organize without social pressure."
       },
       "02": {
         "title": "Flat savannah",
-        "subtitle": "Flat savannah — cheap engineering",
-        "body": "Almost flat topography — roads, water pipes, energy and urbanism much cheaper than in mountains. No deforestation for expansion."
+        "subtitle": "Flat savannah — accessible development",
+        "body": "Almost flat topography — roads, water systems, energy, and urbanism more accessible than in mountainous terrain."
       },
       "03": {
         "title": "Strategic water",
         "subtitle": "Strategic water — Orinoco basin",
-        "body": "In a century of water stress, this is worth gold. Rivers, streams, aquifers and stable rainfall."
+        "body": "Rivers, streams, aquifers, and stable rainfall — important resource for future development."
       },
       "04": {
         "title": "Legal framework: ZIDRES",
-        "subtitle": "Legal framework built for this",
-        "body": "The State has already declared that it wants organized projects there. Not going against the law — going with the law."
+        "subtitle": "Legal framework for development",
+        "body": "There is a legal framework for organized development projects in the region."
       },
       "05": {
-        "title": "Distance from urban poles",
-        "subtitle": "Distance from urban poles",
-        "body": "Less criminal pressure. Less cultural shock. Less 'chaotic pull' typical of big cities."
+        "title": "Distance from urban centers",
+        "subtitle": "Distance from urban centers",
+        "body": "Less urban pressure. Possibility to create an organized community with its own identity."
       },
       "06": {
-        "title": "Live border with Venezuela",
-        "subtitle": "Live border with Venezuela",
-        "body": "Geopolitical key for the future. Potential for a two-way legal and economic corridor."
+        "title": "Border with Venezuela",
+        "subtitle": "Border with Venezuela",
+        "body": "Geopolitical position with potential for transnational cooperation."
       },
       "07": {
-        "title": "Cheap and abundant land",
-        "subtitle": "Cheap and abundant land",
-        "body": "Can legally buy large extensions. Scalable for decades."
+        "title": "Available land",
+        "subtitle": "Available land",
+        "body": "Possibility to acquire land legally for long-term development."
       },
       "08": {
-        "title": "Open sky for solar energy",
-        "subtitle": "Open sky for solar energy",
-        "body": "High radiation, few shadows, perfect terrain for solar farms."
+        "title": "Solar energy potential",
+        "subtitle": "Solar energy potential",
+        "body": "High radiation and perfect terrain for renewable energy sources."
       },
       "09": {
-        "title": "Almost no urban legacy",
-        "subtitle": "Almost no urban legacy",
-        "body": "No previous informal settlements. No old designs that limit the plan."
+        "title": "Fresh start",
+        "subtitle": "Fresh start opportunity",
+        "body": "Possibility to plan and organize without previous limitations from existing infrastructure."
       }
     },
     "conclusion": {
-      "title": "Conclusion",
-      "mainTitle": "Not utopia.<br />Engineering.",
-      "description": "Vichada was not chosen to isolate itself, but because it is the only place where it is possible to build an organized, lawful and future community without conflicting with existing society, while bringing development, investment and human capital to a forgotten region.",
+      "title": "Our Approach",
+      "mainTitle": "Exploring<br />possibilities.",
+      "description": "Vichada is one of several places we are studying to concentrate Esperantists. Our focus is to help the global network of 2 million speakers in 180 countries — through support networks, living spaces, and organizational tools.",
       "location": "Vichada, Colombia"
     },
     "scaleTests": {
-      "title": "Real-scale testing",
-      "subtitle": "Real-scale testing",
-      "description": "Vichada allows testing:",
-      "conclusion": "Without fighting against each other.",
+      "title": "What we want to test",
+      "subtitle": "Exploration goals",
+      "description": "Places like Vichada allow us to explore:",
+      "conclusion": "In collaboration with local communities.",
       "items": {
-        "plannedCity": "Planned city",
-        "techAgriculture": "Technologized agriculture",
-        "distributedEnergy": "Distributed energy",
-        "waterManagement": "Water management",
-        "integratedCommunity": "Integrated community"
+        "plannedCity": "Organized Esperanto neighborhoods",
+        "techAgriculture": "Cooperative economic projects",
+        "distributedEnergy": "Self-sufficient energy solutions",
+        "waterManagement": "Water management systems",
+        "integratedCommunity": "Intercultural living models"
       }
     },
     "growth": {
-      "title": "Build for<br />decades.",
+      "title": "Long-term<br />perspective.",
       "subtitle": "Future",
-      "description": "This is not a 5-year project. This is a territory that allows growing for 50-100 years without physical limits.",
+      "description": "Our project is not just about one place. It's about creating a network of places where Esperantists can support each other for decades.",
       "stats": {
-        "territory": "Territory",
-        "inhabitants": "Inhabitants",
-        "growth": "Growth",
-        "eras": "Eras"
+        "territory": "Explored region",
+        "inhabitants": "Current residents",
+        "growth": "Potential",
+        "eras": "Phase"
       }
     },
     "colombia": {
-      "strategicValue": "Strategic value of Colombia",
-      "subtitle": "Strategic value",
-      "description": "And Vichada is its empty border.",
+      "strategicValue": "Why Colombia is being considered",
+      "subtitle": "Strategic considerations",
+      "description": "And Vichada offers a unique combination of factors.",
       "items": {
-        "waterPower": "Water power of the continent",
-        "noDisasters": "Free from hurricanes, earthquakes and wars",
-        "gateway": "Gateway between Amazon, Andes and Orinoco"
+        "waterPower": "Water security for the future",
+        "noDisasters": "Relative climate stability",
+        "gateway": "Geographic position between regions"
       }
     },
     "tourism": {
-      "title": "Learning tourism",
-      "subtitle": "Learning tourism",
+      "title": "Exchanges and events",
+      "subtitle": "Network activities",
       "items": {
-        "exchanges": "University exchanges",
-        "retreats": "Retreats and intensive courses",
-        "learning": "Intensive language learning",
-        "events": "International events"
+        "exchanges": "Cultural exchanges",
+        "retreats": "Intensive courses",
+        "learning": "Language programs",
+        "events": "International gatherings"
       }
     }
   },
@@ -197,7 +197,7 @@
     "loading": "Loading profile...",
     "loadingSubtitle": "Please wait while we load your information.",
     "title": "Your Profile",
-    "subtitle": "Manage your personal information and community settings.",
+    "subtitle": "Manage your personal information and settings for the network.",
     "userNotFound": "User not found",
     "loginPrompt": "Please log in to view your profile.",
     "sections": {
@@ -209,7 +209,7 @@
     "form": {
       "displayName": "Display name",
       "esperantoName": "Esperanto name",
-      "birthPlace": "Birth place",
+      "birthPlace": "Birthplace",
       "birthCountry": "Birth country",
       "age": "Age",
       "ethnicity": "Ethnicity",
@@ -223,19 +223,19 @@
       "esperantoLevel": "Esperanto level",
       "esperantoSince": "Esperanto since",
       "bio": "Bio",
-      "memberSince": "Member since",
+      "memberSince": "Citizen since",
       "edit": "Edit",
       "save": "Save",
       "cancel": "Cancel",
       "saveChanges": "Save changes",
       "placeholders": {
         "displayName": "Your name",
-        "esperantoName": "e.g. John, Mary…",
+        "esperantoName": "e.g. Johano, Maria…",
         "birthPlace": "City",
         "birthCountry": "Country",
         "age": "Years",
         "height": "cm",
-        "ethnicity": "e.g. Latino, European, African…",
+        "ethnicity": "e.g. Latin, European, African…",
         "bio": "Short description about yourself…",
         "esperantoSince": "Year (e.g. 2018)",
         "occupation": "e.g. Teacher, Programmer…",
@@ -243,10 +243,10 @@
         "selectLevel": "Select level…"
       },
       "info": "Information",
-      "userId": "User ID",
+      "userId": "Citizen ID",
       "email": "Email",
-      "infoText": "These statistics help us understand the demographic composition of Esperanto speakers worldwide. You can choose not to disclose this information, and we will respect your privacy. You can select \"Prefer not to say\" to keep this information private.",
-      "economicInfo": "This information is optional and helps the community understand the demographic and economic profile of Esperanto speakers worldwide. You can choose \"Prefer not to say\" to maintain privacy."
+      "infoText": "This information is optional and will help the network understand the demographics of Esperantists worldwide. You can select 'Prefer not to say' in any field.",
+      "economicInfo": "This information is optional and helps the network understand the demographic and economic profile of Esperantists worldwide. You can select 'Prefer not to say' to maintain privacy."
     },
     "incomeOptions": {
       "preferNotToSay": "Prefer not to say",
@@ -259,7 +259,7 @@
     },
     "relationshipOptions": {
       "single": "Single",
-      "inRelationship": "In relationship (not married)",
+      "inRelationship": "In a relationship (not married)",
       "married": "Married",
       "divorced": "Divorced",
       "widowed": "Widowed",
@@ -296,13 +296,13 @@
     "navigation": "Navigation",
     "profile": "Profile",
     "settings": "Settings",
-    "governance": "Governance",
+    "governance": "Organization",
     "agora": "Agora",
     "citizens": "Citizens",
     "closeMenu": "Close menu",
     "signOut": "Sign out",
     "finance": "Finance",
-    "community": "Community",
+    "community": "Network",
     "projects": "Projects",
     "discussion": "Discussion",
     "events": "Events",
@@ -312,71 +312,71 @@
   "topbar": {
     "navLinks": [
       { "label": "Manifesto", "href": "#manifesto" },
-      { "label": "Position", "href": "#pozicio" }
+      { "label": "The Network", "href": "#reto" }
     ],
     "greeting": "Hello",
-    "login": "Sign in",
-    "register": "Register",
+    "login": "Log in",
+    "register": "Sign up",
     "menu": "Menu"
   },
   "home": {
-    "eyebrow": "The first esperanto community",
+    "eyebrow": "Network-nation for 2 million Esperantists",
     "title": {
       "line1": "One language.",
-      "line2": "One community.",
-      "line3": "One future."
+      "line2": "Global network.",
+      "line3": "Citizenship without borders."
     },
-    "subtitle": "We are building the world's first esperanto community, starting with the founding community in Vichada. As a participant, you can collaborate in any community of our global network.",
+    "subtitle": "We are organizing the first network-nation for Esperantists — 2 million people in 180 countries. Create your support networks, find living spaces, collaborate on projects, and join a global movement that transcends borders.",
     "manifesto": {
-      "title": "MANIFESTO OF ESPERANTISTUJO",
-      "subtitle": "From Tribalism to Humanism",
-      "tagline": "Global Network of Communities • One Planet • One Common Language",
+      "title": "ESPERANTISTUJO MANIFESTO",
+      "subtitle": "From Dispersion to Global Network",
+      "tagline": "2 Million Citizens • 180 Countries • One Common Language",
       "sections": [
         {
           "number": "I",
-          "title": "THE PROBLEM: THE INHERITED MINDSET OF THE NATION-STATE",
-          "content": "The current world still operates according to the same mental model that tribes had thousands of years ago. We only changed the name: from tribalism to nationalism. And with that new name we added something more difficult: borders.\n\nEverything between these borders belongs to one state; what is outside them, to another. And as in every tribe, conflicts become almost inevitable.\n\nThis model has proven inadequate for today's humanity:\n\n1. **Corruption and inefficiency** in opaque bureaucracies\n2. **Human capital flight**, because talent remains trapped in birthplace\n3. **Chronic insecurity** in forgotten regions\n4. **Monetary systems**, which often weaken the savings of ordinary people\n\nThinking from the macro (states) to the micro (people) generates division.\nWe propose the opposite: **thinking from people to the community**."
+          "title": "THE OPPORTUNITY: 2 MILLION SPEAKERS WITHOUT ORGANIZATION",
+          "content": "Today there are approximately 2 million Esperantists in 180 countries. However, they remain scattered — without a common platform to organize themselves, help each other, or collaborate on concrete projects.\n\nThe current situation shows:\n\n1. **Lack of organization** — talents and resources are not coordinated\n2. **Isolation** — Esperantists don't know about other Esperantists in their city or country\n3. **No common infrastructure** — there is no tool to easily find housing, work, or collaboration\n4. **Weak voice** — 2 million people with almost no political or economic influence\n\nWe propose transforming this dispersion into an **organized network**."
         },
         {
           "number": "II",
-          "title": "OUR VISION: GLOBAL NETWORK OF ESPERANTO COMMUNITIES",
-          "content": "We believe that all people are equally valuable, regardless of nationality, origin or religion.\n\nWe imagine a world where people can collaborate beyond borders through a common language and shared values.\n\nTherefore we propose the creation of **physical communities**, connected in a **global network**, where Esperanto is the everyday language of coexistence.\n\nThe first such community will be founded in Vichada, Colombia, as a model for future communities in other parts of the world."
+          "title": "OUR VISION: NETWORK-NATION OF ESPERANTISTS",
+          "content": "We imagine a global network where Esperantists can:\n\n• **Find each other** in their city, country, or worldwide\n• **Create support networks** — housing, work, travel, emergencies\n• **Organize locally** — neighborhoods, co-housing, cooperatives\n• **Collaborate on projects** — from local initiatives to global campaigns\n• **Become citizens** of a network nation with its own tools and systems\n\nThis is not a political party nor a formal state. It's a **practical network** to organize ourselves and function together.\n\nWe are also exploring the possibility of concentrating Esperantists in specific places (e.g. Vichada, Colombia) — but that is just **one of many initiatives** in our broader strategy."
         },
         {
           "number": "III",
-          "title": "TECHNOLOGICAL AND ORGANIZATIONAL PILLARS",
-          "content": "1. **Ágora – Coordination System**\n   Open-source tool to propose, finance and realize projects in the community with full transparency.\n\n2. **Common Reputation System**\n   Tool to facilitate trade between communities of the network, managed locally according to community principles.\n\n3. **Task-based Collaboration**\n   Roles are not permanent positions, but temporary tasks according to abilities and proven contributions.\n\n4. **Digital Trust System**\n   The contributions of each member are visible and traceable throughout the entire network of communities."
+          "title": "HOW IT WORKS",
+          "content": "1. **Citizenship Platform**\n   Open-source system where citizens can register, find each other, and organize themselves.\n\n2. **Support Networks**\n   Help Esperantists find housing, work, travel partners, or emergency help.\n\n3. **Local Organization**\n   Create neighborhoods, co-housing, cooperatives in your cities.\n\n4. **Projects and Funding**\n   Propose, fund, and realize projects with full transparency — from events to infrastructure.\n\n5. **Citizenship Fee**\n   Initially through donations, later through voluntary fees to support the network and its services."
         },
         {
           "number": "IV",
-          "title": "HOW IT WORKS IN PRACTICE",
-          "content": "**First phase: the founding community** in Vichada.\n\n**Second phase:** help other groups found similar communities in other regions.\n\n**Third phase:** connect these communities in a global collaboration network.\n\nSecurity, economy and organization are based on transparency, local responsibility and mutual trust."
+          "title": "HOW TO JOIN",
+          "content": "**First phase:** Register as a citizen and complete your profile.\n\n**Second phase:** Connect with Esperantists in your region or interests.\n\n**Third phase:** Collaborate on projects, support others, or start your own.\n\nThis is practical organization:\nwhat happens when 2 million people start working together?"
         },
         {
           "number": "V",
           "title": "CALL TO ACTION",
-          "content": "We do not oppose existing states.\nWe simply build an example of another way of living together.\n\n1. Join as a **participant** and contribute your abilities.\n2. Help create the first esperanto community where the language is an everyday reality.\n\nThis is a practical experiment:\nwhat happens when a community organizes around transparency, contribution and a common language?\n\nHumanity doesn't need more borders.\nIt needs more collaborative nodes."
+          "content": "We are not creating a new country.\nWe are organizing an existing community.\n\n1. Join as a **citizen** and complete your profile.\n2. Find other Esperantists in your city.\n3. Start or join projects.\n4. Help build the network.\n\nHumanity already has 2 million Esperantists.\nWe just need to organize ourselves."
         }
       ]
     },
     "position": {
       "title": "Our position",
-      "subtitle": "We are not utopians. We are builders.",
+      "subtitle": "Practical organization, not utopian dream.",
       "zamenhofTitle": "Zamenhof as a model",
-      "zamenhofText1": "In his later years, Zamenhof no longer spoke only about language, but about",
-      "zamenhofText2": "humanitarianism: the idea that the real problem of humanity is not lack of communication tools, but the way people divide into separate tribes called nations.",
-      "zamenhofText3": "In his private letters, he expressed concern that an international language, if it remains only a tool for congresses and correspondence, risks becoming an intellectual circle instead of a living reality. For him, the language had to be",
-      "zamenhofText4": "spoken daily among people of different origins.",
-      "zamenhofText5": "His vision was not just to communicate without borders, but that people actually",
-      "zamenhofText6": "live together without borders. That they live, work and build together, so that the language becomes a natural part of daily life.",
-      "zamenhofText7": "Esperantistujo is not a new idea. It is an attempt to realize that unfulfilled part of Zamenhof's vision: to create places where Esperanto is not only spoken, but lived."
+      "zamenhofText1": "Zamenhof didn't just create a language — he imagined",
+      "zamenhofText2": "humanism: the idea that people can transcend national borders and organize themselves according to shared values.",
+      "zamenhofText3": "He knew that language alone was not enough. The vision was that people would actually",
+      "zamenhofText4": "collaborate and support each other",
+      "zamenhofText5": "— not just in congresses, but in everyday life.",
+      "zamenhofText6": "Esperantistujo is an attempt to realize that vision today",
+      "zamenhofText7": "— using modern tools to organize 2 million speakers in a global network of collaboration and support."
     },
     "cta": {
-      "eyebrow": "Become a participant",
-      "title": "Become a participant",
+      "eyebrow": "Become a citizen",
+      "title": "Join the network",
       "titleHighlight": "now.",
-      "description": "Register as a participant of the world's first esperanto community. Start in the founding community in Vichada, Colombia, and collaborate in any community of our global network as we grow. The project hopes to finance your travel and living expenses in this pioneering city.",
-      "button": "Register as a participant"
+      "description": "Register as a citizen of the first Esperanto network-nation. Connect with 2 million speakers, find support in your city, collaborate on projects, and help build the future of Esperanto.",
+      "button": "Register as a citizen"
     },
     "hero": {
       "nextStep": "Next step",
@@ -386,19 +386,19 @@
       "copyright": "Built with 💚 in Esperanto"
     },
     "stats": [
-      { "value": "2 million", "label": "Esperantists in the world" },
-      { "value": "180+", "label": "Countries with active community" },
-      { "value": "1887", "label": "Year of the birth of Esperanto" }
+      { "value": "2 million", "label": "Esperantists worldwide" },
+      { "value": "180+", "label": "Countries with speakers" },
+      { "value": "1887", "label": "Year of birth" }
     ],
     "navLinks": [
       { "label": "Manifesto", "href": "#manifesto" },
-      { "label": "Position", "href": "#pozicio" },
+      { "label": "The Network", "href": "#reto" },
       { "label": "Join", "href": "/registri" }
     ]
   },
   "register": {
-    "title": "Create your account",
-    "subtitle": "Join the world's first esperanto community.",
+    "title": "Become a citizen",
+    "subtitle": "Join the world's first Esperanto network-nation.",
     "fields": {
       "name": {
         "label": "Name",
@@ -413,26 +413,26 @@
       "password": {
         "label": "Password",
         "sublabel": "Password",
-        "placeholder": "Minimum 8 characters"
+        "placeholder": "At least 8 characters"
       },
       "confirm": {
         "label": "Confirm",
         "sublabel": "Confirm password",
-        "placeholder": "Repeat the password"
+        "placeholder": "Repeat password"
       }
     },
     "buttons": {
-      "submit": "Create account",
+      "submit": "Become a citizen",
       "cancel": "Cancel"
     },
     "success": {
       "title": "Welcome, {name}!",
-      "message": "Your account has been created. We sent a confirmation email to {email}.",
+      "message": "You are now a citizen of Esperantistujo. We sent a confirmation email to {email}.",
       "button": "Go to home"
     },
     "footer": {
-      "haveAccount": "Already have an account?",
-      "signIn": "Sign in"
+      "haveAccount": "Already a citizen?",
+      "signIn": "Log in"
     },
     "stats": {
       "speakers": "Speakers",
@@ -440,12 +440,12 @@
       "years": "Years"
     },
     "quote": {
-      "text": "In the beginning was\nthe word.",
-      "attribution": "In the beginning was the word."
+      "text": "Join the\nglobal network.",
+      "attribution": "Join the global network."
     }
   },
   "login": {
-    "title": "Sign in",
+    "title": "Log in",
     "subtitle": "Welcome\nback.",
     "fields": {
       "email": {
@@ -460,12 +460,12 @@
       }
     },
     "buttons": {
-      "submit": "Sign in",
+      "submit": "Log in",
       "cancel": "Cancel"
     },
     "footer": {
-      "isNewUser": "Are you new?",
-      "createAccount": "Create account"
+      "isNewUser": "New here?",
+      "createAccount": "Become a citizen"
     },
     "stats": {
       "speakers": "Speakers",
@@ -473,18 +473,18 @@
       "years": "Years"
     },
     "quote": {
-      "text": "Return to your\ncommunity.",
-      "attribution": "Return to your community."
+      "text": "Return to your\nnetwork.",
+      "attribution": "Return to your network."
     },
     "errors": {
-      "invalidEmail": "Invalid email address.",
+      "invalidEmail": "Email address is not valid.",
       "passwordRequired": "Please enter your password."
     },
     "forgotPassword": "Forgot?"
   },
   "diskuto": {
     "title": "Discussion",
-    "subtitle": "Connect, discuss and create with the Esperanto community."
+    "subtitle": "Connect, discuss, and collaborate with citizens worldwide."
   },
   "posts": {
     "create": {
@@ -493,14 +493,14 @@
       "title": "Create Post",
       "type": "Type",
       "channel": "Channel",
-      "selectChannel": "Select a channel",
+      "selectChannel": "Select channel",
       "titlePlaceholder": "Title of your post...",
       "content": "Content",
       "contentPlaceholder": "Write your post...",
-      "submit": "Post"
+      "submit": "Publish"
     },
     "notFound": "Post not found",
-    "notFoundSubtitle": "The post you're looking for doesn't exist or was removed.",
+    "notFoundSubtitle": "The post you're looking for doesn't exist or has been deleted.",
     "backToFeed": "Back to feed",
     "type": {
       "discussion": "Discussion",
@@ -518,9 +518,9 @@
     },
     "loadMore": "Load more",
     "updateError": "Error updating post",
-    "updateFailed": "Could not update the post",
+    "updateFailed": "Could not update post",
     "deleteError": "Error deleting post",
-    "deleteFailed": "Could not delete the post",
+    "deleteFailed": "Could not delete post",
     "deleteConfirm": "Are you sure you want to delete this post? This action cannot be undone.",
     "deleteTitle": "Delete Post"
   },
@@ -535,29 +535,29 @@
     "delete": "Delete",
     "cancel": "Cancel",
     "save": "Save",
-    "submit": "Post",
+    "submit": "Publish",
     "loading": "Loading comments...",
     "noComments": "No comments yet. Be the first!",
     "empty": "No comments yet. Be the first!",
     "error": "Error loading comments",
     "updateError": "Error updating comment",
-    "updateFailed": "Could not update the comment",
+    "updateFailed": "Could not update comment",
     "deleteError": "Error deleting comment",
-    "deleteFailed": "Could not delete the comment",
+    "deleteFailed": "Could not delete comment",
     "deleteWithReplies": "This comment has replies. Are you sure you want to delete it and all its replies?",
     "deleteConfirm": "Are you sure you want to delete this comment?",
     "deleteTitle": "Delete comment",
     "createError": "Error creating comment",
-    "createFailed": "Could not create the comment",
+    "createFailed": "Could not create comment",
     "replyError": "Error creating reply",
-    "replyFailed": "Could not create the reply"
+    "replyFailed": "Could not create reply"
   },
   "channels": {
     "title": "Channels",
     "all": "All channels",
     "noChannels": "No channels found",
     "notFound": "Channel not found",
-    "notFoundSubtitle": "The channel you're looking for doesn't exist or was removed."
+    "notFoundSubtitle": "The channel you're looking for doesn't exist or has been deleted."
   },
   "ui": {
     "accept": "Accept",

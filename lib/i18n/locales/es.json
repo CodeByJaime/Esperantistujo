@@ -1,6 +1,8 @@
 {
   "common": {
     "loading": "Cargando...",
+    "save": "Guardar",
+    "cancel": "Cancelar",
     "edit": "Editar",
     "delete": "Eliminar",
     "error": "Error",
@@ -15,12 +17,12 @@
   },
   "settings": {
     "title": "Configuración",
-    "subtitle": "Administra tus preferencias, privacidad y seguridad de la cuenta.",
+    "subtitle": "Gestiona tus preferencias, privacidad y seguridad de la cuenta.",
     "loadingTitle": "Cargando configuración",
     "loadingSubtitle": "Por favor espera mientras cargamos tu configuración...",
     "notAccessible": "Configuración no accesible",
     "notLoggedIn": "Por favor inicia sesión para ver tu configuración.",
-    "savedSuccess": "¡Configuración guardada exitosamente!",
+    "savedSuccess": "¡Configuración guardada con éxito!",
     "saveError": "Error al guardar la configuración",
     "sections": {
       "general": "General",
@@ -29,54 +31,54 @@
       "data": "Gestión de Datos"
     },
     "quickActions": "Acciones Rápidas",
-    "saveChanges": "Guardar Cambios",
+    "saveChanges": "Guardar cambios",
     "changePassword": "Cambiar Contraseña",
     "deleteAccount": "Eliminar Cuenta",
     "general": {
       "title": "Configuración General",
       "interfaceLanguage": "Idioma de la Interfaz",
       "notifications": "Notificaciones",
-      "emailNotifications": "Notificaciones por Correo",
-      "emailNotificationsDesc": "Recibir notificaciones por correo electrónico",
+      "emailNotifications": "Notificaciones por Email",
+      "emailNotificationsDesc": "Recibe notificaciones por correo electrónico",
       "newsletter": "Boletín",
-      "newsletterDesc": "Información sobre nuevas funciones y eventos esperantistas"
+      "newsletterDesc": "Actualizaciones sobre nuevas funciones y eventos esperantistas"
     },
     "privacy": {
       "title": "Privacidad",
-      "subtitle": "Controla quién puede ver tu información en la comunidad.",
-      "publicProfile": "Perfil Público",
-      "publicProfileDesc": "Otros usuarios pueden ver tu perfil.",
+      "subtitle": "Controla quién puede ver tu información en la red.",
+      "publicProfile": "Perfil público",
+      "publicProfileDesc": "Otros ciudadanos pueden ver tu perfil.",
       "visibleFields": "Campos visibles para otros",
       "age": "Edad",
-      "ageDesc": "Mostrar tu edad en el perfil",
+      "ageDesc": "Mostrar tu edad en tu perfil",
       "relationshipStatus": "Estado Civil",
       "relationshipStatusDesc": "Mostrar si tienes pareja",
-      "ethnicity": "Grupo Étnico",
+      "ethnicity": "Etnia",
       "ethnicityDesc": "Mostrar tu identidad étnica",
-      "monthlyIncome": "Ingreso Mensual",
+      "monthlyIncome": "Ingresos Mensuales",
       "monthlyIncomeDesc": "Mostrar el rango de ingresos que seleccionaste"
     },
     "security": {
       "title": "Seguridad",
-      "subtitle": "Administra la seguridad de tu cuenta.",
+      "subtitle": "Gestiona la seguridad de tu cuenta.",
       "twoFactor": "Autenticación de Dos Factores (2FA)",
-      "twoFactorDesc": "Añade una capa extra de protección a tu cuenta",
+      "twoFactorDesc": "Añade una segunda capa de protección a tu cuenta",
       "sessionNotifications": "Notificaciones de nuevas sesiones",
-      "sessionAlerts": "Alerta por correo",
-      "sessionAlertsDesc": "Recibir un correo cuando un nuevo dispositivo inicie sesión",
+      "sessionAlerts": "Email de alerta",
+      "sessionAlertsDesc": "Recibe un correo cuando un nuevo dispositivo inicie sesión",
       "activeSessions": "Sesiones Activas",
       "currentSession": "Sesión actual",
       "active": "Activa"
     },
     "data": {
       "title": "Gestión de Datos",
-      "subtitle": "Administra tus datos según tus derechos de privacidad.",
+      "subtitle": "Gestiona tus datos según tus derechos de privacidad.",
       "exportData": "Exportar Datos",
       "exportDataDesc": "Descarga una copia de todos tus datos en formato JSON.",
       "export": "Exportar",
-      "clearHistory": "Limpiar Historial de Actividad",
+      "clearHistory": "Borrar Historial de Actividad",
       "clearHistoryDesc": "Elimina tu historial de actividad en la plataforma. Esto no elimina tu cuenta.",
-      "clear": "Limpiar",
+      "clear": "Borrar",
       "deleteAccountTitle": "Eliminar Cuenta",
       "deleteAccountDesc": "Esto es irreversible. Todos tus datos serán eliminados permanentemente.",
       "delete": "Eliminar"
@@ -85,109 +87,109 @@
   "komenci": {
     "loading": "Cargando…",
     "hero": {
-      "selectedLocation": "Ubicación seleccionada",
+      "selectedLocation": "Uno de nuestros proyectos",
       "title": "¿Por qué<br />Vichada?",
-      "subtitle": "Este proyecto no es aleatorio. Es una ubicación elegida con características geográficas únicas, condiciones legales y ventajas futuras para construir una comunidad planificada sin conflicto con la sociedad existente."
+      "subtitle": "Entre nuestras exploraciones para concentrar esperantistas en lugares específicos, Vichada aparece como una posibilidad interesante por sus condiciones geográficas y legales únicas. Sin embargo, este proyecto es solo una de muchas iniciativas en nuestra red global."
     },
     "territory": {
-      "title": "15 Razones<br />para Vichada",
-      "subtitle": "Cada detalle ha sido analizado. Cada decisión tiene una base estratégica."
+      "title": "Razones para<br />explorar Vichada",
+      "subtitle": "Estamos estudiando varios lugares en el mundo. Vichada es una de las opciones consideradas por ventajas específicas."
     },
     "advantages": {
       "01": {
         "title": "Tamaño + vacío demográfico",
         "subtitle": "Size + demographic emptiness",
-        "body": "~100.000 km² con ~80.000 habitantes. Densidad muy baja — espacio para planificar sin fricción social."
+        "body": "~100.000 km² con ~80.000 habitantes. Densidad muy baja — posibilidad de organizar sin presión social."
       },
       "02": {
         "title": "Sabana plana",
-        "subtitle": "Flat savannah — cheap engineering",
-        "body": "Topografía casi plana — caminos, tuberías de agua, energía y urbanismo mucho más baratos que en montañas. No se deforesta para expandirse."
+        "subtitle": "Flat savannah — accessible development",
+        "body": "Topografía casi plana — caminos, sistemas de agua, energía y urbanismo más accesibles que en terreno montañoso."
       },
       "03": {
         "title": "Agua estratégica",
         "subtitle": "Strategic water — Orinoco basin",
-        "body": "En un siglo de estrés hídrico, esto vale oro. Ríos, arroyos, acuíferos y lluvia estable."
+        "body": "Ríos, arroyos, acuíferos y precipitaciones estables — recurso importante para desarrollo futuro."
       },
       "04": {
         "title": "Marco legal: ZIDRES",
-        "subtitle": "Legal framework built for this",
-        "body": "El Estado ya ha declarado que quiere proyectos organizados allí. No va contra la ley — va con la ley."
+        "subtitle": "Legal framework for development",
+        "body": "Existe un marco legal para proyectos de desarrollo organizados en la región."
       },
       "05": {
-        "title": "Distancia de polos urbanos",
-        "subtitle": "Distance from urban poles",
-        "body": "Menos presión criminal. Menos choque cultural. Menos 'tirón caótico' típico de grandes ciudades."
+        "title": "Distancia de centros urbanos",
+        "subtitle": "Distance from urban centers",
+        "body": "Menor presión urbana. Posibilidad de crear una comunidad organizada con identidad propia."
       },
       "06": {
-        "title": "Frontera viva con Venezuela",
-        "subtitle": "Live border with Venezuela",
-        "body": "Llave geopolítica para el futuro. Potencial de corredor legal y económico de doble vía."
+        "title": "Frontera con Venezuela",
+        "subtitle": "Border with Venezuela",
+        "body": "Posición geopolítica con potencial para cooperación transnacional."
       },
       "07": {
-        "title": "Tierra barata y abundante",
-        "subtitle": "Cheap and abundant land",
-        "body": "Se pueden comprar grandes extensiones legalmente. Escalable por décadas."
+        "title": "Tierra disponible",
+        "subtitle": "Available land",
+        "body": "Posibilidad de adquirir tierras legalmente para desarrollo a largo plazo."
       },
       "08": {
-        "title": "Cielo abierto para energía solar",
-        "subtitle": "Open sky for solar energy",
-        "body": "Alta radiación, pocas sombras, terreno perfecto para granjas solares."
+        "title": "Potencial de energía solar",
+        "subtitle": "Solar energy potential",
+        "body": "Alta radiación y terreno perfecto para fuentes de energía renovable."
       },
       "09": {
-        "title": "Casi sin legado urbano",
-        "subtitle": "Almost no urban legacy",
-        "body": "No hay asentamientos informales previos. No hay diseños antiguos que limiten el plan."
+        "title": "Comienzo limpio",
+        "subtitle": "Fresh start opportunity",
+        "body": "Posibilidad de planificar y organizar sin limitaciones previas de infraestructura existente."
       }
     },
     "conclusion": {
-      "title": "Conclusión",
-      "mainTitle": "No utopía.<br />Ingeniería.",
-      "description": "Vichada no fue elegida para aislarse, sino porque es el único lugar donde es posible construir una comunidad organizada, legal y futura sin conflicto con la sociedad existente, mientras se traen desarrollo, inversión y capital humano a una región olvidada.",
+      "title": "Nuestro Enfoque",
+      "mainTitle": "Explorando<br />posibilidades.",
+      "description": "Vichada es uno de varios lugares que estamos estudiando para concentrar esperantistas. Nuestro enfoque es ayudar a la red global de 2 millones de hablantes en 180 países — a través de redes de apoyo, espacios de convivencia y herramientas organizativas.",
       "location": "Vichada, Colombia"
     },
     "scaleTests": {
-      "title": "Pruebas de escala real",
-      "subtitle": "Real-scale testing",
-      "description": "Vichada permite probar:",
-      "conclusion": "Sin luchar contra los demás.",
+      "title": "Lo que queremos probar",
+      "subtitle": "Exploration goals",
+      "description": "Lugares como Vichada nos permiten explorar:",
+      "conclusion": "En colaboración con comunidades locales.",
       "items": {
-        "plannedCity": "Ciudad planificada",
-        "techAgriculture": "Agricultura tecnologizada",
-        "distributedEnergy": "Energía distribuida",
-        "waterManagement": "Gestión del agua",
-        "integratedCommunity": "Comunidad integrada"
+        "plannedCity": "Barrios esperantistas organizados",
+        "techAgriculture": "Proyectos económicos cooperativos",
+        "distributedEnergy": "Soluciones energéticas autosuficientes",
+        "waterManagement": "Sistemas de gestión del agua",
+        "integratedCommunity": "Modelos de convivencia intercultural"
       }
     },
     "growth": {
-      "title": "Construir para<br />décadas.",
+      "title": "Perspectiva<br />a largo plazo.",
       "subtitle": "Futuro",
-      "description": "No es un proyecto de 5 años. Este es un territorio que permite crecer por 50-100 años sin límites físicos.",
+      "description": "Nuestro proyecto no se trata solo de un lugar. Se trata de crear una red de lugares donde los esperantistas puedan apoyarse mutuamente durante décadas.",
       "stats": {
-        "territory": "Territorio",
-        "inhabitants": "Habitantes",
-        "growth": "Crecimiento",
-        "eras": "Épocas"
+        "territory": "Región explorada",
+        "inhabitants": "Residentes actuales",
+        "growth": "Potencial",
+        "eras": "Fase"
       }
     },
     "colombia": {
-      "strategicValue": "Valor estratégico de Colombia",
-      "subtitle": "Strategic value",
-      "description": "Y Vichada es su frontera vacía.",
+      "strategicValue": "Por qué se considera Colombia",
+      "subtitle": "Strategic considerations",
+      "description": "Y Vichada ofrece una combinación única de factores.",
       "items": {
-        "waterPower": "Poder hídrico del continente",
-        "noDisasters": "Libre de huracanes, terremotos y guerras",
-        "gateway": "Puerta entre Amazonía, Andes y Orinoquía"
+        "waterPower": "Seguridad hídrica para el futuro",
+        "noDisasters": "Relativa estabilidad climática",
+        "gateway": "Posición geográfica entre regiones"
       }
     },
     "tourism": {
-      "title": "Turismo de aprendizaje",
-      "subtitle": "Learning tourism",
+      "title": "Intercambios y eventos",
+      "subtitle": "Network activities",
       "items": {
-        "exchanges": "Intercambios universitarios",
-        "retreats": "Retiros y cursos intensivos",
-        "learning": "Aprendizaje intensivo de idiomas",
-        "events": "Eventos internacionales"
+        "exchanges": "Intercambios culturales",
+        "retreats": "Cursos intensivos",
+        "learning": "Programas de idiomas",
+        "events": "Encuentros internacionales"
       }
     }
   },
@@ -195,7 +197,7 @@
     "loading": "Cargando perfil...",
     "loadingSubtitle": "Por favor espera mientras cargamos tu información.",
     "title": "Tu Perfil",
-    "subtitle": "Administra tu información personal y configuraciones de la comunidad.",
+    "subtitle": "Gestiona tu información personal y configuración para la red.",
     "userNotFound": "Usuario no encontrado",
     "loginPrompt": "Por favor inicia sesión para ver tu perfil.",
     "sections": {
@@ -210,58 +212,58 @@
       "birthPlace": "Lugar de nacimiento",
       "birthCountry": "País de nacimiento",
       "age": "Edad",
-      "ethnicity": "Etnicidad",
+      "ethnicity": "Etnia",
       "educationLevel": "Nivel educativo",
       "occupation": "Ocupación",
-      "monthlyIncome": "Ingreso mensual",
+      "monthlyIncome": "Ingresos mensuales",
       "height": "Altura",
       "languages": "Idiomas",
       "relationshipStatus": "Estado civil",
       "children": "Hijos",
       "esperantoLevel": "Nivel de esperanto",
       "esperantoSince": "Esperanto desde",
-      "bio": "Biografía",
-      "memberSince": "Miembro desde",
+      "bio": "Bio",
+      "memberSince": "Ciudadano desde",
       "edit": "Editar",
       "save": "Guardar",
       "cancel": "Cancelar",
       "saveChanges": "Guardar cambios",
       "placeholders": {
         "displayName": "Tu nombre",
-        "esperantoName": "p.e. Juan, María…",
+        "esperantoName": "ej. Johano, María…",
         "birthPlace": "Ciudad",
         "birthCountry": "País",
         "age": "Años",
         "height": "cm",
-        "ethnicity": "p.e. Latino, Europeo, Africano…",
+        "ethnicity": "ej. Latino, Europeo, Africano…",
         "bio": "Breve descripción sobre ti…",
-        "esperantoSince": "Año (p.e. 2018)",
-        "occupation": "p.e. Maestro, Programador…",
+        "esperantoSince": "Año (ej. 2018)",
+        "occupation": "ej. Profesor, Programador…",
         "selectStatus": "Seleccionar estado…",
         "selectLevel": "Seleccionar nivel…"
       },
       "info": "Información",
-      "userId": "ID de Usuario",
-      "email": "Correo electrónico",
-      "infoText": "Estas estadísticas nos ayudan a entender la composición demográfica de los esperantohablantes a nivel mundial. Puedes elegir no divulgar esta información, y respetaremos tu privacidad. Puedes seleccionar \"Prefiero no decir\" para mantener esta información privada.",
-      "economicInfo": "Esta información es opcional y ayuda a la comunidad a entender el perfil demográfico y económico de los esperantohablantes a nivel mundial. Puedes elegir \"Prefiero no decir\" para mantener tu privacidad."
+      "userId": "ID de Ciudadano",
+      "email": "Email",
+      "infoText": "Esta información es opcional y ayudará a la red a entender la demografía de los esperantistas en el mundo. Puedes seleccionar 'Prefiero no decir' en cualquier campo.",
+      "economicInfo": "Esta información es opcional y ayuda a la red a entender el perfil demográfico y económico de los esperantistas en el mundo. Puedes seleccionar 'Prefiero no decir' para mantener la privacidad."
     },
     "incomeOptions": {
-      "preferNotToSay": "Prefiere no decir",
+      "preferNotToSay": "Prefiero no decir",
       "under500": "< 500 USD",
-      "500to1000": "500–1,000 USD",
-      "1000to2000": "1,000–2,000 USD",
-      "2000to4000": "2,000–4,000 USD",
-      "4000to8000": "4,000–8,000 USD",
-      "over8000": "> 8,000 USD"
+      "500to1000": "500–1.000 USD",
+      "1000to2000": "1.000–2.000 USD",
+      "2000to4000": "2.000–4.000 USD",
+      "4000to8000": "4.000–8.000 USD",
+      "over8000": "> 8.000 USD"
     },
     "relationshipOptions": {
       "single": "Soltero/a",
-      "inRelationship": "En relación (no casado/a)",
+      "inRelationship": "En una relación (no casado)",
       "married": "Casado/a",
       "divorced": "Divorciado/a",
       "widowed": "Viudo/a",
-      "preferNotToSay": "Prefiere no decir"
+      "preferNotToSay": "Prefiero no decir"
     },
     "esperantoLevels": {
       "beginner": "Principiante",
@@ -278,7 +280,7 @@
       "three": "3",
       "four": "4",
       "fivePlus": "5+",
-      "preferNotToSay": "Prefiere no decir"
+      "preferNotToSay": "Prefiero no decir"
     }
   },
   "languages": {
@@ -294,13 +296,13 @@
     "navigation": "Navegación",
     "profile": "Perfil",
     "settings": "Configuración",
-    "governance": "Gobernanza",
+    "governance": "Organización",
     "agora": "Ágora",
     "citizens": "Ciudadanos",
     "closeMenu": "Cerrar menú",
     "signOut": "Cerrar sesión",
     "finance": "Finanzas",
-    "community": "Comunidad",
+    "community": "Red",
     "projects": "Proyectos",
     "discussion": "Discusión",
     "events": "Eventos",
@@ -310,7 +312,7 @@
   "topbar": {
     "navLinks": [
       { "label": "Manifiesto", "href": "#manifesto" },
-      { "label": "Posición", "href": "#pozicio" }
+      { "label": "La Red", "href": "#reto" }
     ],
     "greeting": "Hola",
     "login": "Iniciar sesión",
@@ -318,63 +320,63 @@
     "menu": "Menú"
   },
   "home": {
-    "eyebrow": "La primera comunidad esperantista",
+    "eyebrow": "Nación-red para 2 millones de esperantistas",
     "title": {
       "line1": "Un idioma.",
-      "line2": "Una comunidad.",
-      "line3": "Un futuro."
+      "line2": "Red global.",
+      "line3": "Ciudadanía sin fronteras."
     },
-    "subtitle": "Estamos construyendo la primera comunidad esperantista del mundo, comenzando con la comunidad fundacional en Vichada. Como participante, puedes colaborar en cualquier comunidad de nuestra red global.",
+    "subtitle": "Estamos organizando la primera nación-red para esperantistas — 2 millones de personas en 180 países. Crea tus redes de apoyo, encuentra espacios para vivir, colabora en proyectos y únete a un movimiento global que trasciende fronteras.",
     "manifesto": {
       "title": "MANIFIESTO DE ESPERANTISTUJO",
-      "subtitle": "Del Tribalismo al Humanismo",
-      "tagline": "Red Global de Comunidades • Un Solo Planeta • Un Lenguaje Común",
+      "subtitle": "De la Dispersión a la Red Global",
+      "tagline": "2 Millones de Ciudadanos • 180 Países • Un Idioma Común",
       "sections": [
         {
           "number": "I",
-          "title": "EL PROBLEMA: LA MENTALIDAD HEREDADA DEL ESTADO-NACIÓN",
-          "content": "El mundo actual todavía funciona según el mismo modelo mental que tenían las tribus hace miles de años. Solo cambiamos el nombre: de tribalismo a nacionalismo. Y con ese nuevo nombre añadimos algo más difícil: fronteras.\n\nTodo lo que está entre estas fronteras pertenece a un estado; lo que está fuera de ellas, a otro. Y como en cada tribu, los conflictos se vuelven casi inevitables.\n\nEste modelo ha demostrado ser inadecuado para la humanidad actual:\n\n1. **Corrupción e ineficiencia** en burocracias opacas\n2. **Fuga de capital humano**, porque el talento permanece atrapado en el lugar de nacimiento\n3. **Inseguridad crónica** en regiones olvidadas\n4. **Sistemas monetarios**, que a menudo debilitan los ahorros de la gente común\n\nPensar desde lo macro (estados) hacia lo micro (personas) genera división.\nProponemos lo contrario: **pensar desde las personas hacia la comunidad**."
+          "title": "LA OPORTUNIDAD: 2 MILLONES DE HABLANTES SIN ORGANIZACIÓN",
+          "content": "Hoy existen aproximadamente 2 millones de esperantistas en 180 países. Sin embargo, permanecen dispersos — sin una plataforma común para organizarse, ayudarse mutuamente o colaborar en proyectos concretos.\n\nLa situación actual muestra:\n\n1. **Falta de organización** — talentos y recursos no están coordinados\n2. **Aislamiento** — los esperantistas no conocen a otros esperantistas en su ciudad o país\n3. **Sin infraestructura común** — no existe una herramienta para encontrar fácilmente vivienda, trabajo o colaboración\n4. **Voz débil** — 2 millones de personas con casi ninguna influencia política o económica\n\nProponemos transformar esta dispersión en una **red organizada**."
         },
         {
           "number": "II",
-          "title": "NUESTRA VISIÓN: RED GLOBAL DE COMUNIDADES ESPERANTISTAS",
-          "content": "Creemos que todas las personas valen por igual, independientemente de su nacionalidad, origen o religión.\n\nImaginamos un mundo donde las personas puedan colaborar más allá de las fronteras a través de un lenguaje común y valores compartidos.\n\nPor lo tanto proponemos la creación de **comunidades físicas**, conectadas en una **red global**, donde el Esperanto es el lenguaje cotidiano de convivencia.\n\nLa primera comunidad de este tipo será fundada en Vichada, Colombia, como modelo para futuras comunidades en otras partes del mundo."
+          "title": "NUESTRA VISIÓN: NACIÓN-RED DE ESPERANTISTAS",
+          "content": "Imaginamos una red global donde los esperantistas puedan:\n\n• **Encontrarse** en su ciudad, país o en todo el mundo\n• **Crear redes de apoyo** — vivienda, trabajo, viajes, emergencias\n• **Organizarse localmente** — barrios, viviendas compartidas, cooperativas\n• **Colaborar en proyectos** — desde iniciativas locales hasta campañas globales\n• **Convertirse en ciudadanos** de una nación-red con sus propias herramientas y sistemas\n\nEsto no es un partido político ni un estado formal. Es una **red práctica** para organizarnos y funcionar juntos.\n\nTambién estamos explorando la posibilidad de concentrar esperantistas en lugares específicos (ej. Vichada, Colombia) — pero eso es solo **una de muchas iniciativas** en nuestra estrategia más amplia."
         },
         {
           "number": "III",
-          "title": "PILARES TECNOLÓGICOS Y ORGANIZACIONALES",
-          "content": "1. **Ágora – Sistema de Coordinación**\n   Herramienta de código abierto para proponer, financiar y realizar proyectos en la comunidad con total transparencia.\n\n2. **Sistema de Reputación Común**\n   Herramienta para facilitar el comercio entre comunidades de la red, gestionada localmente según principios comunitarios.\n\n3. **Colaboración Basada en Tareas**\n   Los roles no son posiciones permanentes, sino tareas temporales según capacidades y contribuciones probadas.\n\n4. **Sistema de Confianza Digital**\n   Las contribuciones de cada miembro son visibles y rastreables a través de toda la red de comunidades."
+          "title": "CÓMO FUNCIONA",
+          "content": "1. **Plataforma de Ciudadanía**\n   Sistema de código abierto donde los ciudadanos pueden registrarse, encontrarse y organizarse.\n\n2. **Redes de Apoyo**\n   Ayudar a los esperantistas a encontrar vivienda, trabajo, compañeros de viaje o ayuda de emergencia.\n\n3. **Organización Local**\n   Crear barrios, viviendas compartidas, cooperativas en tus ciudades.\n\n4. **Proyectos y Financiación**\n   Proponer, financiar y realizar proyectos con total transparencia — desde eventos hasta infraestructura.\n\n5. **Cuota de Ciudadanía**\n   Inicialmente a través de donaciones, luego a través de cuotas voluntarias para apoyar la red y sus servicios."
         },
         {
           "number": "IV",
-          "title": "CÓMO FUNCIONA EN LA PRÁCTICA",
-          "content": "**Primera fase: la comunidad fundacional** en Vichada.\n\n**Segunda fase:** ayudar a otros grupos a fundar comunidades similares en otras regiones.\n\n**Tercera fase:** conectar estas comunidades en una red global de colaboración.\n\nLa seguridad, economía y organización se basan en transparencia, responsabilidad local y confianza mutua."
+          "title": "CÓMO UNIRSE",
+          "content": "**Primera fase:** Regístrate como ciudadano y completa tu perfil.\n\n**Segunda fase:** Conéctate con esperantistas en tu región o intereses.\n\n**Tercera fase:** Colabora en proyectos, apoya a otros o inicia el tuyo propio.\n\nEsta es organización práctica:\n¿qué sucede cuando 2 millones de personas empiezan a trabajar juntas?"
         },
         {
           "number": "V",
           "title": "LLAMADO A LA ACCIÓN",
-          "content": "No nos oponemos a los estados existentes.\nSimplemente construimos un ejemplo de otra forma de convivir.\n\n1. Únete como **participante** y contribuye con tus habilidades.\n2. Ayuda a crear la primera comunidad esperantista donde el idioma sea una realidad cotidiana.\n\nEsto es un experimento práctico:\n¿qué pasa cuando una comunidad se organiza alrededor de la transparencia, contribución y un lenguaje común?\n\nLa humanidad no necesita más fronteras.\nNecesita más nodos colaborativos."
+          "content": "No estamos creando un nuevo país.\nEstamos organizando una comunidad existente.\n\n1. Únete como **ciudadano** y completa tu perfil.\n2. Encuentra otros esperantistas en tu ciudad.\n3. Inicia o únete a proyectos.\n4. Ayuda a construir la red.\n\nLa humanidad ya tiene 2 millones de esperantistas.\nSolo necesitamos organizarnos."
         }
       ]
     },
     "position": {
       "title": "Nuestra posición",
-      "subtitle": "No somos utópicos. Somos constructores.",
+      "subtitle": "Organización práctica, no sueño utópico.",
       "zamenhofTitle": "Zamenhof como modelo",
-      "zamenhofText1": "En sus últimos años, Zamenhof ya no hablaba solo de idioma, sino de",
-      "zamenhofText2": "humanitarismo: la idea de que el verdadero problema de la humanidad no es la falta de herramientas de comunicación, sino la forma en que las personas se dividen en tribus separadas llamadas naciones.",
-      "zamenhofText3": "En sus cartas privadas, expresó su preocupación de que un idioma internacional, si permanece solo como herramienta para congresos y correspondencia, corre el riesgo de convertirse en un círculo intelectual en lugar de una realidad viviente. Para él, el idioma debía ser",
-      "zamenhofText4": "hablado diariamente entre personas de diferentes orígenes.",
-      "zamenhofText5": "Su visión no era solo comunicar sin fronteras, sino que las personas realmente",
-      "zamenhofText6": "convivan sin fronteras. Que vivan, trabajen y construyan juntos, para que el idioma se convierta en una parte natural de la vida diaria.",
-      "zamenhofText7": "Esperantistujo no es una idea nueva. Es un intento de realizar esa parte no cumplida de la visión de Zamenhof: crear lugares donde el Esperanto no solo se habla, sino se vive."
+      "zamenhofText1": "Zamenhof no solo creó un idioma — imaginó el",
+      "zamenhofText2": "humanismo: la idea de que las personas pueden trascender las fronteras nacionales y organizarse según valores compartidos.",
+      "zamenhofText3": "Sabía que el idioma solo no era suficiente. La visión era que las personas realmente",
+      "zamenhofText4": "colaboraran y se apoyaran mutuamente",
+      "zamenhofText5": "— no solo en congresos, sino en la vida cotidiana.",
+      "zamenhofText6": "Esperantistujo es un intento de realizar esa visión hoy",
+      "zamenhofText7": "— usando herramientas modernas para organizar 2 millones de hablantes en una red global de colaboración y apoyo."
     },
     "cta": {
-      "eyebrow": "Conviértete en participante",
-      "title": "Conviértete en participante",
+      "eyebrow": "Hazte ciudadano",
+      "title": "Únete a la red",
       "titleHighlight": "ahora.",
-      "description": "Regístrate como participante de la primera comunidad esperantista del mundo. Comienza en la comunidad fundacional en Vichada, Colombia, y colabora en cualquier comunidad de nuestra red global a medida que crecemos. El proyecto espera financiar tus gastos de viaje y manutención en esta ciudad pionera.",
-      "button": "Registrarse como participante"
+      "description": "Regístrate como ciudadano de la primera nación-red esperantista. Conéctate con 2 millones de hablantes, encuentra apoyo en tu ciudad, colabora en proyectos y ayuda a construir el futuro del esperanto.",
+      "button": "Registrarse como ciudadano"
     },
     "hero": {
       "nextStep": "Siguiente paso",
@@ -385,18 +387,18 @@
     },
     "stats": [
       { "value": "2 millones", "label": "Esperantistas en el mundo" },
-      { "value": "180+", "label": "Países con comunidad activa" },
-      { "value": "1887", "label": "Año del nacimiento del Esperanto" }
+      { "value": "180+", "label": "Países con hablantes" },
+      { "value": "1887", "label": "Año de nacimiento" }
     ],
     "navLinks": [
       { "label": "Manifiesto", "href": "#manifesto" },
-      { "label": "Posición", "href": "#pozicio" },
+      { "label": "La Red", "href": "#reto" },
       { "label": "Unirse", "href": "/registri" }
     ]
   },
   "register": {
-    "title": "Crear tu cuenta",
-    "subtitle": "Únete a la primera comunidad esperantista del mundo.",
+    "title": "Hazte ciudadano",
+    "subtitle": "Únete a la primera nación-red esperantista del mundo.",
     "fields": {
       "name": {
         "label": "Nombre",
@@ -404,7 +406,7 @@
         "placeholder": "Tu nombre completo"
       },
       "email": {
-        "label": "Correo electrónico",
+        "label": "Email",
         "sublabel": "Email",
         "placeholder": "tu@ejemplo.com"
       },
@@ -416,20 +418,20 @@
       "confirm": {
         "label": "Confirmar",
         "sublabel": "Confirm password",
-        "placeholder": "Repite la contraseña"
+        "placeholder": "Repetir contraseña"
       }
     },
     "buttons": {
-      "submit": "Crear cuenta",
+      "submit": "Hacerme ciudadano",
       "cancel": "Cancelar"
     },
     "success": {
       "title": "¡Bienvenido, {name}!",
-      "message": "Tu cuenta ha sido creada. Enviamos un correo de confirmación a {email}.",
+      "message": "Ahora eres ciudadano de Esperantistujo. Enviamos un email de confirmación a {email}.",
       "button": "Ir al inicio"
     },
     "footer": {
-      "haveAccount": "¿Ya tienes una cuenta?",
+      "haveAccount": "¿Ya eres ciudadano?",
       "signIn": "Iniciar sesión"
     },
     "stats": {
@@ -438,8 +440,8 @@
       "years": "Años"
     },
     "quote": {
-      "text": "En el principio fue\nla palabra.",
-      "attribution": "En el principio fue la palabra."
+      "text": "Únete a la\nred global.",
+      "attribution": "Join the global network."
     }
   },
   "login": {
@@ -447,7 +449,7 @@
     "subtitle": "Bienvenido\nde vuelta.",
     "fields": {
       "email": {
-        "label": "Correo electrónico",
+        "label": "Email",
         "sublabel": "Email",
         "placeholder": "tu@ejemplo.com"
       },
@@ -462,8 +464,8 @@
       "cancel": "Cancelar"
     },
     "footer": {
-      "isNewUser": "¿Eres nuevo?",
-      "createAccount": "Crear cuenta"
+      "isNewUser": "¿Nuevo aquí?",
+      "createAccount": "Hazte ciudadano"
     },
     "stats": {
       "speakers": "Hablantes",
@@ -471,34 +473,34 @@
       "years": "Años"
     },
     "quote": {
-      "text": "Regresa a tu\ncomunidad.",
-      "attribution": "Return to your community."
+      "text": "Regresa a tu\nred.",
+      "attribution": "Return to your network."
     },
     "errors": {
-      "invalidEmail": "Dirección de correo inválida.",
+      "invalidEmail": "El email no es válido.",
       "passwordRequired": "Por favor ingresa tu contraseña."
     },
     "forgotPassword": "¿Olvidaste?"
   },
   "diskuto": {
     "title": "Discusión",
-    "subtitle": "Convive, discute y crea con la comunidad esperantista."
+    "subtitle": "Conéctate, discute y colabora con ciudadanos de todo el mundo."
   },
   "posts": {
     "create": {
-      "new": "Nuevo Post",
+      "new": "Nueva Publicación",
       "cancel": "Cancelar",
-      "title": "Crear Post",
+      "title": "Crear Publicación",
       "type": "Tipo",
       "channel": "Canal",
-      "selectChannel": "Selecciona un canal",
-      "titlePlaceholder": "Título de tu post...",
+      "selectChannel": "Seleccionar canal",
+      "titlePlaceholder": "Título de tu publicación...",
       "content": "Contenido",
-      "contentPlaceholder": "Escribe tu post...",
+      "contentPlaceholder": "Escribe tu publicación...",
       "submit": "Publicar"
     },
-    "notFound": "Post no encontrado",
-    "notFoundSubtitle": "El post que buscas no existe o fue eliminado.",
+    "notFound": "Publicación no encontrada",
+    "notFoundSubtitle": "La publicación que buscas no existe o ha sido eliminada.",
     "backToFeed": "Volver al feed",
     "type": {
       "discussion": "Discusión",
@@ -510,17 +512,17 @@
       "down": "Abajo"
     },
     "empty": {
-      "channel": "No hay posts en este canal",
-      "global": "No hay posts aún",
-      "subtitle": "¡Sé el primero en crear un post!"
+      "channel": "No hay publicaciones en este canal",
+      "global": "No hay publicaciones aún",
+      "subtitle": "¡Sé el primero en crear una!"
     },
     "loadMore": "Cargar más",
-    "updateError": "Error al actualizar el post",
-    "updateFailed": "No se pudo actualizar el post",
-    "deleteError": "Error al eliminar el post",
-    "deleteFailed": "No se pudo eliminar el post",
-    "deleteConfirm": "¿Estás seguro de que quieres eliminar este post? Esta acción no se puede deshacer.",
-    "deleteTitle": "Eliminar Post"
+    "updateError": "Error al actualizar publicación",
+    "updateFailed": "No se pudo actualizar la publicación",
+    "deleteError": "Error al eliminar publicación",
+    "deleteFailed": "No se pudo eliminar la publicación",
+    "deleteConfirm": "¿Estás seguro de que quieres eliminar esta publicación? Esta acción no se puede deshacer.",
+    "deleteTitle": "Eliminar Publicación"
   },
   "comments": {
     "title": "Comentarios",
@@ -535,14 +537,14 @@
     "save": "Guardar",
     "submit": "Publicar",
     "loading": "Cargando comentarios...",
-    "noComments": "Aún no hay comentarios. ¡Sé el primero!",
-    "empty": "Aún no hay comentarios. ¡Sé el primero!",
+    "noComments": "No hay comentarios aún. ¡Sé el primero!",
+    "empty": "No hay comentarios aún. ¡Sé el primero!",
     "error": "Error cargando comentarios",
-    "updateError": "Error al actualizar el comentario",
+    "updateError": "Error al actualizar comentario",
     "updateFailed": "No se pudo actualizar el comentario",
-    "deleteError": "Error al eliminar el comentario",
+    "deleteError": "Error al eliminar comentario",
     "deleteFailed": "No se pudo eliminar el comentario",
-    "deleteWithReplies": "Este comentario tiene respuestas. ¿Estás seguro de que quieres eliminarlo y todas sus respuestas?",
+    "deleteWithReplies": "Este comentario tiene respuestas. ¿Estás seguro de que quieres eliminarlo junto con todas sus respuestas?",
     "deleteConfirm": "¿Estás seguro de que quieres eliminar este comentario?",
     "deleteTitle": "Eliminar comentario",
     "createError": "Error al crear comentario",
@@ -555,7 +557,7 @@
     "all": "Todos los canales",
     "noChannels": "No se encontraron canales",
     "notFound": "Canal no encontrado",
-    "notFoundSubtitle": "El canal que buscas no existe o fue eliminado."
+    "notFoundSubtitle": "El canal que buscas no existe o ha sido eliminado."
   },
   "ui": {
     "accept": "Aceptar",
@@ -566,7 +568,7 @@
     "save": "Guardar",
     "saving": "Guardando...",
     "error": "Error",
-    "anonymous": "Anónima",
+    "anonymous": "Anónimo",
     "googleAuth": "Continuar con Google",
     "hello": "Hola"
   }

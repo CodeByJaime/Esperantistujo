@@ -3,20 +3,28 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { useI18n, useTranslation, availableLanguages, type Language } from "@/lib/i18n";
+import { useAuth } from "@/contexts/AuthContext";
 
-// Simula sesión — reemplaza con tu auth real (NextAuth, Clerk, etc.)
-const useSession = () => {
-  const [isLoggedIn] = useState(false); // cambia a true para probar
-  const user = isLoggedIn ? { name: "Johano", initials: "JO" } : null;
-  return { user };
+const getUserDisplayName = (user: any) => {
+  return user?.user_metadata?.display_name || user?.email?.split('@')[0] || 'Uzanto';
+};
+
+const getUserInitials = (user: any) => {
+  const displayName = getUserDisplayName(user);
+  return displayName
+    .split(' ')
+    .map((word: string) => word[0])
+    .join('')
+    .toUpperCase()
+    .slice(0, 2);
 };
 
 export const Topbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
-  const { user } = useSession();
+  const { user } = useAuth();
   const { language, setLanguage } = useI18n();
   const { t, tRaw } = useTranslation();
-  const NAV_LINKS = (tRaw('topbar.navLinks') as unknown as Array<{label: string, href: string}>) ?? [];
+  const NAV_LINKS = (tRaw('topbar.navLinks') as unknown as Array<{ label: string, href: string }>) ?? [];
 
   return (
     <header className="w-full bg-[#0a0a0a] border-b border-white/10 sticky top-0 z-50">
@@ -49,32 +57,31 @@ export const Topbar = () => {
             ))}
           </nav>
 
-          {/* Desktop: auth area */}
+          {/* Desktop: selector de idioma + auth area */}
           <div className="hidden sm:flex items-center gap-3">
-            <div className="fixed top-4 right-4 z-50">
-              <select
-                value={language}
-                onChange={(e) => setLanguage(e.target.value as Language)}
-                className="bg-black/60 backdrop-blur border border-white/20 text-white text-xs rounded-lg px-3 py-2 cursor-pointer hover:border-esperanto-verda/50 transition-colors"
-              >
-                {availableLanguages.map((lang) => (
-                  <option key={lang.code} value={lang.code} className="bg-black">
-                    {lang.name}
-                  </option>
-                ))}
-              </select>
-            </div>
+            <select
+              value={language}
+              onChange={(e) => setLanguage(e.target.value as Language)}
+              className="bg-black/60 backdrop-blur border border-white/20 text-white text-xs rounded-lg px-3 py-2 cursor-pointer hover:border-esperanto-verda/50 transition-colors"
+            >
+              {availableLanguages.map((lang) => (
+                <option key={lang.code} value={lang.code} className="bg-black">
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+
             {user ? (
               // --- LOGUEADO ---
               <div className="flex items-center gap-3">
                 <span className="text-white/50 text-sm font-sans">
-                  {t('topbar.greeting')}, <span className="text-white">{user.name}</span>
+                  {t('topbar.greeting')}, <span className="text-white">{getUserDisplayName(user)}</span>
                 </span>
                 <button
                   type="button"
                   className="w-9 h-9 rounded-full bg-esperanto-verda text-white text-sm font-bold flex items-center justify-center hover:bg-[#00b300] transition-colors"
                 >
-                  {user.initials}
+                  {getUserInitials(user)}
                 </button>
               </div>
             ) : (
@@ -96,17 +103,31 @@ export const Topbar = () => {
             )}
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            type="button"
-            className="sm:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-md hover:bg-white/5 transition-colors"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label={t('topbar.menu')}
-          >
-            <span className={`block w-5 h-0.5 bg-white/70 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
-            <span className={`block w-5 h-0.5 bg-white/70 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
-            <span className={`block w-5 h-0.5 bg-white/70 transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
-          </button>
+          {/* Mobile: selector de idioma + hamburger */}
+          <div className="sm:hidden flex items-center gap-2">
+            <select
+              value={language}
+              onChange={(e) => setLanguage(e.target.value as Language)}
+              className="bg-black/60 backdrop-blur border border-white/20 text-white text-xs rounded-lg px-2 py-1.5 cursor-pointer hover:border-esperanto-verda/50 transition-colors"
+            >
+              {availableLanguages.map((lang) => (
+                <option key={lang.code} value={lang.code} className="bg-black">
+                  {lang.name}
+                </option>
+              ))}
+            </select>
+
+            <button
+              type="button"
+              className="flex flex-col justify-center items-center w-9 h-9 gap-1.5 rounded-md hover:bg-white/5 transition-colors"
+              onClick={() => setMenuOpen(!menuOpen)}
+              aria-label={t('topbar.menu')}
+            >
+              <span className={`block w-5 h-0.5 bg-white/70 transition-all duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""}`} />
+              <span className={`block w-5 h-0.5 bg-white/70 transition-all duration-300 ${menuOpen ? "opacity-0" : ""}`} />
+              <span className={`block w-5 h-0.5 bg-white/70 transition-all duration-300 ${menuOpen ? "-rotate-45 -translate-y-2" : ""}`} />
+            </button>
+          </div>
         </div>
       </div>
 
@@ -127,9 +148,9 @@ export const Topbar = () => {
             {user ? (
               <div className="flex items-center gap-3 py-2">
                 <div className="w-9 h-9 rounded-full bg-esperanto-verda text-white text-sm font-bold flex items-center justify-center">
-                  {user.initials}
+                  {getUserInitials(user)}
                 </div>
-                <span className="text-white text-sm font-sans">{user.name}</span>
+                <span className="text-white text-sm font-sans">{getUserDisplayName(user)}</span>
               </div>
             ) : (
               <>
@@ -149,7 +170,7 @@ export const Topbar = () => {
             )}
           </div>
         </div>
-      </div>
-    </header>
+      </div >
+    </header >
   );
 };

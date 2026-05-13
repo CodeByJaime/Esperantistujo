@@ -1,7 +1,7 @@
 "use client";
-import { useAuth } from "@/contexts/AuthContext";
-import { AuthLayout } from "@/components/auth-layout";
 import Image from "next/image";
+import { AuthLayout } from "@/components/auth-layout";
+import { useAuth } from "@/contexts/AuthContext";
 import { useTranslation } from "@/lib/i18n";
 
 const ADVANTAGES = [
@@ -188,7 +188,7 @@ export default function VichadaPage() {
                 <div className="absolute top-4 right-4 font-display text-6xl font-black text-white/3 group-hover:text-esperanto-verda/6 transition-colors duration-500">
                   {advantage.number}
                 </div>
-                
+
                 {/* Content */}
                 <div className="relative z-10 space-y-4">
                   <div className="flex items-center gap-4">
