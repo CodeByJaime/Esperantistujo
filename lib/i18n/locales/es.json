@@ -6,7 +6,13 @@
     "edit": "Editar",
     "delete": "Eliminar",
     "error": "Error",
-    "success": "Éxito"
+    "success": "Éxito",
+    "time": {
+      "ago": "Hace {time}",
+      "s": "s",
+      "m": "m",
+      "h": "h"
+    }
   },
   "auth": {
     "login": "Iniciar sesión",
@@ -281,6 +287,61 @@
       "four": "4",
       "fivePlus": "5+",
       "preferNotToSay": "Prefiero no decir"
+    }
+  },
+  "dashboard": {
+    "activePanel": "Panel activo",
+    "title": "Vista general",
+    "export": "Exportar",
+    "allRegions": "Todas las regiones",
+    "stats": {
+      "projects": "Proyectos",
+      "projectsSub": "Proyectos activos",
+      "donors": "Donantes",
+      "donorsSub": "Donantes totales",
+      "users": "Usuarios activos",
+      "usersSub": "Usuarios activos",
+      "funded": "Financiado",
+      "fundedSub": "USD recaudado"
+    },
+    "recentProjects": {
+      "title": "Proyectos activos",
+      "subtitle": "Actualizaciones recientes",
+      "viewAll": "Ver todos",
+      "members": "miemb.",
+      "status": {
+        "active": "Activo",
+        "review": "Revisión",
+        "paused": "Pausado"
+      }
+    },
+    "activity": {
+      "title": "Actividad",
+      "subtitle": "Últimos eventos",
+      "viewHistory": "Ver historial completo"
+    },
+    "donors": {
+      "title": "Donantes",
+      "subtitle": "Por nivel",
+      "tiers": {
+        "platinum": "Platino",
+        "gold": "Oro",
+        "silver": "Plata",
+        "bronze": "Bronce"
+      }
+    },
+    "users": {
+      "title": "Usuarios",
+      "subtitle": "Semanal (últimos 7)",
+      "growth": "Crecimiento"
+    },
+    "quickActions": {
+      "title": "Acciones rápidas",
+      "subtitle": "Tareas comunes",
+      "newProject": "Nuevo proyecto",
+      "addDonor": "Añadir donante",
+      "inviteUser": "Invitar usuario",
+      "generateReport": "Generar informe"
     }
   },
   "languages": {

@@ -6,7 +6,13 @@
     "edit": "Edit",
     "delete": "Delete",
     "error": "Error",
-    "success": "Success"
+    "success": "Success",
+    "time": {
+      "ago": "{time} ago",
+      "s": "s",
+      "m": "m",
+      "h": "h"
+    }
   },
   "auth": {
     "login": "Log in",
@@ -281,6 +287,61 @@
       "four": "4",
       "fivePlus": "5+",
       "preferNotToSay": "Prefer not to say"
+    }
+  },
+  "dashboard": {
+    "activePanel": "Dashboard active",
+    "title": "Overview",
+    "export": "Export",
+    "allRegions": "All regions",
+    "stats": {
+      "projects": "Projects",
+      "projectsSub": "Active projects",
+      "donors": "Donors",
+      "donorsSub": "Total donors",
+      "users": "Active users",
+      "usersSub": "Active users",
+      "funded": "Funded",
+      "fundedSub": "USD raised"
+    },
+    "recentProjects": {
+      "title": "Active projects",
+      "subtitle": "Recent updates",
+      "viewAll": "View all",
+      "members": "memb.",
+      "status": {
+        "active": "Active",
+        "review": "Review",
+        "paused": "Paused"
+      }
+    },
+    "activity": {
+      "title": "Activity",
+      "subtitle": "Latest events",
+      "viewHistory": "View full history"
+    },
+    "donors": {
+      "title": "Donors",
+      "subtitle": "By tier",
+      "tiers": {
+        "platinum": "Platinum",
+        "gold": "Gold",
+        "silver": "Silver",
+        "bronze": "Bronze"
+      }
+    },
+    "users": {
+      "title": "Users",
+      "subtitle": "Weekly (last 7)",
+      "growth": "Growth"
+    },
+    "quickActions": {
+      "title": "Quick actions",
+      "subtitle": "Common tasks",
+      "newProject": "New project",
+      "addDonor": "Add donor",
+      "inviteUser": "Invite user",
+      "generateReport": "Generate report"
     }
   },
   "languages": {

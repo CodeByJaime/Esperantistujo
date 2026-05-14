@@ -6,7 +6,13 @@
     "edit": "Redakti",
     "delete": "Forigi",
     "error": "Eraro",
-    "success": "Sukceso"
+    "success": "Sukceso",
+    "time": {
+      "ago": "Antaŭ {time}",
+      "s": "s",
+      "m": "m",
+      "h": "h"
+    }
   },
   "auth": {
     "login": "Eniri",
@@ -281,6 +287,61 @@
       "four": "4",
       "fivePlus": "5+",
       "preferNotToSay": "Preferas ne diri"
+    }
+  },
+  "dashboard": {
+    "activePanel": "Panelo aktiva",
+    "title": "Superrigardo",
+    "export": "Eksporti",
+    "allRegions": "Ĉiuj regionoj",
+    "stats": {
+      "projects": "Projektoj",
+      "projectsSub": "Aktivaj projektoj",
+      "donors": "Donacantoj",
+      "donorsSub": "Totalaj donacantoj",
+      "users": "Aktivaj uzantoj",
+      "usersSub": "Aktivaj uzantoj",
+      "funded": "Financita",
+      "fundedSub": "USD kolektita"
+    },
+    "recentProjects": {
+      "title": "Aktivaj projektoj",
+      "subtitle": "Lastatempaj ĝisdatigoj",
+      "viewAll": "Vidi ĉiujn",
+      "members": "memb.",
+      "status": {
+        "active": "Aktiva",
+        "review": "Revizio",
+        "paused": "Paŭzita"
+      }
+    },
+    "activity": {
+      "title": "Agado",
+      "subtitle": "Lastaj eventoj",
+      "viewHistory": "Vidi ĉiun historion"
+    },
+    "donors": {
+      "title": "Donacantoj",
+      "subtitle": "Laŭ nivelo",
+      "tiers": {
+        "platinum": "Plateno",
+        "gold": "Oro",
+        "silver": "Arĝento",
+        "bronze": "Bronzo"
+      }
+    },
+    "users": {
+      "title": "Uzantoj",
+      "subtitle": "Semajne (lastaj 7)",
+      "growth": "Kresko"
+    },
+    "quickActions": {
+      "title": "Rapidaj agoj",
+      "subtitle": "Oftaj taskoj",
+      "newProject": "Nova projekto",
+      "addDonor": "Aldoni donacanton",
+      "inviteUser": "Inviti uzanton",
+      "generateReport": "Generi raporton"
     }
   },
   "languages": {

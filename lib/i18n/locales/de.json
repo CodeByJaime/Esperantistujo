@@ -283,6 +283,56 @@
       "preferNotToSay": "Keine Angabe"
     }
   },
+  "dashboard": {
+    "activePanel": "Dashboard aktiv",
+    "title": "Übersicht",
+    "export": "Exportieren",
+    "allRegions": "Alle Regionen",
+    "stats": {
+      "projects": "Projekte",
+      "projectsSub": "Aktive Projekte",
+      "donors": "Spender",
+      "donorsSub": "Gesamtspender",
+      "users": "Aktive Nutzer",
+      "usersSub": "Aktive Nutzer",
+      "funded": "Finanziert",
+      "fundedSub": "USD gesammelt"
+    },
+    "recentProjects": {
+      "title": "Aktive Projekte",
+      "subtitle": "Letzte Updates",
+      "viewAll": "Alle ansehen",
+      "members": "mitgl."
+    },
+    "activity": {
+      "title": "Aktivität",
+      "subtitle": "Letzte Ereignisse",
+      "viewHistory": "Gesamten Verlauf ansehen"
+    },
+    "donors": {
+      "title": "Spender",
+      "subtitle": "Nach Stufe",
+      "tiers": {
+        "platinum": "Platin",
+        "gold": "Gold",
+        "silver": "Silber",
+        "bronze": "Bronze"
+      }
+    },
+    "users": {
+      "title": "Nutzer",
+      "subtitle": "Wöchentlich (letzte 7)",
+      "growth": "Wachstum"
+    },
+    "quickActions": {
+      "title": "Schnellaktionen",
+      "subtitle": "Häufige Aufgaben",
+      "newProject": "Neues Projekt",
+      "addDonor": "Spender hinzufügen",
+      "inviteUser": "Nutzer einladen",
+      "generateReport": "Bericht erstellen"
+    }
+  },
   "languages": {
     "eo": "Esperanto",
     "en": "Englisch",

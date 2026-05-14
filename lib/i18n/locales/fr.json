@@ -283,6 +283,56 @@
       "preferNotToSay": "Préfère ne pas dire"
     }
   },
+  "dashboard": {
+    "activePanel": "Tableau de bord actif",
+    "title": "Vue d'ensemble",
+    "export": "Exporter",
+    "allRegions": "Toutes les régions",
+    "stats": {
+      "projects": "Projets",
+      "projectsSub": "Projets actifs",
+      "donors": "Donateurs",
+      "donorsSub": "Total des donateurs",
+      "users": "Utilisateurs actifs",
+      "usersSub": "Utilisateurs actifs",
+      "funded": "Financé",
+      "fundedSub": "USD récoltés"
+    },
+    "recentProjects": {
+      "title": "Projets actifs",
+      "subtitle": "Mises à jour récentes",
+      "viewAll": "Voir tout",
+      "members": "memb."
+    },
+    "activity": {
+      "title": "Activité",
+      "subtitle": "Derniers événements",
+      "viewHistory": "Voir tout l'historique"
+    },
+    "donors": {
+      "title": "Donateurs",
+      "subtitle": "Par niveau",
+      "tiers": {
+        "platinum": "Platine",
+        "gold": "Or",
+        "silver": "Argent",
+        "bronze": "Bronze"
+      }
+    },
+    "users": {
+      "title": "Utilisateurs",
+      "subtitle": "Hebdomadaire (derniers 7)",
+      "growth": "Croissance"
+    },
+    "quickActions": {
+      "title": "Actions rapides",
+      "subtitle": "Tâches courantes",
+      "newProject": "Nouveau projet",
+      "addDonor": "Ajouter un donateur",
+      "inviteUser": "Inviter un utilisateur",
+      "generateReport": "Générer un rapport"
+    }
+  },
   "languages": {
     "eo": "Espéranto",
     "en": "Anglais",
